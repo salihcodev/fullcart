@@ -3,9 +3,9 @@
   </a>
 </p>
 
-<h1 align="center">e-commerce doors system.</h1>
+<h1 align="center">e-Commercial platform</h1>
 
-<p align="center"><a href="https://doors-systems.netlify.com" /><code>doors-systems</code></a></p>
+<p align="center"><a href="https://backdoors.vercel.com" /><code>backdoors</code></a></p>
 
 <br>
 
@@ -28,7 +28,7 @@
 
 ```javascript
 
-.../doors-systems
+.../backdoors
 ├── dockerfiles
 │   ├── docker-compose.yml
 │   ├── Dockerfile
