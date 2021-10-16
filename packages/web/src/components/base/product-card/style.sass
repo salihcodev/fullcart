@@ -1,0 +1,29 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_mixins.util'
+.card-wrapper
+    margin-bottom: 0.8rem
+    &:hover
+        .user-actions
+            display: block !important
+    a
+        border-radius: 1px
+    .door-card
+        height: 20rem
+        border: 1px solid $alt_dark-4
+        display: block
+        &:hover
+            border: 1px solid $main_clr-1
+        .user-actions
+            display: none
+    .door-info
+        margin-top: 0.7rem
+        p.description
+            color: $alt_dark-3
+            display: -webkit-box
+            -webkit-box-orient: vertical
+            -webkit-line-clamp: 2
+            overflow: hidden
+        h6.price
+            margin: 0
+            font-weight: 600
+            margin-top: 0.5rem

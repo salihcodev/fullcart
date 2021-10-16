@@ -1,0 +1,22 @@
+# version: '3.9'
+# services:
+#   # developing stage
+#   development:
+#     build:
+#       context: ./
+#       dockerfile: Dockerfile.dev
+#     ports: # -- maping ports.
+#       - '3000:3000'
+#     volumes:
+#       - /usr/app/node_modules # -- don't persist the node_modules folder.
+#       - ./:/usr/app
+
+#   # testing
+#   testing:
+#     build:
+#       context: ./
+#       dockerfile: Dockerfile.dev
+#     volumes:
+#       - /usr/app/node_modules
+#       - ./:/usr/app
+#     command: ['yarn', 'test']

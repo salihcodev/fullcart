@@ -1,0 +1,16 @@
+@import '../../common/styles/utils/_mixins.util'
+
+main.dashboard-page
+    padding-top: 0
+    display: flex
+    animation: none
+    .dashboard-wrapper
+        flex-grow: 1
+        width: 100%
+        section.dash-body
+            @include flex_positioning(flex-start, space-between)
+            section.dash-overview-info
+                flex-grow: 1
+            aside.on-the-fly-info
+                width: 13rem
+                margin-left: 1rem

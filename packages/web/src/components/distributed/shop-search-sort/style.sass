@@ -1,0 +1,49 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_mixins.util'
+
+section.search-and-sort
+    border: 1px solid $light_gray
+    background: $app_white
+    padding: 1rem 0.8rem
+    border-bottom-width: 3px
+    border-radius: 6px
+    .search
+        margin-bottom: 1rem
+        form
+            height: 2.4rem
+            .input-wrapper
+                margin: 0
+                height: inherit
+            @include flex_positioning(center, flex-start)
+            input
+                padding: 0.5rem
+                font-size: 0.9rem
+                height: 100%
+                border-bottom-right-radius: 0
+                border-top-right-radius: 0
+                border-right: 0
+            button
+                @include flex_positioning(center, center)
+                border-bottom-left-radius: 0
+                border-top-left-radius: 0
+                border-left: 0
+                height: 100%
+                font-size: 1.4rem
+                border: 2px solid $main_clr-dark
+                width: 3rem
+        p.searched-in
+            margin: 0.5rem 0
+            span.search-value
+                font-weight: 600
+    .sort
+        padding: 0.5rem 0 0
+        flex-wrap: wrap
+        @include flex_positioning(flex-start, flex-start)
+        span
+            margin-right: 2rem
+        button
+            margin-right: 1rem
+            padding: 0.2rem 0.4rem
+            border: 1px solid $main_clr-1
+            background: $main_clr-1
+            color: $alt_dark-4

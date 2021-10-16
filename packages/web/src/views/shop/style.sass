@@ -1,0 +1,19 @@
+@import '../../common/styles/utils/_colors.util'
+@import '../../common/styles/utils/_mixins.util'
+
+main.shop-page
+    display: grid
+    grid-template-columns: 1fr 5fr
+    section
+        padding-top: 1rem
+        &.shop-doors-filter
+            min-height: 20rem
+        &.shop-doors-viewer
+            padding: 0 0 0 2rem
+
+@media screen and (max-width: 769px)
+    main.shop-page
+        display: block
+        section
+            &.shop-doors-filter
+                display: none

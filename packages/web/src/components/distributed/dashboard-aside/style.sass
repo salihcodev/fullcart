@@ -1,0 +1,117 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_animation.util'
+@import '../../../common/styles/utils/_mixins.util'
+
+aside.dash-sidebar
+    min-width: 12rem
+    flex-grow: 1
+    position: relative
+    transition: all 0.2s ease
+    button.aside-toggler
+        width: 2.6rem
+        height: 1.9rem
+        position: absolute
+        top: 0.8rem
+        right: -2.2rem
+        z-index: 10
+        background: transparent
+        border: 0
+        font-size: 1.6rem
+        color: $app_gray
+    .aside-wrapper
+        display: grid
+        grid-template-rows: 1fr 3fr
+        background: $main_clr-1
+        min-width: inherit
+        padding: 0.5rem
+        padding-top: 0.4rem
+        border-right: 2px solid $app_white
+        position: fixed
+        top: 0
+        bottom: 0
+        section
+            &.logos-wrapper
+                .logo,
+                .sm-logo
+                    height: 4rem
+                    a
+                        display: block
+                        height: inherit
+                        width: inherit
+                        background: url('../../../../public/assets/images/logo-light.svg') center/cover
+                .sm-logo
+                    a
+                        background: url('../../../../public/assets/images/sm-logo.svg') center/cover
+                .logo
+                    background: url('../../../../public/assets/images/logo-light.svg') center/cover
+            &.routes
+                ul
+                    li.aside-route
+                        a
+                            margin: 0.2rem 0
+                            padding: 0.5rem 0.5rem
+                            display: flex
+                            @include flex_positioning(center, flex-start)
+                            color: $app_white
+                            font-weight: bold
+                            &:hover
+                                background: $white_trans
+                                color: $main_clr-1
+                            span
+                                &.icon
+                                    font-size: 1.2rem
+                                    margin-right: 0.8rem
+                                &.route-name
+                                    font-size: 1rem
+                                    font-size: 0.8rem
+                    &.full-routes
+                        li.aside-route
+                    &.icons-only-routes
+                        li.aside-route
+                            position: relative
+                            &:hover
+                                span.hover-title
+                                    display: block !important
+                                    @include fade-in
+                            span
+                                &.icon
+                                    margin: auto
+                                &.hover-title
+                                    position: absolute
+                                    top: 1.4rem
+                                    left: 3.5rem
+                                    background: $off_white
+                                    transform: rotate(10deg)
+                                    padding: 0.1rem 0.5rem
+                                    border: 1px solid $alt_dark-4
+                                    white-space: nowrap
+                                    display: none
+                                    &:before
+                                        content: ""
+                                        background: $off_white
+                                        border: 1px solid $alt_dark-4
+                                        position: absolute
+                                        transform: rotate(45deg)
+                                        width: 12px
+                                        height: 12px
+                                        top: 2px
+                                        left: -7px
+                                        border-top-width: 0
+                                        border-right-width: 0
+                                    small
+                                        color: $app_gray
+
+                            &:after
+                                content: ""
+                                display: none
+                                width: 4px
+                                height: 4px
+                                border-radius: 50%
+                                background: $off_white
+                                position: absolute
+                                bottom: 3px
+                                left: 50%
+                                transform: translate(-50%, 0)
+                            &.active-icon-route
+                                &:after
+                                    display: block !important

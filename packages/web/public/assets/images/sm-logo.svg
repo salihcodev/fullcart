@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="105mm"
+   height="44mm"
+   viewBox="0 0 105 44"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="sm-logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     width="101mm"
+     inkscape:zoom="0.64000003"
+     inkscape:cx="214.06249"
+     inkscape:cy="119.53124"
+     inkscape:window-width="1366"
+     inkscape:window-height="720"
+     inkscape:window-x="0"
+     inkscape:window-y="23"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="text1872"
+     showguides="true"
+     inkscape:guide-bbox="true" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       aria-label="Redux "
+       id="text2492"
+       style="font-size:17.6678px;line-height:1.25;stroke-width:0.441695"
+       transform="matrix(0.92212352,0,0,0.92212352,2.0813178,1.8526887)">
+      <g
+         aria-label="ts-react-redux-toolkit-template"
+         id="text1872"
+         style="font-size:6.12114px;stroke-width:0.093244">
+        <path
+           d="m 54.546985,27.644828 c 4.137872,0.336655 7.492227,-1.25444 9.54596,-3.052442 2.518718,-2.205097 3.506313,-4.986315 3.718616,-8.183977 C 67.985264,13.792134 67.671812,10.267585 65.01846,7.35413 62.093709,4.1306769 58.045666,3.5334395 55.611079,3.3718017 L 37.874532,5.0707406 42.647744,26.676702 Z m -1.252749,-19.0617528 1.526159,0.101323 c 1.562494,0.103735 3.515049,0.3793646 4.913191,1.8590858 1.124337,1.206062 1.686878,3.177767 1.5373,5.430668 -0.178527,2.688944 -1.333628,4.145139 -2.183707,4.85514 -1.74132,1.490271 -3.89486,1.493277 -5.421017,1.391953 l -1.271799,-0.08444 z"
+           style="font-weight:bold;font-size:52.3119px;line-height:1.25;font-family:'Futura PT';-inkscape-font-specification:'Futura PT Bold';fill:#f2f2f2;fill-opacity:1;stroke:#434179;stroke-width:0.134099;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="path19079"
+           sodipodi:nodetypes="ssscsccscscscscc" />
+      </g>
+    </g>
+  </g>
+</svg>

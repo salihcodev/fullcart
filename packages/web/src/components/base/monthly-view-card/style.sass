@@ -1,0 +1,35 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_mixins.util'
+.monthly-view-card
+    padding: 1rem
+    border-radius: 2px
+    min-height: 10rem
+    @include flex_positioning(center,"")
+    width: 100%
+    flex-grow: 1
+    transition: all ease 0.2s
+    color: $app_white
+    &:hover
+        @include translat-to-top(0, -0.2rem)
+    &:nth-child(1)
+        background: #ccb96d
+    &:nth-child(2)
+        background: #5fad9a
+    &:nth-child(3)
+        background: #b966a7
+    .to-center-contents
+        width: inherit
+    h5.view-card-heading
+    h2.view-card-number
+        margin: 0.5rem 1rem
+        font-weight: 900
+        margin-top: 0.3rem
+    a.view-to-full-page
+        text-decoration: underline
+        text-decoration-color: $app_white
+        @include flex_positioning(self-start,space-between)
+        small,
+        span
+            color: $app_white
+    small
+        color: $app_white

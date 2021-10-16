@@ -1,0 +1,21 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_mixins.util'
+header.entities-basic-stats
+    display: grid
+    grid-gap: 0.5rem
+    grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr))
+    > div
+        @include flex_positioning(center,flex-start)
+        border: 1px solid $light_gray
+        padding: 0.5rem
+        border-radius: 2px
+        border-bottom-width: 3px
+        transition: all ease 0.2s
+        margin-bottom: 0.5rem
+        width: 100%
+        &:hover
+            @include translat-to-top(0, -0.2rem)
+        &:first-child,
+        h5.number
+            margin-right: 0.5rem
+        span.txt

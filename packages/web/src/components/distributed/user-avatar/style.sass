@@ -1,0 +1,44 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_animation.util'
+@import '../../../common/styles/utils//_mixins.util'
+
+section.user-avatar
+    position: relative
+    &:before
+        content: ""
+        display: block
+        top: 3.3rem
+        background: transparent
+        height: 20px
+        position: fixed
+        width: 5rem
+        z-index: 5
+    a.avatar-holder
+        display: block
+        width: 40px
+        height: 40px
+        background-size: contain !important
+        background-position: center
+        border: 4px solid $main_clr-mirr
+        border-radius: 50%
+        padding: 2px
+    &:hover
+        .user-options-list
+            display: grid
+    .user-options-list
+        position: absolute
+        border: 1px solid $alt_dark-4
+        top: 3rem
+        right: -1rem
+        width: 10rem
+        height: 15rem
+        background: $app_white
+        display: none
+        @include fade-in
+        padding: 0.5rem
+        border-radius: 2px
+        .options-list
+        .logout-wrapper
+            @include flex_positioning(flex-end, center)
+            button
+                font-size: 0.8rem

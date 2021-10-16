@@ -1,0 +1,25 @@
+{
+  "name": "back-doors",
+  "version": "0.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "private": true,
+  "scripts": {
+    "test": "lerna run test --stream",
+    "web-start:dev": "lerna run start:dev --scope=@back-doors/web --stream",
+    "server-start:dev": "lerna run start:dev --scope=@back-doors/server --stream",
+    "serve:db": "lerna run serve:db --scope=@back-doors/server --stream",
+    "new:release": "learn version --stream",
+    "format": "prettier --write . --stream",
+    "format:web": "lerna run format --scope=@back-doors/web --stream",
+    "format:server": "lerna run format --scope=@back-doors/server --stream"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "repository": "https://github.com/salihcodev/stalkme",
+  "author": "@salihcodev",
+  "license": "",
+  "description": ""
+}

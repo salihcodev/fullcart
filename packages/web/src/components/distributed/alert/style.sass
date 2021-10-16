@@ -1,0 +1,24 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_animation.util'
+
+.alert
+    position: relative
+    margin: 1rem 0
+    padding: 0.5rem 1rem
+    border-radius: 2px
+    border-left-width: 4px !important
+    @include from-bottom
+    button.alert-closer
+        position: absolute
+        display: block
+        width: 1rem
+        height: 1rem
+        top: 0.4rem
+        right: 0.6rem
+        display: block
+        padding: 0
+        background: none
+        border: none
+        font-size: 20px
+        &:hover
+            transform: none

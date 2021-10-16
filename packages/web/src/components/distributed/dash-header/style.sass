@@ -1,0 +1,32 @@
+@import '../../../common/styles/utils/_mixins.util'
+@import '../../../common/styles/utils/_colors.util'
+
+header.dash-header
+  border-bottom: 1px solid $alt_dark-4
+  .header-wrapper
+    @include flex_positioning(center, space-between)
+    height: 4rem
+    section
+      @include flex_positioning(center, center)
+      &.left-wing
+        margin-right: 0.1rem
+        flex-grow: 1
+        justify-content: flex-start
+        height: inherit
+      &.middle-wing
+        flex-grow: 1
+        display: block
+        .header-search
+          width: 100%
+          input[type="text"]
+            height: 2.5rem
+            border: 2px solid $main_clr-2
+            font-size: 1rem
+      &.right-wing
+        justify-content: flex-end
+        flex-grow: 1
+
+@media screen and (max-width: 992px) // 992
+  header.dash-header
+    section.middle-wing
+      display: none !important

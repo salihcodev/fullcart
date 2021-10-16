@@ -1,0 +1,28 @@
+@import '../../common/styles/utils/_mixins.util'
+@import '../../common/styles/utils/_colors.util'
+
+main.page.notfound-page
+  background: linear-gradient(45deg, #fdfdfdd0, #ffffff93), url('../../../public/assets/images/notfound-cover.svg') center/cover
+  text-align: center
+  .page-wrapper
+    height: 50vh
+    @include flex_positioning(center, center)
+  .notfound-number
+    font-size: 90px
+    color: $app_gray
+    font-weight: 900
+  .notfound-description
+    margin: 2rem
+  .redirect-home
+    background: $app_white
+    border: 1px solid $main_clr
+    padding: 0.7rem 1rem
+    width: 10rem
+    color: $app_gray
+    text-transform: uppercase
+    @include flex_positioning(center, space-between)
+    margin: auto
+    b
+      color: $main_clr-1
+      margin-top: -0.1rem
+      display: block
