@@ -2,7 +2,8 @@
 import { Request, Response } from "express";
 
 // utils:
-import FurnitureModel from "../../../models/furniture.model";
+import APIFeaturesBuilder from "../../../common/helpers/api-features-builder.helper";
+import Furniture from "../../../models/furniture.model";
 
 // >>>> read all
 export const getAllProducts = async (
@@ -10,8 +11,17 @@ export const getAllProducts = async (
     res: Response
 ): Promise<void> => {
     try {
-        const prods = await FurnitureModel.find();
+        const apiPipsResult = new APIFeaturesBuilder(
+            req.query,
+            Furniture.find()
+        )
+            .filtering()
+            .sorting()
+            .selectingFields()
+            .paginating();
 
+        // awaiting for the final result, then response back with it.
+        const prods = await apiPipsResult.modelQuery;
         res.json({
             statue: `SUCCESS`,
             results: prods.length,
@@ -20,8 +30,10 @@ export const getAllProducts = async (
             },
         });
     } catch (err) {
+        console.log(err);
+
         res.status(400).json({
-            message: `Could not find any doors.`,
+            message: `Could not find any products.`,
             error: err,
         });
     }
@@ -36,9 +48,14 @@ export const getSingleProduct = async (
 
     try {
         // should give it valid `id`, otherwise gonna through an error
-        const sdoor = await FurnitureModel.findById(_id);
+        const prod = await Furniture.findById(_id);
 
-        res.status(200).json(sdoor);
+        res.status(200).json({
+            statue: `SUCCESS`,
+            data: {
+                prod,
+            },
+        });
     } catch (err) {
         res.status(404).json({
             message: `Could not find door with ID: ${_id}`,

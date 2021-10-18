@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import { Request, Response } from "express";
 
 // utils:
-import FurnitureModel from "../../../models/furniture.model";
+import Furniture from "../../../models/furniture.model";
 import userRoles from "../../../common/constants/user/user-roles.const";
 
 // >>>> delete
@@ -30,16 +30,18 @@ export const deleteProduct = async (
     try {
         if (!mongoose.Types.ObjectId.isValid(_id))
             res.status(404).json({
-                message: `There is no door with provided ID: ${_id}`,
+                message: `There is no product with provided id: ${_id}`,
             });
 
-        await FurnitureModel.findByIdAndRemove(_id);
+        await Furniture.findByIdAndRemove(_id);
         res.status(200).json({
-            message: "door has been deleted successfully",
+            statue: `SUCCESS`,
+            message: "Product has been deleted successfully",
         });
     } catch (err) {
         res.status(400).json({
-            message: "Failed to delete the door",
+            statue: `FAILED`,
+            message: "Failed to delete the product",
             error: err,
         });
     }

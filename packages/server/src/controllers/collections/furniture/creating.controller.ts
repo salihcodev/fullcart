@@ -2,7 +2,7 @@
 import { Request, Response } from "express";
 
 // utils:
-import FurnitureModel from "../../../models/furniture.model";
+import Furniture from "../../../models/furniture.model";
 import userRoles from "../../../common/constants/user/user-roles.const";
 
 // >>>> create
@@ -22,18 +22,23 @@ export const createNewProduct = async (
             .json({ message: `You don't have the right access.` });
     }
 
-    const doorToCreate = req.body;
-    const newdoor = new FurnitureModel({
-        ...doorToCreate,
+    const prodToCreate = req.body;
+    const newProd = new Furniture({
+        ...prodToCreate,
     });
 
     try {
-        await newdoor.save();
+        await newProd.save();
 
-        res.status(201).json(newdoor);
+        res.status(201).json({
+            statue: `SUCCESS`,
+            data: {
+                newProd,
+            },
+        });
     } catch (err) {
         res.status(409).json({
-            message: `Something went wrong while creating new door, Please try again later.`,
+            message: `Something went wrong while creating new product, Please try again later.`,
             error: err,
         });
     }

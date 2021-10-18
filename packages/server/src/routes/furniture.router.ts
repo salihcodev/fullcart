@@ -5,11 +5,11 @@ import express from "express";
 import {
     getAllProducts,
     getSingleProduct,
-} from "../controllers/collections/furniture/read.controller";
+} from "../controllers/collections/furniture/reading.controller";
 import authMiddleware from "../common/middlewares/auth.middleware";
-import { createNewProduct } from "../controllers/collections/furniture/create.controller";
-import { deleteProduct } from "../controllers/collections/furniture/delete.controller";
-import { updateProduct } from "../controllers/collections/furniture/update.controller";
+import { createNewProduct } from "../controllers/collections/furniture/creating.controller";
+import { deleteProduct } from "../controllers/collections/furniture/deleting.controller";
+import { updateProduct } from "../controllers/collections/furniture/updating.controller";
 
 // create new router:
 const router = express.Router();

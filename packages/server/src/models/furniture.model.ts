@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 // create FurnitureProduct schema:
 // >>>> FurnitureProduct schema
-const FurnitureProductSchema = new Schema({
+const FurnitureSchema = new Schema({
     name: String,
     price: Number,
     cover: String,
@@ -36,8 +36,5 @@ const FurnitureProductSchema = new Schema({
 });
 
 // >>>> create furniture product model
-const FurnitureProduct = mongoose.model(
-    "FurnitureProduct",
-    FurnitureProductSchema
-);
-export default FurnitureProduct;
+const Furniture = mongoose.model("Furniture", FurnitureSchema);
+export default Furniture;
