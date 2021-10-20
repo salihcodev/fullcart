@@ -1,19 +1,50 @@
 // pkgs:
-import { VFC } from 'react';
+import { useEffect, VFC } from 'react';
 import { useAppSelector, useAppDispatch } from '../../../redux/hooks';
-import { Link } from 'react-router-dom';
 
 // utils:
 import './style.sass';
+import { RootState } from '../../../redux/store';
 
 // comps:
 import ProdsCategoryRow from '../prods-row/prods-row.comp';
 import ProductCard from '../prod-card/prod-card.comp';
+import { getFurnitureProds } from '../../../redux/slices/prods-collections/furniture/logic/reading.logic';
 
 // component>>>
 const ShopProdsViewer: VFC<{}> = () => {
   // use preConfigured hooks:
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
+  const { stage, prods: furnitureProds } = useAppSelector(
+    (state: RootState) => state.FurnitureProds
+  );
+
+  useEffect(() => {
+    let isMounted = true;
+
+    if (isMounted) {
+      dispatch(
+        getFurnitureProds({
+          category: `furniture`,
+          filterOptions: `?page=1&limit=10`,
+        })
+      );
+    }
+
+    return () => {
+      isMounted = false;
+    };
+  }, [dispatch]);
+
+  // FILL THE DATA:
+  // furniture prods filling
+  const furnProds = furnitureProds?.map(
+    (prod): JSX.Element => (
+      <div className="slide">
+        <ProductCard prod={prod} />
+      </div>
+    )
+  );
 
   return (
     <section className="shop-prods-viewer">
@@ -23,39 +54,14 @@ const ShopProdsViewer: VFC<{}> = () => {
         </section>
       )}
 
-      <ProdsCategoryRow title="Furniture" prods={furnitureProds} />
+      <ProdsCategoryRow
+        title="Furniture"
+        prods={furnProds}
+        loadState={stage}
+        catLink="shop/categories/furniture/all"
+      />
     </section>
   );
 };
 
 export default ShopProdsViewer;
-
-const furnitureProds = [
-  <div className="slide">
-    <ProductCard />
-  </div>,
-  <div className="slide">
-    <ProductCard />
-  </div>,
-  <div className="slide">
-    <ProductCard />
-  </div>,
-  <div className="slide">
-    <ProductCard />
-  </div>,
-  <div className="slide">
-    <ProductCard />
-  </div>,
-  <div className="slide">
-    <ProductCard />
-  </div>,
-  <div className="slide">
-    <ProductCard />
-  </div>,
-  <div className="slide">
-    <ProductCard />
-  </div>,
-  <div className="slide">
-    <ProductCard />
-  </div>,
-];

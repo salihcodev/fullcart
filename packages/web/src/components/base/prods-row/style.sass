@@ -12,11 +12,11 @@ section.prods-category-row
     margin-bottom: 1rem
     padding-bottom: 0
     h5.row-title
-        margin-bottom: 2rem
+        margin-bottom: 1rem
     section.row-prods
         margin-top: 1rem
         div.slide
-            margin: 0 0.2rem
+            margin: 0.2rem
     > button.slider-controller
         position: absolute
         top: 50%
@@ -29,14 +29,14 @@ section.prods-category-row
         backdrop-filter: blur(2px)
         font-size: 1.5rem
         color: $app_gray
-        transform: translate(-20%, 0%)
+        transform: translate(-20%, -50%)
         &.slide-prev
             left: 0
             padding-right: 0.7rem
         &.slide-next
             right: 0
             padding-left: 0.7rem
-            transform: translate(20%, 0%)
+            transform: translate(20%, -50%)
 
 .alice-carousel__next-btn-item,
 .alice-carousel__prev-btn-item
@@ -44,18 +44,18 @@ section.prods-category-row
     top: 50%
     width: 2.4rem
     height: 2.4rem
-    @include flex_positioning(center,center)
+    @include flex_positioning(center, center)
     border-radius: 50%
     background: red
     font-size: 1.5rem
-    opacity: 0
+    opacity: 0 !important
 
 .alice-carousel__next-btn-item
-    transform: translate(50%, -100%)
+    transform: translate(50%, -120%)
     right: 0
     z-index: 1
 .alice-carousel__prev-btn-item
-    transform: translate(-50%, -100%)
+    transform: translate(-50%, -120%)
     left: 0
     z-index: 1
 

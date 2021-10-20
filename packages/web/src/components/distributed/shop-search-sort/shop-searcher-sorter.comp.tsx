@@ -1,6 +1,9 @@
 // pkgs:
 import { useEffect, useState, VFC } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { BiCommand, BiTransferAlt } from 'react-icons/bi';
+import { FaRegStar } from 'react-icons/fa';
+import { MdOutlinePostAdd } from 'react-icons/md';
 import FormInput from '../form-input/form-input.comp';
 
 // utils:
@@ -50,10 +53,30 @@ const ShopSearcherSorter: VFC<{}> = () => {
       {shopUserAction ? (
         <div className="sort">
           <span className="tag">Sort</span>
-          <button type="button">Relevance</button>
-          <button type="button">Popular</button>
-          <button type="button">Most new</button>
-          <button type="button">Price range</button>
+          <button type="button">
+            <span className="icon">
+              <BiCommand />
+            </span>
+            <span className="txt">Relevance</span>
+          </button>
+          <button type="button">
+            <span className="icon">
+              <FaRegStar />
+            </span>
+            <span className="txt">Popular</span>
+          </button>
+          <button type="button">
+            <span className="icon">
+              <MdOutlinePostAdd />
+            </span>
+            <span className="txt">Most new</span>
+          </button>
+          <button type="button">
+            <span className="icon">
+              <BiTransferAlt />
+            </span>
+            <span className="txt">Price range</span>
+          </button>
         </div>
       ) : null}
     </section>

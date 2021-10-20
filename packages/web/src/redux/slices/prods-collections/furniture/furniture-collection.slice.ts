@@ -7,6 +7,7 @@ import { SliceFurnitureTypes } from '../../../../common/@types/slice-prods-colle
 // CONFIGURE THE INITIAL STATE OF THE SLICE::
 const initialState: SliceFurnitureTypes = {
   prods: null,
+  results: null,
   stage: `idle`,
   failureMsg: null,
 };
@@ -24,6 +25,13 @@ export const FurnitureSlice = createSlice({
         state.stage = `busy`;
       })
       .addCase(getFurnitureProds.fulfilled, (state, { payload }) => {
+        const {
+          data: { prods },
+          results,
+        } = payload;
+
+        state.prods = prods;
+        state.results = results;
         state.stage = `idle`;
       })
       .addCase(getFurnitureProds.rejected, (state, { payload }) => {

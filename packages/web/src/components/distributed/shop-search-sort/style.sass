@@ -38,18 +38,28 @@ section.search-and-sort
                 font-weight: 600
     .sort
         padding: 0.5rem 0 0
-        flex-wrap: wrap
-        @include flex_positioning(flex-start, flex-start)
+        display: grid
+        grid-gap: 0.5rem
+        grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr) )
         span
-            margin-right: 2rem
         button
-            margin-right: 1rem
-            padding: 0.2rem 0.4rem
+            padding: 0.2rem 0.2rem 0.1rem
             border: 1px solid $main_clr-1
             background: $app_white
             color: $alt_dark-3
             font-weight: bold
             font-size: 0.7rem
+            @include flex_positioning(center, space-around)
             &:hover
                 background: $main_clr-1
                 color: $app_white
+            span.txt
+                margin-top: -2px
+            span.icon
+                font-size: 1rem
+            &:last-child
+                span.icon
+                    transform: rotate(90deg)
+            &:nth-of-type(3)
+                color: $app_white
+                background: $main_clr-1

@@ -1,7 +1,8 @@
-import { FurnitureProdTypes } from './prods.types';
+import { ProdTypes } from './prod.types';
 
 export type SliceFurnitureTypes = {
-  prods: null | FurnitureProdTypes[];
+  prods: null | ProdTypes[];
+  results: null;
   stage: `idle` | `busy` | `failed`;
   failureMsg: null | string;
 };

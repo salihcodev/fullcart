@@ -31,6 +31,7 @@ import DashOrders from './views/dash-orders/dash-orders.page';
 import DashMonthlyViews from './views/dash-monthly-views/dash-monthly-views.page';
 import { localStorageObjGetter } from './common/utilities/localstorage-dealer/localstorage-getters.util';
 import DashManageProducts from './views/dash-manage-products/dash-manage-products.page';
+import SingleCategory from './views/single-category/single-category.page';
 
 // component>>>
 const App = () => {
@@ -56,77 +57,143 @@ const App = () => {
       <Switch>
         <Route exact path="/">
           <Layout expanded>
-            {user && role !== usersRoles.REGULAR ? <Redirect to="/dashboard" /> : <LandingPage />}
+            {user && role !== usersRoles.REGULAR ? (
+              <Redirect to="/dashboard" />
+            ) : (
+              <LandingPage />
+            )}
           </Layout>
         </Route>
 
         {/* DASHBOARD ROUTES */}
         <Route exact path="/dashboard">
-          {user && role !== usersRoles.REGULAR ? <Dashboard /> : <Redirect to="/" />}
+          {user && role !== usersRoles.REGULAR ? (
+            <Dashboard />
+          ) : (
+            <Redirect to="/" />
+          )}
         </Route>
 
         <Route exact path="/dashboard/users">
-          {user && role !== usersRoles.REGULAR ? <DashUsers /> : <Redirect to="/" />}
+          {user && role !== usersRoles.REGULAR ? (
+            <DashUsers />
+          ) : (
+            <Redirect to="/" />
+          )}
         </Route>
 
         <Route exact path="/dashboard/products">
-          {user && role !== usersRoles.REGULAR ? <DashProducts /> : <Redirect to="/" />}
+          {user && role !== usersRoles.REGULAR ? (
+            <DashProducts />
+          ) : (
+            <Redirect to="/" />
+          )}
         </Route>
 
         <Route exact path="/dashboard/manage-products/:actionType">
-          {user && role !== usersRoles.REGULAR ? <DashManageProducts /> : <Redirect to="/" />}
+          {user && role !== usersRoles.REGULAR ? (
+            <DashManageProducts />
+          ) : (
+            <Redirect to="/" />
+          )}
         </Route>
 
         <Route exact path="/dashboard/monthly-views">
-          {user && role !== usersRoles.REGULAR ? <DashMonthlyViews /> : <Redirect to="/" />}
+          {user && role !== usersRoles.REGULAR ? (
+            <DashMonthlyViews />
+          ) : (
+            <Redirect to="/" />
+          )}
         </Route>
 
         <Route exact path="/dashboard/orders">
-          {user && role !== usersRoles.REGULAR ? <DashOrders /> : <Redirect to="/" />}
+          {user && role !== usersRoles.REGULAR ? (
+            <DashOrders />
+          ) : (
+            <Redirect to="/" />
+          )}
         </Route>
 
         {/* ROUTES FOR REGULAR */}
         <Route exact path="/shop">
           <Layout expanded>
-            {user && role !== usersRoles.REGULAR ? <Redirect to="/dashboard" /> : <ShopPage />}
+            {user && role !== usersRoles.REGULAR ? (
+              <Redirect to="/dashboard" />
+            ) : (
+              <ShopPage />
+            )}
           </Layout>
         </Route>
 
         <Route exact path="/shop/prods/:slug">
           <Layout expanded>
-            {user && role !== usersRoles.REGULAR ? <Redirect to="/dashboard" /> : <ProductViewer />}
+            {user && role !== usersRoles.REGULAR ? (
+              <Redirect to="/dashboard" />
+            ) : (
+              <ProductViewer />
+            )}
+          </Layout>
+        </Route>
+
+        <Route exact path="/shop/categories/:category/all">
+          <Layout expanded>
+            {user && role !== usersRoles.REGULAR ? (
+              <Redirect to="/dashboard" />
+            ) : (
+              <SingleCategory />
+            )}
           </Layout>
         </Route>
 
         <Route exact path="/contact">
           <Layout expanded={false}>
-            {user && role !== usersRoles.REGULAR ? <Redirect to="/dashboard" /> : <ContactPage />}
+            {user && role !== usersRoles.REGULAR ? (
+              <Redirect to="/dashboard" />
+            ) : (
+              <ContactPage />
+            )}
           </Layout>
         </Route>
 
         <Route exact path="/wishlist">
           <Layout expanded>
-            {user && role !== usersRoles.REGULAR ? <Redirect to="/dashboard" /> : <Wishlist />}
+            {user && role !== usersRoles.REGULAR ? (
+              <Redirect to="/dashboard" />
+            ) : (
+              <Wishlist />
+            )}
           </Layout>
         </Route>
 
         <Route exact path="/cart">
           <Layout expanded>
-            {user && role !== usersRoles.REGULAR ? <Redirect to="/dashboard" /> : <Cart />}
+            {user && role !== usersRoles.REGULAR ? (
+              <Redirect to="/dashboard" />
+            ) : (
+              <Cart />
+            )}
           </Layout>
         </Route>
 
         <Route exact path="/login">
-          <Layout expanded={false}>{user ? <Redirect to="/" /> : <LoginPage />}</Layout>
+          <Layout expanded={false}>
+            {user ? <Redirect to="/" /> : <LoginPage />}
+          </Layout>
         </Route>
 
         <Route exact path="/signup">
-          <Layout expanded={false}>{user ? <Redirect to="/" /> : <SignupPage />}</Layout>
+          <Layout expanded={false}>
+            {user ? <Redirect to="/" /> : <SignupPage />}
+          </Layout>
         </Route>
 
         <Route exact path="/terms">
           <Layout expanded>
-            {user && role !== usersRoles.REGULAR ? <Redirect to="/dashboard" /> : <TermsPage />}
+            {user && role !== usersRoles.REGULAR ? (
+              <Redirect to="/dashboard" />
+            ) : (
+              <TermsPage />
+            )}
           </Layout>
         </Route>
 
