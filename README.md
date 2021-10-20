@@ -5,7 +5,7 @@
 
 <h1 align="center">e-Commercial platform</h1>
 
-<p align="center"><a href="https://backprods.vercel.com" /><code>backprods</code></a></p>
+<p align="center"><a href="https://backprods.vercel.com" /><code>@fullcart</code></a></p>
 
 <br>
 
@@ -28,7 +28,7 @@
 
 ```javascript
 
-.../backprods
+.../fullcart
 ├── dockerfiles
 │   ├── docker-compose.yml
 │   ├── Dockerfile
