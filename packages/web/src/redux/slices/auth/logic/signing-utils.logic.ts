@@ -4,9 +4,9 @@ import { AxiosResponse } from 'axios';
 
 // utils:
 import * as signingAPIControllers from '../../../../api/auth/endpoints-referrers';
-import { AuthResponse } from '../../../../common/types/auth.type';
-import { SignInFormTypes } from '../../../../common/types/signin-form.types';
-import { SignupFormTypes } from '../../../../common/types/signup-form.types';
+import { AuthResponse } from '../../../../common/@types/auth.type';
+import { SignInFormTypes } from '../../../../common/@types/signin-form.types';
+import { SignupFormTypes } from '../../../../common/@types/signup-form.types';
 
 // SLICE LOGICS::
 //
@@ -19,8 +19,7 @@ export const signup = createAsyncThunk(
   `signing/signup`,
   async ({ history, formData }: SigningFormTypes, { rejectWithValue }) => {
     try {
-      const { data }: AxiosResponse<AuthResponse> =
-        await signingAPIControllers.signup(formData);
+      const { data }: AxiosResponse<AuthResponse> = await signingAPIControllers.signup(formData);
 
       history.push('/');
       window.location.reload();
@@ -38,8 +37,7 @@ export const signin = createAsyncThunk(
   `signing/signin`,
   async ({ history, formData }: SigningFormTypes, { rejectWithValue }) => {
     try {
-      const { data }: AxiosResponse<AuthResponse> =
-        await signingAPIControllers.signin(formData);
+      const { data }: AxiosResponse<AuthResponse> = await signingAPIControllers.signin(formData);
 
       history.push('/');
       window.location.reload();

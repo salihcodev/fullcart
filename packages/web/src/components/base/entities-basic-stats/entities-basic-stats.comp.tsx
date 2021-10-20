@@ -16,17 +16,17 @@ const EntitiesBasicStats: VFC<IEntitiesBasicStats> = () => {
         <span className="txt">Users</span>
       </div>
 
-      <div className="doors-entity">
+      <div className="prods-entity">
         <h5 className="number">1006</h5>
         <span className="txt">Products</span>
       </div>
 
-      <div className="doors-entity">
+      <div className="prods-entity">
         <h5 className="number">14</h5>
         <span className="txt">Admins</span>
       </div>
 
-      <div className="doors-entity">
+      <div className="prods-entity">
         <h5 className="number">65</h5>
         <span className="txt">Moderators</span>
       </div>

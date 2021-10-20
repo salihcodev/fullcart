@@ -27,8 +27,8 @@ const DashHeader: VFC<{}> = () => {
             <div className="header-search">
               <input
                 type="text"
-                name="searchingIndoors"
-                id="searchingIndoors"
+                name="searchingInprods"
+                id="searchingInprods"
                 placeholder="Search"
               />
             </div>

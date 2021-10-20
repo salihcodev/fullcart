@@ -58,7 +58,7 @@ export const getSingleProduct = async (
         });
     } catch (err) {
         res.status(404).json({
-            message: `Could not find door with ID: ${_id}`,
+            message: `Could not find product with ID: ${_id}`,
         });
     }
 };

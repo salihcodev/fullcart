@@ -19,6 +19,7 @@ const ShopSearcherSorter: VFC<{}> = () => {
     if (inputValue && inputValue.length > 0) setShowUserAction(true);
   };
 
+  // TODO: make user action only appearers on click.
   useEffect(() => {
     if (inputValue?.length === 0) setShowUserAction(false);
   }, [inputValue?.length]);
@@ -46,13 +47,15 @@ const ShopSearcherSorter: VFC<{}> = () => {
           ) : null}
         </p>
       </div>
-      <div className="sort">
-        <span className="tag">Sort</span>
-        <button type="button">Relevance</button>
-        <button type="button">Popular</button>
-        <button type="button">Most new</button>
-        <button type="button">Price range</button>
-      </div>
+      {shopUserAction ? (
+        <div className="sort">
+          <span className="tag">Sort</span>
+          <button type="button">Relevance</button>
+          <button type="button">Popular</button>
+          <button type="button">Most new</button>
+          <button type="button">Price range</button>
+        </div>
+      ) : null}
     </section>
   );
 };

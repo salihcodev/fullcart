@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 // utils:
 import { signup, signin, logout } from './logic/signing-utils.logic';
 import setDataToLocalStorage from '../../../common/utilities/localstorage-dealer/localstorage-setter.util';
-import { SliceAuthStateTypes } from '../../../common/types/auth.types';
+import { SliceAuthStateTypes } from '../../../common/@types/slice-auth.types';
 
 // CONFIGURE THE INITIAL STATE OF THE SLICE::
 const initialState: SliceAuthStateTypes = {

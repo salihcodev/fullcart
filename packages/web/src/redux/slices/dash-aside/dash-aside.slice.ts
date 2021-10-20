@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { SliceDashAsideTypes } from '../../../common/types/dash-aside.types';
+import { SliceDashAsideTypes } from '../../../common/@types/slice-dash-aside.types';
 
 // util:
 
@@ -22,5 +22,5 @@ export const DashAsideSlice = createSlice({
 // EXPORT THE ACTIONS::
 export const { toggleAsideState } = DashAsideSlice.actions;
 
-// EXPORT THE doors-collection REDUCER::
+// EXPORT THE prods-collection REDUCER::
 export default DashAsideSlice.reducer;

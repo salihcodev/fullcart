@@ -12,7 +12,7 @@ import { RootState } from '../../redux/store';
 import { useAppSelector } from '../../redux/hooks';
 import Container from '../../components/utils/container/container.util';
 import { mailSender } from '../../redux/slices/contact-us/logic/mail-sender.logic';
-import { ContactInFormTypes } from '../../common/types/contact-form.types';
+import { ContactInFormTypes } from '../../common/@types/contact-form.types';
 import AppButton from '../../components/distributed/button/app-button.comp';
 
 // component>>>
@@ -21,9 +21,7 @@ const ContactPage = () => {
   const dispatch = useDispatch();
 
   // component's state extractions and handling:
-  const { stage, message, status } = useAppSelector(
-    (state: RootState) => state.ContactUsForm
-  );
+  const { stage, message, status } = useAppSelector((state: RootState) => state.ContactUsForm);
 
   const formSchema = {
     name: null,

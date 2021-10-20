@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 // util:
-import { SliceAlertTypes } from '../../../common/types/alert.types';
+import { SliceAlertTypes } from '../../../common/@types/slice-alert.types';
 
 // CONFIGURE THE INITIAL STATE OF THE SLICE::
 const initialState: SliceAlertTypes = {
@@ -25,5 +25,5 @@ export const AlertSlice = createSlice({
 // EXPORT THE ACTIONS::
 export const { closeAlert, openAlert } = AlertSlice.actions;
 
-// EXPORT THE doors-collection REDUCER::
+// EXPORT THE prods-collection REDUCER::
 export default AlertSlice.reducer;

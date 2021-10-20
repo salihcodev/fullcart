@@ -3,17 +3,13 @@
 
 main.shop-page
     display: grid
-    grid-template-columns: 1fr 5fr
-    section
-        padding-top: 1rem
-        &.shop-doors-filter
-            min-height: 20rem
-        &.shop-doors-viewer
-            padding: 0 0 0 2rem
+    grid-template-columns: 20% 80%
+    grid-gap: 1rem
+    > section
+        width: 100%
+        &.shop-prods
+            padding-right: 1rem
 
 @media screen and (max-width: 769px)
     main.shop-page
         display: block
-        section
-            &.shop-doors-filter
-                display: none

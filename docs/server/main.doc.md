@@ -10,7 +10,7 @@ by running the shell script db dir `db/data` gonna be configured and got the rig
 you need to have mongodb installed.
 
 ```bash
-➜  doors-server git:(main) ✗ sudo sh connect-to-local-db.sh
+➜  prods-server git:(main) ✗ sudo sh connect-to-local-db.sh
 ==> There is no local db directory found :)
 
 ==> Create db directory and git it the right access
@@ -24,7 +24,7 @@ then
 #### 2) Run the app's development server
 
 ```bash
-➜  doors-server git:(main) ✗ yarn start:dev
+➜  prods-server git:(main) ✗ yarn start:dev
 yarn run v1.22.11
 $ NODE_ENV=development nodemon
 [nodemon] 2.0.12

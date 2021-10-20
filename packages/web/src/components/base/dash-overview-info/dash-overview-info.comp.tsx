@@ -34,9 +34,9 @@ const DashOverviewInfo = () => {
           <DashEntitiesRow heading="Promoted" entities={[]} />
         </section>
 
-        {/* doors row */}
-        <section className="dash-section recent-doors-activity">
-          <h5 className="heading-history-row">Recent doors activity</h5>
+        {/* prods row */}
+        <section className="dash-section recent-prods-activity">
+          <h5 className="heading-history-row">Recent prods activity</h5>
           <DashEntitiesRow heading="Added" entities={[]} />
           <DashEntitiesRow heading="Updated" entities={[]} />
           <DashEntitiesRow heading="Deleted" entities={[]} />

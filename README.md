@@ -5,7 +5,7 @@
 
 <h1 align="center">e-Commercial platform</h1>
 
-<p align="center"><a href="https://backdoors.vercel.com" /><code>backdoors</code></a></p>
+<p align="center"><a href="https://backprods.vercel.com" /><code>backprods</code></a></p>
 
 <br>
 
@@ -15,7 +15,7 @@
   <img alt="Maintained with Learn" src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg" />  
   </a>
   <!-- github starts -->
-  <img alt="Github Stars" src="https://badgen.net/github/stars/salihcodev/doors-systems" />
+  <img alt="Github Stars" src="https://badgen.net/github/stars/salihcodev/prods-systems" />
 </p>
 
 ---
@@ -28,7 +28,7 @@
 
 ```javascript
 
-.../backdoors
+.../backprods
 ├── dockerfiles
 │   ├── docker-compose.yml
 │   ├── Dockerfile

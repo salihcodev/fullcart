@@ -13,7 +13,7 @@ import { signin } from '../../redux/slices/auth/logic/signing-utils.logic';
 import { useAppSelector } from '../../redux/hooks';
 import { RootState } from '../../redux/store';
 import AppButton from '../../components/distributed/button/app-button.comp';
-import { SignInFormTypes } from '../../common/types/signin-form.types';
+import { SignInFormTypes } from '../../common/@types/signin-form.types';
 
 // component>>>
 const LoginPage = () => {
@@ -24,9 +24,7 @@ const LoginPage = () => {
   const dispatch = useDispatch();
 
   // component's state extractions and handling:
-  const { stage, failureMsg } = useAppSelector(
-    (state: RootState) => state.Auth
-  );
+  const { stage, failureMsg } = useAppSelector((state: RootState) => state.Auth);
 
   const formSchema = {
     email: null,

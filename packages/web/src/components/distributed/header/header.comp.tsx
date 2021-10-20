@@ -77,9 +77,9 @@ const Header: VFC<IHeader> = ({ expanded }) => {
                 <div className="header-search">
                   <input
                     type="text"
-                    name="searchingIndoors"
-                    id="searchingIndoors"
-                    placeholder="Searching in doors e.g. black metal door, woody cupper door..."
+                    name="searchingInprods"
+                    id="searchingInprods"
+                    placeholder="Searching in prods e.g. black metal prod, woody cupper prod..."
                   />
                 </div>
               </section>
@@ -88,11 +88,7 @@ const Header: VFC<IHeader> = ({ expanded }) => {
                   <section className="routes-list">
                     {headerRouts.map(({ value, path }): JSX.Element => {
                       return (
-                        <NavLink
-                          key={path}
-                          to={path}
-                          activeStyle={navRouteActiveStyle}
-                        >
+                        <NavLink key={path} to={path} activeStyle={navRouteActiveStyle}>
                           {value}
                         </NavLink>
                       );
@@ -126,11 +122,7 @@ const Header: VFC<IHeader> = ({ expanded }) => {
                     <ul className="routes-list">
                       {headerRouts.map(({ value, path }): JSX.Element => {
                         return (
-                          <NavLink
-                            key={path}
-                            to={path}
-                            activeStyle={navRouteActiveStyle}
-                          >
+                          <NavLink key={path} to={path} activeStyle={navRouteActiveStyle}>
                             <li key={path}>{value}</li>
                           </NavLink>
                         );

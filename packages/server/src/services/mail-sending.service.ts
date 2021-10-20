@@ -26,7 +26,7 @@ export const afterRegistrationMail = async (
             from: email_user,
             to: toMail,
             subject: `Hello ${firstName}, Your always welcomed in our platform`,
-            html: `<p>Welcome to our doors service we provide... </p>`,
+            html: `<p>Welcome to our prods service we provide... </p>`,
         });
     } catch (err) {
         return err;

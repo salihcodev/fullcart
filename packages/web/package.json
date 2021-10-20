@@ -1,5 +1,5 @@
 {
-  "name": "@back-doors/web",
+  "name": "@full-cart/web",
   "version": "0.0.0",
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
@@ -16,6 +16,7 @@
     "jest": "26.6.0",
     "jwt-decode": "^3.1.2",
     "react": "^17.0.2",
+    "react-alice-carousel": "^2.5.1",
     "react-app-rewired": "^2.1.8",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
@@ -41,7 +42,7 @@
     "extends": "react-app"
   },
   "browserslist": {
-    "doorion": [
+    "prodion": [
       ">0.2%",
       "not dead",
       "not op_mini all"

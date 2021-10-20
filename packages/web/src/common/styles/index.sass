@@ -5,7 +5,13 @@
 
 *, ::after, ::before
   box-sizing: border-box
-  outline: 0
+
+a, button, input, textarea, select
+  &:focus
+    outline: 0
+    outline-offset: 0px
+    outline: 2px dotted #e2a739
+    outline-offset: 1px
 
 body
   margin: 0
@@ -86,7 +92,7 @@ input[type="password"]
   color: $app_gray
   caret-color: $main_clr-1
   border-radius: 2px
-  transition: all ease 0.2s
+  transition: all ease 0.1s
   font-family: $main_font
   border-radius: 3px
   &::placeholder

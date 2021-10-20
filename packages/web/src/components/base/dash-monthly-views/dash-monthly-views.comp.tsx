@@ -12,7 +12,7 @@ import MonthlyViewCard from '../monthly-view-card/monthly-view-card.comp';
 const DashMonthlyViews: VFC<IDashMonthlyViews> = () => {
   return (
     <section className="dash-section dash-monthly-views">
-      <MonthlyViewCard title={'doors views'} viewNumber={178} />
+      <MonthlyViewCard title={'prods views'} viewNumber={178} />
       <MonthlyViewCard title={'Users Activities'} viewNumber={53} />
       <MonthlyViewCard title={'Purchasing'} viewNumber={102} />
     </section>

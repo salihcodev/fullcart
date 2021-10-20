@@ -15,13 +15,13 @@ const ProductCard: VFC<{}> = () => {
 
   return (
     <div className="card-wrapper">
-      {/* <Link to={`/shop/doors/${id}`} title={name} className="door-card">
+      <Link to={`/shop/prods/`} title="title" className="prod-card">
         <div className="user-actions">controllers</div>
-      </Link> */}
-      {/* <div className="door-info">
-        <p className="description">{name}</p>
-        <h6 className="price">${price}/piece</h6>
-      </div> */}
+      </Link>
+      <div className="prod-info">
+        <p className="description">name</p>
+        <h6 className="price">$59.9/piece</h6>
+      </div>
     </div>
   );
 };

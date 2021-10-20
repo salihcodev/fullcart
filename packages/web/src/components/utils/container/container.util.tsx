@@ -10,12 +10,13 @@ import './style.sass';
 const Container: VFC<{
   children: JSX.Element | JSX.Element[] | any;
   fluid?: boolean;
+  hasFilter?: boolean;
   sm?: boolean;
   md?: boolean;
   lg?: boolean;
   xl?: boolean;
   xxl?: boolean;
-}> = ({ fluid, sm, md, lg, xl, xxl, children }) => {
+}> = ({ fluid, hasFilter, sm, md, lg, xl, xxl, children }) => {
   return (
     <div
       className={
@@ -31,6 +32,8 @@ const Container: VFC<{
           ? `container-xl`
           : xxl
           ? `container-xxl`
+          : hasFilter
+          ? `container-has-filter`
           : `container`
       }
     >

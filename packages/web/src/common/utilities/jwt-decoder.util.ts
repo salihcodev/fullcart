@@ -3,7 +3,7 @@ import decode from 'jwt-decode';
 
 // utils:
 import { localStorageObjGetter } from './localstorage-dealer/localstorage-getters.util';
-import { JWTTypes } from '../types/auth.type';
+import { JWTTypes } from '../@types/auth.type';
 
 const accessToken = localStorageObjGetter(`@authedUser`)?.accessToken;
 

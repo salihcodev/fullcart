@@ -20,7 +20,7 @@ const port = process.env.PORT || _port;
 const connectWithDB = async () => {
     try {
         await mongoose.connect(db_connection_uri, {
-            dbName: "back-doors",
+            dbName: "full-cart",
         });
 
         // >>>> create initial dashboard account:

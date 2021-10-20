@@ -4,15 +4,16 @@ import axios from 'axios';
 // utils:
 import { localStorageObjGetter } from '../common/utilities/localstorage-dealer/localstorage-getters.util';
 
-// the connection base:
+// >>>> the connection bases:
 let baseUrl: string;
+const API_VERSION = `api/v1`;
 
 // all potential locals
 const LOCALS: string[] = [`localhost`, `127.0.0.1`, ``];
 
 // check wether the app hosted on local or not:
 if (LOCALS.includes(window.location.hostname)) {
-  baseUrl = `http://localhost:8000`;
+  baseUrl = `http://localhost:8000/${API_VERSION}`;
 } else {
   baseUrl = `your-api-server`;
 }
