@@ -3,10 +3,10 @@ import mongoose from "mongoose";
 import { Request, Response } from "express";
 
 // utils:
-import Furniture from "../../../models/furniture.model";
 import userRoles from "../../../common/constants/user/user-roles.const";
+import Product from "../../../models/product.model";
 
-// >>>> delete
+// >>> delete
 export const deleteProduct = async (
     req: Request,
     res: Response
@@ -19,8 +19,8 @@ export const deleteProduct = async (
     }
 
     if (
-        (userRole && userRole === userRoles.REGULAR_USER) ||
-        userRole === userRoles.MODERATOR
+        (userRole && userRole === userRoles.CUSTOMER) ||
+        userRole === userRoles.SUPPLER
     ) {
         return res
             .status(401)
@@ -33,7 +33,7 @@ export const deleteProduct = async (
                 message: `There is no product with provided id: ${_id}`,
             });
 
-        await Furniture.findByIdAndRemove(_id);
+        await Product.findByIdAndRemove(_id);
         res.status(200).json({
             statue: `SUCCESS`,
             message: "Product has been deleted successfully",

@@ -10,7 +10,7 @@ const createInitialDashboardAccount = async (
             email: companyMail,
             password: await bcrypt.hash(`admin`, 12),
             name: `admin`,
-            role: `MANAGER`,
+            role: `ADMIN`,
         });
     } catch (err) {
         return {

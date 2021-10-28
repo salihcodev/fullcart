@@ -9,7 +9,8 @@ export const updateUserRole = async (
     req: Request,
     res: Response
 ): Promise<any> => {
-    const { id, role } = req.params;
+    const { id } = req.params;
+    const { role } = req.query;
 
     try {
         if (!mongoose.Types.ObjectId.isValid(id)) {

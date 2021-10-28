@@ -4,7 +4,7 @@ import axios from 'axios';
 // utils:
 import { localStorageObjGetter } from '../common/utilities/localstorage-dealer/localstorage-getters.util';
 
-// >>>> the connection bases:
+// >>> the connection bases:
 let baseUrl: string;
 const API_VERSION = `api/v1`;
 
@@ -18,7 +18,7 @@ if (LOCALS.includes(window.location.hostname)) {
   baseUrl = `your-api-server`;
 }
 
-// >>>> create axios instance:
+// >>> create axios instance:
 const APIHandler = axios.create({ baseURL: baseUrl });
 
 // make a verification with every future sent req

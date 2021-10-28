@@ -1,8 +1,7 @@
 const usersRoles = {
-  REGULAR: `REGULAR`,
-  MODERATOR: `MODERATOR`,
   ADMIN: `ADMIN`,
-  MANAGER: `MANAGER`,
+  SUPPLER: `SUPPLER`,
+  CUSTOMER: `CUSTOMER`,
 };
 
 export default usersRoles;

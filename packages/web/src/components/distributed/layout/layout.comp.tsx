@@ -3,11 +3,11 @@ import { Fragment } from 'react';
 
 // utils:
 import './style.sass';
+import { ILayout } from '../../../common/interfaces/layout.interface';
 
 // comps:
 import Footer from '../footer/footer.comp';
 import Header from '../header/header.comp';
-import { ILayout } from '../../../common/interfaces/layout.interface';
 
 // component>>>
 const Layout: React.VFC<ILayout> = ({ children, expanded }) => {

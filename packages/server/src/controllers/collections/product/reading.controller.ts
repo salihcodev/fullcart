@@ -3,18 +3,15 @@ import { Request, Response } from "express";
 
 // utils:
 import APIFeaturesBuilder from "../../../common/helpers/api-features-builder.helper";
-import Furniture from "../../../models/furniture.model";
+import Product from "../../../models/product.model";
 
-// >>>> read all
+// >>> read all
 export const getAllProducts = async (
     req: Request,
     res: Response
 ): Promise<void> => {
     try {
-        const apiPipsResult = new APIFeaturesBuilder(
-            req.query,
-            Furniture.find()
-        )
+        const apiPipsResult = new APIFeaturesBuilder(req.query, Product.find())
             .filtering()
             .sorting()
             .selectingFields()
@@ -39,7 +36,7 @@ export const getAllProducts = async (
     }
 };
 
-// >>>> get certain one:
+// >>> get certain one:
 export const getSingleProduct = async (
     req: Request,
     res: Response
@@ -48,7 +45,7 @@ export const getSingleProduct = async (
 
     try {
         // should give it valid `id`, otherwise gonna through an error
-        const prod = await Furniture.findById(_id);
+        const prod = await Product.findById(_id);
 
         res.status(200).json({
             statue: `SUCCESS`,

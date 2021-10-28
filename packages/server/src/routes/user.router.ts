@@ -14,6 +14,6 @@ router.get("/reg-users", getRegisteredUsers);
 router.post("/signup", signupHandler);
 router.post("/signin", signinHandler);
 router.delete("/terminate/:id", terminateUser);
-router.post("/new-role/:id/:role", updateUserRole);
+router.post("/new-role/:id", updateUserRole);
 
 export default router;

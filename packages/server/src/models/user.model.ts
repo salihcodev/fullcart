@@ -4,18 +4,18 @@ const { Schema } = mongoose;
 
 // create user schema:
 const AuthSchema = new Schema({
-    id: { type: String },
     name: { type: String, require: true },
     email: { type: String, require: true },
     password: { type: String, require: true },
     role: {
         type: String,
-        default: "REGULAR",
+        default: "CUSTOMER",
     },
     createdAt: {
         type: Date,
         default: new Date(),
     },
+    id: { type: String },
 });
 
 // create user model:

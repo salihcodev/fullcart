@@ -4,7 +4,7 @@
 section.search-and-sort
     border: 1px solid $light_gray
     background: $app_white
-    padding: 1rem 0.8rem
+    padding: 1rem 0.8rem 0
     border-bottom-width: 3px
     border-radius: 6px
     margin-bottom: 1rem
@@ -22,7 +22,6 @@ section.search-and-sort
                 height: 100%
                 border-bottom-right-radius: 0
                 border-top-right-radius: 0
-                border-right: 0
             button
                 @include flex_positioning(center, center)
                 border-bottom-left-radius: 0
@@ -32,16 +31,17 @@ section.search-and-sort
                 font-size: 1.4rem
                 border: 2px solid $main_clr-dark
                 width: 3rem
+                margin-left: 0.3rem
         p.searched-in
             margin: 0.5rem 0
             span.search-value
                 font-weight: 600
+                font-style: normal
     .sort
-        padding: 0.5rem 0 0
+        padding: 0.5rem 0 1rem
         display: grid
         grid-gap: 0.5rem
         grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr) )
-        span
         button
             padding: 0.2rem 0.2rem 0.1rem
             border: 1px solid $main_clr-1

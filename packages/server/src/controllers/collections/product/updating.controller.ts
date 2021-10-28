@@ -3,10 +3,10 @@ import mongoose from "mongoose";
 import { Request, Response } from "express";
 
 // utils:
-import Furniture from "../../../models/furniture.model";
 import userRoles from "../../../common/constants/user/user-roles.const";
+import Product from "../../../models/product.model";
 
-// >>>> update
+// >>> update
 export const updateProduct = async (
     req: Request,
     res: Response
@@ -20,7 +20,7 @@ export const updateProduct = async (
         });
     }
 
-    if (userRole && userRole === userRoles.REGULAR_USER) {
+    if (userRole && userRole === userRoles.CUSTOMER) {
         return res.status(401).json({
             statue: `FAILED`,
 
@@ -38,7 +38,7 @@ export const updateProduct = async (
                 message: `There's no product with ID: ${_id}`,
             });
 
-        const updatedProd = await Furniture.findByIdAndUpdate(
+        const updatedProd = await Product.findByIdAndUpdate(
             _id,
             { ...prodToUpdate, _id },
             { new: true } // to return a new version

@@ -2,6 +2,7 @@
 import { useParams } from 'react-router-dom';
 
 // comps:
+import Breadcrumb from '../../components/distributed/breadcrumb/breadcrumb.comp';
 
 // utils:
 import Container from '../../components/utils/container/container.util';
@@ -13,11 +14,12 @@ const SingleCategory = () => {
   const { category }: any = useParams();
 
   return (
-    <main className="page single-category">
-      <Container>
+    <Container xxl>
+      <Breadcrumb />
+      <main className="page single-category">
         <h2>Single category {category}</h2>
-      </Container>
-    </main>
+      </main>
+    </Container>
   );
 };
 

@@ -33,7 +33,6 @@ export default class APIFeaturesBuilder {
             /\b('lte|lt|gte|gt')\b/g,
             (match) => `$${match}`
         );
-
         const reqQueryProcessed = JSON.parse(reqQueryString);
 
         this.modelQuery = this.modelQuery.find(reqQueryProcessed);

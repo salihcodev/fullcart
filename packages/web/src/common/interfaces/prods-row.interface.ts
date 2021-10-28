@@ -1,4 +1,4 @@
-export interface IProdsCategoryRow {
+export interface IProdsCategoryCollection {
   title: string;
   catLink: string;
   prods: any;

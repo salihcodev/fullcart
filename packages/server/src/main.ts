@@ -12,24 +12,24 @@ import { app } from "./app";
 //
 //
 
-// >>>> env vars configuration
+// >>> env vars configuration
 const { db_connection_uri, port: _port } = config.get("server");
 const port = process.env.PORT || _port;
 
-// >>>> CONNECTING TO THE DATABASE:
+// >>> CONNECTING TO THE DATABASE:
 const connectWithDB = async () => {
     try {
         await mongoose.connect(db_connection_uri, {
-            dbName: "full-cart",
+            dbName: "fullcart",
         });
 
-        // >>>> create initial dashboard account:
+        // >>> create initial dashboard account:
         if ((await User.countDocuments()) === 0) {
             await createInitialDashboardAccount(`companyDomain@mail.com`);
             console.log(`Created initial dashboard account succeeded.`);
         }
 
-        // >>>> listen to the app
+        // >>> listen to the app
         app.listen(port, () => {
             console.log(`Successfully connected to the db.`);
             console.log(`App running on http://localhost:${port}`);

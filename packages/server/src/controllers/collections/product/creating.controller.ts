@@ -2,10 +2,10 @@
 import { Request, Response } from "express";
 
 // utils:
-import Furniture from "../../../models/furniture.model";
 import userRoles from "../../../common/constants/user/user-roles.const";
+import Product from "../../../models/product.model";
 
-// >>>> create
+// >>> create
 export const createNewProduct = async (
     req: Request,
     res: Response
@@ -16,14 +16,14 @@ export const createNewProduct = async (
         return res.status(401).json({ message: `Unauthenticated!!` });
     }
 
-    if (userRole && userRole === userRoles.REGULAR_USER) {
+    if (userRole && userRole === userRoles.CUSTOMER) {
         return res
             .status(401)
             .json({ message: `You don't have the right access.` });
     }
 
     const prodToCreate = req.body;
-    const newProd = new Furniture({
+    const newProd = new Product({
         ...prodToCreate,
     });
 

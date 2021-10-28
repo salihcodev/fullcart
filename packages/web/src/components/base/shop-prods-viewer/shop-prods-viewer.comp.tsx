@@ -7,15 +7,14 @@ import './style.sass';
 import { RootState } from '../../../redux/store';
 
 // comps:
-import ProdsCategoryRow from '../prods-row/prods-row.comp';
-import ProductCard from '../prod-card/prod-card.comp';
+import ProdsCategoryCollection from '../prods-collection/prods-collection.comp';
 import { getFurnitureProds } from '../../../redux/slices/prods-collections/furniture/logic/reading.logic';
 
 // component>>>
 const ShopProdsViewer: VFC<{}> = () => {
   // use preConfigured hooks:
   const dispatch = useAppDispatch();
-  const { stage, prods: furnitureProds } = useAppSelector(
+  const { stage, prods } = useAppSelector(
     (state: RootState) => state.FurnitureProds
   );
 
@@ -23,28 +22,13 @@ const ShopProdsViewer: VFC<{}> = () => {
     let isMounted = true;
 
     if (isMounted) {
-      dispatch(
-        getFurnitureProds({
-          category: `furniture`,
-          filterOptions: `?page=1&limit=10`,
-        })
-      );
+      dispatch(getFurnitureProds(`?category=furniture&limit=10`));
     }
 
     return () => {
       isMounted = false;
     };
   }, [dispatch]);
-
-  // FILL THE DATA:
-  // furniture prods filling
-  const furnProds = furnitureProds?.map(
-    (prod): JSX.Element => (
-      <div className="slide">
-        <ProductCard prod={prod} />
-      </div>
-    )
-  );
 
   return (
     <section className="shop-prods-viewer">
@@ -54,11 +38,11 @@ const ShopProdsViewer: VFC<{}> = () => {
         </section>
       )}
 
-      <ProdsCategoryRow
+      <ProdsCategoryCollection
         title="Furniture"
-        prods={furnProds}
+        prods={prods}
         loadState={stage}
-        catLink="shop/categories/furniture/all"
+        catLink="shop/categories/furniture"
       />
     </section>
   );

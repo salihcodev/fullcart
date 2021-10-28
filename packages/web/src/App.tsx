@@ -57,7 +57,7 @@ const App = () => {
       <Switch>
         <Route exact path="/">
           <Layout expanded>
-            {user && role !== usersRoles.REGULAR ? (
+            {user && role === usersRoles.SUPPLER ? (
               <Redirect to="/dashboard" />
             ) : (
               <LandingPage />
@@ -67,7 +67,7 @@ const App = () => {
 
         {/* DASHBOARD ROUTES */}
         <Route exact path="/dashboard">
-          {user && role !== usersRoles.REGULAR ? (
+          {user && role === usersRoles.SUPPLER ? (
             <Dashboard />
           ) : (
             <Redirect to="/" />
@@ -75,7 +75,7 @@ const App = () => {
         </Route>
 
         <Route exact path="/dashboard/users">
-          {user && role !== usersRoles.REGULAR ? (
+          {user && role === usersRoles.SUPPLER ? (
             <DashUsers />
           ) : (
             <Redirect to="/" />
@@ -83,7 +83,7 @@ const App = () => {
         </Route>
 
         <Route exact path="/dashboard/products">
-          {user && role !== usersRoles.REGULAR ? (
+          {user && role === usersRoles.SUPPLER ? (
             <DashProducts />
           ) : (
             <Redirect to="/" />
@@ -91,7 +91,7 @@ const App = () => {
         </Route>
 
         <Route exact path="/dashboard/manage-products/:actionType">
-          {user && role !== usersRoles.REGULAR ? (
+          {user && role === usersRoles.SUPPLER ? (
             <DashManageProducts />
           ) : (
             <Redirect to="/" />
@@ -99,7 +99,7 @@ const App = () => {
         </Route>
 
         <Route exact path="/dashboard/monthly-views">
-          {user && role !== usersRoles.REGULAR ? (
+          {user && role === usersRoles.SUPPLER ? (
             <DashMonthlyViews />
           ) : (
             <Redirect to="/" />
@@ -107,17 +107,17 @@ const App = () => {
         </Route>
 
         <Route exact path="/dashboard/orders">
-          {user && role !== usersRoles.REGULAR ? (
+          {user && role === usersRoles.SUPPLER ? (
             <DashOrders />
           ) : (
             <Redirect to="/" />
           )}
         </Route>
 
-        {/* ROUTES FOR REGULAR */}
+        {/* ROUTES FOR CUSTOMER */}
         <Route exact path="/shop">
           <Layout expanded>
-            {user && role !== usersRoles.REGULAR ? (
+            {user && role === usersRoles.SUPPLER ? (
               <Redirect to="/dashboard" />
             ) : (
               <ShopPage />
@@ -125,9 +125,9 @@ const App = () => {
           </Layout>
         </Route>
 
-        <Route exact path="/shop/prods/:slug">
+        <Route exact path="/shop/:slug">
           <Layout expanded>
-            {user && role !== usersRoles.REGULAR ? (
+            {user && role === usersRoles.SUPPLER ? (
               <Redirect to="/dashboard" />
             ) : (
               <ProductViewer />
@@ -135,9 +135,9 @@ const App = () => {
           </Layout>
         </Route>
 
-        <Route exact path="/shop/categories/:category/all">
+        <Route exact path="/shop/categories/:category">
           <Layout expanded>
-            {user && role !== usersRoles.REGULAR ? (
+            {user && role === usersRoles.SUPPLER ? (
               <Redirect to="/dashboard" />
             ) : (
               <SingleCategory />
@@ -147,7 +147,7 @@ const App = () => {
 
         <Route exact path="/contact">
           <Layout expanded={false}>
-            {user && role !== usersRoles.REGULAR ? (
+            {user && role === usersRoles.SUPPLER ? (
               <Redirect to="/dashboard" />
             ) : (
               <ContactPage />
@@ -157,7 +157,7 @@ const App = () => {
 
         <Route exact path="/wishlist">
           <Layout expanded>
-            {user && role !== usersRoles.REGULAR ? (
+            {user && role === usersRoles.SUPPLER ? (
               <Redirect to="/dashboard" />
             ) : (
               <Wishlist />
@@ -167,7 +167,7 @@ const App = () => {
 
         <Route exact path="/cart">
           <Layout expanded>
-            {user && role !== usersRoles.REGULAR ? (
+            {user && role === usersRoles.SUPPLER ? (
               <Redirect to="/dashboard" />
             ) : (
               <Cart />
@@ -189,7 +189,7 @@ const App = () => {
 
         <Route exact path="/terms">
           <Layout expanded>
-            {user && role !== usersRoles.REGULAR ? (
+            {user && role === usersRoles.SUPPLER ? (
               <Redirect to="/dashboard" />
             ) : (
               <TermsPage />

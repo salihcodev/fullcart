@@ -18,7 +18,7 @@ const ProductCard: VFC<{ prod: ProdTypes }> = ({
 
   return (
     <div className="card-wrapper">
-      <Link to={`/shop/prods/${slug}`} title={name} className="prod-card">
+      <Link to={`/shop/${slug}`} title={name} className="prod-card">
         <div className="user-actions">controllers</div>
       </Link>
       <div className="prod-info">
