@@ -53,28 +53,17 @@ const LoginPage = () => {
                 label="Email"
                 inputName="email"
                 placeholder="john@example.com"
-                collectInputData={(name: string, value: string) =>
-                  setFormData({ ...formData, [name]: value })
-                }
+                collectInputData={(name: string, value: string) => setFormData({ ...formData, [name]: value })}
               />
               <FormInput
                 type="password"
                 label="password"
                 inputName="password"
                 placeholder="Your password"
-                collectInputData={(name: string, value: string) =>
-                  setFormData({ ...formData, [name]: value })
-                }
+                collectInputData={(name: string, value: string) => setFormData({ ...formData, [name]: value })}
               />
               {/* submitter btn */}
-              <AppButton
-                loadState={stage}
-                value="Sign in"
-                type="submit"
-                wide
-                size="lg"
-                border={{ size: 2 }}
-              />
+              <AppButton loadState={stage} value="Sign in" type="submit" wide size="lg" bkgDefault border={{ size: 2 }} />
 
               <p className="not-registered">
                 Dont't have one.. no worries

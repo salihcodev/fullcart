@@ -5,5 +5,6 @@ export interface IFormInput {
   placeholder?: string;
   collectInputData: (name: string, value: string) => void;
   otherProps?: any;
+  icon?: any;
   autoComplete?: string;
 }

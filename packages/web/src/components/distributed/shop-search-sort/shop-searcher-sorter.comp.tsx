@@ -31,13 +31,7 @@ const ShopSearcherSorter: VFC<{}> = () => {
     <section className="search-and-sort">
       <div className="search">
         <form onSubmit={handelShopSearch}>
-          <FormInput
-            autoComplete="off"
-            type="text"
-            inputName="shopSearchInput"
-            placeholder="Search"
-            collectInputData={(_, value) => setInputValue(value)}
-          />
+          <FormInput autoComplete="off" type="text" inputName="shopSearchInput" placeholder="Search" collectInputData={(_, value) => setInputValue(value)} />
           <button type="submit">
             <AiOutlineSearch />
           </button>

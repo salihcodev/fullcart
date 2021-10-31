@@ -6,5 +6,7 @@ export interface IAppButton {
   wide: boolean;
   size: `sm` | `md` | `lg`;
   border: { size: number; color?: string };
+  bkgDefault?: boolean;
+  bkgSecondary?: boolean;
   handleEvent?: any;
 }

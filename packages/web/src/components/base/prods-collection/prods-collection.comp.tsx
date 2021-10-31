@@ -12,12 +12,7 @@ import { ProdTypes } from '../../../common/@types/prod.types';
 import ProductCard from '../prod-card/prod-card.comp';
 
 // component>>>
-const ProdsCategoryCollection: VFC<IProdsCategoryCollection> = ({
-  title,
-  catLink,
-  prods,
-  loadState,
-}) => {
+const ProdsCategoryCollection: VFC<IProdsCategoryCollection> = ({ title, catLink, prods, loadState }) => {
   return (
     <Fragment>
       {loadState === `busy` ? (

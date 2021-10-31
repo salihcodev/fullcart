@@ -2,15 +2,20 @@
 @import './utils/_colors.util'
 @import './utils/_fonts.util'
 @import './utils/_animation.util'
+@import './utils/_helper-classes.util'
 
 *, ::after, ::before
   box-sizing: border-box
+
+*::selection
+  color: $dark_white
+  background: $main_clr-1
 
 a, button, input, textarea, select
   &:focus
     outline: 0
     outline-offset: 0px
-    outline: 2px dotted #e2a739
+    outline: 2px solid #e2a73991
     outline-offset: 1px
 
 body
@@ -41,24 +46,25 @@ small
   color: $main_clr
 
 h1, .h1, h2, h3, h4, h5, h6
-  font-weight: 700
+  font-weight: normal
   margin-top: 0
   margin-bottom: 0.5rem
+  font-family: $uni_font
 
 h1, .h1
   font-size: 3rem
 
 h2
-  font-size: 2.2rem
-
-h3
   font-size: 2rem
 
-h4
+h3
   font-size: 1.6rem
 
-h5
+h4
   font-size: 1.3rem
+
+h5
+  font-size: 1.1rem
 
 h6
   font-size: 0.9rem
@@ -70,15 +76,17 @@ p
   margin: 0
 
 button
-  color: $app_white
+  color: $app_gray
   cursor: pointer
   border-radius: 3px
   transition: all ease 0.1s
-  background: $main_clr-hover
+  background: $app_white
   &:hover,
   &:active
     background: $main_clr-1
     color: $app_white
+  &:disabled
+    opacity: 0.8
 
 input,
 textarea,
@@ -102,15 +110,10 @@ span.loading-spinner
   display: block
   width: 20px
   height: 20px
-  border: 2px solid $white_trans
-  background: transparent
   margin-left: 1rem
   border-radius: 50%
-  border-bottom-color: $off_white
+  border-color: transparent
   @include spinner
-
-header
-  background: $app_white
 
 .dash-body
   @include fade-in

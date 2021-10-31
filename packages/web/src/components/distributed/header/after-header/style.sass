@@ -1,0 +1,104 @@
+@import '../../../../common/styles/utils/_mixins.util'
+@import '../../../../common/styles/utils/_colors.util'
+
+header.after-header
+  height: 2.5rem
+  background: $app_white
+  border-bottom: 1px solid $alt_dark-4
+  z-index: 15
+  right: 0
+  left: 0
+  top: 0
+  padding: 0
+  a
+    color: $app_gray
+  .after-header-wrapper
+    height: 100%
+    @include flex_positioning(center, space-between)
+    section
+      height: inherit
+      flex-grow: 1
+      &.left-wing
+        width: 60%
+        position: relative
+        @include flex_positioning(center, flex-start)
+        padding: 0.2rem 0
+        > button
+          padding: 0.1rem
+          padding-left: 0.3rem
+          margin-right: 3rem
+          height: inherit
+          border: none
+          border-bottom: 2px solid transparent
+          border-radius: 0
+          color: $app_gray
+          font-size: 0.9rem
+          @include flex_positioning(center, space-between)
+          background: none
+          border-radius: 3px
+          &:hover
+            border-bottom: 2px solid $app_gray
+            border-bottom-left-radius: 0
+            border-bottom-right-radius: 0
+            span
+              &.icon-down
+                display: none
+              &.icon-up
+                display: block
+            article.categories-list
+              display: block
+          span
+            &.txt
+            &.icon
+              display: inline-block
+              margin-top: 0.3rem
+              font-size: 1rem
+              margin-left: 0.5rem
+            &.icon-up
+              display: none
+        .links-wrapper
+          a
+            margin: 0 0.8rem
+            height: inherit
+            margin-top: 0.1rem
+            font-size: 0.9rem
+      &.right-wing
+        width: 40%
+        @include flex_positioning(center,flex-end)
+        .cart-info-wrapper
+          height: inherit
+          padding: 0 0.5rem
+          width: 10rem
+          @include flex_positioning(center,flex-end)
+          background: $dark_white
+          span
+            &.cart-total,
+            &.cart-count
+              font-weight: bold
+            &.cart-total
+              margin-right: 1.5rem
+              color: $app_gray
+            &.cart-count
+              background: $app_white
+              width: 1.3rem
+              height: 1.3rem
+              border-radius: 50%
+              font-size: 0.8rem
+              @include flex_positioning(center, center)
+          > div
+            @include flex_positioning(center, flex-end)
+            a
+              @include flex_positioning(center, flex-end)
+              margin: 0 0.5rem
+              font-size: 1.5rem
+              position: relative
+              &:hover
+                color: $additional_clr-1 !important
+              &:before
+                content: ''
+                background: $alt_dark-4
+                position: absolute
+                width: 1px
+                height: 1.3rem
+                left: -10px
+                top: 1px

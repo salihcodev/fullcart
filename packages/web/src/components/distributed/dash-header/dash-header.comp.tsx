@@ -25,12 +25,7 @@ const DashHeader: VFC<{}> = () => {
           </section>
           <section className="middle-wing">
             <div className="header-search">
-              <input
-                type="text"
-                name="searchingInprods"
-                id="searchingInprods"
-                placeholder="Search"
-              />
+              <input type="text" name="searchingInprods" id="searchingInprods" placeholder="Search" />
             </div>
           </section>
           <section className="right-wing">

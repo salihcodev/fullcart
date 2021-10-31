@@ -1,7 +1,11 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_mixins.util'
 
 section.pages-hero
   margin: 2rem 0
   text-align: center
+  @include flex_positioning(center,center)
+  min-height: 50vh
   .hero-wrapper
     p.hero-description
-      color: gray
+      color: $app_gray

@@ -1,6 +1,7 @@
 // pkgs:
 
 // comps:
+import Breadcrumb from '../../components/distributed/breadcrumb/breadcrumb.comp';
 
 // utils:
 import Container from '../../components/utils/container/container.util';
@@ -10,7 +11,10 @@ import './style.sass';
 const Cart = () => {
   return (
     <main className="page contact-page">
-      <Container>
+      <Container xxxl>
+        <Breadcrumb />
+      </Container>
+      <Container fluid>
         <h2>Cart</h2>
       </Container>
     </main>

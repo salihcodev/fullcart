@@ -1,11 +1,21 @@
 @import '../../../common/styles/utils/_mixins.util'
 @import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_animation.util'
 
 header.default-header
-  border-bottom: 1px solid $alt_dark-4
-  .header-wrapper
+  background: $main_clr-1
+  // global __
+  a
+    color: $app_white
+    &:hover
+      color: $additional_clr !important
+  section.user-avatar
+    &:before
+      top: 6rem
+  // __
+  .default-header-wrapper
     @include flex_positioning(center, space-between)
-    height: 5rem
+    height: 4.5rem
     section
       @include flex_positioning(center, center)
       &.left-wing
@@ -14,74 +24,84 @@ header.default-header
         justify-content: flex-start
         height: inherit
         .logo
-          height: 100%
+          height: 95%
           width: 13rem
           a
             display: block
             height: inherit
             width: inherit
-            background: url('../../../../public/assets/images/logo.svg') center/cover
+            background: url('../../../../public/assets/images/logo-light.svg') center/cover
       &.middle-wing
         flex-grow: 5
-        .header-search
-          width: 100%
-          input[type="text"]
       &.right-wing
         justify-content: flex-end
         margin-left: 0.1rem
         flex-grow: 1
         ul.routes-list
           a
-            color: $app_gray
             font-weight: 400
             text-transform: uppercase
             display: block
             font-size: 0.9rem
-            &:hover
-              color: $main_clr-1
         section
           &.main-routes-list
             section.routes-list
               @include flex_positioning(center, flex-end)
               a
                 font-size: 0.8rem
-                color: $app_gray
                 margin: 0 0.6rem
               section.auth-area
                 a
                   &:last-child
-                    border: 1px solid $main_clr-1
+                    border: 1px solid $additional_clr
                     padding: 0.6rem 0.8rem
-                    background: $main_clr-1
+                    background: $additional_clr
                     color: $app_white !important
-                    &:hover
-
               section.user-actions
-                margin-top: 0.5rem
-                margin-left: 0.5rem
+                margin-top: 0.2rem
                 a
                   font-size: 1.1rem
+                  width: 1.5rem
+                  height: 1.5rem
+                  @include flex_positioning(center, center)
           &.xs-screens-routes-list
-            position: relative
             display: none
             ul.routes-list
               text-align: center
               position: fixed
-              top: 60px
+              top: 0
               left: 0
               right: 0
               bottom: 0
               background: $main_white
               padding: 1rem
               border-bottom: 2px solid $alt_dark-3
-              a
-                margin: 1rem 0
+              z-index: 19
+              @include fade-in
+              padding-top: 4rem
+              .routes-wrapper
+                a
+                  margin: 1rem 0
+                  color: $app_gray
+              button.routes-list-closer
+                @include flex_positioning(center, center)
+                position: absolute
+                top: 1rem
+                right: 1rem
+                font-size: 1.2rem
+                padding: 0.1rem 0.4rem
+                width: 2rem
+                height: 1.5rem
+                border: none
+                &:hover
+                  background: none
+                  color: $app_gray
             button.xs-menu-toggler
               border: none
               background: none
               cursor: pointer
-              height: 2.1rem
-              width: 2.8rem
+              height: 2rem
+              width: 2.7rem
               display: block
               &:hover
                 background: transparent
@@ -89,24 +109,38 @@ header.default-header
                 display: block
                 width: 30px
                 height: 1px
-                background: $main_clr-1
+                background: $dark_white
                 margin: 7px 0
-
-@media screen and (max-width: 992px) // 992
-  header.default-header
-    section.middle-wing,
-    section.main-routes-list
-      display: none !important
-    section.xs-screens-routes-list
-      display: flex !important
+  header.pre-header,
+  header.after-header
+    padding: 0 0.5rem
+    @include flex_positioning(center, space-between)
+    > section
+      height: 100%
 
 header.non-expanded-header
   padding-top: 2rem
-  .logo
+  margin-bottom: 2rem
+  .logo-dark
     height: 6rem
     width: 15rem
     a
       display: block
       height: inherit
       width: inherit
-      background: url('../../../../public/assets/images/logo.svg') center/cover
+      background: url('../../../../public/assets/images/logo-dark.svg') center/cover
+
+@media screen and (max-width: 992px)
+  header.default-header
+  header.after-header,
+  section.middle-wing,
+  section.main-routes-list
+    display: none !important
+  section
+    &.xs-screens-routes-list
+      display: flex !important
+
+@media screen and (max-width: 769px)
+  header.default-header
+    header.pre-header
+      display: none !important

@@ -8,33 +8,24 @@ import './style.sass';
 // comps:
 
 // component>>>
-const FormInput: React.VFC<IFormInput> = ({
-  type,
-  inputName,
-  label,
-  collectInputData,
-  ...otherProps
-}) => {
+const FormInput: React.VFC<IFormInput> = ({ type, inputName, label, icon, collectInputData, ...otherProps }) => {
+  const iconInputPadding = icon ? { paddingLeft: `3rem` } : {};
+
   return (
     <div className="input-wrapper">
       {type === `textarea` ? (
         <Fragment>
           {label ? <label htmlFor={inputName}>{label}</label> : null}
-          <textarea
-            name={inputName}
-            {...otherProps}
-            onChange={(e) => collectInputData(e.target.name, e.target.value)}
-          />
+          <textarea name={inputName} {...otherProps} onChange={(e) => collectInputData(e.target.name, e.target.value)} />
         </Fragment>
       ) : (
         <Fragment>
           {label ? <label htmlFor={inputName}>{label}</label> : null}
-          <input
-            type={type}
-            name={inputName}
-            {...otherProps}
-            onChange={(e) => collectInputData(e.target.name, e.target.value)}
-          />
+          <div className="the-input">
+            {icon ? <span className="input-icon">{icon()}</span> : null}
+
+            <input type={type} name={inputName} {...otherProps} style={iconInputPadding} onChange={(e) => collectInputData(e.target.name, e.target.value)} />
+          </div>
         </Fragment>
       )}
     </div>

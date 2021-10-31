@@ -14,9 +14,9 @@ const SingleCategory = () => {
   const { category }: any = useParams();
 
   return (
-    <Container xxl>
-      <Breadcrumb />
+    <Container xxxl>
       <main className="page single-category">
+        <Breadcrumb />
         <h2>Single category {category}</h2>
       </main>
     </Container>

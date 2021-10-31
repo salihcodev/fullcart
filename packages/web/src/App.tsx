@@ -56,145 +56,69 @@ const App = () => {
     <ScrollToTop>
       <Switch>
         <Route exact path="/">
-          <Layout expanded>
-            {user && role === usersRoles.SUPPLER ? (
-              <Redirect to="/dashboard" />
-            ) : (
-              <LandingPage />
-            )}
-          </Layout>
+          <Layout expanded>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <LandingPage />}</Layout>
         </Route>
 
         {/* DASHBOARD ROUTES */}
         <Route exact path="/dashboard">
-          {user && role === usersRoles.SUPPLER ? (
-            <Dashboard />
-          ) : (
-            <Redirect to="/" />
-          )}
+          {user && role === usersRoles.SUPPLER ? <Dashboard /> : <Redirect to="/" />}
         </Route>
 
         <Route exact path="/dashboard/users">
-          {user && role === usersRoles.SUPPLER ? (
-            <DashUsers />
-          ) : (
-            <Redirect to="/" />
-          )}
+          {user && role === usersRoles.SUPPLER ? <DashUsers /> : <Redirect to="/" />}
         </Route>
 
         <Route exact path="/dashboard/products">
-          {user && role === usersRoles.SUPPLER ? (
-            <DashProducts />
-          ) : (
-            <Redirect to="/" />
-          )}
+          {user && role === usersRoles.SUPPLER ? <DashProducts /> : <Redirect to="/" />}
         </Route>
 
         <Route exact path="/dashboard/manage-products/:actionType">
-          {user && role === usersRoles.SUPPLER ? (
-            <DashManageProducts />
-          ) : (
-            <Redirect to="/" />
-          )}
+          {user && role === usersRoles.SUPPLER ? <DashManageProducts /> : <Redirect to="/" />}
         </Route>
 
         <Route exact path="/dashboard/monthly-views">
-          {user && role === usersRoles.SUPPLER ? (
-            <DashMonthlyViews />
-          ) : (
-            <Redirect to="/" />
-          )}
+          {user && role === usersRoles.SUPPLER ? <DashMonthlyViews /> : <Redirect to="/" />}
         </Route>
 
         <Route exact path="/dashboard/orders">
-          {user && role === usersRoles.SUPPLER ? (
-            <DashOrders />
-          ) : (
-            <Redirect to="/" />
-          )}
+          {user && role === usersRoles.SUPPLER ? <DashOrders /> : <Redirect to="/" />}
         </Route>
 
         {/* ROUTES FOR CUSTOMER */}
         <Route exact path="/shop">
-          <Layout expanded>
-            {user && role === usersRoles.SUPPLER ? (
-              <Redirect to="/dashboard" />
-            ) : (
-              <ShopPage />
-            )}
-          </Layout>
+          <Layout expanded>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <ShopPage />}</Layout>
         </Route>
 
         <Route exact path="/shop/:slug">
-          <Layout expanded>
-            {user && role === usersRoles.SUPPLER ? (
-              <Redirect to="/dashboard" />
-            ) : (
-              <ProductViewer />
-            )}
-          </Layout>
+          <Layout expanded>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <ProductViewer />}</Layout>
         </Route>
 
         <Route exact path="/shop/categories/:category">
-          <Layout expanded>
-            {user && role === usersRoles.SUPPLER ? (
-              <Redirect to="/dashboard" />
-            ) : (
-              <SingleCategory />
-            )}
-          </Layout>
+          <Layout expanded>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <SingleCategory />}</Layout>
         </Route>
 
         <Route exact path="/contact">
-          <Layout expanded={false}>
-            {user && role === usersRoles.SUPPLER ? (
-              <Redirect to="/dashboard" />
-            ) : (
-              <ContactPage />
-            )}
-          </Layout>
+          <Layout expanded={false}>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <ContactPage />}</Layout>
         </Route>
 
         <Route exact path="/wishlist">
-          <Layout expanded>
-            {user && role === usersRoles.SUPPLER ? (
-              <Redirect to="/dashboard" />
-            ) : (
-              <Wishlist />
-            )}
-          </Layout>
+          <Layout expanded>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <Wishlist />}</Layout>
         </Route>
 
         <Route exact path="/cart">
-          <Layout expanded>
-            {user && role === usersRoles.SUPPLER ? (
-              <Redirect to="/dashboard" />
-            ) : (
-              <Cart />
-            )}
-          </Layout>
+          <Layout expanded>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <Cart />}</Layout>
         </Route>
 
         <Route exact path="/login">
-          <Layout expanded={false}>
-            {user ? <Redirect to="/" /> : <LoginPage />}
-          </Layout>
+          <Layout expanded={false}>{user ? <Redirect to="/" /> : <LoginPage />}</Layout>
         </Route>
 
         <Route exact path="/signup">
-          <Layout expanded={false}>
-            {user ? <Redirect to="/" /> : <SignupPage />}
-          </Layout>
+          <Layout expanded={false}>{user ? <Redirect to="/" /> : <SignupPage />}</Layout>
         </Route>
 
         <Route exact path="/terms">
-          <Layout expanded>
-            {user && role === usersRoles.SUPPLER ? (
-              <Redirect to="/dashboard" />
-            ) : (
-              <TermsPage />
-            )}
-          </Layout>
+          <Layout expanded>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <TermsPage />}</Layout>
         </Route>
 
         {/* 404 */}

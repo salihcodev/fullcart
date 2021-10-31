@@ -1,0 +1,23 @@
+@import '../../../../common/styles/utils/_mixins.util'
+@import '../../../../common/styles/utils/_colors.util'
+@import '../../../../common/styles/utils/_animation.util'
+
+section.header-search
+  width: 100%
+  position: relative
+  input[type="text"]
+    border: none
+    height: 2.7rem
+  section.hot-list
+    position: absolute
+    left: -1px
+    right: -1px
+    top: 4.2rem
+    min-height: 20rem
+    z-index: 30
+    background: $app_white
+    border: 1px solid $alt_dark-4
+    border-top-width: 2px
+    border-top-left-radius: 3px
+    border-top-right-radius: 3px
+    @include fade-in

@@ -10,12 +10,12 @@ main.page.notfound-page
   .notfound-number
     font-size: 90px
     color: $app_gray
-    font-weight: 900
+    font-weight: 400
   .notfound-description
     margin: 2rem
   .redirect-home
     background: $app_white
-    border: 1px solid $main_clr
+    border: none
     padding: 0.7rem 1rem
     width: 10rem
     color: $app_gray
@@ -24,5 +24,10 @@ main.page.notfound-page
     margin: auto
     b
       color: $main_clr-1
-      margin-top: -0.1rem
+      margin-top: -5px
       display: block
+      width: 2rem
+      height: 2rem
+      background: #575e6333
+      @include flex_positioning(center, center)
+      border-radius: 50%

@@ -1,0 +1,21 @@
+@import '../../../../common/styles/utils/_mixins.util'
+@import '../../../../common/styles/utils/_colors.util'
+
+header.pre-header
+  height: 2.8rem
+  background: $main_clr
+  .action-wrapper
+    padding: 0 0.8rem
+    height: 100%
+    @include flex_positioning(center, center)
+    display: inline-flex
+    &:not(:first-child)
+      border-left: 1px solid $main_clr-1
+    a
+      @include flex_positioning(center, center)
+      span
+        &.icon
+          font-size: 1.2rem
+          margin-right: 0.6rem
+        &.txt
+          font-size: 0.8rem

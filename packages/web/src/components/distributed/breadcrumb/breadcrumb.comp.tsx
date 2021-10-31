@@ -16,8 +16,7 @@ const Breadcrumb: React.VFC<{}> = () => {
   const [ignore, ...rest]: any = pathname.split('/');
 
   const pathParts = rest.map((path: any) => {
-    const activePathStyle =
-      path === rest[rest.length - 1] ? ` #999` : `#575758`;
+    const activePathStyle = path === rest[rest.length - 1] ? ` #999` : `#575758`;
 
     return (
       <span className="link-part-wrapper" key={path}>

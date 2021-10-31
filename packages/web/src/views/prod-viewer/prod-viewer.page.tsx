@@ -10,10 +10,9 @@ import './style.sass';
 // component>>>
 const ProductViewer = () => {
   return (
-    <Container xxl>
-      <Breadcrumb />
-
+    <Container xxxl>
       <main className="page product-viewer-page">
+        <Breadcrumb />
         <h2>Product Viewer</h2>
       </main>
     </Container>

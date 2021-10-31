@@ -36,9 +36,7 @@ const NotFound = () => {
         <div className="page-wrapper">
           <div className="flex-shield">
             <h2 className="notfound-number h1">404</h2>
-            <p className="notfound-description">
-              May you hits a broken/not existed route, Sadness
-            </p>
+            <p className="notfound-description">May you hits a broken/not existed route, Sadness</p>
             <Link to="/" className="redirect-home">
               <span>Back home</span>
               <b>{redirectionCountDown}</b>

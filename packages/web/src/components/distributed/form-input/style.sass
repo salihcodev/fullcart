@@ -1,5 +1,6 @@
 @import '../../../common/styles/utils/_colors.util'
 @import '../../../common/styles/utils/_fonts.util'
+@import '../../../common/styles/utils/_mixins.util'
 
 .input-wrapper
   width: 100%
@@ -19,3 +20,18 @@
     border: 2px solid $main_clr-2
   textarea
     min-height: 10rem
+  .the-input
+    width: inherit
+    position: relative
+    span.input-icon
+      @include flex_positioning(center, center)
+      color: $alt_dark-3
+      position: absolute
+      top: 0
+      left: 0
+      font-size: 1.2rem
+      bottom: 0
+      width: 2.5rem
+      background: $dark_white
+      border-top-left-radius: 3px
+      border-bottom-left-radius: 3px

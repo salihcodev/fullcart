@@ -16,8 +16,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "src",
-    "src/common/interfaces/comps/entities-basic-stats.interface.ts"
-  ]
+  "include": ["src", "src/common/interfaces/comps/entities-basic-stats.interface.ts"]
 }
