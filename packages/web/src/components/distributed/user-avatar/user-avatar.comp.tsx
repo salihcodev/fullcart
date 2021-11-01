@@ -23,12 +23,24 @@ const UserAvatar: React.VFC<IUserAvatar> = ({ user }) => {
 
   return (
     <section className="user-avatar">
-      <Link to={`/user/${user.id}`} style={{ background: `url(${avatar})` }} className="avatar-holder"></Link>
+      <Link
+        to={`/user/${user.id}`}
+        style={{ background: `url(${avatar})` }}
+        className="avatar-holder"
+      ></Link>
 
       <div className="user-options-list">
         <div className="options-list"></div>
         <div className="logout-wrapper">
-          <AppButton handleEvent={() => dispatch(logout())} loadState={stage} value="Log out" type="button" wide size="sm" border={{ size: 1 }} />
+          <AppButton
+            handleEvent={() => dispatch(logout())}
+            loadState={stage}
+            value="Log out"
+            type="button"
+            wide
+            size="sm"
+            border={{ size: 1 }}
+          />
         </div>
       </div>
     </section>

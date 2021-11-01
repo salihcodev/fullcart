@@ -15,33 +15,41 @@ type SigningFormTypes = {
   history: any;
   formData: SignInFormTypes | SignupFormTypes;
 };
-export const signup = createAsyncThunk(`signing/signup`, async ({ history, formData }: SigningFormTypes, { rejectWithValue }) => {
-  try {
-    const { data }: AxiosResponse<AuthResponse> = await signingAPIControllers.signup(formData);
+export const signup = createAsyncThunk(
+  `signing/signup`,
+  async ({ history, formData }: SigningFormTypes, { rejectWithValue }) => {
+    try {
+      const { data }: AxiosResponse<AuthResponse> =
+        await signingAPIControllers.signup(formData);
 
-    history.push('/');
-    window.location.reload();
+      history.push('/');
+      window.location.reload();
 
-    return data;
-  } catch (err) {
-    return rejectWithValue(err);
+      return data;
+    } catch (err) {
+      return rejectWithValue(err);
+    }
   }
-});
+);
 
 //
 //
-export const signin = createAsyncThunk(`signing/signin`, async ({ history, formData }: SigningFormTypes, { rejectWithValue }) => {
-  try {
-    const { data }: AxiosResponse<AuthResponse> = await signingAPIControllers.signin(formData);
+export const signin = createAsyncThunk(
+  `signing/signin`,
+  async ({ history, formData }: SigningFormTypes, { rejectWithValue }) => {
+    try {
+      const { data }: AxiosResponse<AuthResponse> =
+        await signingAPIControllers.signin(formData);
 
-    history.push('/');
-    window.location.reload();
+      history.push('/');
+      window.location.reload();
 
-    return data;
-  } catch (err) {
-    return rejectWithValue(err);
+      return data;
+    } catch (err) {
+      return rejectWithValue(err);
+    }
   }
-});
+);
 
 export const logout = createAsyncThunk(`signing/logout`, async () => {
   localStorage.removeItem(`@authedUser`);

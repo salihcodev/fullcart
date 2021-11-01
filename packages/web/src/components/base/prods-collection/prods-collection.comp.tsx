@@ -12,18 +12,27 @@ import { ProdTypes } from '../../../common/@types/prod.types';
 import ProductCard from '../prod-card/prod-card.comp';
 
 // component>>>
-const ProdsCategoryCollection: VFC<IProdsCategoryCollection> = ({ title, catLink, prods, loadState }) => {
+const ProdsCategoryCollection: VFC<IProdsCategoryCollection> = ({
+  title,
+  catLink,
+  prods,
+  loadState,
+}) => {
   return (
     <Fragment>
       {loadState === `busy` ? (
         <section className="skeleton">
-          <h1>Loading...</h1>
+          <h2>Loading...</h2>
         </section>
       ) : (
         <section className="prods-category-collection">
-          <h5 className="collection-title">
-            <Link to={catLink}>{title}</Link>
-          </h5>
+          <header className="prods-collection-header">
+            {catLink ? (
+              <h4 className="collection-title">
+                <Link to={catLink}>{title}</Link>
+              </h4>
+            ) : null}
+          </header>
           <section className="collection-prods">
             {prods?.map(
               (prod: ProdTypes): JSX.Element => (

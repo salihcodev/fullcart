@@ -1,0 +1,46 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_animation.util'
+@import '../../../common/styles/utils//_mixins.util'
+
+section.sub-category-loader
+    position: relative
+    border: 1px solid $light_gray
+    background: $app_white
+    padding: 0.8rem 0.8rem 0.5rem
+    border-bottom-width: 3px
+    border-radius: 6px
+    margin-bottom: 1rem
+    padding-bottom: 0
+    section.sub-category-header
+        @include flex_positioning(center, space-between)
+        padding: 0.5rem 0
+        h3.category-title
+            margin-bottom: 0
+            text-transform: uppercase
+            color: $alt_dark-3
+        section.prods-paginator
+    section.category-prods
+        margin: 1.5rem 0 1rem
+        display: grid
+        grid-gap: 1.5rem 0.5rem
+        grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr))
+    // > button.slider-controller
+    //     position: absolute
+    //     top: 50%
+    //     @include flex_positioning(center,center)
+    //     border: 1px solid $alt_dark-4
+    //     width: 2.4rem
+    //     height: 2.4rem
+    //     border-radius: 50%
+    //     background: #fff5
+    //     backdrop-filter: blur(2px)
+    //     font-size: 1.5rem
+    //     color: $app_gray
+    //     transform: translate(-20%, -50%)
+    //     &.slide-prev
+    //         left: 0
+    //         padding-right: 0.7rem
+    //     &.slide-next
+    //         right: 0
+    //         padding-left: 0.7rem
+    //         transform: translate(20%, -50%)

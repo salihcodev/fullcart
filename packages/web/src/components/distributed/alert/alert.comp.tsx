@@ -60,7 +60,11 @@ const Alert: VFC<IAlert> = ({ type, title, msg }) => {
               {msg}
             </p>
           </div>
-          <button className="alert-closer" style={{ color: styles.one }} onClick={() => dispatch(closeAlert())}>
+          <button
+            className="alert-closer"
+            style={{ color: styles.one }}
+            onClick={() => dispatch(closeAlert())}
+          >
             <IoClose />
           </button>
         </section>

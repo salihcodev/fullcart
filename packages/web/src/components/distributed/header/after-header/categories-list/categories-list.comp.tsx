@@ -18,7 +18,7 @@ const CategoriesList: VFC<{}> = () => {
             {links.map((link: any) => {
               const { value, path, subItems } = link;
               return (
-                <li key={path}>
+                <li key={path} className="category">
                   <Link to={path}>{value}</Link>
                   <ul className="sub-categories-wrapper">
                     {subItems.map(({ value, path }: any) => (

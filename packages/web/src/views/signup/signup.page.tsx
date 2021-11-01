@@ -24,7 +24,9 @@ const SignupPage = () => {
   const dispatch = useDispatch();
 
   // component's state extractions and handling:
-  const { stage, failureMsg } = useAppSelector((state: RootState) => state.Auth);
+  const { stage, failureMsg } = useAppSelector(
+    (state: RootState) => state.Auth
+  );
 
   const formSchema = {
     firstName: null,
@@ -82,24 +84,38 @@ const SignupPage = () => {
                 label="Email"
                 inputName="email"
                 placeholder="john@example.com"
-                collectInputData={(name: string, value: string) => setFormData({ ...formData, [name]: value })}
+                collectInputData={(name: string, value: string) =>
+                  setFormData({ ...formData, [name]: value })
+                }
               />
               <FormInput
                 type="password"
                 label="Password"
                 inputName="password"
                 placeholder="Make sure to write a strong password"
-                collectInputData={(name: string, value: string) => setFormData({ ...formData, [name]: value })}
+                collectInputData={(name: string, value: string) =>
+                  setFormData({ ...formData, [name]: value })
+                }
               />
               <FormInput
                 type="password"
                 label="Confirm password"
                 inputName="confirmPassword"
                 placeholder="Type your password again"
-                collectInputData={(name: string, value: string) => setFormData({ ...formData, [name]: value })}
+                collectInputData={(name: string, value: string) =>
+                  setFormData({ ...formData, [name]: value })
+                }
               />
 
-              <AppButton loadState={stage} value="Sign up" type="submit" wide size="lg" bkgDefault border={{ size: 2 }} />
+              <AppButton
+                loadState={stage}
+                value="Sign up"
+                type="submit"
+                wide
+                size="lg"
+                bkgDefault
+                border={{ size: 2 }}
+              />
               <p className="not-registered">
                 Already have one? <Link to="/login">Signin</Link>
                 now!

@@ -8,13 +8,15 @@ import { RootState } from '../../../redux/store';
 
 // comps:
 import ProdsCategoryCollection from '../prods-collection/prods-collection.comp';
-import { getFurnitureProds } from '../../../redux/slices/prods-collections/furniture/logic/reading.logic';
+import { getFurnitureProds } from '../../../redux/slices/prods-collections/logic/reading.logic';
 
 // component>>>
 const ShopProdsViewer: VFC<{}> = () => {
   // use preConfigured hooks:
   const dispatch = useAppDispatch();
-  const { stage, prods } = useAppSelector((state: RootState) => state.FurnitureProds);
+  const { stage, prods: furnitureProds } = useAppSelector(
+    (state: RootState) => state.FurnitureProds
+  );
 
   useEffect(() => {
     let isMounted = true;
@@ -35,8 +37,12 @@ const ShopProdsViewer: VFC<{}> = () => {
           <h6>Results</h6>
         </section>
       )}
-
-      <ProdsCategoryCollection title="Furniture" prods={prods} loadState={stage} catLink="shop/categories/furniture" />
+      <ProdsCategoryCollection
+        title="Furniture"
+        prods={furnitureProds}
+        loadState={stage}
+        catLink="shop/categories/furniture"
+      />
     </section>
   );
 };

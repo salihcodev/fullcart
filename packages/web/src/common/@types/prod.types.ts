@@ -1,6 +1,8 @@
 export type ProdTypes = {
   productInfo?: prodInfoTypes;
   priceIncludes?: string;
+  category?: string;
+  subCategory?: string | any;
   mainMaterial?: string;
   surfaceFinishing?: string;
   handlePosition?: string;

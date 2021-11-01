@@ -10,7 +10,9 @@ import { ProdTypes } from '../../../common/@types/prod.types';
 // comps:
 
 // component>>>
-const ProductCard: VFC<{ prod: ProdTypes }> = ({ prod: { name, price, slug } }) => {
+const ProductCard: VFC<{ prod: ProdTypes }> = ({
+  prod: { name, price, slug },
+}) => {
   // use preConfigured hooks:
   // const dispatch = useAppDispatch();
 

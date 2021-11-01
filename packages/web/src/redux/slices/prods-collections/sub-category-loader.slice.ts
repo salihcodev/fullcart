@@ -1,40 +1,42 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 // util:
-import { getFurnitureProds } from './logic/reading.logic';
-import { SliceFurnitureTypes } from '../../../../common/@types/slice-prods-collections.types';
+import { LoadSubCategory } from './logic/reading.logic';
+import { SliceSubCategoryLoaderTypes } from '../../../common/@types/slice-sub-category-loader.types';
 
 // CONFIGURE THE INITIAL STATE OF THE SLICE::
-const initialState: SliceFurnitureTypes = {
+const initialState: SliceSubCategoryLoaderTypes = {
   prods: null,
-  results: null,
   stage: `idle`,
   failureMsg: null,
 };
 
 // CREATE THE SLICE::
-export const FurnitureSlice = createSlice({
-  name: `collection/furniture`,
+export const SubCategoryLoaderSlice = createSlice({
+  name: `subCategoryLoader`,
   initialState,
   reducers: {},
 
   // ADD EXTRA REDUCERS::
   extraReducers: (builder) => {
     builder
-      .addCase(getFurnitureProds.pending, (state) => {
+      //  PENDING STAGE::
+      .addCase(LoadSubCategory.pending, (state) => {
         state.stage = `busy`;
       })
-      .addCase(getFurnitureProds.fulfilled, (state, { payload }) => {
+
+      //  FULFILLED STAGE::
+      .addCase(LoadSubCategory.fulfilled, (state, { payload }) => {
         const {
           data: { prods },
-          results,
         } = payload;
 
         state.prods = prods;
-        state.results = results;
         state.stage = `idle`;
       })
-      .addCase(getFurnitureProds.rejected, (state, { payload }) => {
+
+      //  REJECTION STAGE::
+      .addCase(LoadSubCategory.rejected, (state, { payload }) => {
         state.stage = `failed`;
       });
   },
@@ -44,4 +46,4 @@ export const FurnitureSlice = createSlice({
 // export const {} = FurnitureSlice.actions;
 
 // EXPORT THE furniture-collection REDUCER::
-export default FurnitureSlice.reducer;
+export default SubCategoryLoaderSlice.reducer;

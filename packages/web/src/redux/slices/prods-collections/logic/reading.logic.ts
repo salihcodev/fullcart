@@ -3,12 +3,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosResponse } from 'axios';
 
 // utils:
-import * as api from '../../../../../api/app-resources/collections/products-api-referrers';
+import * as api from '../../../../api/app-resources/collections/products-api-referrers';
 
 // SLICE LOGICS::
-
 const fetchCategoriesProds = (cat: string) => {
-  return createAsyncThunk(`collections/${cat}`, async (options: string, { rejectWithValue }) => {
+  return createAsyncThunk(cat, async (options: string, { rejectWithValue }) => {
     try {
       const { data }: AxiosResponse<any> = await api.fetchAllProds(options);
       return data;
@@ -18,4 +17,5 @@ const fetchCategoriesProds = (cat: string) => {
   });
 };
 
-export const getFurnitureProds = fetchCategoriesProds(`furniture`);
+export const getFurnitureProds = fetchCategoriesProds(`collections/furniture`);
+export const LoadSubCategory = fetchCategoriesProds(`subCategoryLoader`);

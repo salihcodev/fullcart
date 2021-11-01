@@ -16,7 +16,10 @@ const LandingPage = () => {
     <main className="page landing-page">
       {/* hero */}
       <Container>
-        <PagesHero heading={heroHeading} description={heroDescription}></PagesHero>
+        <PagesHero
+          heading={heroHeading}
+          description={heroDescription}
+        ></PagesHero>
       </Container>
     </main>
   );

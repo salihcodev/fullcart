@@ -21,7 +21,9 @@ const ContactPage = () => {
   const dispatch = useDispatch();
 
   // component's state extractions and handling:
-  const { stage, message, status } = useAppSelector((state: RootState) => state.ContactUsForm);
+  const { stage, message, status } = useAppSelector(
+    (state: RootState) => state.ContactUsForm
+  );
 
   const formSchema = {
     name: null,
@@ -42,7 +44,11 @@ const ContactPage = () => {
         <h2 className="heading">Contact Us</h2>
 
         {/* sending email state */}
-        {status === `ok` ? <Alert title="Done" type="info" msg={message} /> : status === `failed` ? <Alert title="Failure" type="error" msg={message} /> : null}
+        {status === `ok` ? (
+          <Alert title="Done" type="info" msg={message} />
+        ) : status === `failed` ? (
+          <Alert title="Failure" type="error" msg={message} />
+        ) : null}
 
         {/* form wrapper */}
         <section className="form-wrapper">
@@ -52,23 +58,37 @@ const ContactPage = () => {
               label="Name"
               inputName="name"
               placeholder="Your name (1st, 2nd)"
-              collectInputData={(name: string, value: string) => setFormData({ ...formData, [name]: value })}
+              collectInputData={(name: string, value: string) =>
+                setFormData({ ...formData, [name]: value })
+              }
             />
             <FormInput
               type="email"
               label="Email"
               inputName="toMail"
               placeholder="john@example.com"
-              collectInputData={(name: string, value: string) => setFormData({ ...formData, [name]: value })}
+              collectInputData={(name: string, value: string) =>
+                setFormData({ ...formData, [name]: value })
+              }
             />
             <FormInput
               type="textarea"
               label="Message"
               inputName="message"
               placeholder="Write down your message..."
-              collectInputData={(name: string, value: string) => setFormData({ ...formData, [name]: value })}
+              collectInputData={(name: string, value: string) =>
+                setFormData({ ...formData, [name]: value })
+              }
             />
-            <AppButton loadState={stage} value="Submit" type="submit" wide bkgDefault size="lg" border={{ size: 2 }} />
+            <AppButton
+              loadState={stage}
+              value="Submit"
+              type="submit"
+              wide
+              bkgDefault
+              size="lg"
+              border={{ size: 2 }}
+            />
           </form>
         </section>
       </Container>

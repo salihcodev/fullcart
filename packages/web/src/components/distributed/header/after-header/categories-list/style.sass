@@ -3,6 +3,7 @@
 @import '../../../../../common/styles/utils/_animation.util'
 
 article.categories-list
+
   display: none
   text-align: left
   top: 2.3rem
@@ -29,6 +30,17 @@ article.categories-list
     display: block
     position: absolute
     height: 0.3rem
+  // global __
+  li
+    margin: 0.2rem 0
+    a
+      padding: 0.2rem 0.5rem
+      display: block
+      width: 100%
+    &:hover
+      > a
+        background: #eee
+  //__
   .list-wrapper
     display: grid
     grid-template-columns: 40% 25% 35%
@@ -43,16 +55,18 @@ article.categories-list
         padding-left: 0.1rem
         padding-top: 0.5rem
         li
-          padding: 0.2rem 0
           &:hover
             ul.sub-categories-wrapper
               display: block
           ul.sub-categories-wrapper
+            height: 100%
+            display: block
+            padding-top: 2rem
+            top: 0
             @include fade-in
             width: 11rem
             position: absolute
             display: none
-            top: 2rem
             right: -11.8rem
             &:after
               content: ""

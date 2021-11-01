@@ -9,7 +9,9 @@ import APIHandler from '../base';
 
 // setup <user> network requests
 // >>> SIGNIN, manage existed user to login
-export const signin = (userData: object) => APIHandler.post('/auth/signin', userData);
+export const signin = (userData: object) =>
+  APIHandler.post('/auth/signin', userData);
 
 // >>> SIGNUP, create new user
-export const signup = (userData: object) => APIHandler.post('/auth/signup', userData);
+export const signup = (userData: object) =>
+  APIHandler.post('/auth/signup', userData);

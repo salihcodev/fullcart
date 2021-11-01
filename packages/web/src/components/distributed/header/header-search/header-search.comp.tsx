@@ -14,7 +14,9 @@ const HeaderSearch: VFC<{}> = () => {
   // const history = useHistory();
   // const location = useLocation();
 
-  const [headerSearcherValue, setHeaderSearcherValue] = useState<string | null>(null);
+  const [headerSearcherValue, setHeaderSearcherValue] = useState<string | null>(
+    null
+  );
 
   return (
     <section className="header-search">
@@ -27,7 +29,9 @@ const HeaderSearch: VFC<{}> = () => {
         collectInputData={(_, value: string) => setHeaderSearcherValue(value)}
       />
 
-      {headerSearcherValue && headerSearcherValue.length > 0 ? <section className="hot-list">hot list</section> : null}
+      {headerSearcherValue && headerSearcherValue.length > 0 ? (
+        <section className="hot-list">hot list</section>
+      ) : null}
     </section>
   );
 };

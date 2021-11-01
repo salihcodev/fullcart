@@ -17,9 +17,13 @@ const Footer: VFC<IFooter> = ({ expanded }) => {
         <footer className="default-footer">
           <Container xxl>
             <p className="reservation">
-              <span className="icon">©</span>Copyright {new Date().getFullYear()}
+              <span className="icon">©</span>Copyright{' '}
+              {new Date().getFullYear()}
               <span>
-                <a href="https://asalih.netlify.com/me" target="_blank noopener noreferer">
+                <a
+                  href="https://asalih.netlify.com/me"
+                  target="_blank noopener noreferer"
+                >
                   @salihcodev
                 </a>
               </span>
@@ -49,9 +53,13 @@ const Footer: VFC<IFooter> = ({ expanded }) => {
               ))}
             </ul>
             <p className="reservation">
-              <span className="icon">©</span>Copyright {new Date().getFullYear()}
+              <span className="icon">©</span>Copyright{' '}
+              {new Date().getFullYear()}
               <span>
-                <a href="https://asalih.netlify.com/me" target="_blank noopener noreferer">
+                <a
+                  href="https://asalih.netlify.com/me"
+                  target="_blank noopener noreferer"
+                >
                   @salihcodev
                 </a>
               </span>

@@ -7,7 +7,11 @@ import './style.sass';
 // comps:
 
 // components>>>
-const PagesHero: React.VFC<IPagesHero> = ({ children, heading, description }) => {
+const PagesHero: React.VFC<IPagesHero> = ({
+  children,
+  heading,
+  description,
+}) => {
   return (
     <section className="pages-hero">
       <div className="hero-wrapper">
