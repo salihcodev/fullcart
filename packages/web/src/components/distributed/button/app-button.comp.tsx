@@ -18,7 +18,8 @@ const AppButton: React.VFC<IAppButton> = ({
   border,
   handleEvent,
 }) => {
-  const buttonCursorDisability = loadState === `busy` ? `not-allowed` : `auto`;
+  const buttonCursorDisability =
+    loadState === `busy` ? `not-allowed` : `pointer`;
 
   const handelClickEvent = () => {
     if (handleEvent) handleEvent();
@@ -43,18 +44,17 @@ const AppButton: React.VFC<IAppButton> = ({
         };
 
   const borderColor = bkgDefault
-    ? `#474379`
+    ? `#35475d`
     : bkgSecondary
     ? `#c48232`
-    : `#f5f6f7`;
+    : `#ddd`;
   const bkgColor = bkgDefault
-    ? `#56518f`
+    ? `#4b6483`
     : bkgSecondary
     ? `#e0b989`
     : `#f5f6f7`;
 
-  const sizeValue =
-    size === `sm` ? `2.2rem` : size === `md` ? `2.5rem` : `3rem`;
+  const sizeValue = size === `sm` ? `2rem` : size === `md` ? `2.5rem` : `3rem`;
 
   return (
     <Fragment>

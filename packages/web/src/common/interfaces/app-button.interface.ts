@@ -1,7 +1,7 @@
 export interface IAppButton {
   loadState?: string;
   path?: string;
-  value: string;
+  value: any;
   type: `button` | `submit` | `reset`;
   wide: boolean;
   size: `sm` | `md` | `lg`;

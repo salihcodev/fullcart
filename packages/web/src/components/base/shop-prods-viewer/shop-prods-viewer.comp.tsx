@@ -41,7 +41,7 @@ const ShopProdsViewer: VFC<{}> = () => {
         title="Furniture"
         prods={furnitureProds}
         loadState={stage}
-        catLink="shop/categories/furniture"
+        catLink="shop/furniture"
       />
     </section>
   );

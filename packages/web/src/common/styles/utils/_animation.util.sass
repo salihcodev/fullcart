@@ -3,10 +3,13 @@
   animation: frombottom ease-in-out 0.3s
 
 @mixin fade-in
-  animation: fadein ease-in-out 0.3s
+  animation: fadein ease 0.3s
 
 @mixin heart-bumbing
   animation: heartbumbing ease-in-out 2s infinite
+
+@mixin pop-up
+  animation: pop ease 0.3s
 
 @mixin spinner
   animation: spinning linear 0.3s infinite
@@ -39,3 +42,9 @@
     transform: rotate(0deg)
   100%
     transform: rotate(360deg)
+
+@keyframes pop
+  0%
+    transform: scale(0)
+  100%
+    transform: scale(1)

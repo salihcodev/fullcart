@@ -60,7 +60,7 @@ const SingleCategory = () => {
               title={key}
               prods={subProds[key]}
               loadState={stage}
-              catLink={`${pathname}/sub-category/${key}`}
+              catLink={`${pathname}/${key}`}
               showPagination
             />
           );

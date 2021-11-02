@@ -126,7 +126,7 @@ const App = () => {
           </Layout>
         </Route>
 
-        <Route exact path="/shop/:slug">
+        <Route exact path="/shop/:category/:subCategory/:slug">
           <Layout expanded>
             {user && role === usersRoles.SUPPLER ? (
               <Redirect to="/dashboard" />
@@ -136,7 +136,7 @@ const App = () => {
           </Layout>
         </Route>
 
-        <Route exact path="/shop/categories/:category">
+        <Route exact path="/shop/:category">
           <Layout expanded>
             {user && role === usersRoles.SUPPLER ? (
               <Redirect to="/dashboard" />
@@ -146,10 +146,7 @@ const App = () => {
           </Layout>
         </Route>
 
-        <Route
-          exact
-          path="/shop/categories/:category/sub-category/:subCategory"
-        >
+        <Route exact path="/shop/:category/:subCategory">
           <Layout expanded>
             {user && role === usersRoles.SUPPLER ? (
               <Redirect to="/dashboard" />
@@ -213,7 +210,7 @@ const App = () => {
 
         {/* 404 */}
         <Route path="*">
-          <Layout expanded>
+          <Layout expanded={false}>
             <NotFound />
           </Layout>
         </Route>
