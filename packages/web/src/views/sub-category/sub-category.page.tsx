@@ -19,7 +19,7 @@ const SubCategory = () => {
   const { subCategory }: any = useParams();
 
   return (
-    <Container xxxl>
+    <Container xxl>
       <main className="page sub-category">
         <Breadcrumb />
         <SubCategoryCollection subCategory={subCategory} />

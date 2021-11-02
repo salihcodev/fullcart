@@ -21,7 +21,7 @@ const ProdsCategoryCollection: VFC<IProdsCategoryCollection> = ({
   return (
     <Fragment>
       {loadState === `busy` ? (
-        <section className="skeleton">
+        <section className="skeleton" style={{ minHeight: `22rem` }}>
           <h2>Loading...</h2>
         </section>
       ) : (

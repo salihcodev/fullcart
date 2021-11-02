@@ -1,5 +1,5 @@
 // pkgs:
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 
 // utils:
@@ -18,6 +18,7 @@ const SingleCategory = () => {
   // preConfigured hooks:
   const { category }: any = useParams();
   const { pathname }: any = useLocation();
+  const [subProdsKeys, setSubProdsKeys] = useState<string[] | null>(null);
   const dispatch = useAppDispatch();
   const { stage, subProds } = useAppSelector(
     (state: RootState) => state.FurnitureProds
@@ -42,13 +43,18 @@ const SingleCategory = () => {
     };
   }, [category, dispatch]);
 
-  const subProdsKeys = Object.keys(subProds);
+  useEffect(() => {
+    if (subProds) {
+      setSubProdsKeys(Object.keys(subProds));
+    }
+  }, [subProds]);
+
   return (
-    <Container xxxl>
+    <Container xxl>
       <main className="page single-category">
         <Breadcrumb />
         <h2 className="single-category-heading">Single category {category}</h2>
-        {subProdsKeys.map((key) => {
+        {subProdsKeys?.map((key) => {
           return (
             <ProdsCategoryCollection
               title={key}
