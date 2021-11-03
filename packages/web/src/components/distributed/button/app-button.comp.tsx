@@ -17,6 +17,7 @@ const AppButton: React.VFC<IAppButton> = ({
   bkgSecondary,
   border,
   handleEvent,
+  noBorder,
 }) => {
   const buttonCursorDisability =
     loadState === `busy` ? `not-allowed` : `pointer`;
@@ -64,7 +65,9 @@ const AppButton: React.VFC<IAppButton> = ({
           style={{
             width: fullWidth,
             height: sizeValue,
-            border: `${borderValue} solid ${borderColor}`,
+            border: `${borderValue} solid ${
+              noBorder ? `transparent` : borderColor
+            }`,
             background: bkgColor,
             color,
           }}
@@ -78,7 +81,9 @@ const AppButton: React.VFC<IAppButton> = ({
           style={{
             width: fullWidth,
             height: sizeValue,
-            border: `${borderValue} solid ${borderColor}`,
+            border: `${borderValue} solid ${
+              noBorder ? `transparent` : borderColor
+            }`,
             background: bkgColor,
             color,
             cursor: buttonCursorDisability,

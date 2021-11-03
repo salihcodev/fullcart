@@ -115,6 +115,7 @@ const SignupPage = () => {
                 size="lg"
                 bkgDefault
                 border={{ size: 1 }}
+                noBorder={false}
               />
               <p className="not-registered">
                 Already have one? <Link to="/login">Signin</Link>

@@ -23,7 +23,7 @@ const DashboardAside = () => {
   const location = useLocation();
 
   const navRouteActiveStyle = {
-    color: '#444179',
+    color: '#4b6483',
     background: '#ececec',
   };
 

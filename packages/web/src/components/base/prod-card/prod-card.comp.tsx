@@ -77,6 +77,7 @@ const ProductCard: VFC<{ prod: ProdTypes }> = ({
               size="sm"
               bkgDefault
               border={{ size: 1 }}
+              noBorder={false}
             />
             <AppButton
               loadState={`idle`}
@@ -85,6 +86,7 @@ const ProductCard: VFC<{ prod: ProdTypes }> = ({
               wide={false}
               size="sm"
               border={{ size: 1 }}
+              noBorder
             />
           </section>
         </section>

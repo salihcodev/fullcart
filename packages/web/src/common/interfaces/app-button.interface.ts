@@ -9,4 +9,5 @@ export interface IAppButton {
   bkgDefault?: boolean;
   bkgSecondary?: boolean;
   handleEvent?: any;
+  noBorder: boolean;
 }

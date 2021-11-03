@@ -40,6 +40,7 @@ const UserAvatar: React.VFC<IUserAvatar> = ({ user }) => {
             wide
             size="sm"
             border={{ size: 1 }}
+            noBorder
           />
         </div>
       </div>
