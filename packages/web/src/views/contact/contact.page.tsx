@@ -87,7 +87,7 @@ const ContactPage = () => {
               wide
               bkgDefault
               size="lg"
-              border={{ size: 2 }}
+              border={{ size: 1 }}
             />
           </form>
         </section>

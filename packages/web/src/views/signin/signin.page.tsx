@@ -76,7 +76,7 @@ const LoginPage = () => {
                 wide
                 size="lg"
                 bkgDefault
-                border={{ size: 2 }}
+                border={{ size: 1 }}
               />
 
               <p className="not-registered">
