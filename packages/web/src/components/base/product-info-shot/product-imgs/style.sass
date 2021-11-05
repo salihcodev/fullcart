@@ -1,0 +1,45 @@
+@import '../../../../common/styles/utils/_colors.util'
+@import '../../../../common/styles/utils/_mixins.util'
+@import '../../../../common/styles/utils/_fonts.util'
+
+section.prod-imgs
+    position: relative
+    .button-holder
+        position: absolute
+        top: 1rem
+        right: 1rem
+        z-index: 5
+        width: 1.9rem
+        height: 1.9rem
+        button
+            border-radius: 50%
+            width: inherit
+            height: inherit
+            border: none
+            background: $white_trans
+            backdrop-filter: blur(5px)
+            span.icon
+                @include flex_positioning(center, center)
+                color: $alt_dark-3
+                font-size: 1.3rem
+                &:hover
+                    color: $alt_dark-3
+            span.spinner-for-wish
+                &.loading-spinner
+                    background: $dark_trans
+                    border-top-color: $main_clr-1
+                    border-width: 2px
+                    border-style: solid
+                    margin: 0
+
+    section.prod-imgs-pickers
+        margin-top: 1rem
+        @include flex_positioning(center, center)
+        button.img-picker
+            width: 3.5rem
+            height: 3.5rem
+            border-radius: 1px
+            margin: 0 0.2rem
+            border: 1px solid $main_clr-1
+            // &:not(:last-of-type)
+            //     border-right: 0

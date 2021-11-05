@@ -34,13 +34,13 @@ const AppButton: React.VFC<IAppButton> = ({
   const spinnerStyle =
     bkgSecondary || bkgDefault
       ? {
-          borderTopColor: `#f5f6f7`,
+          borderTopColor: `#faeddb`,
           borderWidth: `2px`,
           borderStyle: `solid`,
           background: `#f5f6f733`,
         }
       : {
-          borderTopColor: `#575e63`,
+          borderTopColor: `#35475d`,
           borderWidth: `2px`,
           borderStyle: `solid`,
           background: `#575e6344`,

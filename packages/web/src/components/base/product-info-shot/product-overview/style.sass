@@ -1,0 +1,157 @@
+@import '../../../../common/styles/utils/_colors.util'
+@import '../../../../common/styles/utils/_mixins.util'
+@import '../../../../common/styles/utils/_fonts.util'
+
+section.prod-overview
+    padding: 1rem
+    padding-top: 0.5rem
+    background: $app_white
+    section.prod-part
+        min-height: 4rem
+        padding: 0.5rem
+        padding-bottom: 0.8rem
+        &:first-child
+            padding-top: 0
+        &:not(:first-child)
+            border-top: 1px dashed $alt_dark-4
+        &.must-info
+            h5.heading
+                font-family: $main_font
+            span.model
+                font-weight: 500
+                color: $additional_clr
+                margin-top: 1rem
+                display: block
+            .flags
+                margin-bottom: 1.5rem
+                @include flex_positioning(center, space-between)
+                background: $additional_clr-tone
+                span
+                    font-size: 0.8rem
+                    color: $additional_clr-2
+                    &.value
+                        padding: 0.2rem
+                    &.icon
+                        border: 1px solid $additional_clr-2
+                        border-radius: 50%
+                        width: 0.9rem
+                        height: 0.9rem
+                > div
+                    @include flex_positioning(center, flex-start)
+                    &:first-of-type
+                        span
+                            background: $main_clr-grad-1
+                            border-radius: 3px
+                            color: $dark_white
+        &.dozens-offers
+            display: grid
+            grid-gap: 0.5rem 1rem
+            grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr))
+            section.offer
+                padding: 0.5rem 0
+                span
+                    &:first-of-type
+                        color: $alt_dark-3
+                    &:last-of-type
+                        display: block
+                        margin-top: 0.4rem
+                        font-weight: 500
+                        font-size: 1rem
+                    &:nth-of-type(2)
+                        margin: 0 0.2rem
+                &:first-of-type
+                    span
+                        &:last-of-type
+                            color: $main_clr-1
+        &.colors-and-quantity-controllers
+            @include flex_positioning(center, flex-start)
+            section
+                display: flex
+                flex-grow: 1
+                &.available-colors
+                    > div
+                        display: flex
+                    span
+                        display: block
+                        width: 2rem
+                        height: 2rem
+                        border-radius: 50%
+                        border: 2px solid $app_white
+                        margin-left: -0.5rem
+                        &:hover
+                            border-color: $additional_clr-1
+                &.quantity-controllers
+                    span.fixed-prod-price
+                        margin-right: 2rem
+                        font-size: 1rem
+                        display: block
+                        margin-top: 0.2rem
+                    button
+                        @include flex_positioning(center, center)
+                        border: 1px solid $alt_dark-4
+                        width: 2rem
+                        color: $main_clr-1
+                        font-size: 1.1rem
+                        border: 1px solid $main_clr-1
+                        &:hover
+                            color: $dark_white
+                        &:first-of-type
+                            border-top-left-radius: 6px
+                            border-bottom-left-radius: 6px
+                        &:last-of-type
+                            border-top-right-radius: 6px
+                            border-bottom-right-radius: 6px
+                    input
+                        border: none
+                        text-align: center
+                        margin: 0 0.2rem
+                        width: 3rem
+                    button, input
+                        height: 1.5rem
+        &.request-simple,
+        &.protection-cover,
+        &.refunding-policy
+            @include flex_positioning(center, flex-start)
+            section
+                @include flex_positioning(center, flex-start)
+                &:first-of-type
+                    margin-right: 1rem
+        &.request-simple
+            a
+                font-weight: normal
+                &:hover
+                    text-decoration: underline
+                span.icon
+                    color: $additional_clr
+        &.protection-cover
+            p
+                @include flex_positioning(center, center)
+                span
+                    &.icon
+                        display: inline-block
+                        font-size: 1.2rem
+                        color: $additional_clr-2
+                        border-radius: 50%
+                        width: 1.5rem
+                        height: 1.5rem
+                        @include flex_positioning(center, center)
+                        margin-right: 0.3rem
+                    &.value
+                        margin-right: 0.5rem
+                small
+                    color: $additional_clr
+        &.refunding-policy
+            @include flex_positioning(center, flex-start)
+            p
+                @include flex_positioning(center, center)
+                span
+                    &.icon
+                        display: inline-block
+                        font-size: 0.9rem
+                        color: $additional_clr-2
+                        border: 1px solid $additional_clr-2
+                        border-radius: 50%
+                        width: 1rem
+                        height: 1rem
+                        @include flex_positioning(center, center)
+                        margin-right: 0.3rem

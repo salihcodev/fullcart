@@ -8,7 +8,8 @@ article.product-decision
     section.to-order-info
         padding: 0.5rem
         section
-            padding: 0.5rem
+            &:not(:last-of-type)
+                padding: 0.5rem
             &:not(:last-child)
                 border-bottom: 1px dotted $alt_dark-4
             &:last-child
