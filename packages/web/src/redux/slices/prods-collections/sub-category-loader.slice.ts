@@ -43,7 +43,6 @@ export const SubCategoryLoaderSlice = createSlice({
 });
 
 // EXPORT THE ACTIONS::
-// export const {} = FurnitureSlice.actions;
 
 // EXPORT THE furniture-collection REDUCER::
 export default SubCategoryLoaderSlice.reducer;

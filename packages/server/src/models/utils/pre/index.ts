@@ -15,7 +15,7 @@ export const populatingFields = (field: string, ignored: string[]): void => {
 
 export const slugifyIt = (): void => {
     ProductSchema.pre(`save`, function (next) {
-        this.slug = slugify(`${this.name}(${this.model})`);
+        this.slug = slugify(`${this.name}`);
 
         next();
     });

@@ -17,7 +17,7 @@ import AppButton from '../../distributed/button/app-button.comp';
 
 // component>>>
 const ProductCard: VFC<{ prod: ProdTypes }> = ({
-  prod: { name, price, slug, category, subCategory },
+  prod: { name, priceInDollar, slug, category, subCategory },
 }) => {
   // use preConfigured hooks:
   // const dispatch = useAppDispatch();
@@ -99,7 +99,7 @@ const ProductCard: VFC<{ prod: ProdTypes }> = ({
           <div className="rating-stats">stats in stars</div>
           <small className="total-votes">(total votes)</small>
         </section>
-        <h6 className="price">${price}/piece</h6>
+        <h6 className="price">${priceInDollar}/piece</h6>
       </section>
     </div>
   );

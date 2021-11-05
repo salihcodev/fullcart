@@ -8,7 +8,7 @@ import { RootState } from '../../../redux/store';
 
 // comps:
 import ProdsCategoryCollection from '../prods-collection/prods-collection.comp';
-import { getFurnitureProds } from '../../../redux/slices/prods-collections/logic/reading.logic';
+import { GetFurnitureProds } from '../../../redux/slices/prods-collections/logic/reading.logic';
 
 // component>>>
 const ShopProdsViewer: VFC<{}> = () => {
@@ -22,7 +22,7 @@ const ShopProdsViewer: VFC<{}> = () => {
     let isMounted = true;
 
     if (isMounted) {
-      dispatch(getFurnitureProds(`?category=furniture&limit=10`));
+      dispatch(GetFurnitureProds(`?category=pet-products&limit=10`));
     }
 
     return () => {
@@ -38,10 +38,10 @@ const ShopProdsViewer: VFC<{}> = () => {
         </section>
       )}
       <ProdsCategoryCollection
-        title="Furniture"
+        title="pet-products"
         prods={furnitureProds}
         loadState={stage}
-        catLink="shop/furniture"
+        catLink="shop/pet-products"
       />
     </section>
   );

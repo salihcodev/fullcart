@@ -41,6 +41,9 @@ const Alert: VFC<IAlert> = ({ type, title, msg }) => {
     }
   }, [type]);
 
+  const defaultBorderColor = type === `` ? `#ddd` : styles.one;
+  const defaultTitleColor = type === `` ? `#d39e5f` : styles.one;
+
   return (
     <Fragment>
       {isAlertOpened ? (
@@ -48,12 +51,12 @@ const Alert: VFC<IAlert> = ({ type, title, msg }) => {
           className="alert"
           style={{
             backgroundColor: styles.two,
-            border: `1px solid ${styles.one}`,
+            border: `1px solid ${defaultBorderColor}`,
           }}
         >
           {/* the wrapper */}
           <div className="alert-wrapper">
-            <h6 className="heading" style={{ color: styles.one }}>
+            <h6 className="heading" style={{ color: defaultTitleColor }}>
               {title}
             </h6>
             <p className="msg" style={{ color: styles.one }}>

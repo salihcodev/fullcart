@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import './style.sass';
 import { IProdsCategoryCollection } from '../../../common/interfaces/prods-row.interface';
 import { ProdTypes } from '../../../common/@types/prod.types';
+import unDashed from '../../../common/utilities/undashed.util';
 
 // comps:
 import ProductCard from '../prod-card/prod-card.comp';
@@ -29,7 +30,7 @@ const ProdsCategoryCollection: VFC<IProdsCategoryCollection> = ({
           <header className="prods-collection-header">
             {catLink ? (
               <h4 className="collection-title">
-                <Link to={catLink}>{title}</Link>
+                <Link to={catLink}>{unDashed(title)}</Link>
               </h4>
             ) : null}
           </header>

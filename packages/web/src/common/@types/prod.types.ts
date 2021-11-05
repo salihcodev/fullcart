@@ -1,30 +1,46 @@
 export type ProdTypes = {
-  productInfo?: prodInfoTypes;
-  priceIncludes?: string;
+  name?: string;
+  slug?: string;
+  priceInDollar?: number;
+  cover?: string;
+  port?: string;
   category?: string;
-  subCategory?: string | any;
+  subCategory?: any;
+  payment?: string;
+  warranty?: number;
+  warrantyIn?: string;
+  style?: string;
+  type?: string;
+  isReadyToShip?: boolean;
+  isFastToDispatch?: boolean;
+  stock?: number;
+  minimumOrder?: number;
+  availableColors?: string[];
+  dozensOffers?: { dozensAmount: string; dozenPrice: number }[];
+  features?: string[];
+  images?: string[];
+  productInfo?: prodInfoTypes;
+  deliveryPackage?: deliveryPackageTypes;
+  _id?: string;
+  suppler?: any;
+};
+
+type prodInfoTypes = {
+  model?: string[];
+  priceIncludes?: string;
   mainMaterial?: string;
-  surfaceFinishing?: string;
   handlePosition?: string;
   position?: string;
   leadingTime?: string;
   transportPackage?: string;
   origin?: string;
   hsCode?: string;
-  _id?: string;
-  name?: string;
-  slug?: string;
-  price?: number;
-  cover?: string;
-  port?: string;
-  payment?: string;
-  afterSales?: string;
-  warranty?: number;
-  style?: string;
-  type?: string;
-  features?: [string];
-  images?: [string];
-  createdAt?: string;
 };
 
-type prodInfoTypes = { modelNumber: string; availableColors: [string] };
+type deliveryPackageTypes = {
+  sellingUnits?: string;
+  singlePackageSize?: string;
+  singleGrossWeight?: string;
+  packageType?: string;
+  leadingTime?: number;
+};

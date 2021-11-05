@@ -25,6 +25,7 @@
             transition: 0.2s ease
             border-bottom: 1px solid $alt_dark-4
             display: none
+            @include fade-in
             z-index: 10
             background: #fff7
             height: 15rem
@@ -75,8 +76,9 @@
                     &:first-child
                         margin-right: 0.3rem
                     &:last-child
-                        font-size: 1.3rem
                         align-items: baseline
+                        span
+                            font-size: 1.3rem !important
     .prod-basic-info
         padding: 1rem 0.5rem
         section.rating

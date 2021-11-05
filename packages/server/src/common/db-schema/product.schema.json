@@ -1,36 +1,54 @@
 {
-    "name": "Modern Home Hotel Hospital Residential Condo Interior Kitchen Bath prod",
-    "price": 89.9,
-    "cover": "",
+    "name": "Portable bag for cats go out breathing backpack portable pet carrier for dogs and cats small pet travel bag",
+    "priceInDollar": 4.6,
+    "cover": "https://sc04.alicdn.com/kf/Hc7912c5b573e4ac5aa2f0707aa504674i.jpg",
     "port": "Ningbo, China",
-    "payment": "T/T",
-    "category": "furniture",
-    "subCategory": "office",
-    "afterSales": "ru",
-    "warranty": 4,
-    "style": "European Style",
-    "type": "Couch",
-    "features": [
-        "Simple and fashionable design of European style.",
-        "3D visual effect makes design and function focused together perfectly and sharp color contrast for high visional impact.",
-        "Different filling such as MDF strips, honeycomb and tube particleboard to meet different requirement and price level.",
-        "80 dmm thicker PVC banding prevents the prod edge from being degumming.",
-        "The moisture content of wood is 10-12% that keep the prod stable.",
-        "The PVC is laminated on the MDF less than 200 degree temperature, which guarantees the prod with curves against blister even in desert areas like Las Vegas, North Africa.",
-        "Warranty: 5 years paid limited warranty."
+    "payment": "Paypal, Western Union",
+    "category": "pet-products",
+    "subCategory": "pet-wares",
+    "warranty": 1,
+    "style": "",
+    "isReadyToShip": true,
+    "isFastToDispatch": true,
+    "stock": 3252,
+    "minimumOrder": 2,
+    "type": "Pet Cages, Carriers & Houses, Pet Parrot Carrier Bag",
+    "availableColors": ["#333", "#fdfd", "#cdf150"],
+    "dozensOffers": [
+        { "dozensAmount": "2 - 49", "dozenPrice": 4.6 },
+        { "dozensAmount": "49 - 199", "dozenPrice": 4.2 },
+        { "dozensAmount": ">=200", "dozenPrice": 3.9 }
     ],
-    "images": [],
+    "features": [
+        "Breathable",
+        "Sustainable",
+        "Windproof",
+        "Stocked",
+        "Warranty: 1 years paid limited warranty."
+    ],
+    "images": [
+        "https://sc04.alicdn.com/kf/Hc7912c5b573e4ac5aa2f0707aa504674i.jpg",
+        "https://sc04.alicdn.com/kf/H9c660535aa6142108e05e1af782daa69A.jpg",
+        "https://sc04.alicdn.com/kf/H20a69d3222034a6da7d6e66363f632763.jpg",
+        "https://sc04.alicdn.com/kf/Hb11875c831e34a17ab8c4636481bb4d0w.jpg",
+        "https://sc04.alicdn.com/kf/Hde8be5b529024a68ab863f7adc01469dU.jpg"
+    ],
     "productInfo": {
-        "availableColors": ["#333", "#fdfd", "#cdf150"],
-        "modelNumber": "DM21BC-971",
+        "model": "DM21BC-971",
         "priceIncludes": "The viewed piece only",
-        "mainMaterial": "Left/Right",
-        "surfaceFinishing": "Finished",
-        "handlePosition": "Solid Wood + MDF with PVC Lamination",
-        "position": "room",
+        "mainMaterial": "Fiber",
+        "handlePosition": "Left/Right",
+        "position": "Rooms/Out Doors",
         "leadingTime": "About 25days/500sets",
         "transportPackage": "Carton or Customized",
         "origin": "China",
         "hsCode": "4418200090"
+    },
+    "deliveryPackage": {
+        "sellingUnits": "Single item",
+        "singlePackageSize": "40X40X10 cm",
+        "singleGrossWeight": "0.450 kg",
+        "packageType": "Each one is individually wrapped in a clear plastic bag",
+        "leadingTime": 10
     }
 }

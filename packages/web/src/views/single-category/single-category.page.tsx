@@ -7,7 +7,7 @@ import './style.sass';
 import Container from '../../components/utils/container/container.util';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { RootState } from '../../redux/store';
-import { getFurnitureProds } from '../../redux/slices/prods-collections/logic/reading.logic';
+import { GetFurnitureProds } from '../../redux/slices/prods-collections/logic/reading.logic';
 
 // comps:
 import Breadcrumb from '../../components/distributed/breadcrumb/breadcrumb.comp';
@@ -30,7 +30,7 @@ const SingleCategory = () => {
     if (isMounted) {
       switch (category) {
         case `furniture`:
-          dispatch(getFurnitureProds(`?category=${category}&limit=10`));
+          dispatch(GetFurnitureProds(`?category=${category}&limit=10`));
           break;
 
         default:

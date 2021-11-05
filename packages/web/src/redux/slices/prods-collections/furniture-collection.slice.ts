@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 // util:
-import { getFurnitureProds } from './logic/reading.logic';
+import { GetFurnitureProds } from './logic/reading.logic';
 import { SliceFurnitureTypes } from '../../../common/@types/slice-prods-collections.types';
 import { categorizeSubCategories } from './logic/categorize-sub-categories.logic';
 
@@ -23,12 +23,12 @@ export const FurnitureSlice = createSlice({
   extraReducers: (builder) => {
     builder
       //  PENDING STAGE::
-      .addCase(getFurnitureProds.pending, (state) => {
+      .addCase(GetFurnitureProds.pending, (state) => {
         state.stage = `busy`;
       })
 
       //  FULFILLED STAGE::
-      .addCase(getFurnitureProds.fulfilled, (state, { payload }) => {
+      .addCase(GetFurnitureProds.fulfilled, (state, { payload }) => {
         const {
           data: { prods },
         } = payload;
@@ -40,7 +40,7 @@ export const FurnitureSlice = createSlice({
       })
 
       //  REJECTION STAGE::
-      .addCase(getFurnitureProds.rejected, (state, { payload }) => {
+      .addCase(GetFurnitureProds.rejected, (state, { payload }) => {
         state.stage = `failed`;
       });
   },

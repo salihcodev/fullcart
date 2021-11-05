@@ -1,0 +1,60 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_mixins.util'
+
+article.product-decision
+    background: $app_white
+    padding-bottom: 1rem
+    font-size: 0.9rem
+    section.to-order-info
+        padding: 0.5rem
+        section
+            padding: 0.5rem
+            &:not(:last-child)
+                border-bottom: 1px dotted $alt_dark-4
+            &:last-child
+                margin-top: 1.5rem
+            &.order-actions
+                a
+                    font-weight: normal
+                a
+                    margin: 0.5rem 0
+                    &:nth-child(1)
+                        height: 2.1rem !important
+                        margin-bottom: 0.8rem
+                    &:nth-child(2)
+                        border-color: $main_clr-1 !important
+                        border-bottom-width: 1px !important
+                button
+                    margin-top: 1rem
+            p
+                &:first-of-type
+                    @include flex_positioning(center, space-between)
+                &:last-of-type
+                    margin-top: 1rem
+                    @include flex_positioning(center, flex-end)
+                    span
+                        &.title
+                            display: inline-block
+                        &.value
+                            font-weight: 500
+                &.shipped-by
+                    text-transform: uppercase
+                    color: $additional_clr
+                &.processing-time
+                    span
+                        &.icon
+                            font-size: 1.2rem
+                            color: $alt_dark-3
+                            margin: 0
+                            margin-left: 0.5rem
+                        &.txt
+                            margin-right: 0.3rem
+                            display: inline-block
+                        &.txt2
+                            font-weight: 500
+                span
+                    &.title,
+                    &.icon
+                        margin-right: 0.5rem
+                    &.value
+                        font-weight: bold

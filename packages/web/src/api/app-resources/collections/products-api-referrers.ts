@@ -21,6 +21,6 @@ export const updateProd = (
   prodToUpdate: object
 ) => APIHandler.patch(`/products/${id}`, prodToUpdate);
 
-// >>> GET, get product with its `id`::
-export const getSingleProd = (category: string, id: string) =>
-  APIHandler.get(`/products/s/${id}`);
+// >>> GET, get product with its `id` or `slug::
+export const fetchSingleProd = (valueToFetchWith: string) =>
+  APIHandler.get(`/products/s/${valueToFetchWith}`);

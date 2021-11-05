@@ -18,6 +18,8 @@ const AppButton: React.VFC<IAppButton> = ({
   border,
   handleEvent,
   noBorder,
+  icon,
+  isIconBefore,
 }) => {
   const buttonCursorDisability =
     loadState === `busy` ? `not-allowed` : `pointer`;
@@ -73,7 +75,9 @@ const AppButton: React.VFC<IAppButton> = ({
           }}
           className="app-button"
         >
-          {value}
+          {icon && isIconBefore ? <span className="icon">{icon}</span> : null}
+          <span className="value">{value}</span>
+          {icon && !isIconBefore ? <span className="icon">{icon}</span> : null}
         </Link>
       ) : (
         <button
@@ -92,7 +96,10 @@ const AppButton: React.VFC<IAppButton> = ({
           disabled={loadState === `busy` ? true : false}
           onClick={handelClickEvent}
         >
-          <span>{value}</span>
+          {icon && isIconBefore ? <span className="icon">{icon}</span> : null}
+          <span className="value">{value}</span>
+          {icon && !isIconBefore ? <span className="icon">{icon}</span> : null}
+
           {loadState === `busy` ? (
             <span className="loading-spinner" style={spinnerStyle}></span>
           ) : null}

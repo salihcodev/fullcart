@@ -1,11 +1,11 @@
 // pkgs:
 import { BsChevronRight } from 'react-icons/bs';
-import { GrHomeRounded } from 'react-icons/gr';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 // utils:
 import './style.sass';
+import unDashed from '../../../common/utilities/undashed.util';
 
 // comps:
 
@@ -26,8 +26,8 @@ const Breadcrumb: React.VFC<{}> = () => {
         </small>
 
         <span className="path" style={{ color: activePathStyle }}>
-          {path.substring(0, 40)}
-          {path.length >= 40 ? `...` : null}
+          {unDashed(path).substring(0, 40)}
+          {unDashed(path).length >= 40 ? `...` : null}
         </span>
         {/* <Link className="path-part" to={path} key={path}>
           {path}

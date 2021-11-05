@@ -10,4 +10,6 @@ export interface IAppButton {
   bkgSecondary?: boolean;
   handleEvent?: any;
   noBorder: boolean;
+  icon?: any;
+  isIconBefore?: boolean;
 }

@@ -17,5 +17,23 @@ const fetchCategoriesProds = (cat: string) => {
   });
 };
 
-export const getFurnitureProds = fetchCategoriesProds(`collections/furniture`);
+const fetchSingleProd = (fetchBy: string) => {
+  return createAsyncThunk(
+    `getSingleProd/${fetchBy}`,
+    async (valueToFetchWith: string, { rejectWithValue }) => {
+      try {
+        const { data }: AxiosResponse<any> = await api.fetchSingleProd(
+          valueToFetchWith
+        );
+        return data;
+      } catch (err) {
+        return rejectWithValue(err);
+      }
+    }
+  );
+};
+
+export const GetFurnitureProds = fetchCategoriesProds(`collections/furniture`);
 export const LoadSubCategory = fetchCategoriesProds(`subCategoryLoader`);
+export const GetSingleProdBySlug = fetchSingleProd(`slugWay`);
+export const GetSingleProdById = fetchSingleProd(`idWay`);

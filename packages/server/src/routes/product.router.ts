@@ -17,7 +17,7 @@ const router = express.Router();
 // setup HTTP requests:
 // GET::
 router.get(`/`, getAllProducts);
-router.get(`/s/:id`, getSingleProduct);
+router.get(`/s/:slug`, getSingleProduct);
 
 // POST::
 router.post(`/new`, authMiddleware, createNewProduct);

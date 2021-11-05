@@ -6,6 +6,7 @@ import { Fragment, useEffect, VFC } from 'react';
 import './style.sass';
 import { ProdTypes } from '../../../common/@types/prod.types';
 import { RootState } from '../../../redux/store';
+import unDashed from '../../../common/utilities/undashed.util';
 
 // comps:
 import ProductCard from '../prod-card/prod-card.comp';
@@ -41,7 +42,7 @@ const SubCategoryCollection: VFC<any> = ({ subCategory }) => {
       ) : (
         <section className="sub-category-loader">
           <section className="sub-category-header">
-            <h3 className="category-title">{subCategory}</h3>
+            <h3 className="category-title">{unDashed(subCategory)}</h3>
           </section>
           <section className="category-prods">
             {prods?.map(
