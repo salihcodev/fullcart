@@ -162,7 +162,7 @@ const ProductInfoShot: React.VFC<{}> = () => {
                       <MdVerifiedUser />
                     </span>
                     <span className="value">Trade Assurance</span>
-                    <small>protection your alibaba.com order</small>
+                    <small>protection your fullcart.com order</small>
                   </p>
                 </section>
               </section>
