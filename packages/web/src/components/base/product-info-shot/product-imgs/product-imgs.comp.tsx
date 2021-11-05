@@ -7,6 +7,7 @@ import { ProdTypes } from '../../../../common/@types/prod.types';
 import ReactImageMagnify from 'react-image-magnify';
 import { FiHeart } from 'react-icons/fi';
 import AppButton from '../../../distributed/button/app-button.comp';
+import { BsShare } from 'react-icons/bs';
 
 // comps:
 
@@ -69,6 +70,15 @@ const ProductImgs: React.VFC<{ prod: ProdTypes | null }> = ({ prod }) => {
             ></button>
           )
         )}
+      </section>
+      <section className="sharing-current-viewed-prod">
+        <div className="heading">
+          <span className="icon">
+            <BsShare />
+          </span>
+          <span className="value">Share</span>
+        </div>
+        <div className="share"></div>
       </section>
     </section>
   );

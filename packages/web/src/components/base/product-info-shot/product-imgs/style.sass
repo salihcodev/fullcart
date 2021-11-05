@@ -20,10 +20,10 @@ section.prod-imgs
             backdrop-filter: blur(5px)
             span.icon
                 @include flex_positioning(center, center)
-                color: $alt_dark-3
+                color: $main_clr-mirr
                 font-size: 1.3rem
                 &:hover
-                    color: $alt_dark-3
+                    color: $app_gray
             span.spinner-for-wish
                 &.loading-spinner
                     background: $dark_trans
@@ -31,15 +31,31 @@ section.prod-imgs
                     border-width: 2px
                     border-style: solid
                     margin: 0
-
-    section.prod-imgs-pickers
-        margin-top: 1rem
-        @include flex_positioning(center, center)
-        button.img-picker
-            width: 3.5rem
-            height: 3.5rem
-            border-radius: 1px
-            margin: 0 0.2rem
-            border: 1px solid $main_clr-1
-            // &:not(:last-of-type)
-            //     border-right: 0
+    section
+        &.prod-imgs-pickers
+            margin-top: 1rem
+            @include flex_positioning(center, center)
+            button.img-picker
+                width: 3.5rem
+                height: 3.5rem
+                border-radius: 1px
+                margin: 0 0.2rem
+                border: 1px solid $main_clr-1
+                // &:not(:last-of-type)
+                //     border-right: 0
+        &.sharing-current-viewed-prod
+            margin-top: 2rem
+            padding: 0.5rem
+            @include flex_positioning(center, center)
+            > div
+                // border: 1px solid
+            .heading
+                border-right: 1px solid $alt_dark-4
+                padding: 0 0.5rem
+                @include flex_positioning(center, space-between)
+                width: 25%
+                height: 1.5rem
+            .share
+                @include flex_positioning(center, center)
+                height: 2rem
+                flex-grow: 1
