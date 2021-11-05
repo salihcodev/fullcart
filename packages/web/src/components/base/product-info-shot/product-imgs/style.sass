@@ -48,7 +48,6 @@ section.prod-imgs
             padding: 0.5rem
             @include flex_positioning(center, center)
             > div
-                // border: 1px solid
             .heading
                 border-right: 1px solid $alt_dark-4
                 padding: 0 0.5rem
@@ -56,6 +55,11 @@ section.prod-imgs
                 width: 25%
                 height: 1.5rem
             .share
-                @include flex_positioning(center, center)
                 height: 2rem
                 flex-grow: 1
+                @include flex_positioning(center, center)
+                ul
+                    @include flex_positioning(center, center)
+                    li
+                        margin: 0 0.5rem
+                        font-size: 1.1rem
