@@ -5,12 +5,17 @@ import { IoIosTimer } from 'react-icons/io';
 
 // utils:
 import './style.sass';
+import { ProdTypes } from '../../../common/@types/prod.types';
+import { LoadStateTypes } from '../../../common/@types/load-state.types';
 
 // comps:
 import AppButton from '../../distributed/button/app-button.comp';
 
 // component>>>
-const ProductDecision: React.VFC<{}> = () => {
+const ProdDecision: React.VFC<{
+  prod: ProdTypes | null;
+  loadState: LoadStateTypes;
+}> = ({ prod, loadState }) => {
   return (
     <article className="product-decision">
       <section className="to-order-info">
@@ -85,4 +90,4 @@ const ProductDecision: React.VFC<{}> = () => {
   );
 };
 
-export default ProductDecision;
+export default ProdDecision;

@@ -6,6 +6,8 @@ export type ProdTypes = {
   port?: string;
   category?: string;
   subCategory?: any;
+  leadingTime: [{ dozensAmount: string; estimationTime: string }];
+  basicLeadingTime: string;
   payment?: string;
   warranty?: number;
   warrantyIn?: string;
@@ -31,7 +33,6 @@ type prodInfoTypes = {
   mainMaterial?: string;
   handlePosition?: string;
   position?: string;
-  leadingTime?: string;
   transportPackage?: string;
   origin?: string;
   hsCode?: string;
@@ -42,5 +43,4 @@ type deliveryPackageTypes = {
   singlePackageSize?: string;
   singleGrossWeight?: string;
   packageType?: string;
-  leadingTime?: number;
 };
