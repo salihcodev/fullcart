@@ -20,10 +20,10 @@ section.prod-imgs
             backdrop-filter: blur(5px)
             span.icon
                 @include flex_positioning(center, center)
-                color: $main_clr-mirr
                 font-size: 1.3rem
-                &:hover
                     color: $app_gray
+                &:hover
+                    color: #c97e7e
             span.spinner-for-wish
                 &.loading-spinner
                     background: $dark_trans
@@ -38,7 +38,7 @@ section.prod-imgs
             button.img-picker
                 width: 3.5rem
                 height: 3.5rem
-                border-radius: 1px
+                border-radius: 0
                 margin: 0 0.2rem
                 border: 1px solid $main_clr-1
                 cursor: move

@@ -8,7 +8,7 @@ section.sub-category-loader
     background: $app_white
     padding: 0.8rem 0.8rem 0.5rem
     border-bottom-width: 3px
-    border-radius: 6px
+    border-radius: 3px
     margin-bottom: 1rem
     padding-bottom: 0
     min-height: 20rem
@@ -19,6 +19,20 @@ section.sub-category-loader
             margin-bottom: 0
             text-transform: uppercase
             color: $alt_dark-3
+            font-weight: 600
+            @include flex_positioning(center, flex-start)
+            width: 100%
+            > div
+                padding: 0 0.5rem
+                &:first-of-type
+                    min-width: 10rem
+                    flex-grow: 1
+                &:last-of-type
+                    width: 100%
+                    span.border-list
+                        display: block
+                        background: $alt_dark-4
+                        height: 0.4rem
         section.prods-paginator
     section.category-prods
         margin: 1.5rem 0 1rem

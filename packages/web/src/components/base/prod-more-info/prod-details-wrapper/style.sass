@@ -1,0 +1,54 @@
+@import '../../../../common/styles/utils/_colors.util'
+@import '../../../../common/styles/utils/_mixins.util'
+@import '../../../../common/styles/utils/_fonts.util'
+
+section.prod-details-wrapper
+    section
+        padding-bottom: 0.5rem
+        padding-top: 0.5rem
+        padding-left: 0.1rem
+        min-height: 5rem
+        margin-bottom: 0.5rem
+        &:not(:last-of-type)
+            border-bottom: 1px dotted $light_gray
+        h6.heading
+            margin-left: -0.1rem
+        ul
+            li.prop,
+            li.feat
+                padding: 0.1rem 0
+                margin: 0.3rem 0
+                font-size: 0.8rem
+                @include flex_positioning(center, flex-start)
+            li.prop
+                span.title
+                    margin-right: 1rem
+                    width: 8rem
+                    color: $app_gray-2
+            li.feat
+                color: $app_gray-2
+        &.quick-details
+        &.features
+        &.package-and-delivery
+            .estimation-table
+                border: 1px solid
+                margin-top: 1rem
+                > div, header
+                    display: flex
+                    span
+                        height: 1.8rem
+                        min-width: 8rem
+                        @include flex_positioning(center, center)
+                        &.quantity
+                            min-width: 8rem
+                            &:not(:last-child)
+                                border-right: 1px solid
+                        &.duration
+                            min-width: 10rem
+                header.table-header
+                    border-bottom: 1px solid
+                    span
+                        font-weight: 500
+                .table-row
+                    &:not(:last-child)
+                        border-bottom: 1px solid

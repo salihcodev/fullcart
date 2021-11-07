@@ -6,23 +6,36 @@ article.prod-more-info
     margin-top: 2rem
     background: $app_white
     header.more-info-switcher
+        @include flex_positioning(center, space-between)
         border-bottom: 1px solid $alt_dark-4
-        button
-            height: 3.5rem
-            border: 1px solid $alt_dark-4
-            position: relative
-            border-bottom-right-radius: 0
-            border-bottom-left-radius: 0
-            padding: 1rem
-            font-weight: bold
-            font-size: 1rem
-            &:hover
-                background: $app_white
-                color: $app_gray
-            &:first-of-type
-            &:last-of-type
-            &:not(:first-of-type)
-                margin-left: 0.2rem
+        section
+            flex-grow: 1
+            &.tabs-wrapper
+                button
+                    height: 3.5rem
+                    border: 1px solid $alt_dark-4
+                    position: relative
+                    border-radius: 6px
+                    border-bottom-right-radius: 0
+                    border-bottom-left-radius: 0
+                    padding: 1rem
+                    font-weight: bold
+                    font-size: 1rem
+                    &:hover
+                        background: $app_white
+                        color: $app_gray
+                    &:first-of-type
+                    &:last-of-type
+                    &:not(:first-of-type)
+                        margin-left: 0.1rem
+            &.show-albums-and-report-wrapper
+                @include flex_positioning(center, flex-end)
+                button
+                    margin-right: 0.5rem
+                    span.icon
+                        color: $alt_dark-6
+                a
+                    font-size: 0.8rem
     article.details-wrapper
         padding: 0.5rem
         section
@@ -33,53 +46,6 @@ article.prod-more-info
                 padding-bottom: 0.3rem
             h4.heading
                 text-transform: uppercase
-            &.prod-details-wrapper
-                section
-                    padding-bottom: 0.5rem
-                    padding-top: 0.5rem
-                    padding-left: 0.1rem
-                    min-height: 5rem
-                    margin-bottom: 0.5rem
-                    &:not(:last-of-type)
-                        border-bottom: 1px dotted $light_gray
-                    h6.heading
-                        margin-left: -0.1rem
-                    ul
-                        li.prop,
-                        li.feat
-                            padding: 0.1rem 0
-                            margin: 0.3rem 0
-                            font-size: 0.8rem
-                            @include flex_positioning(center, flex-start)
-                            span.title
-                                margin-right: 1rem
-                                width: 8rem
-                                color: $app_gray-2
-                    &.quick-details
-                    &.features
-                    &.package-and-delivery
-                        .estimation-table
-                            border: 1px solid
-                            margin-top: 1rem
-                            > div, header
-                                display: flex
-                                span
-                                    height: 1.8rem
-                                    min-width: 8rem
-                                    @include flex_positioning(center, center)
-                                    &.quantity
-                                        min-width: 8rem
-                                        &:not(:last-child)
-                                            border-right: 1px solid
-                                    &.duration
-                                        min-width: 10rem
-                            header.table-header
-                                border-bottom: 1px solid
-                                span
-                                    font-weight: 500
-                            .table-row
-                                &:not(:last-child)
-                                    border-bottom: 1px solid
-                    &.prod-full-width-imgs
-                        margin-top: 3rem
-            &.suppler-details-wrapper
+                padding-top: 0.3rem
+            &.prod-full-width-imgs
+                margin-top: 3rem

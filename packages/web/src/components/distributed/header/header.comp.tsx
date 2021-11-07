@@ -52,11 +52,7 @@ const Header: VFC<IHeader> = ({ expanded }) => {
                   <section className="routes-list">
                     {headerRouts.map(({ value, path }): JSX.Element => {
                       return (
-                        <NavLink
-                          key={path}
-                          to={path}
-                          activeStyle={navRouteActiveStyle}
-                        >
+                        <NavLink key={path} to={path} activeStyle={navRouteActiveStyle} exact>
                           {value}
                         </NavLink>
                       );
@@ -80,20 +76,13 @@ const Header: VFC<IHeader> = ({ expanded }) => {
                 <section className="xs-screens-routes-list">
                   {isSideMenuOpened ? (
                     <ul className="routes-list">
-                      <button
-                        className="routes-list-closer"
-                        onClick={() => setIsSideMenuOpened(false)}
-                      >
+                      <button className="routes-list-closer" onClick={() => setIsSideMenuOpened(false)}>
                         <VscChromeClose />
                       </button>
                       <div className="routes-wrapper">
                         {headerRouts.map(({ value, path }): JSX.Element => {
                           return (
-                            <NavLink
-                              key={path}
-                              to={path}
-                              activeStyle={navRouteActiveStyle}
-                            >
+                            <NavLink key={path} to={path} activeStyle={navRouteActiveStyle} exact>
                               <li key={path}>{value}</li>
                             </NavLink>
                           );
@@ -101,10 +90,7 @@ const Header: VFC<IHeader> = ({ expanded }) => {
                       </div>
                     </ul>
                   ) : null}
-                  <button
-                    className="xs-menu-toggler"
-                    onClick={() => setIsSideMenuOpened(true)}
-                  >
+                  <button className="xs-menu-toggler" onClick={() => setIsSideMenuOpened(true)}>
                     <span></span>
                     <span></span>
                     <span></span>

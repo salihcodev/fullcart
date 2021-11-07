@@ -20,9 +20,7 @@ const SingleCategory = () => {
   const { pathname }: any = useLocation();
   const [subProdsKeys, setSubProdsKeys] = useState<string[] | null>(null);
   const dispatch = useAppDispatch();
-  const { stage, subProds } = useAppSelector(
-    (state: RootState) => state.FurnitureProds
-  );
+  const { stage, subProds } = useAppSelector((state: RootState) => state.FurnitureProds);
 
   useEffect(() => {
     let isMounted = true;
@@ -53,7 +51,6 @@ const SingleCategory = () => {
     <Container xxl>
       <main className="page single-category">
         <Breadcrumb />
-        <h2 className="single-category-heading">Single category {category}</h2>
         {subProdsKeys?.map((key) => {
           return (
             <ProdsCategoryCollection

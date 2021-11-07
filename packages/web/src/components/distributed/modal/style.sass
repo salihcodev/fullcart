@@ -1,0 +1,32 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_mixins.util'
+@import '../../../common/styles/utils/_animation.util'
+
+article.modal-wrapper
+    position: fixed
+    background: $dark_trans
+    top: 0
+    left: 0
+    z-index: 100
+    bottom: 0
+    right: 0
+    padding: 3rem 4rem
+    overflow-y: scroll
+    backdrop-filter: blur(3px)
+    section.modal-body
+        @include from-top
+        @include flex_positioning(center, center)
+        min-height: 100%
+        background: $app_white
+        border: 1px solid $alt_dark-4
+        border-radius: 6px
+        position: relative
+        .wrapper-close
+            position: absolute
+            top: 0.5rem
+            right: 0.5rem
+            button
+                @include flex_positioning(center, center)
+                border: none
+                color: $main_clr-1
+                font-size: 1.3rem

@@ -40,8 +40,8 @@ section.prod-overview
                     @include flex_positioning(center, flex-start)
                     &:first-of-type
                         span
-                            background: $main_clr-grad-1
-                            border-radius: 3px
+                            background: $additional_clr-grad-2
+                            padding: 0.3rem
                             color: $dark_white
         &.dozens-offers
             display: grid
@@ -94,6 +94,7 @@ section.prod-overview
                         border: 1px solid $main_clr-1
                         &:hover
                             color: $dark_white
+                            background: $main_clr-1
                         &:first-of-type
                             border-top-left-radius: 6px
                             border-bottom-left-radius: 6px
@@ -118,6 +119,8 @@ section.prod-overview
         &.request-simple
             a
                 font-weight: normal
+                margin-left: 2rem
+                padding-left: 0
                 &:hover
                     text-decoration: underline
                 span.icon

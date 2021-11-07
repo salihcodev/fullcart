@@ -17,9 +17,7 @@ import { LoadSubCategory } from '../../../redux/slices/prods-collections/logic/r
 const SubCategoryCollection: VFC<any> = ({ subCategory }) => {
   // use preConfigured hooks:
   const dispatch = useAppDispatch();
-  const { stage, prods } = useAppSelector(
-    (state: RootState) => state.SubCategory
-  );
+  const { stage, prods } = useAppSelector((state: RootState) => state.SubCategory);
 
   useEffect(() => {
     let isMounted = true;
@@ -42,7 +40,12 @@ const SubCategoryCollection: VFC<any> = ({ subCategory }) => {
       ) : (
         <section className="sub-category-loader">
           <section className="sub-category-header">
-            <h3 className="category-title">{unDashed(subCategory)}</h3>
+            <h3 className="category-title">
+              <div>{unDashed(subCategory)}</div>
+              <div>
+                <span className="border-list"></span>
+              </div>
+            </h3>
           </section>
           <section className="category-prods">
             {prods?.map(

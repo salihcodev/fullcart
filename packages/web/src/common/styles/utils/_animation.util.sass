@@ -2,14 +2,17 @@
 @mixin from-bottom
   animation: frombottom ease-in-out 0.3s
 
+@mixin from-top
+  animation: fromtop ease-in-out 0.3s
+
 @mixin fade-in
-  animation: fadein ease 0.3s
+  animation: fadein ease-in-out 0.3s
 
 @mixin heart-bumbing
   animation: heartbumbing ease-in-out 2s infinite
 
 @mixin pop-up
-  animation: pop ease 0.3s
+  animation: pop ease-in-out 0.3s
 
 @mixin spinner
   animation: spinning linear 0.3s infinite
@@ -17,7 +20,15 @@
 // ============ animation creators ============:
 @keyframes frombottom
   0%
-    transform: translate(0,5rem)
+    transform: translateY(100%)
+    opacity: 0
+  100%
+    transform: translate(0)
+    opacity: 1
+
+@keyframes fromtop
+  0%
+    transform: translateY(-100%)
     opacity: 0
   100%
     transform: translate(0)

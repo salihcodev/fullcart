@@ -1,10 +1,17 @@
 // pkgs:
-import { Fragment, useEffect, useState } from 'react';
+import { useState } from 'react';
 
 // utils:
 import './style.sass';
 import { LoadStateTypes } from '../../../common/@types/load-state.types';
 import { ProdTypes } from '../../../common/@types/prod.types';
+import { Link } from 'react-router-dom';
+import AppButton from '../../distributed/button/app-button.comp';
+import { IoImagesOutline } from 'react-icons/io5';
+import ProdDetailsWrapper from './prod-details-wrapper/prod-details-wrapper.comp';
+import SupplerDetailsWrapper from './suppler-details-wrapper/suppler-details-wrapper.comp';
+import ReviewsDetailsWrapper from './reviews-details-wrapper/reviews-details-wrapper.comp';
+import Modal from '../../distributed/modal/modal.comp';
 
 // comps:
 
@@ -14,96 +21,52 @@ const ProdMoreInfo: React.VFC<{
   loadState: LoadStateTypes;
 }> = ({ prod, loadState }) => {
   const [currDetailsWrapper, setCurrDetailsWrapper] = useState<string>(`prodWrapper`);
+  const [isAlbumModalOpen, setIsAlbumModalOpen] = useState<boolean>(false);
 
-  const tabStyle = { color: `#4b6483`, border: `3px solid #4b6483` };
-  const prodActiveTabStyle = currDetailsWrapper === `prodWrapper` ? tabStyle : {};
-  const supplerActiveTabStyle = currDetailsWrapper === `supplerWrapper` ? tabStyle : {};
-
+  const tabsData = [
+    { value: 'Product Details', contentName: 'prodWrapper' },
+    { value: 'Company Profile', contentName: 'supplerWrapper' },
+    { value: 'Product Reviews', contentName: 'reviewsWrapper' },
+  ];
   return (
     <article className="prod-more-info">
+      <Modal state={isAlbumModalOpen} setState={setIsAlbumModalOpen}>
+        <h1>hello</h1>
+      </Modal>
       <header className="more-info-switcher">
-        <button style={prodActiveTabStyle} onClick={() => setCurrDetailsWrapper(`prodWrapper`)}>
-          Product Details
-        </button>
-        <button style={supplerActiveTabStyle} onClick={() => setCurrDetailsWrapper(`supplerWrapper`)}>
-          Suppler Details
-        </button>
+        <section className="tabs-wrapper">
+          {tabsData.map(({ value, contentName }): JSX.Element => {
+            const tabStyle = { color: `#4b6483`, border: `3px solid #4b6483` };
+            const activeTabStyle = currDetailsWrapper === contentName ? tabStyle : {};
+            return (
+              <button style={activeTabStyle} onClick={() => setCurrDetailsWrapper(contentName)}>
+                {value}
+              </button>
+            );
+          })}
+        </section>
+        <section className="show-albums-and-report-wrapper">
+          <AppButton
+            value="View Albums"
+            type="button"
+            wide={false}
+            size="sm"
+            border={{ size: 1 }}
+            noBorder
+            icon={<IoImagesOutline />}
+            isIconBefore
+            handleEvent={() => setIsAlbumModalOpen(!isAlbumModalOpen)}
+          />
+          <Link to="/reporting/product">Report this product</Link>
+        </section>
       </header>
       <article className="details-wrapper">
         {currDetailsWrapper === `prodWrapper` ? (
-          <section className="prod-details-wrapper">
-            <h3 className="heading">Overview</h3>
-            <section className="quick-details">
-              <h6 className="heading">Quick details</h6>
-              <ul>
-                {prod?.productInfo &&
-                  Object.entries(prod?.productInfo).map((item): JSX.Element => {
-                    return (
-                      <li className="prop">
-                        <span className="title">{item[0]}</span>
-                        <span className="value">{item[1] === '' ? '—' : item[1]}</span>
-                      </li>
-                    );
-                  })}
-              </ul>
-            </section>
-            <section className="features">
-              <h6 className="heading">Features</h6>
-              <ul>
-                {prod?.features?.map(
-                  (feat: string): JSX.Element => (
-                    <li className="feat">{feat}</li>
-                  )
-                )}
-              </ul>
-            </section>
-            <section className="package-and-delivery">
-              <Fragment>
-                <h6 className="heading">Packaging & Delivery</h6>
-                <ul>
-                  {prod?.deliveryPackage &&
-                    Object.entries(prod?.deliveryPackage).map((item): JSX.Element => {
-                      return (
-                        <li className="prop">
-                          <span className="title">{item[0]}</span>
-                          <span className="value">{item[1] === '' ? '—' : item[1]}</span>
-                        </li>
-                      );
-                    })}
-                  <li className="prop">
-                    <span className="title">Leading time</span>
-                    <div className="estimation-table">
-                      <header className="table-header">
-                        <span className="quantity">Quantity(Dozens)</span>
-                        <span className="duration">Est. Time(days)</span>
-                      </header>
-                      {prod?.leadingTime.map(
-                        ({ dozensAmount, estimationTime }): JSX.Element => (
-                          <div className="table-row">
-                            <span className="quantity">{dozensAmount}</span>
-                            <span className="duration">{estimationTime}</span>
-                          </div>
-                        )
-                      )}
-                    </div>
-                  </li>
-                </ul>
-              </Fragment>
-            </section>
-            <section className="prod-full-width-imgs">
-              {prod?.images?.map((img): JSX.Element => {
-                return (
-                  <div>
-                    <img src={img} alt="img" width="100%" height="auto" />;
-                  </div>
-                );
-              })}
-            </section>
-          </section>
+          <ProdDetailsWrapper prod={prod} />
+        ) : currDetailsWrapper === `supplerWrapper` ? (
+          <SupplerDetailsWrapper />
         ) : (
-          <section className="suppler-details-wrapper">
-            <h4 className="heading">Company Overview</h4>
-          </section>
+          <ReviewsDetailsWrapper />
         )}
       </article>
     </article>

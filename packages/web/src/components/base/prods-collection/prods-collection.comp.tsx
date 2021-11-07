@@ -13,12 +13,7 @@ import unDashed from '../../../common/utilities/undashed.util';
 import ProductCard from '../prod-card/prod-card.comp';
 
 // component>>>
-const ProdsCategoryCollection: VFC<IProdsCategoryCollection> = ({
-  title,
-  catLink,
-  prods,
-  loadState,
-}) => {
+const ProdsCategoryCollection: VFC<IProdsCategoryCollection> = ({ title, catLink, prods, loadState }) => {
   return (
     <Fragment>
       {loadState === `busy` ? (
@@ -30,7 +25,12 @@ const ProdsCategoryCollection: VFC<IProdsCategoryCollection> = ({
           <header className="prods-collection-header">
             {catLink ? (
               <h4 className="collection-title">
-                <Link to={catLink}>{unDashed(title)}</Link>
+                <div>
+                  <Link to={catLink}>{unDashed(title)}</Link>
+                </div>
+                <div>
+                  <span className="border-list"></span>
+                </div>
               </h4>
             ) : null}
           </header>
