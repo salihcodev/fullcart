@@ -29,7 +29,7 @@
             z-index: 10
             background: #fff7
             height: 15rem
-            backdrop-filter: blur(5px)
+            backdrop-filter: blur(8px)
             top: 0
             right: 0
             left: 0
@@ -51,16 +51,15 @@
                     border: 1px solid $alt_dark-4
                     border-radius: 50%
             p.added-by
-                @include flex_positioning(baseline, flex-start)
+                @include flex_positioning(baseline, center)
                 span.txt
-                    margin-right: 0.3rem
+                    margin-right: 0.5rem
                 a.author
-                    flex-grow: 1
                     @include flex_positioning(center, space-between)
                     &:hover
                         text-decoration: underline
                     b
-                        margin-right: 0.2rem
+                        margin-right: 0.4rem
                     span.img
                         display: inline-block
                         width: 1.6rem
@@ -76,15 +75,23 @@
                     &:first-child
                         margin-right: 0.3rem
                     &:last-child
+                        padding: 0
+                        padding-top: 0.18rem
+                        height: 1.7rem !important
                         align-items: baseline
+                        margin-top: 0.14rem
+                        background: transparent !important
                         span
                             font-size: 1.3rem !important
+                            &.loading-spinner
+                                margin-left: 0.1rem
     .prod-basic-info
         padding: 1rem 0.5rem
         section.rating
             @include flex_positioning(baseline, space-between)
-            .rating-stats
+            p.rating-stats
             small.total-votes
+                color: $additional_clr
         a.name
             color: $alt_dark-3
             display: -webkit-box
@@ -96,3 +103,4 @@
         h6.price
             margin: 0
             margin-top: 0.5rem
+            font-weight: bold

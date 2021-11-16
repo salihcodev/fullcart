@@ -1,0 +1,36 @@
+@import '../../../../common/styles/utils/_colors.util'
+@import '../../../../common/styles/utils/_mixins.util'
+@import '../../../../common/styles/utils/_fonts.util'
+
+article.albums-modal
+    min-height: 80vh
+    padding: 0 2rem
+    header.modal-header
+        @include flex_positioning(center, space-between)
+        > section
+            &:last-of-type
+                flex-grow: 0
+    article.albums-wrapper
+        min-height: inherit
+        section
+            display: grid
+            grid-template-columns: 4fr 1fr
+            &.wrapper
+                min-height: inherit
+                padding: 2rem 0
+                &.content
+                    min-height: inherit
+                aside
+                    border-left: 1px dotted $alt_dark-4
+                    min-height: 100%
+                    section
+                        margin-top: 1rem
+                        @include flex_positioning(center, center)
+                        flex-wrap: wrap
+                        button.img-picker
+                            width: 5rem
+                            height: 5rem
+                            border-radius: 0
+                            margin: 0.5rem
+                            border: 1px solid $main_clr-1
+                            cursor: move

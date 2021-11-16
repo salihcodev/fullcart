@@ -1,5 +1,6 @@
 export interface IAlert {
   type: string;
-  title: string;
-  msg?: null | string;
+  title?: null | string | undefined;
+  msg?: null | string | undefined;
+  authWarning?: boolean;
 }

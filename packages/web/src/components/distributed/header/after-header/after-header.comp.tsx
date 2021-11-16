@@ -19,19 +19,11 @@ const AfterHeader: VFC<{}> = () => {
 
   useEffect(() => {
     window.onscroll = () => {
-      const preHeaderHeight =
-        document.querySelector<HTMLElement>(`.pre-header`)?.offsetHeight;
-      const afterHeader =
-        document.querySelector<HTMLElement>(`.after-header`)?.classList;
-      const mainHeaderHeight = document.querySelector<HTMLElement>(
-        `.default-header-wrapper`
-      )?.offsetHeight;
+      const preHeaderHeight = document.querySelector<HTMLElement>(`.pre-header`)?.offsetHeight;
+      const afterHeader = document.querySelector<HTMLElement>(`.after-header`)?.classList;
+      const mainHeaderHeight = document.querySelector<HTMLElement>(`.default-header-wrapper`)?.offsetHeight;
 
-      if (
-        mainHeaderHeight &&
-        preHeaderHeight &&
-        window.scrollY >= mainHeaderHeight + preHeaderHeight
-      ) {
+      if (mainHeaderHeight && preHeaderHeight && window.scrollY >= mainHeaderHeight + preHeaderHeight) {
         afterHeader?.add(`fixed-header`);
       } else {
         afterHeader?.remove(`fixed-header`);
@@ -40,7 +32,7 @@ const AfterHeader: VFC<{}> = () => {
   }, []);
 
   const navRouteActiveStyle = {
-    color: '#d1a876 ',
+    color: '#5624d0 ',
   };
   return (
     <header className="after-header">

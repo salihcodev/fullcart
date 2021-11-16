@@ -5,29 +5,33 @@ article.prod-more-info
     min-height: 50rem
     margin-top: 2rem
     background: $app_white
-    header.more-info-switcher
+    header
+        width: 100%
         @include flex_positioning(center, space-between)
         border-bottom: 1px solid $alt_dark-4
+        section.tabs-wrapper
+            display: flex
+            button
+                height: 3.2rem
+                border: 1px solid $alt_dark-4
+                position: relative
+                border-radius: 6px
+                border-bottom-right-radius: 0
+                border-bottom-left-radius: 0
+                padding: 0.5rem 1rem
+                font-weight: bold
+                font-size: 1rem
+                &:hover
+                    background: $app_white
+                    color: $app_gray
+                &:first-of-type
+                &:last-of-type
+                &:not(:first-of-type)
+                    margin-left: 0.1rem
+    header.more-info-switcher
         section
             flex-grow: 1
             &.tabs-wrapper
-                button
-                    height: 3.5rem
-                    border: 1px solid $alt_dark-4
-                    position: relative
-                    border-radius: 6px
-                    border-bottom-right-radius: 0
-                    border-bottom-left-radius: 0
-                    padding: 1rem
-                    font-weight: bold
-                    font-size: 1rem
-                    &:hover
-                        background: $app_white
-                        color: $app_gray
-                    &:first-of-type
-                    &:last-of-type
-                    &:not(:first-of-type)
-                        margin-left: 0.1rem
             &.show-albums-and-report-wrapper
                 @include flex_positioning(center, flex-end)
                 button

@@ -13,17 +13,17 @@ import { SignupFormTypes } from '../../../../common/@types/signup-form.types';
 
 type SigningFormTypes = {
   history: any;
+  role: `customer` | `suppler`;
   formData: SignInFormTypes | SignupFormTypes;
 };
 export const signup = createAsyncThunk(
   `signing/signup`,
-  async ({ history, formData }: SigningFormTypes, { rejectWithValue }) => {
+  async ({ history, role, formData }: SigningFormTypes, { rejectWithValue }) => {
     try {
-      const { data }: AxiosResponse<AuthResponse> =
-        await signingAPIControllers.signup(formData);
+      const { data }: AxiosResponse<AuthResponse> = await signingAPIControllers.signup(role, formData);
 
-      history.push('/');
       window.location.reload();
+      history.push('/');
 
       return data;
     } catch (err) {
@@ -36,13 +36,12 @@ export const signup = createAsyncThunk(
 //
 export const signin = createAsyncThunk(
   `signing/signin`,
-  async ({ history, formData }: SigningFormTypes, { rejectWithValue }) => {
+  async ({ history, role, formData }: SigningFormTypes, { rejectWithValue }) => {
     try {
-      const { data }: AxiosResponse<AuthResponse> =
-        await signingAPIControllers.signin(formData);
+      const { data }: AxiosResponse<AuthResponse> = await signingAPIControllers.signin(role, formData);
 
-      history.push('/');
       window.location.reload();
+      history.push('/');
 
       return data;
     } catch (err) {

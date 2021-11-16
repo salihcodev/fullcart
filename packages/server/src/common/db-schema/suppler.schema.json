@@ -1,0 +1,23 @@
+{
+    "firstName": "Kim",
+    "lastName": "Young",
+    "email": "kimmy@supp.com",
+    "password": "00",
+    "confirmPassword": "00",
+    "companyName": "Test suppler national company name for trade",
+    "specialization": "Pets Wares",
+    "countryCode": "chn",
+    "region": "Hunan",
+    "country": "China",
+    "images": [
+        "https://sc04.alicdn.com/kf/H608bd92e95cd4a0d9075dd46fe447644B.jpg",
+        "https://sc04.alicdn.com/kf/H8b951bdc63a64b7c8783e032f05bef72I.jpg"
+    ],
+    "totalEmployees": 18,
+    "businessType": "Trading Company",
+    "yearEstablished": 2020,
+    "certifications": "",
+    "productCertifications": "",
+    "patents": "",
+    "trademarks": ""
+}

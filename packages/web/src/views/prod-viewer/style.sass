@@ -6,6 +6,15 @@ main.product-viewer-page
         padding-top: 1rem
         display: grid
         grid-gap: 1.5rem
-        grid-template-columns: 5fr 1.2fr
         > article
             border-radius: 3px
+
+@media (max-width: 1400px)
+    main.product-viewer-page
+        .page-wrapper
+            grid-template-columns: 5fr 1.2fr
+
+@media (max-width: 1200px)
+    main.product-viewer-page
+        .page-wrapper
+            display: block

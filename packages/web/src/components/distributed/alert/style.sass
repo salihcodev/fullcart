@@ -9,14 +9,23 @@
     padding: 0.8rem
     padding-top: 0.6rem
     border-radius: 3px
-    border-left-width: 4px !important
-    @include from-top
+    border-left-width: 3px !important
+    @include from-bottom
     z-index: 10
+    min-height: 3rem
+    background: $additional_clr-tone
+    border: 1px solid $additional_clr-mirr
     h6.heading
         font-family: $main_font
         font-weight: bold
     p.msg
         padding-left: 0.5rem
+    .auth-warning
+        display: inline-block
+        > a
+            margin: 0.1rem
+            &:hover
+                text-decoration: underline
     button.alert-closer
         position: absolute
         width: 1.3rem

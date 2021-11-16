@@ -25,7 +25,7 @@ const Header: VFC<IHeader> = ({ expanded }) => {
   const user = localStorageObjGetter(`@authedUser`)?.user;
 
   const navRouteActiveStyle = {
-    color: '#d1a876 ',
+    color: '#5624d0 ',
   };
 
   // mobile || side menu, you might need to create a redux slice
@@ -62,10 +62,10 @@ const Header: VFC<IHeader> = ({ expanded }) => {
                       <UserAvatar user={user} />
                     ) : (
                       <section className="auth-area">
-                        <NavLink to="/login" activeStyle={navRouteActiveStyle}>
+                        <NavLink to="/auth/customer/login" activeStyle={navRouteActiveStyle}>
                           login
                         </NavLink>
-                        <NavLink to="/signup" activeStyle={navRouteActiveStyle}>
+                        <NavLink to="/auth/customer/signup" activeStyle={navRouteActiveStyle}>
                           join for free
                         </NavLink>
                       </section>
@@ -104,12 +104,11 @@ const Header: VFC<IHeader> = ({ expanded }) => {
       ) : (
         <header className="non-expanded-header">
           <Container md>
-            <section className="left-wing">
+            <div className="logo-wrapper">
               <div className="logo-dark">
                 <Link to="/"></Link>
               </div>
-            </section>
-            <section className="right-wing"></section>
+            </div>
           </Container>
         </header>
       )}

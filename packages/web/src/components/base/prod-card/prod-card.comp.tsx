@@ -17,7 +17,20 @@ import AppButton from '../../distributed/button/app-button.comp';
 
 // component>>>
 const ProductCard: VFC<{ prod: ProdTypes }> = ({
-  prod: { name, priceInDollar, slug, category, subCategory },
+  prod: {
+    name,
+    priceInDollar,
+    cover,
+    slug,
+    category,
+    subCategory,
+    suppler,
+    basicLeadingTime,
+    payment,
+    warranty,
+    warrantyIn,
+    prodBasicInfo,
+  },
 }) => {
   // use preConfigured hooks:
   // const dispatch = useAppDispatch();
@@ -29,12 +42,13 @@ const ProductCard: VFC<{ prod: ProdTypes }> = ({
           to={`/shop/${category}/${subCategory}/${slug}`}
           title={name}
           className="prod-cover"
+          style={{ background: `url(${cover}) center/contain no-repeat` }}
         ></Link>
         <section className="prod-extra-info">
           <p className="added-by">
             <span className="txt">added by</span>
-            <Link to={`/`} className="author">
-              <b>ahmad salih</b>
+            <Link to={`/suppler/${suppler?._id}`} className="author">
+              <b>{suppler?.companyName?.substring(0, 11) + `...`}</b>
               <span className="img"></span>
             </Link>
           </p>
@@ -43,21 +57,25 @@ const ProductCard: VFC<{ prod: ProdTypes }> = ({
               <BiTimeFive />
             </span>
             <span className="txt">
-              <b>4 days</b> shipping
+              <b>{basicLeadingTime}</b> leading time
             </span>
           </p>
           <p className="payment-methods">
             <span className="icon">
               <BsPaypal />
             </span>
-            <span className="txt">Paypal / Master Card / Western Union</span>
+            <span className="txt">{payment}</span>
           </p>
           <p className="warranty">
             <span className="icon">
               <MdOutlineVerified />
             </span>
             <span className="txt">
-              <b>2Y</b> Warranty
+              <span>Warranty: </span>
+              <b>
+                {warranty}
+                {warrantyIn}
+              </b>
             </span>
           </p>
           <p className="shipped-as">
@@ -65,7 +83,7 @@ const ProductCard: VFC<{ prod: ProdTypes }> = ({
               <GoPackage />
             </span>
             <span className="txt">
-              shipped as <b>package</b>
+              shipped as <b>{prodBasicInfo?.transportPackage}</b>
             </span>
           </p>
           <section className="prod-actions">
@@ -96,7 +114,7 @@ const ProductCard: VFC<{ prod: ProdTypes }> = ({
           {name}
         </Link>
         <section className="rating">
-          <div className="rating-stats">stats in stars</div>
+          <p className="rating-stats">stats in stars</p>
           <small className="total-votes">(total votes)</small>
         </section>
         <h6 className="price">${priceInDollar}/piece</h6>

@@ -4,16 +4,24 @@
 header.pre-header
   height: 2.4rem
   background: $main_clr-1
-  a
+  a,
+  button
     color: $app_white
+    &:hover
+      color: $additional_clr-mirr !important
+  button
+    background: transparent
+    border: none
+    margin-top: 1px
   .action-wrapper
     padding: 0 0.8rem
     height: 100%
     @include flex_positioning(center, center)
     display: inline-flex
     &:not(:first-child)
-      border-left: 1px solid $main_clr-2
-    a
+      border-left: 1px solid #2b2b2b
+    a,
+    button
       @include flex_positioning(center, center)
       span
         &.icon

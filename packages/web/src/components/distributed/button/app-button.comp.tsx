@@ -20,9 +20,9 @@ const AppButton: React.VFC<IAppButton> = ({
   noBorder,
   icon,
   isIconBefore,
+  openDetachedly,
 }) => {
-  const buttonCursorDisability =
-    loadState === `busy` ? `not-allowed` : `pointer`;
+  const buttonCursorDisability = loadState === `busy` ? `not-allowed` : `pointer`;
 
   const handelClickEvent = () => {
     if (handleEvent) handleEvent();
@@ -40,22 +40,13 @@ const AppButton: React.VFC<IAppButton> = ({
           background: `#f5f6f733`,
         }
       : {
-          borderTopColor: `#35475d`,
+          borderTopColor: `#1a1a1a`,
           borderWidth: `2px`,
           borderStyle: `solid`,
           background: `#575e6344`,
         };
-
-  const borderColor = bkgDefault
-    ? `#35475d`
-    : bkgSecondary
-    ? `#c48232`
-    : `#ddd`;
-  const bkgColor = bkgDefault
-    ? `#4b6483`
-    : bkgSecondary
-    ? `#e0b989`
-    : `#f5f6f7`;
+  const borderColor = bkgDefault ? `#000` : bkgSecondary ? `#5624d0` : `#ddd`;
+  const bkgColor = bkgDefault ? `#1a1a1a` : bkgSecondary ? `#673fce` : `#f5f6f7`;
 
   const sizeValue = size === `sm` ? `2rem` : size === `md` ? `2.5rem` : `3rem`;
 
@@ -67,13 +58,13 @@ const AppButton: React.VFC<IAppButton> = ({
           style={{
             width: fullWidth,
             height: sizeValue,
-            border: `${borderValue} solid ${
-              noBorder ? `transparent` : borderColor
-            }`,
+            border: `${borderValue} solid ${noBorder ? `transparent` : borderColor}`,
             background: bkgColor,
             color,
           }}
           className="app-button"
+          target={openDetachedly ? `_blank` : `_self`}
+          rel={openDetachedly ? `noopener noreferrer` : ``}
         >
           {icon && isIconBefore ? <span className="icon">{icon}</span> : null}
           <span className="value">{value}</span>
@@ -85,9 +76,7 @@ const AppButton: React.VFC<IAppButton> = ({
           style={{
             width: fullWidth,
             height: sizeValue,
-            border: `${borderValue} solid ${
-              noBorder ? `transparent` : borderColor
-            }`,
+            border: `${borderValue} solid ${noBorder ? `transparent` : borderColor}`,
             background: bkgColor,
             color,
             cursor: buttonCursorDisability,
@@ -100,9 +89,7 @@ const AppButton: React.VFC<IAppButton> = ({
           <span className="value">{value}</span>
           {icon && !isIconBefore ? <span className="icon">{icon}</span> : null}
 
-          {loadState === `busy` ? (
-            <span className="loading-spinner" style={spinnerStyle}></span>
-          ) : null}
+          {loadState === `busy` ? <span className="loading-spinner" style={spinnerStyle}></span> : null}
         </button>
       )}
     </Fragment>

@@ -1,15 +1,15 @@
 // pkgs:
-import { VFC, useState, useRef } from 'react';
-import { NavLink, useHistory, useLocation } from 'react-router-dom';
+import { VFC, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { FiHeart, FiMessageSquare } from 'react-icons/fi';
 import { AiOutlineExclamationCircle, AiOutlineUser } from 'react-icons/ai';
 import { FaRegCompass } from 'react-icons/fa';
 
 // utils:
 import './style.sass';
-import Container from '../../../utils/container/container.util';
 
 // comps:
+import SupplerLoggingModal from './suppler-auth-modal/suppler-auth-modal.comp';
 
 // component>>>
 const PreHeader: VFC<{}> = () => {
@@ -17,11 +17,10 @@ const PreHeader: VFC<{}> = () => {
   // const history = useHistory();
   // const location = useLocation();
 
-  // refer to toggler bars:
-  // const bar1 = useRef<HTMLSpanElement>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const navRouteActiveStyle = {
-    color: '#d1a876 ',
+    color: '#b9a7e6 ',
   };
   return (
     <header className="pre-header">
@@ -61,14 +60,15 @@ const PreHeader: VFC<{}> = () => {
           </NavLink>
         </div>
         <div className="action-wrapper">
-          <NavLink to="/suppler-joining" activeStyle={navRouteActiveStyle}>
+          <button onClick={() => setIsModalOpen(true)}>
             <span className="icon">
               <AiOutlineUser />
             </span>
             <span className="txt">Join as a suppler</span>
-          </NavLink>
+          </button>
         </div>
       </section>
+      <SupplerLoggingModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
     </header>
   );
 };

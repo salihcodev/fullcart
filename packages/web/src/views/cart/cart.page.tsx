@@ -14,7 +14,7 @@ const Cart = () => {
       <Container xxxl>
         <Breadcrumb />
       </Container>
-      <Container fluid>
+      <Container xxl>
         <h2>Cart</h2>
       </Container>
     </main>

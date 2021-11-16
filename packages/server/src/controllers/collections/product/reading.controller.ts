@@ -2,7 +2,7 @@
 import { Request, Response } from "express";
 
 // utils:
-import APIFeaturesBuilder from "../../../common/shred/api-features-builder.shred";
+import APIFeaturesBuilder from "../../../common/shared/api-features-builder.shared";
 import Product from "../../../models/product.model";
 
 // >>> read all
@@ -11,7 +11,7 @@ export const getAllProducts = async (
     res: Response
 ): Promise<void> => {
     try {
-        const apiPipsResult = new APIFeaturesBuilder(req.query, Product.find())
+        const apiPipsResult = new APIFeaturesBuilder(Product.find(), req.query)
             .filtering()
             .sorting()
             .selectingFields()
@@ -26,8 +26,6 @@ export const getAllProducts = async (
             },
         });
     } catch (err) {
-        console.log(err);
-
         res.status(400).json({
             message: `Could not find any products.`,
             error: err,
@@ -36,7 +34,8 @@ export const getAllProducts = async (
 };
 
 // >>> get certain one:
-export const getSingleProduct = async (
+// via slug::
+export const getSingleProductBySlug = async (
     req: Request,
     res: Response
 ): Promise<any> => {
@@ -54,6 +53,29 @@ export const getSingleProduct = async (
     } catch (err) {
         res.status(404).json({
             message: `Could not find product with name: ${slug}`,
+        });
+    }
+};
+
+// via id::
+export const getSingleProductById = async (
+    req: Request,
+    res: Response
+): Promise<any> => {
+    const { id } = req.params;
+
+    try {
+        const result = await Product.findById({ id });
+
+        res.status(200).json({
+            statue: `SUCCESS`,
+            data: {
+                prod: result,
+            },
+        });
+    } catch (err) {
+        res.status(404).json({
+            message: `Could not find product with name: ${id}`,
         });
     }
 };

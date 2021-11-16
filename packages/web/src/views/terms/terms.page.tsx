@@ -10,7 +10,7 @@ import './style.sass';
 const TermsPage = () => {
   return (
     <main className="page terms-page">
-      <Container>
+      <Container xxl>
         <h2>Terms & Conditions</h2>
       </Container>
     </main>

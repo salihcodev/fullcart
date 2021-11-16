@@ -16,7 +16,6 @@ section.prod-overview
             border-top: 1px dotted $light_gray
         &.must-info
             h5.heading
-                font-family: $main_font
             span.model
                 font-weight: 500
                 color: $additional_clr
@@ -40,9 +39,11 @@ section.prod-overview
                     @include flex_positioning(center, flex-start)
                     &:first-of-type
                         span
-                            background: $additional_clr-grad-2
-                            padding: 0.3rem
+                            padding: 0.2rem 0.5rem
+                            padding-bottom: 0.3rem
                             color: $dark_white
+                            background: $main_clr
+                            border-radius: 3px
         &.dozens-offers
             display: grid
             grid-gap: 0.5rem 1rem
@@ -55,14 +56,14 @@ section.prod-overview
                     &:last-of-type
                         display: block
                         margin-top: 0.4rem
-                        font-weight: 500
-                        font-size: 1rem
+                        font-weight: 600
+                        font-size: 1.6rem
                     &:nth-of-type(2)
                         margin: 0 0.2rem
                 &:first-of-type
                     span
                         &:last-of-type
-                            color: $main_clr-1
+                            color: $additional_clr
         &.colors-and-quantity-controllers
             @include flex_positioning(center, flex-start)
             section
@@ -82,7 +83,7 @@ section.prod-overview
                 &.quantity-controllers
                     span.fixed-prod-price
                         margin-right: 2rem
-                        font-size: 1rem
+                        font-size: 1.1rem
                         display: block
                         margin-top: 0.2rem
                     button
@@ -106,6 +107,8 @@ section.prod-overview
                         text-align: center
                         margin: 0 0.2rem
                         width: 3rem
+                        &:out-of-range
+                            // background: #f5b9b9
                     button, input
                         height: 1.5rem
         &.request-simple,
@@ -132,7 +135,7 @@ section.prod-overview
                     &.icon
                         display: inline-block
                         font-size: 1.2rem
-                        color: $additional_clr-2
+                        color: $additional_clr-1
                         border-radius: 50%
                         width: 1.5rem
                         height: 1.5rem
@@ -141,7 +144,7 @@ section.prod-overview
                     &.value
                         margin-right: 0.5rem
                 small
-                    color: $additional_clr
+                    color: $app_gray-2
         &.refunding-policy
             @include flex_positioning(center, flex-start)
             p

@@ -11,7 +11,7 @@ import unDashed from '../../../common/utilities/undashed.util';
 // comps:
 import ProductCard from '../prod-card/prod-card.comp';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
-import { LoadSubCategory } from '../../../redux/slices/prods-collections/logic/reading.logic';
+import { LoadSubCategory } from '../../../redux/slices/prods-collection/logic/reading.logic';
 
 // component>>>
 const SubCategoryCollection: VFC<any> = ({ subCategory }) => {

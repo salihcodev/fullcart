@@ -14,16 +14,12 @@ const Footer: VFC<IFooter> = ({ expanded }) => {
   return (
     <Fragment>
       {expanded ? (
-        <footer className="default-footer">
+        <footer className="app-footer default-footer">
           <Container xxl>
             <p className="reservation">
-              <span className="icon">©</span>Copyright{' '}
-              {new Date().getFullYear()}
+              <span className="icon">©</span>Copyright {new Date().getFullYear()}
               <span>
-                <a
-                  href="https://asalih.netlify.com/me"
-                  target="_blank noopener noreferer"
-                >
+                <a href="https://asalih.netlify.com/me" target="_blank noopener noreferer">
                   @salihcodev
                 </a>
               </span>
@@ -32,7 +28,7 @@ const Footer: VFC<IFooter> = ({ expanded }) => {
           </Container>
         </footer>
       ) : (
-        <footer className="non-expanded-footer">
+        <footer className="app-footer non-expanded-footer">
           <Container sm>
             <ul>
               {links.row1.map(({ value, path }) => (
@@ -53,13 +49,9 @@ const Footer: VFC<IFooter> = ({ expanded }) => {
               ))}
             </ul>
             <p className="reservation">
-              <span className="icon">©</span>Copyright{' '}
-              {new Date().getFullYear()}
+              <span className="icon">©</span>Copyright {new Date().getFullYear()}
               <span>
-                <a
-                  href="https://asalih.netlify.com/me"
-                  target="_blank noopener noreferer"
-                >
+                <a href="https://asalih.netlify.com/me" target="_blank noopener noreferer">
                   @salihcodev
                 </a>
               </span>

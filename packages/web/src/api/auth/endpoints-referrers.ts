@@ -1,17 +1,13 @@
 // utils:
 import APIHandler from '../base';
 
-/* 
-  ***PLEASE***
-   make sure to build user interface in interfaces directory,
-   and get ride of dummy object below
-*/
-
 // setup <user> network requests
+// >>> READ user data
+export const fetchInfo = (role: string, id: string, fields?: string) =>
+  APIHandler.get(`/auth/${role}/user/${id}${fields || ``}`);
+
 // >>> SIGNIN, manage existed user to login
-export const signin = (userData: object) =>
-  APIHandler.post('/auth/signin', userData);
+export const signin = (role: string, userData: object) => APIHandler.post(`/auth/${role}/signin`, userData);
 
 // >>> SIGNUP, create new user
-export const signup = (userData: object) =>
-  APIHandler.post('/auth/signup', userData);
+export const signup = (role: string, userData: object) => APIHandler.post(`/auth/${role}/signup`, userData);

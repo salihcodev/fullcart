@@ -3,40 +3,38 @@ import { useState } from 'react';
 
 // utils:
 import './style.sass';
-import { LoadStateTypes } from '../../../common/@types/load-state.types';
-import { ProdTypes } from '../../../common/@types/prod.types';
 import { Link } from 'react-router-dom';
+
+// comps:
 import AppButton from '../../distributed/button/app-button.comp';
 import { IoImagesOutline } from 'react-icons/io5';
 import ProdDetailsWrapper from './prod-details-wrapper/prod-details-wrapper.comp';
 import SupplerDetailsWrapper from './suppler-details-wrapper/suppler-details-wrapper.comp';
 import ReviewsDetailsWrapper from './reviews-details-wrapper/reviews-details-wrapper.comp';
-import Modal from '../../distributed/modal/modal.comp';
-
-// comps:
+import AlbumsModal from './albums-modal/albums-modal.comp';
+import { useAppSelector } from '../../../redux/hooks';
+import { RootState } from '../../../redux/store';
 
 // component>>>
-const ProdMoreInfo: React.VFC<{
-  prod: ProdTypes | null;
-  loadState: LoadStateTypes;
-}> = ({ prod, loadState }) => {
-  const [currDetailsWrapper, setCurrDetailsWrapper] = useState<string>(`prodWrapper`);
-  const [isAlbumModalOpen, setIsAlbumModalOpen] = useState<boolean>(false);
+const ProdMoreInfo: React.VFC<{}> = () => {
+  // use preConfigured hooks:
+  const { stage, prod } = useAppSelector((state: RootState) => state.SingleProd);
 
-  const tabsData = [
+  const [currDetailsWrapper, setCurrDetailsWrapper] = useState<string>(`prodWrapper`);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const moreInfoTabs = [
     { value: 'Product Details', contentName: 'prodWrapper' },
     { value: 'Company Profile', contentName: 'supplerWrapper' },
     { value: 'Product Reviews', contentName: 'reviewsWrapper' },
   ];
+
   return (
     <article className="prod-more-info">
-      <Modal state={isAlbumModalOpen} setState={setIsAlbumModalOpen}>
-        <h1>hello</h1>
-      </Modal>
       <header className="more-info-switcher">
         <section className="tabs-wrapper">
-          {tabsData.map(({ value, contentName }): JSX.Element => {
-            const tabStyle = { color: `#4b6483`, border: `3px solid #4b6483` };
+          {moreInfoTabs.map(({ value, contentName }): JSX.Element => {
+            const tabStyle = { color: `#1a1a1a`, border: `3px solid #1a1a1a` };
             const activeTabStyle = currDetailsWrapper === contentName ? tabStyle : {};
             return (
               <button style={activeTabStyle} onClick={() => setCurrDetailsWrapper(contentName)}>
@@ -55,10 +53,11 @@ const ProdMoreInfo: React.VFC<{
             noBorder
             icon={<IoImagesOutline />}
             isIconBefore
-            handleEvent={() => setIsAlbumModalOpen(!isAlbumModalOpen)}
+            handleEvent={() => setIsModalOpen(!isModalOpen)}
           />
           <Link to="/reporting/product">Report this product</Link>
         </section>
+        <AlbumsModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       </header>
       <article className="details-wrapper">
         {currDetailsWrapper === `prodWrapper` ? (

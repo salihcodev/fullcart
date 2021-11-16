@@ -3,3 +3,45 @@
 @import '../../../../common/styles/utils/_fonts.util'
 
 section.suppler-details-wrapper
+    h3.heading
+    h5.heading
+        margin-top: 1.5rem
+        margin-bottom: 1rem
+        @include flex_positioning(center, flex-start)
+        span
+            &.txt
+            &.icon
+                font-size: 1rem
+                margin-top: 0.3rem
+                margin-left: 0.5rem
+                color: $alt_dark-3
+    section
+        &.company-albums
+            @include flex_positioning(center, flex-satrt)
+            .album-img
+                width: 25rem
+                height: 12rem
+                border-radius: 3px
+                margin-right: 0.5rem
+                margin-bottom: 2rem
+        &.company-basic-info
+            display: grid
+            grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr) )
+            padding: 1rem
+            > p
+                width: 100%
+                min-height: 3rem
+                font-size: 0.77rem
+                span
+                    &.title
+                        margin-right: 0.5rem
+                        width: 8rem
+                        display: inline-block
+                    &.value
+                        color: $app_gray-2
+    footer.section-footer
+        padding: 1rem
+        border-top: 1px solid $alt_dark-4
+        a
+            color: $blue
+            font-size: 0.75rem

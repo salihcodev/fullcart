@@ -5,7 +5,8 @@ import express, { Express, Request, Response } from "express";
 
 // utils:
 import productRouter from "./routes/product.router";
-import userRouter from "./routes/user.router";
+import customerRoutes from "./routes/customer.router";
+import supplerRoutes from "./routes/suppler.router";
 import contactUs from "./routes/contact-us.router";
 
 // *******
@@ -37,8 +38,9 @@ app.get(API_VERSION, (req: Request, res: Response): void => {
 });
 
 // >>> use implemented routers:
-app.use(`${API_VERSION}/products/`, productRouter);
-app.use(`${API_VERSION}/auth`, userRouter);
+app.use(`${API_VERSION}/products`, productRouter);
+app.use(`${API_VERSION}/auth/customer`, customerRoutes);
+app.use(`${API_VERSION}/auth/suppler`, supplerRoutes);
 app.use(`${API_VERSION}/services`, contactUs);
 
 // *******

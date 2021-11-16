@@ -12,4 +12,5 @@ export interface IAppButton {
   noBorder: boolean;
   icon?: any;
   isIconBefore?: boolean;
+  openDetachedly?: boolean;
 }

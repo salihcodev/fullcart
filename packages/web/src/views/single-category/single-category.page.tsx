@@ -7,7 +7,7 @@ import './style.sass';
 import Container from '../../components/utils/container/container.util';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { RootState } from '../../redux/store';
-import { GetFurnitureProds } from '../../redux/slices/prods-collections/logic/reading.logic';
+import { GetCollectionOfProds } from '../../redux/slices/prods-collection/logic/reading.logic';
 
 // comps:
 import Breadcrumb from '../../components/distributed/breadcrumb/breadcrumb.comp';
@@ -16,24 +16,18 @@ import ProdsCategoryCollection from '../../components/base/prods-collection/prod
 // component>>>
 const SingleCategory = () => {
   // preConfigured hooks:
+  const dispatch = useAppDispatch();
   const { category }: any = useParams();
   const { pathname }: any = useLocation();
+
   const [subProdsKeys, setSubProdsKeys] = useState<string[] | null>(null);
-  const dispatch = useAppDispatch();
-  const { stage, subProds } = useAppSelector((state: RootState) => state.FurnitureProds);
+  const { stage, subProds } = useAppSelector((state: RootState) => state.ProdsCollection);
 
   useEffect(() => {
     let isMounted = true;
 
     if (isMounted) {
-      switch (category) {
-        case `furniture`:
-          dispatch(GetFurnitureProds(`?category=${category}&limit=10`));
-          break;
-
-        default:
-          break;
-      }
+      dispatch(GetCollectionOfProds(`?category=${category}&limit=10`));
     }
 
     return () => {

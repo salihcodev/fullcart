@@ -3,8 +3,6 @@ import config from "config";
 import mongoose from "mongoose";
 
 // utils:
-import createInitialDashboardAccount from "./services/create-initial-account.service";
-import User from "./models/user.model";
 
 // *******
 // get the app which's pre-configured to be ready to run.
@@ -23,11 +21,12 @@ const connectWithDB = async () => {
             dbName: "fullcart",
         });
 
+        // TODO: make a model to the app managers.
         // >>> create initial dashboard account:
-        if ((await User.countDocuments()) === 0) {
-            await createInitialDashboardAccount(`companyDomain@mail.com`);
-            console.log(`Created initial dashboard account succeeded.`);
-        }
+        // if ((await User.countDocuments()) === 0) {
+        //     await createInitialDashboardAccount(`companyDomain@mail.com`);
+        //     console.log(`Created initial dashboard account succeeded.`);
+        // }
 
         // >>> listen to the app
         app.listen(port, () => {

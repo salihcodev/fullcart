@@ -15,11 +15,8 @@ const LandingPage = () => {
   return (
     <main className="page landing-page">
       {/* hero */}
-      <Container>
-        <PagesHero
-          heading={heroHeading}
-          description={heroDescription}
-        ></PagesHero>
+      <Container xxl>
+        <PagesHero heading={heroHeading} description={heroDescription}></PagesHero>
       </Container>
     </main>
   );

@@ -5,7 +5,7 @@
 header.default-header
   background: $app_white
   // global __
-  a
+  a,button
     color: $app_gray
     &:hover
       color: $additional_clr !important
@@ -31,7 +31,7 @@ header.default-header
             display: block
             height: inherit
             width: inherit
-            background: url('../../../../public/assets/images/logo-light.svg') center/cover
+            background: url('../../../../public/assets/images/logo-dark.svg') center/cover
       &.middle-wing
         flex-grow: 5
       &.right-wing
@@ -122,14 +122,16 @@ header.default-header
 header.non-expanded-header
   padding-top: 2rem
   margin-bottom: 2rem
-  .logo-dark
-    height: 6rem
-    width: 15rem
-    a
-      display: block
-      height: inherit
-      width: inherit
-      background: url('../../../../public/assets/images/logo-light.svg') center/cover
+  .logo-wrapper
+    @include flex_positioning(center, center)
+    .logo-dark
+      height: 6rem
+      width: 15rem
+      a
+        display: block
+        height: inherit
+        width: inherit
+        background: url('../../../../public/assets/images/non-exp-header-logo.svg') center/cover
 
 @media screen and (max-width: 992px)
   header.default-header

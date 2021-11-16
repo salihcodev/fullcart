@@ -1,0 +1,70 @@
+@import '../../../../common/styles/utils/_colors.util'
+@import '../../../../common/styles/utils/_mixins.util'
+@import '../../../../common/styles/utils/_animation.util'
+
+section.to-order-info
+    section
+        padding: 0.5rem
+        &:not(:first-child)
+            border-top: 1px dotted $alt_dark-6
+        &:last-child
+            margin-top: 1.5rem
+            border: none
+        &.order-limit-case
+            background: $app_white
+            margin-bottom: 1rem
+            @include from-top
+            a
+                margin-top: 0.7rem
+                margin-bottom: 0.3rem
+        &.order-actions
+            a
+                font-weight: normal
+            a
+                margin: 0.5rem 0
+                &:nth-child(1)
+                    height: 2.1rem !important
+                    margin-bottom: 0.8rem
+                &:nth-child(2)
+                    border-color: $main_clr-1 !important
+                    border-bottom-width: 1px !important
+            button
+                margin-top: 1rem
+        p
+            &:first-of-type
+                @include flex_positioning(center, space-between)
+            &:last-of-type
+                margin-top: 1rem
+                @include flex_positioning(center, flex-end)
+                span
+                    &.title
+                        display: inline-block
+                    &.value
+                        font-weight: 500
+            &.shipped-by
+                span
+                    text-transform: uppercase
+                    &:first-of-type
+                        color: $additional_clr
+                        margin-right: 0.3rem
+                    &:last-of-type
+                        color: $main_clr
+                        font-weight: bold
+            &.processing-time
+                span
+                    &.icon
+                        font-size: 1.2rem
+                        color: $alt_dark-3
+                        margin: 0
+                        margin-left: 0.5rem
+                    &.txt
+                        margin-right: 0.3rem
+                        display: inline-block
+                    &.txt2
+                        font-weight: 500
+            span
+                &.title,
+                &.icon
+                    margin-right: 0.5rem
+                &.value
+                    font-weight: bold

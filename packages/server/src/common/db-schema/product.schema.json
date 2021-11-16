@@ -5,6 +5,7 @@
     "port": "Ningbo, China",
     "payment": "Paypal, Western Union",
     "category": "pet-products",
+    "warranty": 1,
     "warrantyIn": "Y",
     "basicLeadingTime": 10,
     "subCategory": "pet-wares",
@@ -36,8 +37,7 @@
         "https://sc04.alicdn.com/kf/Hb11875c831e34a17ab8c4636481bb4d0w.jpg",
         "https://sc04.alicdn.com/kf/Hde8be5b529024a68ab863f7adc01469dU.jpg"
     ],
-    "productInfo": {
-        "warranty": 1,
+    "prodBasicInfo": {
         "style": "",
         "kind": "Pet Cages, Carriers & Houses, Pet Parrot Carrier Bag",
         "model": "DM21BC-971",

@@ -9,8 +9,8 @@ export const ProductSchema = new Schema({
     slug: String,
     priceInDollar: Number,
     cover: String,
+    warranty: Number,
     warrantyIn: String,
-    port: String,
     category: String,
     subCategory: String,
     payment: String,
@@ -24,8 +24,7 @@ export const ProductSchema = new Schema({
     dozensOffers: [{ dozensAmount: String, dozenPrice: Number }],
     features: [String],
     images: [String],
-    productInfo: {
-        warranty: Number,
+    prodBasicInfo: {
         style: String,
         kind: String,
         model: String,
@@ -35,6 +34,7 @@ export const ProductSchema = new Schema({
         position: String,
         transportPackage: String,
         origin: String,
+        port: String,
         hsCode: String,
     },
     deliveryPackage: {
@@ -43,7 +43,7 @@ export const ProductSchema = new Schema({
         singleGrossWeight: String,
         packageType: String,
     },
-    suppler: { type: Schema.Types.ObjectId, ref: "User" },
+    suppler: { type: Schema.Types.ObjectId, ref: "Suppler" },
     createdAt: {
         type: Date,
         default: new Date(),

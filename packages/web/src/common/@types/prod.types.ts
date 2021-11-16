@@ -1,9 +1,10 @@
+import { SupplerTypes } from './user.types';
+
 export type ProdTypes = {
   name?: string;
   slug?: string;
   priceInDollar?: number;
   cover?: string;
-  port?: string;
   category?: string;
   subCategory?: any;
   leadingTime: [{ dozensAmount: string; estimationTime: string }];
@@ -21,13 +22,14 @@ export type ProdTypes = {
   dozensOffers?: { dozensAmount: string; dozenPrice: number }[];
   features?: string[];
   images?: string[];
-  productInfo?: prodInfoTypes;
-  deliveryPackage?: deliveryPackageTypes;
+  prodBasicInfo?: ProdBasicInfoTypes;
+  deliveryPackage?: DeliveryPackageTypes;
   _id?: string;
-  suppler?: any;
+  suppler?: SupplerTypes;
+  count: number;
 };
 
-type prodInfoTypes = {
+type ProdBasicInfoTypes = {
   model?: string[];
   priceIncludes?: string;
   mainMaterial?: string;
@@ -36,9 +38,10 @@ type prodInfoTypes = {
   transportPackage?: string;
   origin?: string;
   hsCode?: string;
+  port?: string;
 };
 
-type deliveryPackageTypes = {
+type DeliveryPackageTypes = {
   sellingUnits?: string;
   singlePackageSize?: string;
   singleGrossWeight?: string;

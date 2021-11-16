@@ -32,9 +32,7 @@ export const createNewProduct = async (
 
         res.status(201).json({
             statue: `SUCCESS`,
-            data: {
-                newProd,
-            },
+            data: newProd,
         });
     } catch (err) {
         res.status(409).json({

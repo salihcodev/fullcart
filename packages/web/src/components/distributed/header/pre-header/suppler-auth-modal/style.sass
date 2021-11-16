@@ -1,0 +1,29 @@
+@import '../../../../../common/styles/utils/_colors.util'
+@import '../../../../../common/styles/utils/_mixins.util'
+@import '../../../../../common/styles/utils/_fonts.util'
+
+article.suppler-logging-modal
+    min-height: 80vh
+    padding: 1rem
+    padding-top: 0
+    header.tabs-wrapper
+        border-bottom: 1px solid $alt_dark-4
+        h2.heading
+            text-transform: uppercase
+            text-align: center
+            margin-bottom: 1rem
+        .tabs-wrapper
+            @include flex_positioning(center, space-between)
+            button
+                flex-grow: 1
+                height: 3rem
+                font-size: 0.9rem
+                font-weight: bold
+                border-radius: 0
+                color: $main_clr
+                border-bottom: 3px solid transparent
+                &:hover
+                    color: $additional_clr-1 !important
+                    border-bottom: 3px solid $app_gray-2
+    section.current-content
+        padding: 2rem

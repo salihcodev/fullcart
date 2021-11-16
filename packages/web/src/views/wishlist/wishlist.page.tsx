@@ -10,7 +10,7 @@ import './style.sass';
 const Wishlist = () => {
   return (
     <main className="page contact-page">
-      <Container>
+      <Container xxl>
         <h2>Wishlist</h2>
       </Container>
     </main>

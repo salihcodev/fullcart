@@ -14,28 +14,20 @@ import { RootState } from '../../../redux/store';
 
 // component>>>
 const DashboardAside = () => {
-  const { isAsideOpened } = useAppSelector(
-    (state: RootState) => state.DashAside
-  );
+  const { isAsideOpened } = useAppSelector((state: RootState) => state.DashAside);
 
   // preConfigured hooks:
   const dispatch = useDispatch();
   const location = useLocation();
 
   const navRouteActiveStyle = {
-    color: '#4b6483',
+    color: '#1a1a1a',
     background: '#ececec',
   };
 
   return (
-    <aside
-      className="dash-sidebar"
-      style={{ minWidth: isAsideOpened ? `12rem` : `4rem` }}
-    >
-      <button
-        className="aside-toggler"
-        onClick={() => dispatch(toggleAsideState())}
-      >
+    <aside className="dash-sidebar" style={{ minWidth: isAsideOpened ? `12rem` : `4rem` }}>
+      <button className="aside-toggler" onClick={() => dispatch(toggleAsideState())}>
         <AiOutlineMenuUnfold />
       </button>
       <div className="aside-wrapper">
@@ -53,41 +45,31 @@ const DashboardAside = () => {
         <section className="routes">
           {isAsideOpened ? (
             <ul className="full-routes">
-              {dashAsideRoutes.map(
-                ({ icon, value, path }: any): JSX.Element => {
-                  return (
-                    <li key={path} className="aside-route">
-                      <NavLink
-                        exact
-                        activeStyle={navRouteActiveStyle}
-                        to={path}
-                      >
-                        <span className="icon">{icon()}</span>{' '}
-                        <span className="route-name">{value}</span>
-                      </NavLink>
-                    </li>
-                  );
-                }
-              )}
+              {dashAsideRoutes.map(({ icon, value, path }: any): JSX.Element => {
+                return (
+                  <li key={path} className="aside-route">
+                    <NavLink exact activeStyle={navRouteActiveStyle} to={path}>
+                      <span className="icon">{icon()}</span> <span className="route-name">{value}</span>
+                    </NavLink>
+                  </li>
+                );
+              })}
             </ul>
           ) : (
             <ul className="icons-only-routes">
-              {dashAsideRoutes.map(
-                ({ value, icon, path }: any): JSX.Element => {
-                  const activeIconRoute =
-                    location.pathname === path ? `active-icon-route` : null;
-                  return (
-                    <li key={path} className={`aside-route ${activeIconRoute}`}>
-                      <NavLink exact to={path}>
-                        <span className="icon">{icon()}</span>
-                      </NavLink>
-                      <span className="hover-title">
-                        <small>{value}</small>
-                      </span>
-                    </li>
-                  );
-                }
-              )}
+              {dashAsideRoutes.map(({ value, icon, path }: any): JSX.Element => {
+                const activeIconRoute = location.pathname === path ? `active-icon-route` : null;
+                return (
+                  <li key={path} className={`aside-route ${activeIconRoute}`}>
+                    <NavLink exact to={path}>
+                      <span className="icon">{icon()}</span>
+                    </NavLink>
+                    <span className="hover-title">
+                      <small>{value}</small>
+                    </span>
+                  </li>
+                );
+              })}
             </ul>
           )}
         </section>

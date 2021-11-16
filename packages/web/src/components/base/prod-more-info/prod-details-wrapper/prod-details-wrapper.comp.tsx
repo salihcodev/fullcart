@@ -15,8 +15,8 @@ const ProdDetailsWrapper: React.VFC<{ prod: ProdTypes | null }> = ({ prod }) => 
       <section className="quick-details">
         <h6 className="heading">Quick details</h6>
         <ul>
-          {prod?.productInfo &&
-            Object.entries(prod?.productInfo).map((item): JSX.Element => {
+          {prod?.prodBasicInfo &&
+            Object.entries(prod?.prodBasicInfo).map((item): JSX.Element => {
               return (
                 <li className="prop">
                   <span className="title">{item[0]}</span>

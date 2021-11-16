@@ -1,0 +1,48 @@
+@import '../../../../common/styles/utils/_colors.util'
+@import '../../../../common/styles/utils/_mixins.util'
+
+section.suppler-mini-info
+    margin-top: 3rem
+    padding: 0.5rem
+    header
+        h5.heading
+            border-bottom: 1px solid $alt_dark-4
+            padding: 0.3rem 0
+            font-weight: bold
+            margin-bottom: 0.2rem
+            a
+                display: -webkit-box
+                color: $app_gray
+                overflow: hidden
+                -webkit-box-orient: vertical
+                -webkit-line-clamp: 1
+                &:hover
+                    text-decoration: underline
+        span.specialization
+            color: $alt_dark-3
+    p
+        margin: 2rem 0
+        display: flex
+        align-items: baseline
+        span
+            &.company-location
+                margin-right: 2rem
+                display: flex
+            &.country
+                text-transform: uppercase
+                font-size: 0.7rem
+                margin-left: 0.5rem
+                color: $app_gray-2
+            &.company-since
+    footer
+        @include flex_positioning(center, space-between)
+        margin-top: 2rem
+        > div
+            flex-grow: 1
+            width: 100%
+            span.title
+                font-size: 0.7rem
+            h4.value
+                margin-top: 0.5rem
+                font-weight: 500
+                color: $alt_dark-3
