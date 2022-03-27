@@ -7,7 +7,11 @@ import { NextFunction, Request, Response } from "express";
 const { token_gen_sec_key } = config.get("server");
 
 // auth middleware controller:
-const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
+const authMiddleware = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+): void => {
     try {
         // get the token from coming req:
         const token = req.headers.authorization?.split(" ")[1];
