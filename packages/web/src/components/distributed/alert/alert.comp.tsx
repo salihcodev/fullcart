@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 // comps:
 
 // component>>>
-const Alert: VFC<IAlert> = ({ type, title, msg, authWarning }) => {
+const Alert: VFC<IAlert> = ({ type, title, msg, authWarning, list }) => {
   // preConfigured hooks:
   const [alertState, setAlertState] = useState<boolean>(true);
 
@@ -21,13 +21,13 @@ const Alert: VFC<IAlert> = ({ type, title, msg, authWarning }) => {
     // change the alert box theme AKA `one, two`
     switch (type) {
       case `info`:
-        setStyles(`#6ac76a`);
+        setStyles(`#50b950`);
         break;
       case `warning`:
-        setStyles(`#d1b130`);
+        setStyles(`#ad901c`);
         break;
       case `error`:
-        setStyles(`#dd7272`);
+        setStyles(`#a54646`);
         break;
       default:
         setStyles(`#858585`);
@@ -60,7 +60,7 @@ const Alert: VFC<IAlert> = ({ type, title, msg, authWarning }) => {
               {msg}
               {authWarning ? (
                 <div className="auth-warning">
-                  <Link to="/auth/customer/signin">
+                  <Link to="/auth/customer/login">
                     <b>signin</b>
                   </Link>
                   <span>or</span>
@@ -70,6 +70,13 @@ const Alert: VFC<IAlert> = ({ type, title, msg, authWarning }) => {
                 </div>
               ) : null}
             </p>
+            {list ? (
+              <ul>
+                {list.map((li) => (
+                  <li>{li}</li>
+                ))}
+              </ul>
+            ) : null}
           </div>
         </section>
       ) : null}

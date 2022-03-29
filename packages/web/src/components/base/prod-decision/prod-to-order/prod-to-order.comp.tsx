@@ -90,7 +90,7 @@ const ProdToOrder: React.VFC<{}> = () => {
           bkgDefault
           border={{ size: 1 }}
           noBorder={false}
-          path="/checkout/product"
+          path={`/checkout/product?prod=${prod?.slug}`}
           openDetachedly
         />
         <AppButton

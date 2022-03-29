@@ -3,4 +3,5 @@ export interface IAlert {
   title?: null | string | undefined;
   msg?: null | string | undefined;
   authWarning?: boolean;
+  list?: string[];
 }

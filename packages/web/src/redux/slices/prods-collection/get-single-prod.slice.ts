@@ -1,4 +1,3 @@
-import { localStorageObjGetter } from './../../../common/utilities/localstorage-dealer/localstorage-getters.util';
 import { createSlice } from '@reduxjs/toolkit';
 
 // util:

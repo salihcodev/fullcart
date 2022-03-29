@@ -7,4 +7,6 @@ export interface IFormInput {
   otherProps?: any;
   icon?: any;
   autoComplete?: string;
+  value?: any;
+  ref?: any;
 }

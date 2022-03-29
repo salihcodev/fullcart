@@ -54,7 +54,7 @@ const ProductImgs: React.VFC<{}> = () => {
             width: 1200,
             height: 1200,
           },
-          enlargedImageContainerDimensions: { height: `100%`, width: `180%` },
+          enlargedImageContainerDimensions: { height: `120%`, width: `200%` },
           lensStyle: {
             background: `#ffffff5e`,
             border: `1px solid #bdaaec`,

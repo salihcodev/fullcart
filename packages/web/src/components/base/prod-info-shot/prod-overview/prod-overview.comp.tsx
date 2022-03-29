@@ -1,13 +1,11 @@
 // pkgs:
+import { useEffect, useState } from 'react';
+import { GoPackage } from 'react-icons/go';
 
 // utils:
 import './style.sass';
 import { MdDone, MdVerifiedUser } from 'react-icons/md';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
-
-// comps:
-import AppButton from '../../../distributed/button/app-button.comp';
-import { GoPackage } from 'react-icons/go';
 import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
 import { RootState } from '../../../../redux/store';
 import {
@@ -15,7 +13,9 @@ import {
   decreaseProdCount,
   setProdCount,
 } from '../../../../redux/slices/prods-collection/get-single-prod.slice';
-import { useEffect, useState } from 'react';
+
+// comps:
+import AppButton from '../../../distributed/button/app-button.comp';
 
 // component>>>
 const ProductOverview: React.VFC<{}> = () => {

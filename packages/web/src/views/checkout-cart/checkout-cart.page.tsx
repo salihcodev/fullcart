@@ -1,5 +1,4 @@
 // pkgs:
-import { Link, useParams } from 'react-router-dom';
 
 // comps:
 
@@ -10,23 +9,15 @@ import Alert from '../../components/distributed/alert/alert.comp';
 import { localStorageObjGetter } from '../../common/utilities/localstorage-dealer/localstorage-getters.util';
 
 // component>>>
-const CheckoutPage = () => {
+const CheckoutCartPage = () => {
   // preConfigured hooks:
-  const { checkoutType }: any = useParams();
-
   const user = localStorageObjGetter(`@authedUser`)?.user;
 
   return (
-    <main className="page checkout-page">
+    <main className="page checkout-page checkout-cart-page">
       <Container xxl>
         <header className="header">
-          <h2 className="heading">
-            {checkoutType === `cart-contents`
-              ? `Order current cart contents`
-              : checkoutType === `product`
-              ? `Order this product now!`
-              : `Request simple for this product`}
-          </h2>
+          <h2 className="heading">Cart</h2>
         </header>
         <article className="checkout-view">
           {user ? (
@@ -39,13 +30,11 @@ const CheckoutPage = () => {
               msg="Sorry, You can't go further from here without "
             />
           )}
-          <aside className="curr-order-data">
-            {checkoutType === `cart-contents` ? `cart` : checkoutType === `product` ? `product` : `simple`}
-          </aside>
+          <aside className="curr-order-data">product</aside>
         </article>
       </Container>
     </main>
   );
 };
 
-export default CheckoutPage;
+export default CheckoutCartPage;

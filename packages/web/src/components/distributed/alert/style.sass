@@ -6,20 +6,21 @@
 .alert
     position: relative
     margin: 1rem 0
-    padding: 0.8rem
+    padding: 0.8rem !important
     padding-top: 0.6rem
     border-radius: 3px
-    border-left-width: 3px !important
     @include from-bottom
     z-index: 10
     min-height: 3rem
     background: $additional_clr-tone
-    border: 1px solid $additional_clr-mirr
+    border: 1px solid $additional_clr-mirr !important
+    border-left-width: 3px !important
     h6.heading
         font-family: $main_font
         font-weight: bold
     p.msg
         padding-left: 0.5rem
+        display: block !important
     .auth-warning
         display: inline-block
         > a
@@ -39,3 +40,20 @@
         font-size: 20px
         &:hover
             transform: none
+
+    ul
+        padding-left: 1.2rem
+        margin-top: 0.5rem
+        li
+            font-size: 0.8rem
+            position: relative
+            &::after
+                content: ""
+                display: block
+                position: absolute
+                width: 0.5rem
+                height: 0.1rem
+                background: $alt_dark-2
+                top: 50%
+                left: -0.6rem
+                transform: translate(0, -25%)

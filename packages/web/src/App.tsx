@@ -32,7 +32,9 @@ import DashManageProducts from './views/dash-manage-products/dash-manage-product
 import SingleCategory from './views/single-category/single-category.page';
 import SubCategory from './views/sub-category/sub-category.page';
 import AuthPage from './views/auth/auth.page';
-import CheckoutPage from './views/checkout/checkout.page';
+import CheckoutCartPage from './views/checkout-cart/checkout-cart.page';
+import CheckoutProductPage from './views/checkout-product/checkout-product.page';
+import CheckoutSimplePage from './views/checkout-simple/checkout-simple.page';
 
 // component>>>
 const App = () => {
@@ -128,9 +130,20 @@ const App = () => {
           <Layout expanded={false}>{user ? <Redirect to="/" /> : <AuthPage />}</Layout>
         </Route>
 
-        <Route exact path="/checkout/:checkoutType">
+        <Route exact path="/checkout/simple">
           <Layout expanded={true}>
-            <CheckoutPage />
+            <CheckoutSimplePage />
+          </Layout>
+        </Route>
+
+        <Route exact path="/checkout/product">
+          <Layout expanded={true}>
+            <CheckoutProductPage />
+          </Layout>
+        </Route>
+        <Route exact path="/checkout/cart">
+          <Layout expanded={true}>
+            <CheckoutCartPage />
           </Layout>
         </Route>
 

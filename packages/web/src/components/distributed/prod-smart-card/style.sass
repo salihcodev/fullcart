@@ -1,0 +1,24 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_mixins.util'
+
+section.prod-smart-card
+    display: grid
+    grid-template-columns: 1fr 4fr
+    height: 10rem
+    border: 1px solid $alt_dark-4
+    border-radius: 1.5rem
+    padding: 0 !important
+    .prod-cover
+        height: 10rem
+        img
+            height: 100%
+            border: 1px solid $alt_dark-4
+            border-radius: 1.5rem
+            margin-top: -1px
+            border-left: none
+    .prod-info
+        color: $app_gray-2
+        @include flex_positioning(center, center)
+        padding: 1rem
+        p
+            margin: 0 !important
