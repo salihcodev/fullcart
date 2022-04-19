@@ -11,21 +11,21 @@ const CheckoutCalculations: React.VFC<ICheckoutCalculations> = ({ calcs }) => {
     <section className="checkout-calculations">
       <div>
         <h6>Delivery</h6>
-        <h2>
+        <h3>
           <span>$</span> <span>{calcs?.delivery}</span>
-        </h2>
+        </h3>
       </div>
       <div>
         <h6>Subtotal</h6>
-        <h2>
+        <h3>
           <span>$</span> <span>{calcs?.subTotal}</span>
-        </h2>
+        </h3>
       </div>
       <div>
         <h6>Total</h6>
-        <h2>
+        <h3>
           <span>$</span> <span>{calcs?.total}</span>
-        </h2>
+        </h3>
       </div>
     </section>
   );

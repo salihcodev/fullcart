@@ -2,3 +2,137 @@
 @import '../../../common/styles/utils/_mixins.util'
 
 section.user-complete-checkout
+    padding: 1rem
+    header.order-steps-map
+        padding: 0.5rem 0
+        @include flex_positioning(center,center)
+        background: app_white
+        > div
+            flex-grow: 1
+            &:first-of-type
+                button
+                    color: $app_white !important
+            .step
+                margin-bottom: 0.4rem
+                position: relative
+                button
+                    width: 2.3rem
+                    height: 2.3rem
+                    border-radius: 50%
+                    @include flex_positioning(center,center)
+                    border: 2px solid $additional_clr-1
+                    z-index: 2
+                    outline: none
+                    background: $additional_clr-1
+                    color: $white_trans-1
+                    div.step-icon
+                        font-size: 1.2rem
+                        padding-top: 0.2rem
+                    &::after
+                        z-index: -1
+                        content: ""
+                        display: block
+                        height: 5px
+                        background: $app_white
+                        position: absolute
+                        top: 50%
+                        left: -9px
+                        width: 3.5rem
+                        transform: translate(0, -50%)
+            &:not(:last-of-type)
+                .step
+                    &::after
+                        content: ""
+                        display: block
+                        height: 2px
+                        background: $alt_dark-4
+                        position: absolute
+                        top: 50%
+                        left: 0
+                        right: 0
+                        z-index: -5
+                        transform: translate(0, -50%)
+            small.step-label
+                display: block
+                color: $app_gray-2
+    section.order-steps-wrapper
+        padding: 1rem 0
+        min-height: 70vh
+        background: $app_white
+        > div
+            margin-bottom: 0
+        .group-inputs
+            display: grid
+            grid-gap: 0 0.5rem
+            grid-template-columns: repeat(auto-fill, minmax(15rem,1fr))
+        section.first-step
+        section.second-step
+            display: grid
+            grid-gap: 1rem
+            grid-template-columns: 1fr 1fr
+            > div
+                border: 1px solid $alt_dark-4
+                min-height: 10rem
+                border-radius: 0.9rem
+                padding: 1rem
+                h6
+                    text-transform: uppercase
+
+                &.physical-methods,
+                &.virtual-methods
+                    > div
+                        margin-top: 1rem
+                        display: grid
+                        grid-template-columns: 1fr 1fr 1fr
+                        grid-gap: 0.5rem
+                        div
+                            height: 5.5rem
+                            border: 1px solid $alt_dark-4
+                            border-radius: 0.9rem
+                input
+                    display: none
+                    &:checked
+                        + label
+                            &::after
+                                background: $additional2_clr-1 !important
+                label
+                    background transparent
+                    display: block
+                    height: 100%
+                    width: 100%
+                    position: relative
+                    &::after
+                        content: ""
+                        display: block
+                        width: 1.2rem
+                        height: 1.2rem
+                        top: 0.3rem
+                        left: 0.3rem
+                        border-radius: 50%
+                        position: absolute
+                        border: 2px solid $additional2_clr-2
+                &.physical-methods
+                    border: 3px solid $additional2_clr
+                    .pay-cards
+                        div
+                            &:first-of-type
+                                background: url('../../../../public/assets/images/payment-methods/visa.svg') center/contain no-repeat
+                            &:nth-last-of-type(2)
+                                background: url('../../../../public/assets/images/payment-methods/mastercard.svg') center/contain no-repeat
+                            &:last-of-type
+                                background: url('../../../../public/assets/images/payment-methods/on-delivary.svg') center/contain no-repeat
+                &.virtual-methods
+                    background: $alt_dark-4
+                    .pay-cards
+                        div
+                            border: 1px solid $alt_dark-6
+                            &:first-of-type
+                                background: url('../../../../public/assets/images/payment-methods/paypal.svg') center/contain no-repeat
+                            &:last-of-type
+                                background: url('../../../../public/assets/images/payment-methods/fawry.svg') center/contain no-repeat
+
+        section.third-step
+    footer.viewers
+        margin-top: 2rem
+        background: $app_white
+        @include flex_positioning(center, space-between)

@@ -6,9 +6,9 @@ import './style.sass';
 
 // comps:
 
-const ProdSmartCard: React.VFC<IProdSmartCard> = ({ prod }) => {
+const ProdSmartCard: React.VFC<IProdSmartCard> = ({ prod, height }) => {
   return (
-    <section className="prod-smart-card">
+    <section className="prod-smart-card" style={{ height: height || `10rem` }}>
       <div className="prod-cover">
         <img src={prod?.cover} alt="product cover" />
       </div>

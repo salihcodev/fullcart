@@ -56,7 +56,7 @@ const CheckoutProductPage = () => {
           )}
           <aside className="curr-order-data">
             <CheckoutCalculations calcs={{ delivery: DELIVERY, subTotal: subT, total: TOTAL }} />
-            <ProdSmartCard prod={prod} />
+            <ProdSmartCard prod={prod} height={`8rem`} />
             <ProdHighlights prod={prod} />
           </aside>
         </article>

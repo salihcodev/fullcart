@@ -35,7 +35,15 @@ const ProdHighlights: React.VFC<IProdHighlights> = ({ prod }) => {
       <div>
         <div>
           <h6>Warranty In</h6>
-          <h6>{prod?.warrantyIn}</h6>
+          <h6>
+            {prod?.warrantyIn === `Y`
+              ? `Years`
+              : prod?.warrantyIn === `M`
+              ? `Months`
+              : prod?.warrantyIn === `W`
+              ? `Weeks`
+              : `Days`}
+          </h6>
         </div>
       </div>
       <div>

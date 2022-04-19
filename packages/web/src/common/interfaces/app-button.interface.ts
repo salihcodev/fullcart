@@ -8,9 +8,11 @@ export interface IAppButton {
   border: { size: number; color?: string };
   bkgDefault?: boolean;
   bkgSecondary?: boolean;
+  bkgSecondary2?: boolean;
   handleEvent?: any;
   noBorder: boolean;
   icon?: any;
   isIconBefore?: boolean;
   openDetachedly?: boolean;
+  disabled?: boolean;
 }

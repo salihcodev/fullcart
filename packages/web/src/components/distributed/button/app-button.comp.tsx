@@ -15,12 +15,14 @@ const AppButton: React.VFC<IAppButton> = ({
   size,
   bkgDefault,
   bkgSecondary,
+  bkgSecondary2,
   border,
   handleEvent,
   noBorder,
   icon,
   isIconBefore,
   openDetachedly,
+  disabled,
 }) => {
   const buttonCursorDisability = loadState === `busy` ? `not-allowed` : `pointer`;
 
@@ -29,10 +31,10 @@ const AppButton: React.VFC<IAppButton> = ({
   };
 
   const fullWidth = wide ? `100%` : `auto`;
-  const color = bkgDefault ? `#f5f6f7` : bkgSecondary ? `#f5f6f7` : `#575e63`;
+  const color = bkgDefault ? `#f5f6f7` : bkgSecondary ? `#f5f6f7` : bkgSecondary2 ? `#f5f6f7` : `#575e63`;
   const borderValue = `${border.size}px`;
   const spinnerStyle =
-    bkgSecondary || bkgDefault
+    bkgSecondary || bkgDefault || bkgSecondary2
       ? {
           borderTopColor: `#faeddb`,
           borderWidth: `2px`,
@@ -45,8 +47,8 @@ const AppButton: React.VFC<IAppButton> = ({
           borderStyle: `solid`,
           background: `#575e6344`,
         };
-  const borderColor = bkgDefault ? `#000` : bkgSecondary ? `#5624d0` : `#ddd`;
-  const bkgColor = bkgDefault ? `#1a1a1a` : bkgSecondary ? `#673fce` : `#f5f6f7`;
+  const borderColor = bkgDefault ? `#000` : bkgSecondary ? `#5624d0` : bkgSecondary2 ? `#b38420` : `#ddd`;
+  const bkgColor = bkgDefault ? `#1a1a1a` : bkgSecondary ? `#673fce` : bkgSecondary2 ? `#d4ae31` : `#f5f6f7`;
 
   const sizeValue = size === `sm` ? `2rem` : size === `md` ? `2.5rem` : `3rem`;
 
@@ -82,7 +84,7 @@ const AppButton: React.VFC<IAppButton> = ({
             cursor: buttonCursorDisability,
           }}
           className="app-button"
-          disabled={loadState === `busy` ? true : false}
+          disabled={disabled || loadState === `busy` ? true : false}
           onClick={handelClickEvent}
         >
           {icon && isIconBefore ? <span className="icon">{icon}</span> : null}
