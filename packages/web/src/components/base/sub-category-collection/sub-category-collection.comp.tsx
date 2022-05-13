@@ -34,20 +34,20 @@ const SubCategoryCollection: VFC<any> = ({ subCategory }) => {
   return (
     <Fragment>
       {stage === `busy` ? (
-        <section className="skeleton">
+        <section className='skeleton'>
           <h1>Loading...</h1>
         </section>
       ) : (
-        <section className="sub-category-loader">
-          <section className="sub-category-header">
-            <h3 className="category-title">
+        <section className='sub-category-loader'>
+          <section className='sub-category-header'>
+            <h3 className='category-title'>
               <div>{unDashed(subCategory)}</div>
               <div>
-                <span className="border-list"></span>
+                <span></span>
               </div>
             </h3>
           </section>
-          <section className="category-prods">
+          <section className='category-prods'>
             {prods?.map(
               (prod: ProdTypes): JSX.Element => (
                 <ProductCard key={prod._id} prod={prod} />

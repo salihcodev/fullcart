@@ -1,12 +1,40 @@
 @import '../../common/styles/utils/_colors.util'
 @import '../../common/styles/utils/_mixins.util'
+@import '../../common/styles/utils/_animation.util'
 
 main.checkout-page.checkout-cart-page
     section.alert
     header.header
         h2.heading
     article.checkout-view
-        > section,
         > aside
+            position: relative
+            h4
+                margin-bottom: 1rem
+            section.cart-check-last-view
+                height: 25rem
+                overflow-y: scroll
+                > div
+                    margin: 0.5rem 0
+            &:hover
+                span.gate
+                    display: block
+            span.gate
+                display: block
+                content: ''
+                left: 1rem
+                right: 2rem
+                background: linear-gradient(to bottom, #ffffffc0, #f5f6f700)
+                display: none
+                height: 4rem
+                position: absolute
+                @include fade-in
+                &:first-of-type
+                    transform: translate(0, 5rem)
+                    top: 5.8rem
+                &:last-of-type
+                    transform: translate(0, -6rem)
+                    background: linear-gradient(to top, #ffffffc0, #f5f6f700)
+                    bottom: -5rem
         section.to-complete-order
         aside.curr-order-data

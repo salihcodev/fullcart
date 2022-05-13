@@ -20,6 +20,3 @@ development.yml
 
 # webstorm files
 .idea
-
-# local data files
-db

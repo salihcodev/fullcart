@@ -2,12 +2,11 @@
 @import './utils/_colors.util'
 
 // setup custome font:
-// @font-face
-//   font-family: 'MadeDillan'
-//   src: url('../../../public/assets/fonts/MADEDillanRegular.ttf') format("truetype"),url('../../../public/assets/fonts/MADEDillanRegular.woff') format("woff")
+@font-face
+  font-family: 'ebrima'
+  src: url('../../../public/assets/fonts/ebrima.ttf'), url('../../../public/assets/fonts/ebrimabd.ttf')
 
 // gloabls:
-
 span.loading-spinner
   display: block
   width: 20px
@@ -16,6 +15,11 @@ span.loading-spinner
   border-radius: 50%
   border-color: transparent
   @include spinner
+
+form
+  button
+    &:hover
+      color: $dark_white !important
 
 .dash-body
   @include fade-in
@@ -30,7 +34,9 @@ main.checkout-page
     margin-top: 0
   header.header
     margin-top: 1.5rem
-    h2.heading
+    padding-left: 1.5rem
+    margin-bottom: 2rem
+    h3.heading
       text-transform: uppercase
       font-weight: 200
   article.checkout-view
@@ -39,15 +45,16 @@ main.checkout-page
     grid-template-columns: 5fr 2fr
     > aside
       padding: 1rem
+      min-height: 20rem
     > section
       padding: 1rem
+      padding-top: 0
+      padding-bottom: 0
+      border-radius: 1rem
     section.to-complete-order
     aside.curr-order-data
-      min-height: 70vh
-      border: 1px solid $light_gray
       border-bottom: 0
       background: $app_white
-      border-radius: 1rem
 
 @media screen and ( max-width: 992px )
   main.checkout-page

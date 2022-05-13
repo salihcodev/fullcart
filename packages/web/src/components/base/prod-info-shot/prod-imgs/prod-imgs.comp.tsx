@@ -30,13 +30,13 @@ const ProductImgs: React.VFC<{}> = () => {
   let currentViewedProdUrl: string = typeof window !== 'undefined' ? window.location.href : ``;
 
   return (
-    <section className="prod-imgs">
-      <div className="button-holder">
+    <section className='prod-imgs'>
+      <div className='button-holder'>
         <button>
           {stage === `busy` ? (
-            <span className="spinner-for-wish loading-spinner"></span>
+            <span className='spinner-for-wish loading-spinner'></span>
           ) : (
-            <span className="icon">
+            <span className='icon'>
               <FiHeart />
             </span>
           )}
@@ -63,53 +63,53 @@ const ProductImgs: React.VFC<{}> = () => {
           shouldUsePositiveSpaceLens: true,
         }}
       />
-      <section className="prod-imgs-pickers">
+      <section className='prod-imgs-pickers'>
         {prod?.images?.map(
           (img): JSX.Element => (
             <button
-              className="img-picker"
+              className='img-picker'
               onClick={() => setCurrentProdImg(img)}
               style={{
                 background: `url(${img}) center/contain no-repeat`,
-                boxShadow: `${img === currentProdImg ? `0 0 1px 2px #5624d0a9` : ''}`,
+                boxShadow: `${img === currentProdImg ? `#5624d059 0px 0px 1px 2px` : ''}`,
               }}
             ></button>
           )
         )}
       </section>
-      <section className="sharing-current-viewed-prod">
-        <div className="heading">
-          <span className="icon">
+      <section className='sharing-current-viewed-prod'>
+        <div className='heading'>
+          <span className='icon'>
             <BsShare />
           </span>
-          <span className="value">Share</span>
+          <span className='value'>Share</span>
         </div>
-        <div className="share">
+        <div className='share'>
           <ul>
             <li>
               <WhatsappShareButton url={currentViewedProdUrl} title={prod?.name}>
-                <span className="share-it-btn" title="what's up">
+                <span className='share-it-btn' title="what's up">
                   <FaWhatsapp />
                 </span>
               </WhatsappShareButton>
             </li>
             <li>
               <TelegramShareButton url={currentViewedProdUrl} title={prod?.name}>
-                <span className="share-it-btn" title="telegram">
+                <span className='share-it-btn' title='telegram'>
                   <FaTelegramPlane />
                 </span>
               </TelegramShareButton>
             </li>
             <li>
               <FacebookShareButton url={currentViewedProdUrl} quote={prod?.name}>
-                <span className="share-it-btn" title="facebook">
+                <span className='share-it-btn' title='facebook'>
                   <FiFacebook />
                 </span>
               </FacebookShareButton>
             </li>
             <li>
-              <TwitterShareButton url={currentViewedProdUrl} via="fullcart" title={prod?.name}>
-                <span className="share-it-btn" title="twitter">
+              <TwitterShareButton url={currentViewedProdUrl} via='fullcart' title={prod?.name}>
+                <span className='share-it-btn' title='twitter'>
                   <FiTwitter />
                 </span>
               </TwitterShareButton>

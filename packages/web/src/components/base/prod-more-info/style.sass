@@ -5,6 +5,7 @@ article.prod-more-info
     min-height: 50rem
     margin-top: 2rem
     background: $app_white
+    padding: 1rem
     header
         width: 100%
         @include flex_positioning(center, space-between)
@@ -21,9 +22,10 @@ article.prod-more-info
                 padding: 0.5rem 1rem
                 font-weight: bold
                 font-size: 1rem
+                margin: 0 2px -1px 0
                 &:hover
                     background: $app_white
-                    color: $app_gray
+                    color: $main_clr-1 !important
                 &:first-of-type
                 &:last-of-type
                 &:not(:first-of-type)
@@ -53,3 +55,5 @@ article.prod-more-info
                 padding-top: 0.3rem
             &.prod-full-width-imgs
                 margin-top: 3rem
+                > div
+                    margin: 1rem 0

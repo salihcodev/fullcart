@@ -1,45 +1,20 @@
 @import '../../../common/styles/utils/_colors.util'
 @import '../../../common/styles/utils/_mixins.util'
 
-footer.app-footer
-  background: $app_white
-  padding-top: 5rem
-  padding-bottom: 2rem
+.app-footer
+  background: $extra_pkg
+  padding-top: 2rem
+  margin-top: 10rem
+  text-align: center
   p.reservation
-    text-align: center
+    color: $alt_dark-5
+    margin-top: 2rem
+    padding: 1rem 0
+    background: #0e000014
     span.icon
       display: inline-block
       margin-right: 0.1rem
     span
       margin: 0 0.4rem
       a
-        color: $additional_clr-1
-  &.default-footer
-    margin-top: 10rem
-    padding: 2rem 0
-    border-top: 1px solid $alt_dark-4
-    text-align: center
-  &.non-expanded-footer
-    margin: 0
-    ul
-      flex-wrap: wrap
-      @include flex_positioning(center,center)
-      li
-        padding: 0 0.7rem
-        position: relative
-        a
-          font-size: 0.9rem
-        &:not(:last-child)
-          &::after
-            content: ''
-            display: block
-            background: $alt_dark-5
-            width: 1px
-            top: 0
-            bottom: 0
-            right: 0
-            position: absolute
-      &:first-child
-        padding-bottom: 0.5rem
-    p
-      padding-top: 2rem
+        color: $additional_clr-mirr

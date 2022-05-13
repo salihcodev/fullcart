@@ -15,6 +15,8 @@ import { useAppSelector } from '../../redux/hooks';
 import { RootState } from '../../redux/store';
 import Container from '../../components/utils/container/container.util';
 import { localStorageObjGetter } from '../../common/utilities/localstorage-dealer/localstorage-getters.util';
+import CheckoutCalculations from '../../components/distributed/checkout-calculations/checkout-calculations.comp';
+import UserCompleteCheckout from '../../components/distributed/user-complete-checkout/user-complete-checkout.comp';
 
 // component>>>
 const CheckoutSimplePage = () => {
@@ -26,29 +28,35 @@ const CheckoutSimplePage = () => {
 
   const slug = useLocation().search.slice(6);
 
+  let subT: number = prod?.count! * prod?.priceInDollar!;
+  const DELIVERY = 10;
+  const TAXES = 1.2;
+  const TOTAL = subT * TAXES + DELIVERY;
+
   useEffect(() => {
     dispatch(GetSingleProdBySlug(slug));
   }, [dispatch, slug]);
 
   return (
-    <main className="page checkout-page checkout-simple-page">
+    <main className='page checkout-page checkout-simple-page'>
       <Container xxl>
-        <header className="header">
-          <h2 className="heading">Request simple for this product</h2>
+        <header className='header'>
+          <h3 className='heading'>Request simple for this product</h3>
         </header>
-        <article className="checkout-view">
+        <article className='checkout-view'>
           {user ? (
-            <section className="to-complete-order">user data to complete</section>
+            <UserCompleteCheckout user={user} />
           ) : (
             <Alert
-              type="warning"
+              type='warning'
               authWarning
-              title="You must be signed in to continue"
+              title='You must be signed in to continue'
               msg="Sorry, You can't go further from here without "
             />
           )}
-          <aside className="curr-order-data">
-            <ProdSmartCard prod={prod} />
+          <aside className='curr-order-data'>
+            <CheckoutCalculations calcs={{ delivery: DELIVERY, subTotal: subT, total: TOTAL }} />
+            <ProdSmartCard prod={prod} height={`7rem`} />
             <ProdHighlights prod={prod} />
           </aside>
         </article>

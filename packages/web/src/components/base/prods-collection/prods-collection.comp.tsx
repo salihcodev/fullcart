@@ -17,24 +17,24 @@ const ProdsCategoryCollection: VFC<IProdsCategoryCollection> = ({ title, catLink
   return (
     <Fragment>
       {loadState === `busy` ? (
-        <section className="skeleton" style={{ minHeight: `22rem` }}>
+        <section className='skeleton' style={{ minHeight: `22rem` }}>
           <h2>Loading...</h2>
         </section>
       ) : (
-        <section className="prods-category-collection">
-          <header className="prods-collection-header">
+        <section className='prods-category-collection'>
+          <header className='prods-collection-header'>
             {catLink ? (
-              <h4 className="collection-title">
+              <h4 className='collection-title'>
                 <div>
                   <Link to={catLink}>{unDashed(title)}</Link>
                 </div>
                 <div>
-                  <span className="border-list"></span>
+                  <span></span>
                 </div>
               </h4>
             ) : null}
           </header>
-          <section className="collection-prods">
+          <section className='collection-prods'>
             {prods?.map(
               (prod: ProdTypes): JSX.Element => (
                 <ProductCard key={prod._id} prod={prod} />

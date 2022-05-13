@@ -4,50 +4,36 @@
 
 article.categories-list
   z-index: 30
-  display: none
   text-align: left
-  top: 2.3rem
-  left: -0.4rem
-  min-height: 20rem
+  top: 3rem
+  left: 0
   cursor: auto
-  @include fade-in
-  position: relative
-  width: 50rem
   position: absolute
   border: 1px solid $alt_dark-5
   background: $app_white
-  border-radius: 3px
-  border-top-left-radius: 0
-  border-top-right-radius: 0
+  border-radius: 6px
   padding: 1.5rem 0
-  &:before
-    content: ""
-    left: -1px
-    top: 0
-    right: -1px
-    background: $main_clr-1
-    display: block
-    position: absolute
-    height: 3px
+  width: 30rem
+  @include fade-in
+  z-index: 50
   // global __
   li
-    margin: 0.2rem 0
+    margin: 0.1rem 0
     a
       padding: 0.2rem 0.5rem
       display: block
       width: 100%
     &:hover
       > a
-        background: #eee
+        background: $additional_clr-tone
+        text-decoration: underline
   //__
   .list-wrapper
+    grid-template-columns: 45% 55%
+    min-height: 30rem
     display: grid
-    grid-template-columns: 40% 25% 35%
-    min-height: 18rem
   section
     padding: 0 0.9rem
-    &:not(:last-child)
-      border-right: 1px solid $alt_dark-5
     &.main-categories
       position: relative
       ul.main-categories-wrapper
@@ -77,7 +63,4 @@ article.categories-list
               display: block
               position: absolute
     &.sub-categories
-    &.additional-categories
-      border-top: 1px solid $alt_dark-5
-      padding: 0.5rem 1rem 0.2rem
-      margin-top: 1rem
+      border-left: 1px solid $alt_dark-4

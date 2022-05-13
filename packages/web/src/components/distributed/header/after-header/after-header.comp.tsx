@@ -8,6 +8,8 @@ import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import './style.sass';
 import Container from '../../../utils/container/container.util';
 import CategoriesList from './categories-list/categories-list.comp';
+import { MdDocumentScanner } from 'react-icons/md';
+import headerRouts from '../../../../common/constants/header-routes.constant';
 
 // comps:
 
@@ -24,9 +26,9 @@ const AfterHeader: VFC<{}> = () => {
       const mainHeaderHeight = document.querySelector<HTMLElement>(`.default-header-wrapper`)?.offsetHeight;
 
       if (mainHeaderHeight && preHeaderHeight && window.scrollY >= mainHeaderHeight + preHeaderHeight) {
-        afterHeader?.add(`fixed-header`);
-      } else {
-        afterHeader?.remove(`fixed-header`);
+        //   afterHeader?.add(`fixed-header`);
+        // } else {
+        //   afterHeader?.remove(`fixed-header`);
       }
     };
   }, []);
@@ -34,41 +36,62 @@ const AfterHeader: VFC<{}> = () => {
   const navRouteActiveStyle = {
     color: '#5624d0 ',
   };
+
+  const [showCatsList, setShowCatsList] = useState(false);
+
+  useEffect(() => {
+    window.onkeydown = function (e: { key: string }) {
+      if (e.key === 'Escape') {
+        setShowCatsList(false);
+      }
+    };
+    return () => {
+      setShowCatsList(false);
+    };
+  }, []);
+
   return (
-    <header className="after-header">
-      <Container fluid>
-        <div className="after-header-wrapper">
-          <section className="left-wing">
-            <button className="categories-selector">
-              <span className="txt">Browse categories</span>
-              <span className="icon icon-up">
-                <IoIosArrowUp />
-              </span>
-              <span className="icon icon-down">
-                <IoIosArrowDown />
-              </span>
-              <CategoriesList />
+    <header className='after-header'>
+      <Container xxl>
+        <div className='after-header-wrapper'>
+          <section className='left-wing'>
+            <button
+              onClick={() => setShowCatsList(!showCatsList)}
+              onMouseEnter={() => setShowCatsList(!showCatsList)}
+              className='categories-selector'
+            >
+              <span className='txt'>all categories</span>
+
+              {showCatsList ? (
+                <span className='icon icon-up'>
+                  <IoIosArrowUp />
+                </span>
+              ) : null}
+              {!showCatsList ? (
+                <span className='icon icon-down'>
+                  <IoIosArrowDown />
+                </span>
+              ) : null}
             </button>
-            <div className="links-wrapper">
-              <NavLink to="/bestseller" activeStyle={navRouteActiveStyle}>
-                Bestseller
-              </NavLink>
-              <NavLink to="/coming-soon" activeStyle={navRouteActiveStyle}>
-                Coming soon
-              </NavLink>
-              <NavLink to="/new-releases" activeStyle={navRouteActiveStyle}>
-                New Releases
-              </NavLink>
+            <CategoriesList showCatsList={showCatsList} />
+            <div className='links-wrapper'>
+              {headerRouts.extra.map(({ value, path }): JSX.Element => {
+                return (
+                  <NavLink key={path} to={path} activeStyle={navRouteActiveStyle} exact>
+                    {value}
+                  </NavLink>
+                );
+              })}
             </div>
           </section>
-          <section className="right-wing">
-            <div className="cart-info-wrapper">
-              <span className="cart-total">$ 270.99</span>
+          <section className='right-wing'>
+            <div className='cart-info-wrapper'>
+              <span className='cart-total'>$ 270.99</span>
               <div>
-                <NavLink to="/cart" activeStyle={navRouteActiveStyle}>
+                <NavLink to='/cart' activeStyle={navRouteActiveStyle}>
                   <TiShoppingCart />
                 </NavLink>
-                <span className="cart-count">8</span>
+                <span className='cart-count'>+9</span>
               </div>
             </div>
           </section>

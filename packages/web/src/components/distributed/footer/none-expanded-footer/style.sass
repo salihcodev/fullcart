@@ -1,0 +1,28 @@
+@import '../../../../common/styles/utils/_colors.util'
+@import '../../../../common/styles/utils/_mixins.util'
+
+.non-expanded-footer
+  margin: 0
+  ul
+    flex-wrap: wrap
+    @include flex_positioning(center,center)
+    li
+      padding: 0 0.7rem
+      position: relative
+      a
+        font-size: 0.9rem
+        color: $extra_pkg-4
+      &:not(:last-child)
+        &::after
+          content: ''
+          display: block
+          background: $extra_pkg-3
+          width: 1px
+          top: 0
+          bottom: 0
+          right: 0
+          position: absolute
+    &:first-child
+      padding-bottom: 0.5rem
+  p
+    padding-top: 1rem

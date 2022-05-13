@@ -32,11 +32,11 @@ const Modal: React.VFC<{
   return (
     <Fragment>
       {state ? (
-        <article className="modal-wrapper">
+        <article className='modal-wrapper'>
           <Container sm={sm} md={md} lg={lg} xl={xl} xxl={xxl}>
-            <section className="modal-body">
-              <div className="wrapper-close">
-                <button type="button" onClick={() => setState(false)}>
+            <section className='modal-body'>
+              <div className='wrapper-close'>
+                <button type='button' onClick={() => setState(false)}>
                   <IoCloseOutline />
                 </button>
               </div>

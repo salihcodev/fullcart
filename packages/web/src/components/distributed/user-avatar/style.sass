@@ -4,24 +4,24 @@
 
 section.user-avatar
     position: relative
-    &:before
-        content: ""
-        display: block
-        top: 3rem
-        right: 1.5rem
-        background: transparent
-        height: 20px
-        position: fixed
-        width: 5rem
-        z-index: 25
     a.avatar-holder
         display: block
-        width: 2.4rem
-        height: 2.4rem
+        width: 2.2rem
+        height: 2.2rem
         background-size: contain !important
         background-position: center
         border: 2px solid $app_white
         border-radius: 50%
+        &:before
+            content: ""
+            display: block
+            top: 1.2rem
+            right: -1.5rem
+            background: transparent
+            height: 2rem
+            position: absolute
+            width: 5rem
+            z-index: 25
     &:hover
         .user-options-list
             display: grid
@@ -37,7 +37,7 @@ section.user-avatar
         display: none
         @include fade-in
         padding: 0.5rem
-        border-radius: 3px
+        border-radius: 6px
         .options-list
         .logout-wrapper
             @include flex_positioning(flex-end, center)

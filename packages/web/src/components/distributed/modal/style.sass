@@ -4,25 +4,25 @@
 
 article.modal-wrapper
     position: fixed
-    background: #1115
+    background: #00000055
     top: 0
     left: 0
     z-index: 100
     bottom: 0
     right: 0
     overflow-y: scroll
-    backdrop-filter: blur(3px)
+    backdrop-filter: blur(5px)
+    padding: 1rem
     > div
         padding: 3rem 0
         height: auto
     section.modal-body
         @include from-top
-        min-height: 100%
         background: $app_white
         border: 1px solid $alt_dark-4
-        border-radius: 3px
+        border-radius: 6px
         position: relative
-        min-height: 5rem
+        min-height: 10rem
         padding-top: 3rem
         .wrapper-close
             position: absolute
@@ -33,3 +33,5 @@ article.modal-wrapper
                 border: none
                 color: $main_clr-1
                 font-size: 1.3rem
+                &:hover
+                    color: $additional_clr-1

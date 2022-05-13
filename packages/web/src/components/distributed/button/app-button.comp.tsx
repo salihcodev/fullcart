@@ -42,15 +42,16 @@ const AppButton: React.VFC<IAppButton> = ({
           background: `#f5f6f733`,
         }
       : {
-          borderTopColor: `#1a1a1a`,
+          borderTopColor: `#673fce`,
           borderWidth: `2px`,
           borderStyle: `solid`,
           background: `#575e6344`,
         };
-  const borderColor = bkgDefault ? `#000` : bkgSecondary ? `#5624d0` : bkgSecondary2 ? `#b38420` : `#ddd`;
-  const bkgColor = bkgDefault ? `#1a1a1a` : bkgSecondary ? `#673fce` : bkgSecondary2 ? `#d4ae31` : `#f5f6f7`;
+  const borderColor = bkgDefault ? `#2f74c4` : bkgSecondary ? `#4a20b3` : `#ddd`;
+  const bkgColor = bkgDefault ? `#3b87dd` : bkgSecondary ? `#673fce` : `#f5f6f7`;
 
   const sizeValue = size === `sm` ? `2rem` : size === `md` ? `2.5rem` : `3rem`;
+  const checkRadiusVal = size === `sm` ? `4px` : ``;
 
   return (
     <Fragment>
@@ -63,14 +64,15 @@ const AppButton: React.VFC<IAppButton> = ({
             border: `${borderValue} solid ${noBorder ? `transparent` : borderColor}`,
             background: bkgColor,
             color,
+            borderRadius: checkRadiusVal,
           }}
-          className="app-button"
+          className='app-button'
           target={openDetachedly ? `_blank` : `_self`}
           rel={openDetachedly ? `noopener noreferrer` : ``}
         >
-          {icon && isIconBefore ? <span className="icon">{icon}</span> : null}
-          <span className="value">{value}</span>
-          {icon && !isIconBefore ? <span className="icon">{icon}</span> : null}
+          {icon && isIconBefore ? <span className='icon'>{icon}</span> : null}
+          <span className='value'>{value}</span>
+          {icon && !isIconBefore ? <span className='icon'>{icon}</span> : null}
         </Link>
       ) : (
         <button
@@ -82,16 +84,17 @@ const AppButton: React.VFC<IAppButton> = ({
             background: bkgColor,
             color,
             cursor: buttonCursorDisability,
+            borderRadius: checkRadiusVal,
           }}
-          className="app-button"
+          className='app-button'
           disabled={disabled || loadState === `busy` ? true : false}
           onClick={handelClickEvent}
         >
-          {icon && isIconBefore ? <span className="icon">{icon}</span> : null}
-          <span className="value">{value}</span>
-          {icon && !isIconBefore ? <span className="icon">{icon}</span> : null}
+          {icon && isIconBefore ? <span className='icon'>{icon}</span> : null}
+          <span className='value'>{value}</span>
+          {icon && !isIconBefore ? <span className='icon'>{icon}</span> : null}
 
-          {loadState === `busy` ? <span className="loading-spinner" style={spinnerStyle}></span> : null}
+          {loadState === `busy` ? <span className='loading-spinner' style={spinnerStyle}></span> : null}
         </button>
       )}
     </Fragment>

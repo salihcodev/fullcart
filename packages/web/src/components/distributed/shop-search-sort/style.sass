@@ -6,7 +6,7 @@ section.search-and-sort
     background: $app_white
     padding: 1rem 0.8rem 0
     border-bottom-width: 3px
-    border-radius: 3px
+    border-radius: 6px
     margin-bottom: 1rem
     .search
         margin-bottom: 1rem
@@ -32,7 +32,7 @@ section.search-and-sort
                 font-size: 1.4rem
                 width: 3rem
                 margin-left: 0.3rem
-                background: $main_clr-1
+                background: $main_clr
                 color: $app_white
         p.searched-in
             margin: 0.5rem 0
@@ -51,14 +51,18 @@ section.search-and-sort
             color: $alt_dark-3
             font-weight: bold
             font-size: 0.7rem
+            // font-weight: normal
+            letter-spacing: 0.5px
             @include flex_positioning(center, space-around)
             &:hover
                 background: $main_clr-1
                 color: $app_white
             span.txt
                 margin-top: -2px
+                flex-grow: 1
             span.icon
                 font-size: 1rem
+                padding: 0 0.2rem
             &:last-child
                 span.icon
                     transform: rotate(90deg)

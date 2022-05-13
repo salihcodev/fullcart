@@ -1,22 +1,22 @@
-@import './utils/_mixins.util'
-@import './utils/_colors.util'
-@import './utils/_fonts.util'
-@import './utils/_animation.util'
-@import './utils/_helper-classes.util'
+@import './utils/_mixins.util.sass'
+@import './utils/_colors.util.sass'
+@import './utils/_fonts.util.sass'
+@import './utils/_animation.util.sass'
+@import './utils/_helper-classes.util.sass'
 
 *, ::after, ::before
   box-sizing: border-box
 
 *::selection
-  color: $dark_white
-  background: $main_clr-1
+  color: $app_gray
+  background: $additional_clr-mirr
 
 a, button, input, textarea, select
   &:focus
     outline: 0
     outline-offset: 0px
-    outline: 2px solid #683fcea6
-    outline-offset: 1px
+    outline: 2px solid #683fce41
+    outline-offset: 0px
 
 body
   margin: 0
@@ -25,8 +25,9 @@ body
   -moz-osx-font-smooInitial: grayscale
   color: $app_gray
   background: $dark_white
-  font-size: 13px
+  font-size: 14px
   font-weight: 400
+  scrollbar-track-color: green !important
 
 // GLOBALS:
 code
@@ -38,12 +39,13 @@ code
 a
   text-decoration: none
   color: $alt_dark-3
-  border-radius: 3px
+  border-radius: 4px
   &:hover
     text-decoration: none
 
 small
   color: $main_clr-2
+  // font-family:  !important
 
 h1, .h1, h2, h3, h4, h5, h6
   font-weight: 500
@@ -79,13 +81,19 @@ p
 button
   color: $app_gray
   cursor: pointer
-  border-radius: 3px
+  border-radius: 6px
   background: $app_white
-  &:hover,
-  &:active
+  font-family: $main_font
   &:disabled
     opacity: 0.6
     cursor: not-allowed !important
+  &:active
+    transform: scale(0.97)
+
+aside
+  a
+    &:active
+      transform: scale(0.97)
 
 input,
 textarea
@@ -97,8 +105,7 @@ textarea
   font-size: 0.9rem
   color: $app_gray
   caret-color: $main_clr-1
-  border-radius: 3px
   font-family: $main_font
-  border-radius: 3px
+  border-radius: 6px
   &::placeholder
     color: $alt_dark-6

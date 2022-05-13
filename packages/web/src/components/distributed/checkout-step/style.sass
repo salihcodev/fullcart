@@ -2,8 +2,23 @@
 
 article.checkout-step
     header.step-head
-        margin: 2rem 0
-        small
+        margin-bottom: 2rem
+        section
             color: $blue
             padding-left: 0.2rem
-            display: block
+            display: flex
+            align-items: center
+            justify-content: space-around
+            div
+                &:first-of-type
+                    margin-right: 1rem
+                    text-align: right
+                &:nth-last-of-type(2)
+                    flex-grow: 1
+                &:last-of-type
+                    margin-left: 1rem
+            span.percentage
+                display: block
+                height: 1px
+                width: 100%
+                background: $light_gray

@@ -24,12 +24,15 @@ const SupplerLoggingModal: React.VFC<any> = ({ isModalOpen, setIsModalOpen }) =>
 
   return (
     <Modal sm state={isModalOpen} setState={setIsModalOpen}>
-      <article className="suppler-logging-modal">
-        <header className="tabs-wrapper">
-          <h2 className="heading">Join Us</h2>
-          <div className="tabs-wrapper">
+      <article className='suppler-logging-modal'>
+        <header className='tabs-wrapper'>
+          <h2 className='heading'>Join Us</h2>
+          <div className='tabs-wrapper'>
             {albumsTabs.map(({ value, contentName }): JSX.Element => {
-              const tabStyle = { color: `#5624d0`, borderBottom: `3px solid #1a1a1a` };
+              const tabStyle = {
+                color: `#3b87dd`,
+                borderBottom: `3px solid #3b87dd`,
+              };
               const activeTabStyle = currLoggingWrapper === contentName ? tabStyle : {};
               return (
                 <button style={activeTabStyle} onClick={() => setCurrLoggingWrapper(contentName)}>
@@ -39,13 +42,13 @@ const SupplerLoggingModal: React.VFC<any> = ({ isModalOpen, setIsModalOpen }) =>
             })}
           </div>
         </header>
-        <section className="current-content">
+        <section className='current-content'>
           {currLoggingWrapper === `loginWrapper` ? (
-            <section className="wrapper">
+            <section className='wrapper'>
               <SupplerLoginForm />
             </section>
           ) : (
-            <section className="wrapper">
+            <section className='wrapper'>
               <SupplerSignupForm />
             </section>
           )}

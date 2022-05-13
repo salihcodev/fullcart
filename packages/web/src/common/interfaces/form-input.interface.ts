@@ -6,6 +6,7 @@ export interface IFormInput {
   collectInputData: (name: string, value: string) => void;
   otherProps?: any;
   icon?: any;
+  small?: string;
   autoComplete?: string;
   value?: any;
   ref?: any;

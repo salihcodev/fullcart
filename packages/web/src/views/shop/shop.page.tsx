@@ -13,12 +13,12 @@ import Container from '../../components/utils/container/container.util';
 // component>>>
 const ShopPage = () => {
   return (
-    <Container xxxl>
-      <main className="page shop-page">
+    <Container xxl>
+      <main className='page shop-page'>
         <Breadcrumb />
-        <div className="shop-wrapper">
+        <div className='shop-wrapper'>
           <ShopProdsFilter />
-          <section className="shop-prods">
+          <section className='shop-prods'>
             <ShopSearcherSorter />
             <ShopProdsViewer />
           </section>

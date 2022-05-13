@@ -1,0 +1,35 @@
+@import '../../../../../common/styles/utils/_colors.util'
+
+section.footer-head
+    p
+        font-size: 1rem
+        color: $light_gray
+    section.news-letter
+        form
+            display: flex
+            align-items: baseline
+            justify-content: center
+            small
+                margin-left: 0.1rem
+                color: $alt_dark-5
+            input, button
+                border-color: $alt_dark-5 !important
+                border: 1px solid $extra_pkg-4 !important
+                color: $dark_white
+                border-radius: 0
+            input
+                background: $extra_pkg-2 !important
+                font-size: 1.1rem !important
+            button
+                background: transparent !important
+                border: 3px solid $white_trans !important
+                span
+                    font-size: 1.1rem !important
+                    font-weight: normal
+                    color: $dark_white !important
+            > div
+                &:first-of-type
+                    flex-grow: 5
+                &:last-of-type
+                    flex-grow: 1
+                    margin-left: 0.5rem

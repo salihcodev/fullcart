@@ -7,13 +7,8 @@ header.default-header
   // global __
   a,button
     color: $app_gray
-    &:hover
-      color: $additional_clr !important
-  section.user-avatar
-    &:before
-      top: 6rem
   // __
-  .default-header-wrapper
+  .header-wrapper
     @include flex_positioning(center, space-between)
     height: 4.5rem
     section
@@ -51,13 +46,17 @@ header.default-header
               a
                 font-size: 0.8rem
                 margin: 0 0.6rem
+                &:hover
+                  color: $additional_clr !important
               section.auth-area
                 a
                   &:last-child
                     border: 1px solid $additional_clr
                     padding: 0.6rem 0.8rem
-                    background: $additional_clr
+                    background: $additional_clr-1
                     color: $app_white !important
+                    &:active
+                      transform: scale(0.97)
               section.user-actions
                 margin-top: 0.2rem
                 a
@@ -114,14 +113,15 @@ header.default-header
                 margin: 7px 0
   header.pre-header,
   header.after-header
-    padding: 0 0.5rem
+    padding: 0.3rem 0.5rem
     @include flex_positioning(center, space-between)
     > section
       height: 100%
 
 header.non-expanded-header
-  padding-top: 2rem
   margin-bottom: 2rem
+  background: $app_white
+  padding: 1rem
   .logo-wrapper
     @include flex_positioning(center, center)
     .logo-dark

@@ -43,17 +43,11 @@ const SingleCategory = () => {
 
   return (
     <Container xxl>
-      <main className="page single-category">
+      <main className='page single-category'>
         <Breadcrumb />
         {subProdsKeys?.map((key) => {
           return (
-            <ProdsCategoryCollection
-              title={key}
-              prods={subProds[key]}
-              loadState={stage}
-              catLink={`${pathname}/${key}`}
-              showPagination
-            />
+            <ProdsCategoryCollection title={key} prods={subProds[key]} loadState={stage} catLink={`${pathname}/${key}`} showPagination />
           );
         })}
       </main>

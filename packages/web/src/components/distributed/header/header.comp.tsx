@@ -35,22 +35,22 @@ const Header: VFC<IHeader> = ({ expanded }) => {
   return (
     <Fragment>
       {expanded ? (
-        <header className="default-header">
+        <header className='default-header'>
           <PreHeader />
-          <Container fluid>
-            <div className="default-header-wrapper">
-              <section className="left-wing">
-                <div className="logo">
-                  <Link to="/"></Link>
+          <Container xxl>
+            <div className='header-wrapper'>
+              <section className='left-wing'>
+                <div className='logo'>
+                  <Link to='/'></Link>
                 </div>
               </section>
-              <section className="middle-wing">
+              <section className='middle-wing'>
                 <HeaderSearch />
               </section>
-              <section className="right-wing">
-                <section className="main-routes-list">
-                  <section className="routes-list">
-                    {headerRouts.map(({ value, path }): JSX.Element => {
+              <section className='right-wing'>
+                <section className='main-routes-list'>
+                  <section className='routes-list'>
+                    {headerRouts.main.map(({ value, path }): JSX.Element => {
                       return (
                         <NavLink key={path} to={path} activeStyle={navRouteActiveStyle} exact>
                           {value}
@@ -61,11 +61,11 @@ const Header: VFC<IHeader> = ({ expanded }) => {
                     {user ? (
                       <UserAvatar user={user} />
                     ) : (
-                      <section className="auth-area">
-                        <NavLink to="/auth/customer/login" activeStyle={navRouteActiveStyle}>
+                      <section className='auth-area'>
+                        <NavLink to='/auth/customer/login' activeStyle={navRouteActiveStyle}>
                           login
                         </NavLink>
-                        <NavLink to="/auth/customer/signup" activeStyle={navRouteActiveStyle}>
+                        <NavLink to='/auth/customer/signup' activeStyle={navRouteActiveStyle}>
                           join for free
                         </NavLink>
                       </section>
@@ -73,14 +73,14 @@ const Header: VFC<IHeader> = ({ expanded }) => {
                   </section>
                 </section>
                 {/* xs-screens routes list */}
-                <section className="xs-screens-routes-list">
+                <section className='xs-screens-routes-list'>
                   {isSideMenuOpened ? (
-                    <ul className="routes-list">
-                      <button className="routes-list-closer" onClick={() => setIsSideMenuOpened(false)}>
+                    <ul className='routes-list'>
+                      <button className='routes-list-closer' onClick={() => setIsSideMenuOpened(false)}>
                         <VscChromeClose />
                       </button>
-                      <div className="routes-wrapper">
-                        {headerRouts.map(({ value, path }): JSX.Element => {
+                      <div className='routes-wrapper'>
+                        {headerRouts.main.map(({ value, path }): JSX.Element => {
                           return (
                             <NavLink key={path} to={path} activeStyle={navRouteActiveStyle} exact>
                               <li key={path}>{value}</li>
@@ -90,7 +90,7 @@ const Header: VFC<IHeader> = ({ expanded }) => {
                       </div>
                     </ul>
                   ) : null}
-                  <button className="xs-menu-toggler" onClick={() => setIsSideMenuOpened(true)}>
+                  <button className='xs-menu-toggler' onClick={() => setIsSideMenuOpened(true)}>
                     <span></span>
                     <span></span>
                     <span></span>
@@ -102,11 +102,11 @@ const Header: VFC<IHeader> = ({ expanded }) => {
           <AfterHeader />
         </header>
       ) : (
-        <header className="non-expanded-header">
+        <header className='non-expanded-header'>
           <Container md>
-            <div className="logo-wrapper">
-              <div className="logo-dark">
-                <Link to="/"></Link>
+            <div className='logo-wrapper'>
+              <div className='logo-dark'>
+                <Link to='/'></Link>
               </div>
             </div>
           </Container>
