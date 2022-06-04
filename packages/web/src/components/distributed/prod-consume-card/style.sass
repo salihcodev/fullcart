@@ -1,0 +1,47 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_mixins.util'
+
+.prod-consume-card
+    border: 1px solid $alt_dark-7
+    border-radius: 3px
+    padding: 0 !important
+    display: grid
+    grid-template-columns: 1fr 4fr auto
+    background: $app_white
+    &:not(:first-child)
+        margin: 0.5rem 0
+    section
+        padding: 0.8rem
+        &.prod-cover
+            padding: 0.5rem
+            height: inherit
+            img
+                height: 100%
+                border: 1px solid $alt_dark-4
+                margin-top: -1px
+                border-left: none
+                border-radius: 3px
+        &.prod-info
+            color: $app_gray-2
+            padding: 1rem
+            display: flex
+            align-items: center
+            p
+                margin: 0 !important
+            > div
+                > div
+                    margin-top: 1rem
+            .extra-cart-info
+            .extra-orders-info
+            .extra-wishlist-info
+        &.card-controllers
+            padding: 0.2rem 0.6rem
+            button
+                display: block
+                margin: 0.2rem 0
+                border: 1px solid $alt_dark-7
+                width: 2.5rem
+                height: 1.8rem
+                font-size: 1.2rem
+                &:hover
+                    background: $alt_dark-7 !important

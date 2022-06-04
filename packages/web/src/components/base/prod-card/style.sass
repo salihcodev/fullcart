@@ -34,7 +34,7 @@
             top: 0
             right: 0
             left: 0
-            border-radius: 6px
+            border-radius: 3px
             position: absolute
             border-bottom-left-radius: 0
             border-bottom-right-radius: 0
@@ -69,10 +69,13 @@
                         border-radius: 50%
             section.prod-actions
                 margin-top: 1.5rem
-                display: flex
+                display: grid
+                grid-template-columns: 3fr 1fr
                 button
                     font-size: 0.8rem
-                    flex-grow: 1
+                    letter-spacing: 1px
+                    span
+                        padding: 0
                     &:first-child
                         margin-right: 0.3rem
                     &:last-child

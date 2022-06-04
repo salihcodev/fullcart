@@ -37,35 +37,38 @@ const CheckoutCartPage = () => {
   useEffect(() => {
     dispatch(GetSingleProdBySlug(slug));
   }, [dispatch, slug]);
+
+  const prodName = prod?.name!;
+  const prodCover = prod?.cover!;
   return (
-    <main className='page checkout-page checkout-cart-page'>
+    <main className="page checkout-page checkout-cart-page">
       <Container xxl>
-        <header className='header'>
-          <h3 className='heading'>You are about to checkout cart contents!</h3>
+        <header className="header">
+          <h3 className="heading">You are about to checkout cart contents!</h3>
         </header>
-        <article className='checkout-view'>
+        <article className="checkout-view">
           {user ? (
             <UserCompleteCheckout user={user} />
           ) : (
             <Alert
-              type='warning'
+              type="warning"
               authWarning
-              title='You must be signed in to continue'
+              title="You must be signed in to continue"
               msg="Sorry, You can't go further from here without "
             />
           )}
-          <aside className='curr-order-data'>
+          <aside className="curr-order-data">
             <CheckoutCalculations calcs={{ delivery: DELIVERY, subTotal: subT, total: TOTAL }} />
             <h4>Your Picks</h4>
-            <span className='gate'></span>
-            <section className='cart-check-last-view'>
-              <ProdSmartCard prod={prod} height={`7rem`} />
-              <ProdSmartCard prod={prod} height={`7rem`} />
-              <ProdSmartCard prod={prod} height={`7rem`} />
-              <ProdSmartCard prod={prod} height={`7rem`} />
-              <ProdSmartCard prod={prod} height={`7rem`} />
+            <span className="gate"></span>
+            <section className="cart-check-last-view">
+              <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
+              <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
+              <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
+              <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
+              <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
             </section>
-            <span className='gate'></span>
+            <span className="gate"></span>
           </aside>
         </article>
       </Container>

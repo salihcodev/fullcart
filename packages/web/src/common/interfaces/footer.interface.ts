@@ -1,3 +1,4 @@
 export interface IFooter {
-  expanded: boolean;
+  view: `expanded` | `minimal` | `company`;
+  supplerView?: boolean;
 }

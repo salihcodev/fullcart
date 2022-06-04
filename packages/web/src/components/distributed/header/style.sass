@@ -52,9 +52,14 @@ header.default-header
                 a
                   &:last-child
                     border: 1px solid $additional_clr
-                    padding: 0.6rem 0.8rem
+                    padding: 0.2rem
+                    height: 2.2rem
+                    min-width: 5.5rem
+                    @include flex_positioning(center, center)
                     background: $additional_clr-1
                     color: $app_white !important
+                    border-radius: 3px
+                    font-size: 0.8rem
                     &:active
                       transform: scale(0.97)
               section.user-actions
@@ -132,6 +137,29 @@ header.non-expanded-header
         height: inherit
         width: inherit
         background: url('../../../../public/assets/images/non-exp-header-logo.svg') center/cover
+
+header.suppler-header
+  border-bottom: 1px solid $alt_dark-7
+  .header-wrapper
+    @include flex_positioning(center, space-between)
+    height: 4.5rem
+    section
+      &.left-wing
+        margin-right: 0.1rem
+        padding-top: 0.1rem
+        justify-content: flex-start
+        height: inherit
+        .logo
+          height: 95%
+          width: 13rem
+          a
+            display: block
+            height: inherit
+            width: inherit
+            background: url('../../../../public/assets/images/suppler-logo.svg') center/cover
+      &.right-wing
+        flex-grow: 1
+        @include flex_positioning(center, space-between)
 
 @media screen and (max-width: 992px)
   header.default-header

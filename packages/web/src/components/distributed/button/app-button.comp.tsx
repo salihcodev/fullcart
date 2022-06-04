@@ -23,6 +23,9 @@ const AppButton: React.VFC<IAppButton> = ({
   isIconBefore,
   openDetachedly,
   disabled,
+  btnCount,
+  activeBkg,
+  activeWhite,
 }) => {
   const buttonCursorDisability = loadState === `busy` ? `not-allowed` : `pointer`;
 
@@ -31,7 +34,7 @@ const AppButton: React.VFC<IAppButton> = ({
   };
 
   const fullWidth = wide ? `100%` : `auto`;
-  const color = bkgDefault ? `#f5f6f7` : bkgSecondary ? `#f5f6f7` : bkgSecondary2 ? `#f5f6f7` : `#575e63`;
+  const color = bkgDefault ? `#f5f6f7` : bkgSecondary ? `#f5f6f7` : activeWhite ? `#f5f6f7` : `#575e63`;
   const borderValue = `${border.size}px`;
   const spinnerStyle =
     bkgSecondary || bkgDefault || bkgSecondary2
@@ -47,10 +50,10 @@ const AppButton: React.VFC<IAppButton> = ({
           borderStyle: `solid`,
           background: `#575e6344`,
         };
-  const borderColor = bkgDefault ? `#2f74c4` : bkgSecondary ? `#4a20b3` : `#ddd`;
-  const bkgColor = bkgDefault ? `#3b87dd` : bkgSecondary ? `#673fce` : `#f5f6f7`;
+  const borderColor = bkgDefault ? `#000` : bkgSecondary ? `#4a20b3` : `#ddd`;
+  const bkgColor = bkgDefault ? `#111` : bkgSecondary ? `#673fce` : `#f5f6f7`;
 
-  const sizeValue = size === `sm` ? `2rem` : size === `md` ? `2.5rem` : `3rem`;
+  const sizeValue = size === `sm` ? `2rem` : size === `md` ? `2.3rem` : `3rem`;
   const checkRadiusVal = size === `sm` ? `4px` : ``;
 
   return (
@@ -66,13 +69,13 @@ const AppButton: React.VFC<IAppButton> = ({
             color,
             borderRadius: checkRadiusVal,
           }}
-          className='app-button'
+          className="app-button"
           target={openDetachedly ? `_blank` : `_self`}
           rel={openDetachedly ? `noopener noreferrer` : ``}
         >
-          {icon && isIconBefore ? <span className='icon'>{icon}</span> : null}
-          <span className='value'>{value}</span>
-          {icon && !isIconBefore ? <span className='icon'>{icon}</span> : null}
+          {icon && isIconBefore ? <span className="icon">{icon}</span> : null}
+          <span className="value">{value}</span>
+          {icon && !isIconBefore ? <span className="icon">{icon}</span> : null}
         </Link>
       ) : (
         <button
@@ -81,20 +84,23 @@ const AppButton: React.VFC<IAppButton> = ({
             width: fullWidth,
             height: sizeValue,
             border: `${borderValue} solid ${noBorder ? `transparent` : borderColor}`,
-            background: bkgColor,
+            background: activeBkg ? activeBkg : bkgColor,
             color,
             cursor: buttonCursorDisability,
             borderRadius: checkRadiusVal,
+            justifyContent: btnCount ? `flex-start` : `center`,
           }}
-          className='app-button'
+          className="app-button"
           disabled={disabled || loadState === `busy` ? true : false}
           onClick={handelClickEvent}
         >
-          {icon && isIconBefore ? <span className='icon'>{icon}</span> : null}
-          <span className='value'>{value}</span>
-          {icon && !isIconBefore ? <span className='icon'>{icon}</span> : null}
+          {icon && isIconBefore ? <span className="icon">{icon}</span> : null}
+          <span className="value">{value}</span>
+          {icon && !isIconBefore ? <span className="icon">{icon}</span> : null}
 
-          {loadState === `busy` ? <span className='loading-spinner' style={spinnerStyle}></span> : null}
+          {btnCount ? <span className="btn-count">{btnCount}</span> : null}
+
+          {loadState === `busy` ? <span className="loading-spinner" style={spinnerStyle}></span> : null}
         </button>
       )}
     </Fragment>

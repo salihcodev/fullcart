@@ -8,8 +8,8 @@
   box-sizing: border-box
 
 *::selection
-  color: $app_gray
-  background: $additional_clr-mirr
+  color: $light_gray
+  background: $main_clr-1
 
 a, button, input, textarea, select
   &:focus
@@ -81,7 +81,7 @@ p
 button
   color: $app_gray
   cursor: pointer
-  border-radius: 6px
+  border-radius: 3px
   background: $app_white
   font-family: $main_font
   &:disabled
@@ -106,6 +106,9 @@ textarea
   color: $app_gray
   caret-color: $main_clr-1
   font-family: $main_font
-  border-radius: 6px
+  border-radius: 3px
   &::placeholder
     color: $alt_dark-6
+
+iframe
+  display: none

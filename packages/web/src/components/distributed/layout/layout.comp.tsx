@@ -10,12 +10,12 @@ import Header from '../header/header.comp';
 import Footer from '../footer/footer.comp';
 
 // component>>>
-const Layout: React.VFC<ILayout> = ({ children, expanded }) => {
+const Layout: React.VFC<ILayout> = ({ children, view }) => {
   return (
     <Fragment>
-      <Header expanded={expanded} />
+      <Header view={view} />
       {children}
-      <Footer expanded={expanded} />
+      <Footer view={view} />
     </Fragment>
   );
 };

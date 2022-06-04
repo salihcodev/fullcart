@@ -11,11 +11,12 @@ article.categories-list
   position: absolute
   border: 1px solid $alt_dark-5
   background: $app_white
-  border-radius: 6px
+  border-radius: 3px
   padding: 1.5rem 0
-  width: 30rem
+  width: 14rem
   @include fade-in
   z-index: 50
+  box-shadow: #00000010 10px 8px 10px -5px
   // global __
   li
     margin: 0.1rem 0
@@ -29,38 +30,38 @@ article.categories-list
         text-decoration: underline
   //__
   .list-wrapper
-    grid-template-columns: 45% 55%
-    min-height: 30rem
-    display: grid
-  section
+  section.main-categories
     padding: 0 0.9rem
-    &.main-categories
-      position: relative
-      ul.main-categories-wrapper
-        padding-left: 0.1rem
-        padding-top: 0.5rem
-        li
-          &:hover
-            ul.sub-categories-wrapper
-              display: block
+    position: relative
+    h6
+      text-transform: uppercase
+    ul.main-categories-wrapper
+      padding-left: 0.1rem
+      padding-top: 0.5rem
+      li
+        &:hover
           ul.sub-categories-wrapper
-            height: 100%
             display: block
-            padding-top: 2rem
+        ul.sub-categories-wrapper
+          box-shadow: #0000000c 10px 8px 10px -5px
+          animation: fadein cubic-bezier(0.83, -0.15, 0.74, 1.13) 0.5s
+          border: 1px solid
+          padding: 0.8rem
+          top: 0
+          bottom: 0
+          width: 16rem
+          position: absolute
+          display: none
+          left: 14.2rem
+          border: 1px solid $alt_dark-5
+          background: $app_white
+          border-radius: 3px
+          &:after
+            content: ""
+            left: -2rem
             top: 0
-            @include fade-in
-            width: 11rem
+            bottom: 0
+            width: 2rem
+            background: transparent
+            display: block
             position: absolute
-            display: none
-            right: -11.8rem
-            &:after
-              content: ""
-              left: -2rem
-              top: 0
-              bottom: 0
-              width: 2rem
-              background: transparent
-              display: block
-              position: absolute
-    &.sub-categories
-      border-left: 1px solid $alt_dark-4

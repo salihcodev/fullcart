@@ -8,17 +8,17 @@ import t from '../../../../public/assets/images/t.png';
 
 // comps:
 
-const ProdSmartCard: React.VFC<IProdSmartCard> = ({ prod, forCart, description, height }) => {
+const ProdSmartCard: React.VFC<IProdSmartCard> = ({ prodName, prodCover, height }) => {
   return (
-    <div className='prod-smart-card' style={{ height: height || `10rem` }}>
-      <div className='prod-cover'>
-        <img src={t} alt='product cover' />
-      </div>
-      <div className='prod-info'>
+    <div className="prod-smart-card" style={{ height: height || `10rem` }}>
+      <section className="prod-cover">
+        <img src={t} alt="product cover" />
+      </section>
+      <section className="prod-info">
         <div>
-          <p className='name'>{prod?.name?.substring(0, 70) + `...`}</p>
+          <p className="name">{prodName?.substring(0, 70) + `...`}</p>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

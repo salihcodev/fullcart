@@ -37,26 +37,28 @@ const CheckoutSimplePage = () => {
     dispatch(GetSingleProdBySlug(slug));
   }, [dispatch, slug]);
 
+  const prodName = prod?.name!;
+  const prodCover = prod?.cover!;
   return (
-    <main className='page checkout-page checkout-simple-page'>
+    <main className="page checkout-page checkout-simple-page">
       <Container xxl>
-        <header className='header'>
-          <h3 className='heading'>Request simple for this product</h3>
+        <header className="header">
+          <h3 className="heading">Request simple for this product</h3>
         </header>
-        <article className='checkout-view'>
+        <article className="checkout-view">
           {user ? (
             <UserCompleteCheckout user={user} />
           ) : (
             <Alert
-              type='warning'
+              type="warning"
               authWarning
-              title='You must be signed in to continue'
+              title="You must be signed in to continue"
               msg="Sorry, You can't go further from here without "
             />
           )}
-          <aside className='curr-order-data'>
+          <aside className="curr-order-data">
             <CheckoutCalculations calcs={{ delivery: DELIVERY, subTotal: subT, total: TOTAL }} />
-            <ProdSmartCard prod={prod} height={`7rem`} />
+            <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
             <ProdHighlights prod={prod} />
           </aside>
         </article>

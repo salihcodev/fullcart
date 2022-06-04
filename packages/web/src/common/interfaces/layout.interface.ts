@@ -1,4 +1,4 @@
 export interface ILayout {
-  expanded: boolean;
+  view: `expanded` | `minimal` | `company`;
   children?: JSX.Element;
 }

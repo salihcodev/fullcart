@@ -13,22 +13,22 @@ import FooterMiddlePortion from './footer-middle-portion/footer-middle-portion.c
 // component>>>
 const DefaultFooter: VFC<any> = ({ links }) => {
   return (
-    <div className='app-footer default-footer'>
+    <div className="app-footer default-footer">
       <Container xl>
         <FooterHead />
         <FooterLinks links={links} />
         <FooterMiddlePortion />
       </Container>
-      <p className='reservation'>
-        <div>
-          <span className='icon'>©</span>Copyright {new Date().getFullYear()}
+      <p className="reservation">
+        <span>
+          <span className="icon">©</span>Copyright {new Date().getFullYear()}
           <span>
-            <a href='https://asalih.netlify.com/me' target='_blank noopener noreferer'>
+            <a href="https://asalih.netlify.com/me" target="_blank noopener noreferer">
               @salihcodev
             </a>
           </span>
           All rights reserved.
-        </div>
+        </span>
       </p>
     </div>
   );

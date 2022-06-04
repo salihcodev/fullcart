@@ -10,9 +10,15 @@ import DefaultFooter from './default-footer/default-footer.comp';
 import NoneExpandedFooter from './none-expanded-footer/none-expanded-footer.comp';
 
 // component>>>
-const Footer: VFC<IFooter> = ({ expanded }) => {
+const Footer: VFC<IFooter> = ({ view }) => {
   return (
-    <footer>{expanded ? <DefaultFooter links={defaultFooterRoutes} /> : <NoneExpandedFooter links={noneExpandedFooterRoutes} />}</footer>
+    <footer>
+      {view === `expanded` ? (
+        <DefaultFooter links={defaultFooterRoutes} />
+      ) : (
+        <NoneExpandedFooter links={noneExpandedFooterRoutes} />
+      )}
+    </footer>
   );
 };
 

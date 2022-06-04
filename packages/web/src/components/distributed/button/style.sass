@@ -7,7 +7,8 @@
     font-weight: bold
     border-bottom-width: 3px !important
     padding: 0.5rem
-    border-radius: 6px
+    border-radius: 3px
+    position: relative
     &:active
         transform: scale(0.97)
     span
@@ -18,3 +19,18 @@
             font-size: 1.2rem
             margin-top: 0.3rem
             display: block
+        &.btn-count
+            position: absolute
+            top: 50%
+            right: 0
+            width: 1.5rem
+            height: 1.5rem
+            background: #ffffff2b
+            color: $alt_dark-5
+            border-radius: 50%
+            display: flex
+            align-items: center
+            justify-content: center
+            font-size: 0.8rem
+            font-weight: 100
+            transform: translate(-40%, -50%)

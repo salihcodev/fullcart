@@ -35,6 +35,9 @@ import AuthPage from './views/auth/auth.page';
 import CheckoutCartPage from './views/checkout-cart/checkout-cart.page';
 import CheckoutProductPage from './views/checkout-product/checkout-product.page';
 import CheckoutSimplePage from './views/checkout-simple/checkout-simple.page';
+import OrdersPage from './views/orders/orders.page';
+import CompanyProfile from './views/company-profile/company-profile.page';
+import CustomerProfile from './views/customer-profile/customer-profile.page';
 
 // component>>>
 const App = () => {
@@ -58,9 +61,10 @@ const App = () => {
   return (
     <ScrollToTop>
       <Switch>
-        <Route exact path="/">
-          <Layout expanded>
-            {user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <LandingPage />}
+        {/* PUBLIC ROUTES */}
+        <Route exact path="/suppler/:supplerId">
+          <Layout view={`company`}>
+            <CompanyProfile />
           </Layout>
         </Route>
 
@@ -90,70 +94,96 @@ const App = () => {
         </Route>
 
         {/* ROUTES FOR CUSTOMER */}
+        <Route exact path="/">
+          <Layout view={`expanded`}>
+            {user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <LandingPage />}
+          </Layout>
+        </Route>
+
+        <Route exact path="/customer/:customerId">
+          <Layout view={`expanded`}>
+            <CustomerProfile />
+          </Layout>
+        </Route>
+
         <Route exact path="/shop">
-          <Layout expanded>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <ShopPage />}</Layout>
+          <Layout view={`expanded`}>
+            {user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <ShopPage />}
+          </Layout>
         </Route>
 
         <Route exact path="/shop/:category/:subCategory/:slug">
-          <Layout expanded>
+          <Layout view={`expanded`}>
             {user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <ProductViewer />}
           </Layout>
         </Route>
 
         <Route exact path="/shop/:category">
-          <Layout expanded>
+          <Layout view={`expanded`}>
             {user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <SingleCategory />}
           </Layout>
         </Route>
 
         <Route exact path="/shop/:category/:subCategory">
-          <Layout expanded>
+          <Layout view={`expanded`}>
             {user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <SubCategory />}
           </Layout>
         </Route>
 
         <Route exact path="/contact">
-          <Layout expanded={false}>
+          <Layout view={`minimal`}>
             {user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <ContactPage />}
           </Layout>
         </Route>
 
         <Route exact path="/wishlist">
-          <Layout expanded>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <Wishlist />}</Layout>
+          <Layout view={`expanded`}>
+            {user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <Wishlist />}
+          </Layout>
         </Route>
 
         <Route exact path="/cart">
-          <Layout expanded>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <Cart />}</Layout>
+          <Layout view={`expanded`}>
+            {user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <Cart />}
+          </Layout>
+        </Route>
+
+        <Route exact path="/orders">
+          <Layout view={`expanded`}>
+            {user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <OrdersPage />}
+          </Layout>
         </Route>
 
         <Route exact path="/auth/:userType/:authAction">
-          <Layout expanded={false}>{user ? <Redirect to="/" /> : <AuthPage />}</Layout>
+          <Layout view={`minimal`}>{user ? <Redirect to="/" /> : <AuthPage />}</Layout>
         </Route>
 
         <Route exact path="/checkout/simple">
-          <Layout expanded={true}>
+          <Layout view={`expanded`}>
             <CheckoutSimplePage />
           </Layout>
         </Route>
 
         <Route exact path="/checkout/product">
-          <Layout expanded={true}>
+          <Layout view={`expanded`}>
             <CheckoutProductPage />
           </Layout>
         </Route>
         <Route exact path="/checkout/cart">
-          <Layout expanded={true}>
+          <Layout view={`expanded`}>
             <CheckoutCartPage />
           </Layout>
         </Route>
 
         <Route exact path="/terms">
-          <Layout expanded>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <TermsPage />}</Layout>
+          <Layout view={`expanded`}>
+            {user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <TermsPage />}
+          </Layout>
         </Route>
 
         {/* 404 */}
         <Route path="*">
-          <Layout expanded={false}>
+          <Layout view={`minimal`}>
             <NotFound />
           </Layout>
         </Route>

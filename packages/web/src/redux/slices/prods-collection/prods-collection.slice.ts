@@ -2,11 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 
 // util:
 import { GetCollectionOfProds } from './logic/reading.logic';
-import { SliceFurnitureTypes } from '../../../common/@types/slice-prods-collections.types';
+import { ProdsCollectionTypes } from '../../../common/@types/slice-prods-collections.types';
 import { categorizeSubCategories } from './logic/categorize-sub-categories.logic';
 
 // CONFIGURE THE INITIAL STATE OF THE SLICE::
-const initialState: SliceFurnitureTypes = {
+const initialState: ProdsCollectionTypes = {
   prods: null,
   subProds: null,
   stage: `idle`,

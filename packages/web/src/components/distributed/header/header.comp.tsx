@@ -17,7 +17,7 @@ import AfterHeader from './after-header/after-header.comp';
 import HeaderSearch from './header-search/header-search.comp';
 
 // component>>>
-const Header: VFC<IHeader> = ({ expanded }) => {
+const Header: VFC<IHeader> = ({ view }) => {
   // preConfigured hooks:
   // const history = useHistory();
   // const location = useLocation();
@@ -34,22 +34,22 @@ const Header: VFC<IHeader> = ({ expanded }) => {
   // depending on {expanded} so wether to view a default header or the minimal one.
   return (
     <Fragment>
-      {expanded ? (
-        <header className='default-header'>
+      {view === `expanded` ? (
+        <header className="default-header">
           <PreHeader />
           <Container xxl>
-            <div className='header-wrapper'>
-              <section className='left-wing'>
-                <div className='logo'>
-                  <Link to='/'></Link>
+            <div className="header-wrapper">
+              <section className="left-wing">
+                <div className="logo">
+                  <Link to="/"></Link>
                 </div>
               </section>
-              <section className='middle-wing'>
+              <section className="middle-wing">
                 <HeaderSearch />
               </section>
-              <section className='right-wing'>
-                <section className='main-routes-list'>
-                  <section className='routes-list'>
+              <section className="right-wing">
+                <section className="main-routes-list">
+                  <section className="routes-list">
                     {headerRouts.main.map(({ value, path }): JSX.Element => {
                       return (
                         <NavLink key={path} to={path} activeStyle={navRouteActiveStyle} exact>
@@ -61,25 +61,25 @@ const Header: VFC<IHeader> = ({ expanded }) => {
                     {user ? (
                       <UserAvatar user={user} />
                     ) : (
-                      <section className='auth-area'>
-                        <NavLink to='/auth/customer/login' activeStyle={navRouteActiveStyle}>
-                          login
+                      <section className="auth-area">
+                        <NavLink to="/auth/customer/login" activeStyle={navRouteActiveStyle}>
+                          Login
                         </NavLink>
-                        <NavLink to='/auth/customer/signup' activeStyle={navRouteActiveStyle}>
-                          join for free
+                        <NavLink to="/auth/customer/signup" activeStyle={navRouteActiveStyle}>
+                          Join Free
                         </NavLink>
                       </section>
                     )}
                   </section>
                 </section>
                 {/* xs-screens routes list */}
-                <section className='xs-screens-routes-list'>
+                <section className="xs-screens-routes-list">
                   {isSideMenuOpened ? (
-                    <ul className='routes-list'>
-                      <button className='routes-list-closer' onClick={() => setIsSideMenuOpened(false)}>
+                    <ul className="routes-list">
+                      <button className="routes-list-closer" onClick={() => setIsSideMenuOpened(false)}>
                         <VscChromeClose />
                       </button>
-                      <div className='routes-wrapper'>
+                      <div className="routes-wrapper">
                         {headerRouts.main.map(({ value, path }): JSX.Element => {
                           return (
                             <NavLink key={path} to={path} activeStyle={navRouteActiveStyle} exact>
@@ -90,7 +90,7 @@ const Header: VFC<IHeader> = ({ expanded }) => {
                       </div>
                     </ul>
                   ) : null}
-                  <button className='xs-menu-toggler' onClick={() => setIsSideMenuOpened(true)}>
+                  <button className="xs-menu-toggler" onClick={() => setIsSideMenuOpened(true)}>
                     <span></span>
                     <span></span>
                     <span></span>
@@ -101,13 +101,47 @@ const Header: VFC<IHeader> = ({ expanded }) => {
           </Container>
           <AfterHeader />
         </header>
-      ) : (
-        <header className='non-expanded-header'>
+      ) : view === `minimal` ? (
+        <header className="non-expanded-header">
           <Container md>
-            <div className='logo-wrapper'>
-              <div className='logo-dark'>
-                <Link to='/'></Link>
+            <div className="logo-wrapper">
+              <div className="logo-dark">
+                <Link to="/"></Link>
               </div>
+            </div>
+          </Container>
+        </header>
+      ) : (
+        <header className="suppler-header">
+          <Container xxl>
+            <div className="header-wrapper">
+              <section className="left-wing">
+                <div className="logo">
+                  <Link to="/"></Link>
+                </div>
+              </section>
+              <section className="right-wing">
+                <section className="main-routes-list">
+                  <section className="routes-list">
+                    {headerRouts.suppler.map(({ value, path }): JSX.Element => {
+                      return (
+                        <NavLink key={path} to={path} activeStyle={navRouteActiveStyle} exact>
+                          {value}
+                        </NavLink>
+                      );
+                    })}
+                  </section>
+                </section>
+                <section className="user-actions">
+                  {headerRouts.main.map(({ value, path }): JSX.Element => {
+                    return (
+                      <NavLink key={path} to={path} activeStyle={navRouteActiveStyle} exact>
+                        {value}
+                      </NavLink>
+                    );
+                  })}
+                </section>
+              </section>
             </div>
           </Container>
         </header>

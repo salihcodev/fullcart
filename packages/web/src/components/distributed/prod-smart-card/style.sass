@@ -5,19 +5,19 @@
     display: grid
     grid-template-columns: 1fr 4fr
     border: 1px solid $alt_dark-4
-    border-radius: 10px
+    border-radius: 3px
     padding: 0 !important
     .prod-cover
         height: inherit
         img
             height: 100%
             border: 1px solid $alt_dark-4
-            border-radius: 10px
+            border-top-left-radius: 3px
+            border-bottom-left-radius: 3px
             margin-top: -1px
             border-left: none
     .prod-info
         color: $app_gray-2
-        @include flex_positioning(center, center)
         padding: 1rem
         p
             margin: 0 !important
