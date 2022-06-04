@@ -85,7 +85,7 @@ const AlbumsModal: React.VFC<any> = ({ isModalOpen, setIsModalOpen }) => {
                         onClick={() => setCurrentProdImg(img)}
                         style={{
                           background: `url(${img}) center/contain no-repeat`,
-                          boxShadow: `${img === currentProdImg ? `#5624d059 0px 0px 1px 2px` : ''}`,
+                          boxShadow: `${img === currentProdImg ? `#2fa57e70 0px 0px 1px 2px` : ''}`,
                         }}
                       ></button>
                     )
@@ -110,7 +110,7 @@ const AlbumsModal: React.VFC<any> = ({ isModalOpen, setIsModalOpen }) => {
                         onClick={() => setCurrentCompanyImg(img)}
                         style={{
                           background: `url(${img}) center/contain no-repeat`,
-                          boxShadow: `${img === currentCompanyImg ? `#5624d059 0px 0px 1px 2px` : ''}`,
+                          boxShadow: `${img === currentCompanyImg ? `#2fa57e70 0px 0px 1px 2px` : ''}`,
                         }}
                       ></button>
                     )

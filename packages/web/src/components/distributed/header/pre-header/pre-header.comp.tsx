@@ -20,7 +20,7 @@ const PreHeader: VFC<{}> = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const navRouteActiveStyle = {
-    color: '#8e73d3 ',
+    color: '#2fa57d',
   };
   return (
     <header className="pre-header">

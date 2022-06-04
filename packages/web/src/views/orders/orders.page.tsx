@@ -39,7 +39,7 @@ const OrdersPage = () => {
                 border={{ size: 1 }}
                 noBorder
                 btnCount={btnCount}
-                activeBkg={name === activeBtn ? `#673fce` : ``}
+                activeBkg={name === activeBtn ? `#2fa57d` : ``}
                 activeWhite={name === activeBtn}
                 handleEvent={() => setActiveBtn(name)}
               />

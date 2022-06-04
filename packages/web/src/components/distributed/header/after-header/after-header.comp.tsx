@@ -34,7 +34,7 @@ const AfterHeader: VFC<{}> = () => {
   }, []);
 
   const navRouteActiveStyle = {
-    color: '#5624d0 ',
+    color: '#2fa57d ',
   };
 
   const [showCatsList, setShowCatsList] = useState(false);

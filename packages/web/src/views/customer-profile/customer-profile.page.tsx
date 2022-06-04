@@ -8,6 +8,8 @@ import { localStorageObjGetter } from '../../common/utilities/localstorage-deale
 import Container from '../../components/utils/container/container.util';
 import avatar from '../../../public/assets/images/avatar.jpg';
 import { MdEdit } from 'react-icons/md';
+import { FiTwitter, FiInstagram } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 
 import './style.sass';
 
@@ -60,13 +62,13 @@ const CustomerProfile = () => {
                     <p className="bio">Some dummy information about this person...</p>
                     <div className="socials">
                       <a href="#" className="social-link">
-                        <MdEdit />
+                        <FiTwitter />
                       </a>
                       <a href="#" className="social-link">
-                        <MdEdit />
+                        <FiInstagram />
                       </a>
                       <a href="#" className="social-link">
-                        <MdEdit />
+                        <FaWhatsapp />
                       </a>
                     </div>
                   </div>

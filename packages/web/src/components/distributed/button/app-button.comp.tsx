@@ -45,13 +45,13 @@ const AppButton: React.VFC<IAppButton> = ({
           background: `#f5f6f733`,
         }
       : {
-          borderTopColor: `#673fce`,
+          borderTopColor: `#2fa57d`,
           borderWidth: `2px`,
           borderStyle: `solid`,
           background: `#575e6344`,
         };
-  const borderColor = bkgDefault ? `#000` : bkgSecondary ? `#4a20b3` : `#ddd`;
-  const bkgColor = bkgDefault ? `#111` : bkgSecondary ? `#673fce` : `#f5f6f7`;
+  const borderColor = bkgDefault ? `#000` : bkgSecondary ? `#22916c` : `#ddd`;
+  const bkgColor = bkgDefault ? `#111` : bkgSecondary ? `#2fa57d` : `#f5f6f7`;
 
   const sizeValue = size === `sm` ? `2rem` : size === `md` ? `2.3rem` : `3rem`;
   const checkRadiusVal = size === `sm` ? `4px` : ``;
