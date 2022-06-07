@@ -235,7 +235,7 @@ export default class AuthFeatures {
         try {
             if (!mongoose.Types.ObjectId.isValid(id)) {
                 return this.response.status(400).json({
-                    message: `No user registered with provided the id.`,
+                    message: `No user registered with the provided id.`,
                 });
             }
 
@@ -252,6 +252,35 @@ export default class AuthFeatures {
         } catch (err) {
             this.response.status(500).json({
                 message: `Failed to update the user role.`,
+                error: err,
+            });
+        }
+    }
+
+    async cartAddItem(): Promise<any> {
+        const { cartItemId, customerId } = this.request.body;
+
+        try {
+            if (!mongoose.Types.ObjectId.isValid(cartItemId)) {
+                return this.response.status(400).json({
+                    message: `No products in the database with the provided id.`,
+                });
+            }
+
+            const customer = await this.modelQuery.findById(customerId);
+
+            customer.cart = [...customer.cart, cartItemId];
+            await customer.save();
+
+            this.response.status(200).json({
+                statue: `SUCCESS`,
+                message: `Added the item to the cart successfully.`,
+                data: customer.cart,
+                cartCount: customer.cart.length,
+            });
+        } catch (err) {
+            this.response.status(500).json({
+                message: `Failed to add the given item to the cart.`,
                 error: err,
             });
         }

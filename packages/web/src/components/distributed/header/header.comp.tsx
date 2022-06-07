@@ -25,7 +25,7 @@ const Header: VFC<IHeader> = ({ view }) => {
   const user = localStorageObjGetter(`@authedUser`)?.user;
 
   const navRouteActiveStyle = {
-    color: '#5624d0 ',
+    color: '#2fa57d ',
   };
 
   // mobile || side menu, you might need to create a redux slice

@@ -33,6 +33,13 @@ export const updateUserRole = async (
     await new AuthFeatures(Customer, req, res).changeRole();
 };
 
+export const cartAddItem = async (
+    req: Request,
+    res: Response
+): Promise<void> => {
+    await new AuthFeatures(Customer, req, res).cartAddItem();
+};
+
 export const terminateUser = async (
     req: Request,
     res: Response

@@ -15,6 +15,9 @@ const AuthCustomerSchema = new Schema({
         type: Date,
         default: new Date(),
     },
+    cart: [String],
+    wishlist: [String],
+    orders: [String],
     id: { type: String },
 });
 
