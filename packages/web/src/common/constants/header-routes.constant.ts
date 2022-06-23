@@ -11,11 +11,9 @@ const headerRouts = {
     { value: `Trade shows`, path: `/trade-shows` },
   ],
   suppler: [
-    { value: `Bestseller`, path: `/bestseller` },
-    { value: `Coming soon`, path: `/coming-soon` },
-    { value: `New releases`, path: `/new-releases` },
-    { value: `Ready to ship`, path: `/ready-to-ship` },
-    { value: `Trade shows`, path: `/trade-shows` },
+    { value: `Sourcing Solutions`, path: `/bestseller` },
+    { value: `Services & MemberShip`, path: `/coming-soon` },
+    { value: `Help`, path: `/new-releases` },
   ],
 };
 

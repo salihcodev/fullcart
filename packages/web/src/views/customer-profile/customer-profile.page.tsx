@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { localStorageObjGetter } from '../../common/utilities/localstorage-dealer/localstorage-getters.util';
 import Container from '../../components/utils/container/container.util';
 import avatar from '../../../public/assets/images/avatar.jpg';
-import { MdEdit } from 'react-icons/md';
+import { MdOutlineEdit } from 'react-icons/md';
 import { FiTwitter, FiInstagram } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 
@@ -26,14 +26,13 @@ const CustomerProfile = () => {
     { name: `account-deletion`, value: 'Account Deletion' },
   ];
 
-  const userFirstName = user?.name.split(' ')[1];
+  const userFirstName = user?.name.split(' ')[0];
 
   return (
     <main className="page customer-profile-page">
       <Container xl>
         <h3 className="greeting">
-          {/* <span>Hi There, </span> <b className="user-name">{userFirstName}</b> */}
-          <span>Hi There, </span> <b className="user-name">Ahmad</b>
+          <span>Hi There, </span> <b className="user-name">{userFirstName}</b>
         </h3>
         <div className="info-wrapper">
           <aside className="profile-routes">
@@ -52,13 +51,12 @@ const CustomerProfile = () => {
                     <div className="avatar">
                       <img src={avatar} alt={userFirstName + `Avatar`} />
                       <button className="edit">
-                        <MdEdit />
+                        <MdOutlineEdit />
                       </button>
                     </div>
                   </div>
                   <div className="txt-info-wrapper">
-                    {/* <h3>{user?.name}</h3> */}
-                    <h3>Ahmad Salih</h3>
+                    <h3>{user?.name}</h3>
                     <p className="bio">Some dummy information about this person...</p>
                     <div className="socials">
                       <a href="#" className="social-link">

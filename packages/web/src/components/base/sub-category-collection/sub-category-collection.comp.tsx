@@ -12,6 +12,7 @@ import unDashed from '../../../common/utilities/undashed.util';
 import ProductCard from '../prod-card/prod-card.comp';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { LoadSubCategory } from '../../../redux/slices/prods-collection/logic/reading.logic';
+import Skeleton from '../../distributed/skelton/skeleton.comp';
 
 // component>>>
 const SubCategoryCollection: VFC<any> = ({ subCategory }) => {
@@ -34,20 +35,18 @@ const SubCategoryCollection: VFC<any> = ({ subCategory }) => {
   return (
     <Fragment>
       {stage === `busy` ? (
-        <section className='skeleton'>
-          <h1>Loading...</h1>
-        </section>
+        <Skeleton target="prods-collection" />
       ) : (
-        <section className='sub-category-loader'>
-          <section className='sub-category-header'>
-            <h3 className='category-title'>
+        <section className="sub-category-loader">
+          <section className="sub-category-header">
+            <h4 className="category-title">
               <div>{unDashed(subCategory)}</div>
               <div>
                 <span></span>
               </div>
-            </h3>
+            </h4>
           </section>
-          <section className='category-prods'>
+          <section className="category-prods">
             {prods?.map(
               (prod: ProdTypes): JSX.Element => (
                 <ProductCard key={prod._id} prod={prod} />

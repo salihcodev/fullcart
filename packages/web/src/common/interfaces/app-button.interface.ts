@@ -18,4 +18,5 @@ export interface IAppButton {
   btnCount?: number;
   activeBkg?: string;
   activeWhite?: boolean;
+  noBkg?: boolean;
 }

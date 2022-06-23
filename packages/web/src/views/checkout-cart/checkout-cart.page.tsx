@@ -8,15 +8,15 @@ import Container from '../../components/utils/container/container.util';
 import Alert from '../../components/distributed/alert/alert.comp';
 import { localStorageObjGetter } from '../../common/utilities/localstorage-dealer/localstorage-getters.util';
 import CheckoutCalculations from '../../components/distributed/checkout-calculations/checkout-calculations.comp';
-import ProdHighlights from '../../components/distributed/prod-highlights/prod-highlights.comp';
 import ProdSmartCard from '../../components/distributed/prod-smart-card/prod-smart-card.comp';
 import UserCompleteCheckout from '../../components/distributed/user-complete-checkout/user-complete-checkout.comp';
 import { useAppSelector } from '../../redux/hooks';
 import { RootState } from '../../redux/store';
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { GetSingleProdBySlug } from '../../redux/slices/prods-collection/logic/reading.logic';
+import Skeleton from '../../components/distributed/skelton/skeleton.comp';
 
 // component>>>
 const CheckoutCartPage = () => {
@@ -58,17 +58,23 @@ const CheckoutCartPage = () => {
             />
           )}
           <aside className="curr-order-data">
-            <CheckoutCalculations calcs={{ delivery: DELIVERY, subTotal: subT, total: TOTAL }} />
-            <h4>Your Picks</h4>
-            <span className="gate"></span>
-            <section className="cart-check-last-view">
-              <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
-              <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
-              <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
-              <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
-              <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
-            </section>
-            <span className="gate"></span>
+            {stage === `busy` ? (
+              <Skeleton target="checkout-cart-info" />
+            ) : (
+              <Fragment>
+                <CheckoutCalculations calcs={{ delivery: DELIVERY, subTotal: subT, total: TOTAL }} />
+                <h4>Your Picks</h4>
+                <span className="gate"></span>
+                <section className="cart-check-last-view">
+                  <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
+                  <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
+                  <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
+                  <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
+                  <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
+                </section>
+                <span className="gate"></span>
+              </Fragment>
+            )}
           </aside>
         </article>
       </Container>

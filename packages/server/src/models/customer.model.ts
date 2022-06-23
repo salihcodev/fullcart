@@ -1,5 +1,6 @@
 // pkgs:
 import mongoose from "mongoose";
+import { populateAndSelectFields } from "./utils/pre";
 const { Schema } = mongoose;
 
 // create user schema:
@@ -15,11 +16,11 @@ const AuthCustomerSchema = new Schema({
         type: Date,
         default: new Date(),
     },
-    cart: [String],
-    wishlist: [String],
-    orders: [String],
     id: { type: String },
+    orders: [{ type: Schema.Types.ObjectId, ref: "Order" }],
 });
+
+populateAndSelectFields(AuthCustomerSchema, `orders`, [`__v`]);
 
 // create customer model:
 const Customer = mongoose.model("Customer", AuthCustomerSchema);

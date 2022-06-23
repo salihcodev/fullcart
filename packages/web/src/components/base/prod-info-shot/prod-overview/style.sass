@@ -44,7 +44,7 @@ section.prod-overview
                             padding-bottom: 0.3rem
                             color: $dark_white
                             background: $main_clr
-                            border-radius: 3px
+
         &.dozens-offers
             display: grid
             grid-gap: 0.5rem 1rem
@@ -75,12 +75,22 @@ section.prod-overview
                         display: flex
                     span
                         display: block
-                        width: 1rem
-                        height: 1rem
-                        border-radius: 3px
+                        width: 1.4rem
+                        height: 1.2rem
                         margin: 0 0.1rem
-                        &:hover
-                            border-color: $additional_clr-1
+                        border: 3px solid $additional_clr
+                        border-radius: 2px
+                        position: relative
+                        &:after
+                            content: ""
+                            display: block
+                            background: $additional_clr
+                            top: 5px
+                            right: -3px
+                            height: 11px
+                            width: 11px
+                            position: absolute
+                            border-radius: 2px
                 &.quantity-controllers
                     span.fixed-prod-price
                         margin-right: 2rem
@@ -101,11 +111,11 @@ section.prod-overview
                             color: $dark_white
                             background: $main_clr-1
                         &:first-of-type
-                            border-top-left-radius: 7px
-                            border-bottom-left-radius: 7px
+                            border-top-left-radius: 1rem
+                            border-bottom-left-radius: 1rem
                         &:last-of-type
-                            border-top-right-radius: 7px
-                            border-bottom-right-radius: 7px
+                            border-top-right-radius: 1rem
+                            border-bottom-right-radius: 1rem
                     input
                         border: none
                         text-align: center

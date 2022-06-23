@@ -5,9 +5,11 @@ import express, { Express, Request, Response } from "express";
 
 // utils:
 import productRouter from "./routes/product.router";
+import orderRouter from "./routes/order.router";
 import customerRoutes from "./routes/customer.router";
 import supplerRoutes from "./routes/suppler.router";
 import contactUs from "./routes/contact-us.router";
+import newsLetterSubscription from "./routes/newsletter.router";
 
 // *******
 // >>> INITIALIZING EXPRESS APP:
@@ -39,9 +41,10 @@ app.get(API_VERSION, (req: Request, res: Response): void => {
 
 // >>> use implemented routers:
 app.use(`${API_VERSION}/products`, productRouter);
+app.use(`${API_VERSION}/orders`, orderRouter);
 app.use(`${API_VERSION}/auth/customer`, customerRoutes);
 app.use(`${API_VERSION}/auth/suppler`, supplerRoutes);
-app.use(`${API_VERSION}/services`, contactUs);
-
+app.use(`${API_VERSION}`, contactUs);
+app.use(`${API_VERSION}`, newsLetterSubscription);
 // *******
 //

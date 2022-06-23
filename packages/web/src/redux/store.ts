@@ -9,6 +9,7 @@ import ContactUsReducer from './slices/contact-us/contact-us.slice';
 import ProdsCollectionSlice from './slices/prods-collection/prods-collection.slice';
 import SingleProdGetterReducer from './slices/prods-collection/get-single-prod.slice';
 import SubCategoryLoaderReducer from './slices/prods-collection/sub-category-loader.slice';
+import NewsletterSubscriptionReducer from './slices/newsletter/newsletter.slice';
 
 // app state
 export const store = configureStore({
@@ -20,6 +21,7 @@ export const store = configureStore({
     ProdsCollection: ProdsCollectionSlice,
     SubCategory: SubCategoryLoaderReducer,
     SingleProd: SingleProdGetterReducer,
+    Newsletter: NewsletterSubscriptionReducer,
   },
 });
 

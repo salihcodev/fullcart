@@ -75,7 +75,7 @@ export const getSingleProductById = async (
         });
     } catch (err) {
         res.status(404).json({
-            message: `Could not find product with name: ${id}`,
+            message: `Could not find product with id: ${id}`,
         });
     }
 };

@@ -54,11 +54,12 @@ header.default-header
                     border: 1px solid $additional_clr
                     padding: 0.2rem
                     height: 2.2rem
-                    min-width: 5.5rem
+                    min-width: 6rem
+                    border-radius: 2rem
                     @include flex_positioning(center, center)
                     background: $additional_clr-1
                     color: $app_white !important
-                    border-radius: 3px
+
                     font-size: 0.8rem
                     &:active
                       transform: scale(0.97)
@@ -152,6 +153,7 @@ header.suppler-header
         .logo
           height: 95%
           width: 13rem
+          margin-top: 0.2rem
           a
             display: block
             height: inherit
@@ -160,6 +162,48 @@ header.suppler-header
       &.right-wing
         flex-grow: 1
         @include flex_positioning(center, space-between)
+        .routes-list,
+        .user-actions
+          @include flex_positioning(center, flex-start)
+          height: 100%
+          width: 100%
+          a
+            margin: 0.5rem
+            padding: 0.1rem
+            @include flex_positioning(center, center)
+            span
+              @include flex_positioning(center, center)
+              &.icon
+                margin: 0 0.2rem
+                width: 1.2rem
+                height: 1.2rem
+                border-radius: 50%
+                font-size: 1rem
+                &.info-icon
+                  background: $alt_dark-4
+                  font-size: 0.8rem
+
+        .routes-list
+        .user-actions
+          justify-content: flex-end
+          a
+            position: relative
+            &:nth-of-type(1),
+            &:nth-of-type(2)
+              &:after
+                content: ""
+                display: block
+                position: absolute
+                top: 0
+                right: -10px
+                width: 1px
+                background: $alt_dark-4
+                bottom: 0
+            &:last-of-type
+              font-size: 1.1rem
+              width: 2rem
+              height: 1.4rem
+              @include flex_positioning(center, center)
 
 @media screen and (max-width: 992px)
   header.default-header

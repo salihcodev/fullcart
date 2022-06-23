@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 // utils:
-import { populatingFields, slugifyIt } from "./utils/pre";
+import { populateAndSelectFields, slugifyIt } from "./utils/pre";
 
 export const ProductSchema = new Schema({
     name: String,
@@ -51,8 +51,13 @@ export const ProductSchema = new Schema({
     id: String,
 });
 
-populatingFields(`suppler`, [`__v`, `role`, `createdAt`, `password`]);
-slugifyIt();
+slugifyIt(ProductSchema);
+populateAndSelectFields(ProductSchema, `suppler`, [
+    `__v`,
+    `role`,
+    `createdAt`,
+    `password`,
+]);
 
 const Product = mongoose.model("Product", ProductSchema);
 export default Product;

@@ -2,7 +2,7 @@
 import { Request, Response } from "express";
 
 // utils:
-import { contactUsMail } from "../services/mail-sending.service";
+import { contactUsMail } from "../../services/mail-sending.service";
 
 export const handelContactUsForm = async (
     req: Request,

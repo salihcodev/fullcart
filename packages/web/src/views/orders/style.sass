@@ -26,22 +26,25 @@ main.page.orders-page
         grid-template-columns: 1fr 5fr
         grid-gap: 1rem
         > section
-            border-radius: 3px
+
             padding: 1rem
             &.list-items
                 padding-top: 0
                 h5.filteration-heading
                     text-transform: uppercase
+                    padding-left: 0.5rem
             &.router
                 background: $app_white
                 height: 13rem
+                border-radius: 1rem
                 button
                     margin: 0.4rem 0
                     text-align-last: left !important
+                    transition: all linear 0.1s
                     &:active
                         transform: scale(0.99) !important
 
 @media screen and (max-width: 1199px)
     main.page.orders-page
-        article.list-wrapper
-            display: block
+        .list-items
+            margin: 2rem 0

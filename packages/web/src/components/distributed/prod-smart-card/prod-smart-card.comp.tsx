@@ -16,7 +16,7 @@ const ProdSmartCard: React.VFC<IProdSmartCard> = ({ prodName, prodCover, height 
       </section>
       <section className="prod-info">
         <div>
-          <p className="name">{prodName?.substring(0, 70) + `...`}</p>
+          <p className="name">{prodName}</p>
         </div>
       </section>
     </div>

@@ -2,22 +2,31 @@
 @import '../../../common/styles/utils/_mixins.util'
 
 .prod-smart-card
-    display: grid
-    grid-template-columns: 1fr 4fr
     border: 1px solid $alt_dark-4
-    border-radius: 3px
-    padding: 0 !important
+    border-radius: 1rem
+    display: flex
+    align-items: flex-start
+    padding: 0.5rem !important
     .prod-cover
-        height: inherit
+        height: 100%
+        padding: 0 !important
         img
-            height: 100%
-            border: 1px solid $alt_dark-4
-            border-top-left-radius: 3px
-            border-bottom-left-radius: 3px
-            margin-top: -1px
+            height: inherit
             border-left: none
+
     .prod-info
         color: $app_gray-2
-        padding: 1rem
+        margin-left: 1rem
+        padding-top: 1rem
         p
+            display: -webkit-box
             margin: 0 !important
+            -webkit-box-orient: vertical
+            overflow: hidden
+            -webkit-line-clamp: 3
+
+@media screen and (max-width: 769px)
+    .prod-smart-card
+        .prod-info
+            p
+                -webkit-line-clamp: 2

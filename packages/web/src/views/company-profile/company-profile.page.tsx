@@ -1,6 +1,7 @@
 // pkgs:
 
 // comps:
+import SupplerInfoHero from '../../components/base/suppler-info-hero/suppler-info-hero.comp';
 
 // utils:
 import Container from '../../components/utils/container/container.util';
@@ -10,9 +11,7 @@ import './style.sass';
 const CompanyProfile = () => {
   return (
     <main className="page company-profile-page">
-      <Container xxl>
-        <h2>Company Profile</h2>
-      </Container>
+      <SupplerInfoHero />
     </main>
   );
 };

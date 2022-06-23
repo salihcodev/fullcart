@@ -4,44 +4,45 @@ import { Fragment, useEffect, VFC } from 'react';
 
 // utils:
 import './style.sass';
+import categoriesRoutes from '../../../../../common/constants/categories-routes.constant';
 
 // comps:
 
 // component>>>
 const CategoriesList: VFC<{ showCatsList: boolean }> = ({ showCatsList }) => {
-  // hover on the first list item
-  // useEffect(() => {
-  //   document.querySelector('.main-categories-wrapper');
-
-  //   return () => {};
-  // }, []);
-
   return (
     <Fragment>
       {showCatsList ? (
-        <article className="categories-list">
-          <div className="list-wrapper">
-            <section className="main-categories">
-              <h6>All categories</h6>
-              <ul className="main-categories-wrapper">
-                {links.map((link: any) => {
-                  const { value, path, subItems } = link;
-                  return (
-                    <li key={path} className="category">
-                      <Link to={path}>{value}</Link>
-                      <ul className="sub-categories-wrapper">
-                        <h6>{value}</h6>
-                        {subItems.map(({ value, path }: any) => (
-                          <li key={path}>
-                            <Link to={path}>{value}</Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  );
-                })}
-              </ul>
-            </section>
+        <article className="categories-lists">
+          <div className="lists-wrapper">
+            <ul className="main-categories" id="main-categories">
+              {categoriesRoutes.map(({ value, path, subItems }) => (
+                <li key={path}>
+                  <Link to={``} className="cat-heading">
+                    <div>
+                      <p>{value.length > 23 ? `${value.substring(0, 23)}...` : value}</p>
+                    </div>
+                    <div>
+                      <span className="count-num">{subItems?.length}</span>
+                    </div>
+                    <ul className="sub-categories" id="sub-categories">
+                      {subItems.map(({ value, path }) => (
+                        <li key={path}>
+                          <Link to={``} className="cat-heading">
+                            <div>
+                              <p>{value.length > 23 ? `${value.substring(0, 23)}...` : value}</p>
+                            </div>
+                            <div>
+                              <span className="count-num">0</span>
+                            </div>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </article>
       ) : null}
@@ -50,77 +51,3 @@ const CategoriesList: VFC<{ showCatsList: boolean }> = ({ showCatsList }) => {
 };
 
 export default CategoriesList;
-
-const links = [
-  {
-    value: `Furniture`,
-    path: `/furniture`,
-    subItems: [
-      { value: `test0`, path: `/office` },
-      { value: `test1`, path: `/office` },
-      { value: `test2`, path: `/office` },
-      { value: `test3`, path: `/office` },
-      { value: `test4`, path: `/office` },
-    ],
-  },
-  {
-    value: `Test`,
-    path: `/test`,
-    subItems: [
-      { value: `test0`, path: `/office` },
-      { value: `test1`, path: `/office` },
-      { value: `test2`, path: `/office` },
-      { value: `test3`, path: `/office` },
-    ],
-  },
-  {
-    value: `Furniture`,
-    path: `/furniture`,
-    subItems: [
-      { value: `test1`, path: `/office` },
-      { value: `test2`, path: `/office` },
-      { value: `test3`, path: `/office` },
-      { value: `test4`, path: `/office` },
-    ],
-  },
-  {
-    value: `Furniture`,
-    path: `/furniture`,
-    subItems: [
-      { value: `test0`, path: `/office` },
-      { value: `test1`, path: `/office` },
-      { value: `test2`, path: `/office` },
-      { value: `test4`, path: `/office` },
-    ],
-  },
-  {
-    value: `Furniture`,
-    path: `/furniture`,
-    subItems: [
-      { value: `test0`, path: `/office` },
-      { value: `test1`, path: `/office` },
-      { value: `test2`, path: `/office` },
-      { value: `test4`, path: `/office` },
-    ],
-  },
-  {
-    value: `Furniture`,
-    path: `/furniture`,
-    subItems: [
-      { value: `test0`, path: `/office` },
-      { value: `test2`, path: `/office` },
-      { value: `test3`, path: `/office` },
-      { value: `test4`, path: `/office` },
-    ],
-  },
-  {
-    value: `Furniture`,
-    path: `/furniture`,
-    subItems: [
-      { value: `test0`, path: `/office` },
-      { value: `test1`, path: `/office` },
-      { value: `test2`, path: `/office` },
-      { value: `test4`, path: `/office` },
-    ],
-  },
-];

@@ -12,8 +12,7 @@ export const mailSender = createAsyncThunk(
   `services/sendUserMail`,
   async (contactFormData: ContactInFormTypes, { rejectWithValue }) => {
     try {
-      const { data }: AxiosResponse<ContactFormResponse> =
-        await servicesAPIs.sendEmailFromUser(contactFormData);
+      const { data }: AxiosResponse<ContactFormResponse> = await servicesAPIs.sendEmailFromUser(contactFormData);
 
       return data;
     } catch (err) {

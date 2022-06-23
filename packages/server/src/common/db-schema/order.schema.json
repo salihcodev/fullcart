@@ -1,0 +1,25 @@
+{
+    "name": "Portable bag for cats go out breathing backpack portable pet carrier for dogs and cats small pet travel bag",
+    "priceInDollar": 4.6,
+    "cover": "https://sc04.alicdn.com/kf/Hc7912c5b573e4ac5aa2f0707aa504674i.jpg",
+    "payment": "Paypal, Western Union",
+    "category": "pet-products",
+    "basicLeadingTime": 10,
+    "subCategory": "pet-wares",
+    "isReadyToShip": true,
+    "isFastToDispatch": true,
+    "stock": 3252,
+    "leadingTime": [
+        { "dozensAmount": "2 - 49", "estimationTime": 10 },
+        { "dozensAmount": "49 - 199", "estimationTime": 15 },
+        { "dozensAmount": "49 - 199", "estimationTime": "To be negotiated" }
+    ],
+    "deliveryPackage": {
+        "sellingUnits": "Single item",
+        "singlePackageSize": "40X40X10 cm",
+        "singleGrossWeight": "0.450 kg",
+        "packageType": "Each one is individually wrapped in a clear plastic bag",
+        "leadingTime": 10
+    },
+    "orderedBy": [""]
+}

@@ -11,20 +11,19 @@ import unDashed from '../../../common/utilities/undashed.util';
 
 // comps:
 import ProductCard from '../prod-card/prod-card.comp';
+import Skeleton from '../../distributed/skelton/skeleton.comp';
 
 // component>>>
 const ProdsCategoryCollection: VFC<IProdsCategoryCollection> = ({ title, catLink, prods, loadState }) => {
   return (
     <Fragment>
       {loadState === `busy` ? (
-        <section className='skeleton' style={{ minHeight: `22rem` }}>
-          <h2>Loading...</h2>
-        </section>
+        <Skeleton target="prods-collection" />
       ) : (
-        <section className='prods-category-collection'>
-          <header className='prods-collection-header'>
+        <section className="prods-category-collection">
+          <header className="prods-collection-header">
             {catLink ? (
-              <h4 className='collection-title'>
+              <h4 className="collection-title">
                 <div>
                   <Link to={catLink}>{unDashed(title)}</Link>
                 </div>
@@ -34,7 +33,7 @@ const ProdsCategoryCollection: VFC<IProdsCategoryCollection> = ({ title, catLink
               </h4>
             ) : null}
           </header>
-          <section className='collection-prods'>
+          <section className="collection-prods">
             {prods?.map(
               (prod: ProdTypes): JSX.Element => (
                 <ProductCard key={prod._id} prod={prod} />

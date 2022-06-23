@@ -10,6 +10,7 @@ import ProductImgs from './prod-imgs/prod-imgs.comp';
 import ProductOverview from './prod-overview/prod-overview.comp';
 import { useAppSelector } from '../../../redux/hooks';
 import { RootState } from '../../../redux/store';
+import Skeleton from '../../distributed/skelton/skeleton.comp';
 
 // component>>>
 const ProdInfoShot: React.VFC<{}> = () => {
@@ -24,11 +25,9 @@ const ProdInfoShot: React.VFC<{}> = () => {
       />
       <Fragment>
         {stage === `busy` ? (
-          <section className="skeleton">
-            <h1>Loading...</h1>
-          </section>
+          <Skeleton target="single-prod" />
         ) : (
-          <div className="grid-shield">
+          <div className="info-shot">
             <ProductImgs />
             <ProductOverview />
           </div>

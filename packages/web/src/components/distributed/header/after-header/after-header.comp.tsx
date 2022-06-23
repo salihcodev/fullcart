@@ -55,11 +55,7 @@ const AfterHeader: VFC<{}> = () => {
       <Container xxl>
         <div className="after-header-wrapper">
           <section className="left-wing">
-            <button
-              onClick={() => setShowCatsList(!showCatsList)}
-              onMouseEnter={() => setShowCatsList(!showCatsList)}
-              className="categories-selector"
-            >
+            <button onClick={() => setShowCatsList(!showCatsList)} className="categories-selector">
               <span className="txt">all categories</span>
 
               {showCatsList ? (

@@ -6,7 +6,7 @@ section.search-and-sort
     background: $app_white
     padding: 1rem 0.8rem 0
     border-bottom-width: 3px
-    border-radius: 3px
+    border-radius: 1rem
     margin-bottom: 1rem
     .search
         margin-bottom: 1rem
@@ -22,6 +22,7 @@ section.search-and-sort
                 height: 100%
                 border-bottom-right-radius: 0
                 border-top-right-radius: 0
+                padding-left: 1.5rem
             button
                 @include flex_positioning(center, center)
                 border-bottom-left-radius: 0
@@ -34,6 +35,9 @@ section.search-and-sort
                 margin-left: 0.3rem
                 background: $main_clr
                 color: $app_white
+                border-radius: 2rem
+                border-top-left-radius: 0
+                border-bottom-left-radius: 0
         p.searched-in
             margin: 0.5rem 0
             span.search-value
@@ -51,7 +55,7 @@ section.search-and-sort
             color: $alt_dark-3
             font-weight: bold
             font-size: 0.7rem
-            // font-weight: normal
+            border-radius: 0.5rem
             letter-spacing: 0.5px
             @include flex_positioning(center, space-around)
             &:hover

@@ -1,5 +1,5 @@
 // pkgs:
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
@@ -17,6 +17,7 @@ import { useAppSelector } from '../../redux/hooks';
 import { RootState } from '../../redux/store';
 import { GetSingleProdBySlug } from '../../redux/slices/prods-collection/logic/reading.logic';
 import { localStorageObjGetter } from '../../common/utilities/localstorage-dealer/localstorage-getters.util';
+import Skeleton from '../../components/distributed/skelton/skeleton.comp';
 
 // component>>>
 const CheckoutProductPage = () => {
@@ -57,9 +58,15 @@ const CheckoutProductPage = () => {
             />
           )}
           <aside className="curr-order-data">
-            <CheckoutCalculations calcs={{ delivery: DELIVERY, subTotal: subT, total: TOTAL }} />
-            <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
-            <ProdHighlights prod={prod} />
+            {stage === `busy` ? (
+              <Skeleton target="checkout-prod-info" />
+            ) : (
+              <Fragment>
+                <CheckoutCalculations calcs={{ delivery: DELIVERY, subTotal: subT, total: TOTAL }} />
+                <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
+                <ProdHighlights prod={prod} />
+              </Fragment>
+            )}
           </aside>
         </article>
       </Container>

@@ -14,6 +14,7 @@ import toFixedNumber from '../../../../common/utilities/to-fixed-number.util';
 import AppButton from '../../../distributed/button/app-button.comp';
 import ContactSupplerModal from './contact-suppler-modal/contact-suppler-modal.comp';
 import { GoPackage } from 'react-icons/go';
+import Skeleton from '../../../distributed/skelton/skeleton.comp';
 
 // component>>>
 const ProdToOrder: React.VFC<{}> = () => {
@@ -28,94 +29,100 @@ const ProdToOrder: React.VFC<{}> = () => {
 
   return (
     <section className="to-order-info">
-      {prod?.count === 1 ? (
-        <section className="order-limit-case">
-          <h5 className="heading">Attention!</h5>
-          <p>You'r acceded the minimum order limit, You can order a simple instade:)</p>
-          <AppButton
-            value="Buy Simple?"
-            type="button"
-            wide
-            size="md"
-            border={{ size: 1 }}
-            noBorder
-            icon={<GoPackage />}
-            isIconBefore
-            path="/checkout/simple"
-            openDetachedly
-          />
-        </section>
-      ) : null}
-      <section>
-        <p className="price-and-quantity">
-          <span className="default-quantity">
-            <span>{prod?.count}</span> <span>Dozens</span>
-          </span>
-          <span className="value animate-up">${toFixedNumber(total && total - shippingAlias)}</span>
-        </p>
-        <p className="processing-time">
-          <span className="txt">Processing time</span>
-          <span className="txt2">{prod?.basicLeadingTime} day/s</span>
-          <span className="icon">
-            <IoIosTimer />
-          </span>
-        </p>
-      </section>
-      <section>
-        <p className="shipping-price">
-          <span className="title">Shipping</span>
-          <span className="value">${shippingAlias}</span>
-        </p>
-        <p className="shipped-by">
-          <span>shippedpy</span>
-          <span>Aramex</span>
-        </p>
-      </section>
-      <section>
-        <p className="total">
-          <span className="title">Total</span>
-          <span className="value animate-down">${toFixedNumber(total)}</span>
-        </p>
-        <p className="estimated-delivery">
-          <span className="title">Estimated delivery</span>
-          <span className="value">11/25 2021</span>
-        </p>
-      </section>
-      <section className="order-actions">
-        <AppButton
-          value="Start Order"
-          type="button"
-          wide
-          size="md"
-          bkgDefault
-          border={{ size: 1 }}
-          noBorder={false}
-          path={`/checkout/product?prod=${prod?.slug}`}
-          openDetachedly
-        />
-        <AppButton
-          value="Contact Suppler"
-          type="button"
-          wide
-          size="md"
-          border={{ size: 1 }}
-          noBorder={false}
-          icon={<BiMessageDetail />}
-          isIconBefore
-          handleEvent={() => setIsModalOpen(true)}
-        />
-        <AppButton
-          loadState={`idle`}
-          value="Add To Basket"
-          type="button"
-          wide
-          size="md"
-          border={{ size: 1 }}
-          noBorder
-          icon={<BsCartPlus />}
-          isIconBefore={false}
-        />
-      </section>
+      {stage === `busy` ? (
+        <Skeleton target="single-prod-to-order" />
+      ) : (
+        <div>
+          {prod?.count === 1 ? (
+            <section className="order-limit-case">
+              <h5 className="heading">Attention!</h5>
+              <p>You'r acceded the minimum order limit, You can order a simple instade:)</p>
+              <AppButton
+                value="Buy Simple?"
+                type="button"
+                wide
+                size="md"
+                border={{ size: 1 }}
+                noBorder
+                icon={<GoPackage />}
+                isIconBefore
+                path="/checkout/simple"
+                openDetachedly
+              />
+            </section>
+          ) : null}
+          <section>
+            <p className="price-and-quantity">
+              <span className="default-quantity">
+                <span>{prod?.count}</span> <span>Dozens</span>
+              </span>
+              <span className="value animate-up">${toFixedNumber(total && total - shippingAlias)}</span>
+            </p>
+            <p className="processing-time">
+              <span className="txt">Processing time</span>
+              <span className="txt2">{prod?.basicLeadingTime} day/s</span>
+              <span className="icon">
+                <IoIosTimer />
+              </span>
+            </p>
+          </section>
+          <section>
+            <p className="shipping-price">
+              <span className="title">Shipping</span>
+              <span className="value">${shippingAlias}</span>
+            </p>
+            <p className="shipped-by">
+              <span>shippedpy</span>
+              <span>Aramex</span>
+            </p>
+          </section>
+          <section>
+            <p className="total">
+              <span className="title">Total</span>
+              <span className="value animate-down">${toFixedNumber(total)}</span>
+            </p>
+            <p className="estimated-delivery">
+              <span className="title">Estimated delivery</span>
+              <span className="value">11/25 2021</span>
+            </p>
+          </section>
+          <section className="order-actions">
+            <AppButton
+              value="Start Order"
+              type="button"
+              wide
+              size="md"
+              bkgDefault
+              border={{ size: 1 }}
+              noBorder={false}
+              path={`/checkout/product?prod=${prod?.slug}`}
+              openDetachedly
+            />
+            <AppButton
+              value="Contact Suppler"
+              type="button"
+              wide
+              size="md"
+              border={{ size: 1 }}
+              noBorder={false}
+              icon={<BiMessageDetail />}
+              isIconBefore
+              handleEvent={() => setIsModalOpen(true)}
+            />
+            <AppButton
+              loadState={`idle`}
+              value="Add To Basket"
+              type="button"
+              wide
+              size="md"
+              border={{ size: 1 }}
+              noBorder
+              icon={<BsCartPlus />}
+              isIconBefore={false}
+            />
+          </section>
+        </div>
+      )}
       <ContactSupplerModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
     </section>
   );

@@ -1,5 +1,5 @@
 // pkgs:
-import { useEffect } from 'react';
+import { useEffect, Fragment } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
@@ -17,6 +17,7 @@ import Container from '../../components/utils/container/container.util';
 import { localStorageObjGetter } from '../../common/utilities/localstorage-dealer/localstorage-getters.util';
 import CheckoutCalculations from '../../components/distributed/checkout-calculations/checkout-calculations.comp';
 import UserCompleteCheckout from '../../components/distributed/user-complete-checkout/user-complete-checkout.comp';
+import Skeleton from '../../components/distributed/skelton/skeleton.comp';
 
 // component>>>
 const CheckoutSimplePage = () => {
@@ -57,9 +58,15 @@ const CheckoutSimplePage = () => {
             />
           )}
           <aside className="curr-order-data">
-            <CheckoutCalculations calcs={{ delivery: DELIVERY, subTotal: subT, total: TOTAL }} />
-            <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
-            <ProdHighlights prod={prod} />
+            {stage === `busy` ? (
+              <Skeleton target="checkout-prod-info" />
+            ) : (
+              <Fragment>
+                <CheckoutCalculations calcs={{ delivery: DELIVERY, subTotal: subT, total: TOTAL }} />
+                <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
+                <ProdHighlights prod={prod} />
+              </Fragment>
+            )}
           </aside>
         </article>
       </Container>

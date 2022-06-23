@@ -1,6 +1,9 @@
 // pkgs:
 import { VFC, useState, useRef, Fragment } from 'react';
 import { Link, NavLink, useHistory, useLocation } from 'react-router-dom';
+import { FiHeart } from 'react-icons/fi';
+import { GoSearch } from 'react-icons/go';
+import { IoCashOutline } from 'react-icons/io5';
 
 // utils:
 import './style.sass';
@@ -121,25 +124,35 @@ const Header: VFC<IHeader> = ({ view }) => {
                 </div>
               </section>
               <section className="right-wing">
-                <section className="main-routes-list">
-                  <section className="routes-list">
-                    {headerRouts.suppler.map(({ value, path }): JSX.Element => {
-                      return (
-                        <NavLink key={path} to={path} activeStyle={navRouteActiveStyle} exact>
-                          {value}
-                        </NavLink>
-                      );
-                    })}
-                  </section>
-                </section>
-                <section className="user-actions">
-                  {headerRouts.main.map(({ value, path }): JSX.Element => {
+                <section className="routes-list">
+                  {headerRouts.suppler.map(({ value, path }): JSX.Element => {
                     return (
                       <NavLink key={path} to={path} activeStyle={navRouteActiveStyle} exact>
                         {value}
                       </NavLink>
                     );
                   })}
+                </section>
+                <section className="user-actions">
+                  <NavLink to="path" activeStyle={navRouteActiveStyle} exact>
+                    <span className="icon">
+                      <GoSearch />
+                    </span>
+                    <span className="txt">On fullcart</span>
+                  </NavLink>
+                  <NavLink to="path" activeStyle={navRouteActiveStyle} exact>
+                    Login / Signup
+                  </NavLink>
+                  <NavLink to="path" activeStyle={navRouteActiveStyle} exact>
+                    <span className="icon">
+                      <IoCashOutline />
+                    </span>
+                    <span className="txt">Orders</span>
+                    <span className="icon info-icon">0</span>
+                  </NavLink>
+                  <NavLink to="path" activeStyle={navRouteActiveStyle} exact>
+                    <FiHeart />
+                  </NavLink>
                 </section>
               </section>
             </div>

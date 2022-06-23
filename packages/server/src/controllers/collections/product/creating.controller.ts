@@ -25,6 +25,7 @@ export const createNewProduct = async (
     const prodToCreate = req.body;
     const newProd = new Product({
         ...prodToCreate,
+        // remember that to add the customer ID while creating.
     });
 
     try {

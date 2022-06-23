@@ -193,7 +193,7 @@ const UserCompleteCheckout: React.VFC<IUserCompleteCheckout> = ({ user }) => {
           </CheckoutStep>
         )}
       </section>
-      <footer className="viewers">
+      <footer className="controller">
         {currentStep === 3 ? (
           <Fragment>
             <AppButton

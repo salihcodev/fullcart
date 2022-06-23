@@ -1,26 +1,38 @@
 @import '../../../common/styles/utils/_colors.util'
 @import '../../../common/styles/utils/_mixins.util'
+@import '../../../common/styles/utils/_animation.util'
 
 .prod-consume-card
     border: 1px solid $alt_dark-7
-    border-radius: 3px
+    border-radius: 1rem
     padding: 0 !important
     display: grid
-    grid-template-columns: 1fr 4fr auto
+    grid-template-columns: 10rem 5fr
     background: $app_white
+    position: relative
+    &:nth-of-type(1)
+        @include _from-bottom($duration: 0.1s)
+    &:nth-of-type(2)
+        @include _from-bottom($duration: 0.2s)
+    &:nth-of-type(3)
+        @include _from-bottom($duration: 0.3s)
+    &:nth-of-type(4)
+        @include _from-bottom($duration: 0.4s)
+    &:nth-of-type(5)
+        @include _from-bottom($duration: 0.5s)
     &:not(:first-child)
         margin: 0.5rem 0
+    &:hover
+        .card-controllers
+            button, a
+                display: flex
     section
         padding: 0.8rem
         &.prod-cover
             padding: 0.5rem
-            height: inherit
-            img
+            .cover
+                width: 100%
                 height: 100%
-                border: 1px solid $alt_dark-4
-                margin-top: -1px
-                border-left: none
-                border-radius: 3px
         &.prod-info
             color: $app_gray-2
             padding: 1rem
@@ -28,20 +40,65 @@
             align-items: center
             p
                 margin: 0 !important
+            p.name
+                margin-bottom: 0.5rem !important
             > div
                 > div
-                    margin-top: 1rem
             .extra-cart-info
             .extra-orders-info
+                button
+                    border: none
+                    background: none
+                    padding: 0
+                    display: block
+                    margin-top: 0.5rem
+                    small
+                        color: $additional_clr-1 !important
             .extra-wishlist-info
+                b
+                    color: $additional_clr-1
         &.card-controllers
-            padding: 0.2rem 0.6rem
-            button
-                display: block
-                margin: 0.2rem 0
+            position: absolute
+            top: 0.2rem
+            right: 0.5rem
+            padding: 0
+            a
+                background: $app_white
+            button, a
+                margin: 0.4rem 0
                 border: 1px solid $alt_dark-7
-                width: 2.5rem
-                height: 1.8rem
-                font-size: 1.2rem
+                width: 2.2rem
+                height: 1.6rem
+                font-size: 1rem
+                @include flex_positioning(center, center)
+                color: $app_gray-2
+                @include from-bottom
+                display: none
+                &:nth-of-type(1)
+                    @include _from-bottom($duration: 0.2s)
+                &:nth-of-type(2)
+                    @include _from-bottom($duration: 0.4s)
+                &:nth-of-type(3)
+                    @include _from-bottom($duration: 0.6s)
                 &:hover
                     background: $alt_dark-7 !important
+
+@media screen and (max-width: 548px)
+    .prod-consume-card
+        display: block
+        min-height: 10rem
+        .prod-cover
+            height: 12rem !important
+            padding-top: 1rem
+        .prod-info
+            border-top: 1px solid $alt_dark-7
+            margin-top: 1rem
+
+@media screen and (min-width: 549px)
+    .prod-consume-card
+        height: 10rem
+        display: grid
+
+@media screen and (min-width: 769px)
+    .prod-consume-card
+        height: 8rem

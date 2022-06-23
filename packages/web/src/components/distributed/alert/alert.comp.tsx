@@ -45,30 +45,26 @@ const Alert: VFC<IAlert> = ({ type, title, msg, authWarning, list }) => {
   return (
     <div>
       {alertState ? (
-        <section className='alert'>
+        <section className="alert">
           {/* the controller */}
-          <button
-            className='alert-closer'
-            style={{ color: styles }}
-            onClick={() => setAlertState(false)}
-          >
+          <button className="alert-closer" style={{ color: styles }} onClick={() => setAlertState(false)}>
             <IoClose />
           </button>
 
           {/* the wrapper */}
-          <div className='alert-wrapper'>
-            <h6 className='heading' style={{ color: defaultTitleColor }}>
+          <div className="alert-wrapper">
+            <h6 className="heading" style={{ color: defaultTitleColor }}>
               {title ? `${type && type + `:`} ${title}` : `Note`}
             </h6>
-            <p className='msg' style={{ color: styles }}>
+            <p className="msg" style={{ color: styles }}>
               {msg}
               {authWarning ? (
-                <div className='auth-warning'>
-                  <Link to='/auth/customer/login'>
+                <div className="auth-warning">
+                  <Link to="/auth/customer/login">
                     <b>signin</b>
                   </Link>
                   <span>or</span>
-                  <Link to='/auth/customer/signup'>
+                  <Link to="/auth/customer/signup">
                     <b>signup</b>
                   </Link>
                 </div>

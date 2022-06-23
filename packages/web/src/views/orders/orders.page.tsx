@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Breadcrumb from '../../components/distributed/breadcrumb/breadcrumb.comp';
 import AppButton from '../../components/distributed/button/app-button.comp';
 import ProdConsumeCard from '../../components/distributed/prod-consume-card/prod-consume-card.comp';
+import Skeleton from '../../components/distributed/skelton/skeleton.comp';
 
 // utils:
 import Container from '../../components/utils/container/container.util';
@@ -65,6 +66,7 @@ const OrdersPage = () => {
               height={`7rem`}
               forOrders
             />
+            {/* <Skeleton target="prod-consume-card" /> */}
           </section>
         </article>
       </Container>
