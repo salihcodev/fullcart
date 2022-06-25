@@ -70,7 +70,7 @@ const ProductImgs: React.VFC<{}> = () => {
               className="img-picker"
               onClick={() => setCurrentProdImg(img)}
               style={{
-                background: `url(${img}) center/contain no-repeat`,
+                background: `url(${img}) center/cover no-repeat`,
                 boxShadow: `${img === currentProdImg ? `#2fa57e70 0px 0px 1px 2px` : ''}`,
               }}
             ></button>

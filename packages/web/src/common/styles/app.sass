@@ -59,24 +59,17 @@ main.page.cart-and-wish
     grid-template-columns: 5fr 2fr
     grid-gap: 1rem
     > section
-
       padding: 1rem
       &.list-items
         padding-top: 0
       &.declaration-and-controllers
         background: $app_white
         height: 18rem
-        border-radius: 1rem
-        a
-          margin-top: 1rem
-        button
-          &:first-of-type
-            margin-top: 3rem
-          &:last-of-type
-            margin-top: 1rem
+        border-radius: 3px
         a, button
           text-transform: uppercase
           letter-spacing: 1px
+          margin-top: 1rem
 @media screen and (max-width: 1199px)
   main.page.cart-page,
   main.page.wishlist-page,
@@ -112,12 +105,12 @@ main.checkout-page
       padding: 1rem
       padding-top: 0
       padding-bottom: 0
-      border-radius: 1rem
+      border-radius: 3px
     section.to-complete-order
     aside.curr-order-data
       border-bottom: 0
       background: $app_white
-      border-radius: 1rem
+      border-radius: 3px
 
 @media screen and ( max-width: 1250px )
   main.checkout-page
