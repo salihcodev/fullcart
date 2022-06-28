@@ -37,7 +37,7 @@ const AfterHeader: VFC<{}> = () => {
     color: '#2fa57d ',
   };
 
-  const [showCatsList, setShowCatsList] = useState(false);
+  const [showCatsList, setShowCatsList] = useState<boolean>(false);
 
   useEffect(() => {
     window.onkeydown = function (e: { key: string }) {
@@ -57,7 +57,6 @@ const AfterHeader: VFC<{}> = () => {
           <section className="left-wing">
             <button onClick={() => setShowCatsList(!showCatsList)} className="categories-selector">
               <span className="txt">all categories</span>
-
               {showCatsList ? (
                 <span className="icon icon-up">
                   <IoIosArrowUp />
