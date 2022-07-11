@@ -2,12 +2,12 @@
 import { BiMessageDetail } from 'react-icons/bi';
 import { BsCartPlus } from 'react-icons/bs';
 import { IoIosTimer } from 'react-icons/io';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // utils:
 import './style.sass';
 import { RootState } from '../../../../redux/store';
-import { useAppSelector } from '../../../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
 import toFixedNumber from '../../../../common/utilities/to-fixed-number.util';
 
 // comps:
@@ -15,25 +15,54 @@ import AppButton from '../../../distributed/button/app-button.comp';
 import ContactSupplerModal from './contact-suppler-modal/contact-suppler-modal.comp';
 import { GoPackage } from 'react-icons/go';
 import Skeleton from '../../../distributed/skelton/skeleton.comp';
+import { addNewCartItem } from '../../../../redux/slices/cart/logic/add.logic';
+import { getAllCartItems } from '../../../../redux/slices/cart/logic/read.logic';
+import { localStorageObjGetter } from '../../../../common/utilities/localstorage-dealer/localstorage-getters.util';
+import { useHistory } from 'react-router-dom';
 
 // component>>>
 const ProdToOrder: React.VFC<{}> = () => {
+  // use preConfigured hooks:
+  const dispatch = useAppDispatch();
+  const history = useHistory();
+
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  const { stage, prod } = useAppSelector((state: RootState) => state.SingleProd);
+  const { stage: singleProdStage, prod, count } = useAppSelector((state: RootState) => state.SingleProd);
+  const { stage: cartStage } = useAppSelector((state: RootState) => state.Cart);
 
   const shippingAlias = 12.99;
 
   // total with shipping:
-  const total = prod?.count && prod?.priceInDollar && prod?.count * prod?.priceInDollar + shippingAlias;
+  const total = prod?.priceInDollar && count * prod?.priceInDollar + shippingAlias;
+
+  const user = localStorageObjGetter(`@authedUser`)?.user;
+  const handleAddToCart = () => {
+    if (user) {
+      dispatch(
+        addNewCartItem({
+          name: prod?.name,
+          slug: prod?.slug,
+          priceInDollar: prod?.priceInDollar,
+          cover: prod?.cover,
+          _id: prod?._id,
+          category: prod?.category,
+          subCategory: prod?.subCategory,
+          count,
+        })
+      );
+    } else {
+      history.push('/auth/customer/login');
+    }
+  };
 
   return (
     <section className="to-order-info">
-      {stage === `busy` ? (
+      {singleProdStage === `busy` ? (
         <Skeleton target="single-prod-to-order" />
       ) : (
         <div>
-          {prod?.count === 1 ? (
+          {count === 1 ? (
             <section className="order-limit-case">
               <h5 className="heading">Attention!</h5>
               <p>You'r acceded the minimum order limit, You can order a simple instade:)</p>
@@ -54,7 +83,7 @@ const ProdToOrder: React.VFC<{}> = () => {
           <section>
             <p className="price-and-quantity">
               <span className="default-quantity">
-                <span>{prod?.count}</span> <span>Dozens</span>
+                <span>{count}</span> <span>Dozens</span>
               </span>
               <span className="value animate-up">${toFixedNumber(total && total - shippingAlias)}</span>
             </p>
@@ -110,7 +139,7 @@ const ProdToOrder: React.VFC<{}> = () => {
               handleEvent={() => setIsModalOpen(true)}
             />
             <AppButton
-              loadState={`idle`}
+              loadState={cartStage}
               value="Add To Basket"
               type="button"
               wide
@@ -119,6 +148,7 @@ const ProdToOrder: React.VFC<{}> = () => {
               noBorder
               icon={<BsCartPlus />}
               isIconBefore={false}
+              handleEvent={handleAddToCart}
             />
           </section>
         </div>

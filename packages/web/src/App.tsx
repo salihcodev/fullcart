@@ -102,7 +102,7 @@ const App = () => {
 
         <Route exact path="/customer/:customerId">
           <Layout view={`expanded`}>
-            <CustomerProfile />
+            {user && role === usersRoles.CUSTOMER ? <CustomerProfile /> : <Redirect to="/" />}
           </Layout>
         </Route>
 

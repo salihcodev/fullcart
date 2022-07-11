@@ -3,20 +3,28 @@ import { useEffect, useState } from 'react';
 import { BsShare } from 'react-icons/bs';
 import ReactImageMagnify from 'react-image-magnify';
 import { FiFacebook, FiHeart, FiTwitter } from 'react-icons/fi';
+import { BsHeartFill } from 'react-icons/all';
 import { TwitterShareButton, WhatsappShareButton, TelegramShareButton, FacebookShareButton } from 'react-share';
 
 // utils:
 import './style.sass';
 import { FaWhatsapp, FaTelegramPlane } from 'react-icons/fa';
-import { useAppSelector } from '../../../../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../../../redux/hooks';
 import { RootState } from '../../../../redux/store';
+import { addNewWishlistItem } from '../../../../redux/slices/wishlist/logic/add.logic';
+import { useHistory } from 'react-router-dom';
+import { localStorageObjGetter } from '../../../../common/utilities/localstorage-dealer/localstorage-getters.util';
 
 // comps:
 
 // component>>>
 const ProductImgs: React.VFC<{}> = () => {
   // use preConfigured hooks:
-  const { stage, prod } = useAppSelector((state: RootState) => state.SingleProd);
+  const dispatch = useAppDispatch();
+  const history = useHistory();
+
+  const { prod } = useAppSelector((state: RootState) => state.SingleProd);
+  const { stage: wishlistStage } = useAppSelector((state: RootState) => state.Wishlist);
 
   const [currentProdImg, setCurrentProdImg] = useState<string | undefined>(undefined);
 
@@ -29,15 +37,43 @@ const ProductImgs: React.VFC<{}> = () => {
 
   let currentViewedProdUrl: string = typeof window !== 'undefined' ? window.location.href : ``;
 
+  const [wished, setWished] = useState<boolean>(false);
+
+  const user = localStorageObjGetter(`@authedUser`)?.user;
+  const handleAddToWishlist = () => {
+    if (user) {
+      dispatch(
+        addNewWishlistItem({
+          name: prod?.name,
+          slug: prod?.slug,
+          priceInDollar: prod?.priceInDollar,
+          cover: prod?.cover,
+          _id: prod?._id,
+          category: prod?.category,
+          subCategory: prod?.subCategory,
+        })
+      );
+    } else {
+      history.push('/auth/customer/login');
+    }
+  };
   return (
     <section className="prod-imgs">
       <div className="button-holder">
-        <button>
-          {stage === `busy` ? (
+        <button onClick={handleAddToWishlist}>
+          {wishlistStage === `busy` ? (
             <span className="spinner-for-wish loading-spinner"></span>
           ) : (
             <span className="icon">
-              <FiHeart />
+              {wished ? (
+                <span className="filled">
+                  <BsHeartFill />
+                </span>
+              ) : (
+                <span className="outlined">
+                  <FiHeart />
+                </span>
+              )}
             </span>
           )}
         </button>

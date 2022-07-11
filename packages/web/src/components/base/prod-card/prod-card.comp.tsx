@@ -1,17 +1,21 @@
 // pkgs:
-import { VFC } from 'react';
-import { useAppDispatch } from '../../../redux/hooks';
+import { useEffect, useState, VFC } from 'react';
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { FiHeart } from 'react-icons/fi';
 import { BiTimeFive } from 'react-icons/bi';
-import { BsPaypal } from 'react-icons/bs';
+import { BsHeartFill, BsPaypal } from 'react-icons/bs';
 import { GoPackage } from 'react-icons/go';
 import { MdOutlineVerified } from 'react-icons/md';
 
 // utils:
 import './style.sass';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { ProdTypes } from '../../../common/@types/prod.types';
 import AppButton from '../../distributed/button/app-button.comp';
+import { addNewCartItem } from '../../../redux/slices/cart/logic/add.logic';
+import { RootState } from '../../../redux/store';
+import { addNewWishlistItem } from '../../../redux/slices/wishlist/logic/add.logic';
+import { localStorageObjGetter } from '../../../common/utilities/localstorage-dealer/localstorage-getters.util';
 
 // comps:
 
@@ -30,12 +34,34 @@ const ProductCard: VFC<{ prod: ProdTypes }> = ({
     warranty,
     warrantyIn,
     prodBasicInfo,
+    _id,
   },
 }) => {
   // use preConfigured hooks:
   const dispatch = useAppDispatch();
+  const history = useHistory();
+  const { stage: cartStage } = useAppSelector((state: RootState) => state.Cart);
+  const { stage: wishlistStage } = useAppSelector((state: RootState) => state.Wishlist);
 
-  const loadState = 'idle';
+  const [wished, setWished] = useState<boolean>(false);
+
+  const user = localStorageObjGetter(`@authedUser`)?.user;
+  const handleAddToCart = () => {
+    if (user) {
+      dispatch(addNewCartItem({ name, slug, priceInDollar, cover, _id, category, subCategory }));
+    } else {
+      history.push('/auth/customer/login');
+    }
+  };
+
+  const handleAddToWishlist = () => {
+    if (user) {
+      dispatch(addNewWishlistItem({ name, slug, priceInDollar, cover, _id, category, subCategory }));
+    } else {
+      history.push('/auth/customer/login');
+    }
+  };
+
   return (
     <div className="card-wrapper">
       <section className="card-head">
@@ -89,7 +115,7 @@ const ProductCard: VFC<{ prod: ProdTypes }> = ({
           </p>
           <section className="prod-actions">
             <AppButton
-              loadState={`idle`}
+              loadState={cartStage}
               value="Add to Cart"
               type="button"
               wide={false}
@@ -97,15 +123,27 @@ const ProductCard: VFC<{ prod: ProdTypes }> = ({
               bkgDefault
               border={{ size: 1 }}
               noBorder
+              handleEvent={handleAddToCart}
             />
             <AppButton
-              loadState={`idle`}
-              value={loadState === `idle` ? <FiHeart /> : ``}
+              loadState={wishlistStage}
+              value={
+                wished ? (
+                  <span className="filled">
+                    <BsHeartFill />
+                  </span>
+                ) : (
+                  <span className="outlined">
+                    <FiHeart />
+                  </span>
+                )
+              }
               type="button"
               wide={false}
               size="sm"
               border={{ size: 1 }}
               noBorder
+              handleEvent={handleAddToWishlist}
             />
           </section>
         </section>

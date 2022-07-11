@@ -38,8 +38,6 @@ const CheckoutProductPage = () => {
   const TAXES = 1.2;
   const TOTAL = subT * TAXES + DELIVERY;
 
-  const prodName = prod?.name!;
-  const prodCover = prod?.cover!;
   return (
     <main className="page checkout-page checkout-product-page">
       <Container xxl>
@@ -63,7 +61,16 @@ const CheckoutProductPage = () => {
             ) : (
               <Fragment>
                 <CheckoutCalculations calcs={{ delivery: DELIVERY, subTotal: subT, total: TOTAL }} />
-                <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
+                <ProdSmartCard
+                  name={prod?.name}
+                  slug={prod?.slug}
+                  priceInDollar={prod?.priceInDollar}
+                  cover={prod?.cover}
+                  _id={prod?._id}
+                  category={prod?.category}
+                  subCategory={prod?.subCategory}
+                  height={`7rem`}
+                />
                 <ProdHighlights prod={prod} />
               </Fragment>
             )}

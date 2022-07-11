@@ -1,6 +1,7 @@
 // pkgs:
 import { useEffect, useState } from 'react';
 import { GoPackage } from 'react-icons/go';
+import { BiCheck } from 'react-icons/bi';
 
 // utils:
 import './style.sass';
@@ -17,27 +18,44 @@ import {
 // comps:
 import AppButton from '../../../distributed/button/app-button.comp';
 
+const ColorBtn: React.VFC<{ clr: string }> = ({ clr }) => {
+  const [isChecked, setIsChecked] = useState<boolean>(false);
+
+  return (
+    <button
+      className="clr"
+      style={isChecked ? { background: clr, border: `3px solid #2fa57d ` } : { background: clr }}
+      onClick={() => setIsChecked(!isChecked)}
+    >
+      {isChecked ? (
+        <span className="marker">
+          <span className="icon">
+            <BiCheck />
+          </span>
+        </span>
+      ) : null}
+    </button>
+  );
+};
+
 // component>>>
 const ProductOverview: React.VFC<{}> = () => {
   // use preConfigured hooks:
   const dispatch = useAppDispatch();
-  const { stage, prod } = useAppSelector((state: RootState) => state.SingleProd);
+  const { prod, count } = useAppSelector((state: RootState) => state.SingleProd);
 
   const maxAmount = prod?.stock! / 2;
 
-  const [count, setCount] = useState<number | undefined>(prod?.count);
-  useEffect(() => {
-    dispatch(setProdCount(count));
-  }, [count, dispatch]);
-
   const handleIncrease = () => {
     dispatch(increaseProdCount());
-    if (prod?.count && prod?.count < maxAmount) setCount(prod?.count + 1);
   };
   const handleDecrease = () => {
     dispatch(decreaseProdCount());
-    if (prod?.count && prod?.count > 1) setCount(prod?.count - 1);
   };
+
+  useEffect(() => {
+    dispatch(setProdCount(prod?.minimumOrder));
+  }, [dispatch, prod?.minimumOrder]);
 
   return (
     <section className="prod-overview">
@@ -80,7 +98,7 @@ const ProductOverview: React.VFC<{}> = () => {
           <div className="flex-wrapper">
             {prod?.availableColors?.map(
               (clr): JSX.Element => (
-                <span className="clr" style={{ background: clr }}></span>
+                <ColorBtn clr={clr} />
               )
             )}
           </div>
@@ -97,7 +115,6 @@ const ProductOverview: React.VFC<{}> = () => {
             min={prod?.minimumOrder}
             max={maxAmount}
             value={count}
-            onChange={(e) => setCount(Number(e.target.value))}
           />
           <button onClick={handleDecrease}>
             <AiOutlineMinus />

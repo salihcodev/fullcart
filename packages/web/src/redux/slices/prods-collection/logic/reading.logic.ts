@@ -20,7 +20,6 @@ const fetchCategoriesProds = (cat: string) => {
 const fetchSingleProd = (fetchBy: string) => {
   return createAsyncThunk(`getSingleProd/${fetchBy}`, async (valueToFetchWith: string, { rejectWithValue }) => {
     try {
-      await new Promise((res) => setTimeout(res, 500));
       const { data }: AxiosResponse<any> = await api.fetchSingleProd(valueToFetchWith);
       return data;
     } catch (err) {
@@ -29,7 +28,7 @@ const fetchSingleProd = (fetchBy: string) => {
   });
 };
 
-export const GetCollectionOfProds = fetchCategoriesProds(`collections/pet-supplies`);
+export const GetCollectionOfProds = fetchCategoriesProds(`collections`);
 export const LoadSubCategory = fetchCategoriesProds(`subCategoryLoader`);
 export const GetSingleProdBySlug = fetchSingleProd(`slugWay`);
 export const GetSingleProdById = fetchSingleProd(`idWay`);

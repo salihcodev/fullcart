@@ -37,7 +37,7 @@ export const SubCategoryLoaderSlice = createSlice({
 
       //  REJECTION STAGE::
       .addCase(LoadSubCategory.rejected, (state, { payload }) => {
-        state.stage = `failed`;
+        state.stage = `rejected`;
       });
   },
 });

@@ -1,1 +1,1 @@
-export type LoadStateTypes = `idle` | `busy` | `failed`;
+export type LoadStateTypes = `idle` | `busy` | `rejected`;

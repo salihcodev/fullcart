@@ -33,7 +33,7 @@ export const ContactUsSlice = createSlice({
         state.message = message;
         state.status = status;
 
-        state.stage = `failed`;
+        state.stage = `rejected`;
       });
   },
 });

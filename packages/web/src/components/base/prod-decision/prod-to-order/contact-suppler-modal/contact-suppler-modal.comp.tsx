@@ -46,12 +46,6 @@ const ContactSupplerModal: React.VFC<any> = ({ isModalOpen, setIsModalOpen }) =>
     setFormData({ ...formData, toMail: user?.email });
   }, [user?.email]);
 
-  // useEffect(() => {
-  //   quantityInputRef.current?.focus();
-  // }, []);
-
-  const prodName = prod?.name!;
-  const prodCover = prod?.cover!;
   return (
     <Modal md state={isModalOpen} setState={setIsModalOpen}>
       <article className="contact-suppler-modal">
@@ -63,8 +57,15 @@ const ContactSupplerModal: React.VFC<any> = ({ isModalOpen, setIsModalOpen }) =>
           <div>
             {user ? (
               <section className="contact-suppler-form">
-                <ProdSmartCard prodName={prodName} prodCover={prodCover} />
-
+                <ProdSmartCard
+                  name={prod?.name}
+                  slug={prod?.slug}
+                  priceInDollar={prod?.priceInDollar}
+                  cover={prod?.cover}
+                  _id={prod?._id}
+                  category={prod?.category}
+                  subCategory={prod?.subCategory}
+                />
                 <form onSubmit={handleContactFormSubmission}>
                   <div className="inputs-group">
                     <div>

@@ -5,6 +5,7 @@
 section.prod-imgs
     position: relative
     z-index: 4
+    margin-bottom: 2rem
     .button-holder
         position: absolute
         top: 1rem
@@ -19,11 +20,15 @@ section.prod-imgs
             border: none
             background: $white_trans
             backdrop-filter: blur(3px)
-            span.icon
+            span
+                &.icon
                 @include flex_positioning(center, center)
                 font-size: 1.3rem
-                    color: $app_gray
-                &:hover
+                color: $app_gray
+                &.outlined
+                    &:hover
+                        color: #c97e7e
+                &.filled
                     color: #c97e7e
             span.spinner-for-wish
                 &.loading-spinner

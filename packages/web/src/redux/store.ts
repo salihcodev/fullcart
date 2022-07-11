@@ -10,6 +10,9 @@ import ProdsCollectionSlice from './slices/prods-collection/prods-collection.sli
 import SingleProdGetterReducer from './slices/prods-collection/get-single-prod.slice';
 import SubCategoryLoaderReducer from './slices/prods-collection/sub-category-loader.slice';
 import NewsletterSubscriptionReducer from './slices/newsletter/newsletter.slice';
+import CartReducer from './slices/cart/cart.slice';
+import WishlistReducer from './slices/wishlist/wishlist.slice';
+import OrderReducer from './slices/order/order.slice';
 
 // app state
 export const store = configureStore({
@@ -22,6 +25,9 @@ export const store = configureStore({
     SubCategory: SubCategoryLoaderReducer,
     SingleProd: SingleProdGetterReducer,
     Newsletter: NewsletterSubscriptionReducer,
+    Cart: CartReducer,
+    Wishlist: WishlistReducer,
+    Order: OrderReducer,
   },
 });
 

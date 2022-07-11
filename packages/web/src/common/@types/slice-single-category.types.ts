@@ -1,7 +1,9 @@
+import { LoadStateTypes } from './load-state.types';
 import { ProdTypes } from './prod.types';
 
 export type SliceSingleCategoryTypes = {
   prod: null | ProdTypes;
-  stage: `idle` | `busy` | `failed`;
+  count: number;
+  stage: LoadStateTypes;
   failureMsg: null | string;
 };

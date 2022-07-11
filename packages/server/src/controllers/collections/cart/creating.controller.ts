@@ -1,19 +1,19 @@
 // pkgs:
 import { Request, Response } from "express";
+import mongoose from "mongoose";
 
 // utils:
 import userRoles from "../../../common/constants/user/user-roles.const";
-import Customer from "../../../models/customer.model";
-import Order from "../../../models/order.model";
+import CartItem from "../../../models/cart-item.model";
 
 // >>> create
-export const createNewOrder = async (
+export const createCartItem = async (
     req: Request,
     res: Response
 ): Promise<any> => {
-    const { userId: _id, userRole } = req;
+    const { userId, userRole } = req;
 
-    if (!_id) {
+    if (!userId) {
         return res.status(401).json({ message: `Unauthenticated!!` });
     }
 
@@ -23,29 +23,49 @@ export const createNewOrder = async (
             .json({ message: `You don't have the right access.` });
     }
 
-    // Create an order with the customer ID
-    const prodToOrder = req.body;
-    const newOrder = new Order({
-        ...prodToOrder,
-        orderedBy: _id,
-    });
+    const prodToAddToCart = req.body;
+    const { _id } = req.body; // prod id
 
     try {
-        await newOrder.save();
+        if (!mongoose.Types.ObjectId.isValid(_id))
+            return res.status(404).json({
+                statue: `FAILED`,
+                message: `There's no product in the cart with ID: ${_id}`,
+            });
 
-        // Send the order id to the orders list of the customer.
-        const currentUser = await Customer.findById(_id);
-        await Customer.findByIdAndUpdate(_id, {
-            orders: [...currentUser.orders, newOrder._id],
-        });
+        // Check if this product is existed in the cart already or not.
+        // by checking on its ID and the user who added it ID
+        const existedCartItem = await CartItem.findById(_id);
 
-        res.status(201).json({
-            statue: `SUCCESS`,
-            data: newOrder,
-        });
+        // If it true
+        if (existedCartItem) {
+            if (existedCartItem.addedBy.toString() === userId) {
+                const updatedCartItem = await CartItem.findByIdAndUpdate(
+                    _id,
+                    { ...prodToAddToCart, _id },
+                    { new: true } // to return a new version
+                );
+
+                res.status(200).json({
+                    statue: `SUCCESS`,
+                    data: updatedCartItem,
+                });
+            }
+        } else {
+            const newCartItem = new CartItem({
+                ...prodToAddToCart,
+                addedBy: userId,
+            });
+
+            await newCartItem.save();
+            res.status(201).json({
+                status: `SUCCESS`,
+                data: newCartItem,
+            });
+        }
     } catch (err) {
         res.status(409).json({
-            message: `Something went wrong while creating new order, Please try again later.`,
+            message: `Something went wrong while creating new cart item, Please try again later.`,
             error: err,
         });
     }

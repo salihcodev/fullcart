@@ -15,7 +15,7 @@ const initialState: ProdsCollectionTypes = {
 
 // CREATE THE SLICE::
 export const ProdsCollectionSlice = createSlice({
-  name: `collection/furniture`,
+  name: `prods-collection`,
   initialState,
   reducers: {},
 
@@ -41,7 +41,7 @@ export const ProdsCollectionSlice = createSlice({
 
       //  REJECTION STAGE::
       .addCase(GetCollectionOfProds.rejected, (state, { payload }) => {
-        state.stage = `failed`;
+        state.stage = `rejected`;
       });
   },
 });

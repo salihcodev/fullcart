@@ -74,9 +74,19 @@ const AppButton: React.VFC<IAppButton> = ({
           target={openDetachedly ? `_blank` : `_self`}
           rel={openDetachedly ? `noopener noreferrer` : ``}
         >
-          {icon && isIconBefore ? <span className="icon">{icon}</span> : null}
-          <span className="value">{value}</span>
-          {icon && !isIconBefore ? <span className="icon">{icon}</span> : null}
+          {icon && isIconBefore ? (
+            <div>
+              <span className="icon">{icon}</span>{' '}
+            </div>
+          ) : null}
+          <div>
+            <span className="value">{value}</span>
+          </div>
+          {icon && !isIconBefore ? (
+            <div>
+              <span className="icon">{icon}</span>
+            </div>
+          ) : null}
         </Link>
       ) : (
         <button
@@ -89,19 +99,36 @@ const AppButton: React.VFC<IAppButton> = ({
             color,
             cursor: buttonCursorDisability,
             borderRadius: checkRadiusVal,
-            justifyContent: btnCount ? `flex-start` : `center`,
+            justifyContent: btnCount ? `flex-start` : loadState === `busy` ? `space-between` : `center`,
           }}
           className="app-button"
           disabled={disabled || loadState === `busy` ? true : false}
           onClick={handelClickEvent}
         >
-          {icon && isIconBefore ? <span className="icon">{icon}</span> : null}
+          {icon && isIconBefore ? (
+            <div>
+              <span className="icon">{icon}</span>
+            </div>
+          ) : null}
           <span className="value">{value}</span>
-          {icon && !isIconBefore ? <span className="icon">{icon}</span> : null}
+          {icon && !isIconBefore ? (
+            <div>
+              {' '}
+              <span className="icon">{icon}</span>
+            </div>
+          ) : null}
 
-          {btnCount ? <span className="btn-count">{btnCount}</span> : null}
+          {btnCount ? (
+            <div>
+              <span className="btn-count">{btnCount}</span>
+            </div>
+          ) : null}
 
-          {loadState === `busy` ? <span className="loading-spinner" style={spinnerStyle}></span> : null}
+          {loadState === `busy` ? (
+            <div>
+              <span className="loading-spinner" style={spinnerStyle}></span>
+            </div>
+          ) : null}
         </button>
       )}
     </Fragment>

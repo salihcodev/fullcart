@@ -1,8 +1,9 @@
 import { AuthedUser } from './auth.type';
+import { LoadStateTypes } from './load-state.types';
 
 export type SliceAuthStateTypes = {
   user: null | AuthedUser;
   accessToken: null | string;
-  stage: `idle` | `busy` | `rejected`;
+  stage: LoadStateTypes;
   failureMsg: { title?: string | null; msg?: string | null };
 };

@@ -5,7 +5,7 @@ export default class APIFeaturesBuilder {
     readonly reqQuery;
     public modelQuery;
 
-    constructor(modelQuery: any, reqQuery: any) {
+    constructor(modelQuery: any, reqQuery?: any) {
         this.modelQuery = modelQuery;
         this.reqQuery = reqQuery;
     }
@@ -55,7 +55,7 @@ export default class APIFeaturesBuilder {
 
         // calculate params.
         const p = Number(page) || 1;
-        const l = Number(limit) || 50;
+        const l = Number(limit) || 12;
         const skip = (p - 1) * l;
 
         this.modelQuery = this.modelQuery.skip(skip).limit(l);

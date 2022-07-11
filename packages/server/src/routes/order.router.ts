@@ -4,24 +4,24 @@ import express from "express";
 // utils:
 import authMiddleware from "../common/middlewares/auth.middleware";
 import { createNewOrder } from "../controllers/collections/order/creating.controller";
-import { getAllOrders } from "./../controllers/collections/order/reading.controller";
+import { getAllOrders } from "../controllers/collections/order/reading.controller";
+import {
+    deleteAnOrder,
+    dropOrderCollection,
+} from "../controllers/collections/order/deleting.controller";
 
 // create new router:
 const router = express.Router();
 
 // setup HTTP requests:
 // GET::
-router.get(`/`, getAllOrders);
-// router.get(`/s/:slug`, getSingleProductBySlug);
-// router.get(`/s/:id`, getSingleProductById);
+router.get(`/s`, authMiddleware, getAllOrders);
 
 // POST::
-router.post(`/new/:userId`, createNewOrder);
+router.post(`/new`, authMiddleware, createNewOrder);
+router.post(`/wipe`, authMiddleware, dropOrderCollection);
 
 // DELETE::
-// // router.delete(`/:id`, authMiddleware, deleteProduct);
-
-// PATCH::
-// router.patch(`/:id`, authMiddleware, updateProduct);
+router.delete(`/:id`, authMiddleware, deleteAnOrder);
 
 export default router;

@@ -17,10 +17,7 @@ const AuthCustomerSchema = new Schema({
         default: new Date(),
     },
     id: { type: String },
-    orders: [{ type: Schema.Types.ObjectId, ref: "Order" }],
 });
-
-populateAndSelectFields(AuthCustomerSchema, `orders`, [`__v`]);
 
 // create customer model:
 const Customer = mongoose.model("Customer", AuthCustomerSchema);

@@ -10,9 +10,42 @@
     .prod-cover
         height: 100%
         padding: 0 !important
+        position: relative
         img
             height: inherit
             border-left: none
+        .button-holder
+            position: absolute
+            top: 0
+            left: 0.2rem
+            z-index: 5
+            width: 1.9rem
+            height: 1.9rem
+            button
+                border-radius: 50%
+                width: inherit
+                height: inherit
+                border: none
+                background: $white_trans
+                backdrop-filter: blur(3px)
+                span
+                    &.icon
+                    @include flex_positioning(center, center)
+                    font-size: 1.3rem
+                    color: $app_gray
+                    &.outlined
+                        &:hover
+                            color: #c97e7e
+                    &.filled
+                        font-size: 1.2rem
+                        color: #c97e7e
+                span.spinner-for-wish
+                    &.loading-spinner
+                        background: $dark_trans
+                        border-top-color: $main_clr-1
+                        border-width: 2px
+                        border-style: solid
+                        margin: 0
 
     .prod-info
         color: $app_gray-2

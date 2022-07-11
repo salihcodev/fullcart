@@ -63,7 +63,16 @@ const CheckoutSimplePage = () => {
             ) : (
               <Fragment>
                 <CheckoutCalculations calcs={{ delivery: DELIVERY, subTotal: subT, total: TOTAL }} />
-                <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
+                <ProdSmartCard
+                  name={prod?.name}
+                  slug={prod?.slug}
+                  priceInDollar={prod?.priceInDollar}
+                  cover={prod?.cover}
+                  _id={prod?._id}
+                  category={prod?.category}
+                  subCategory={prod?.subCategory}
+                  height={`7rem`}
+                />
                 <ProdHighlights prod={prod} />
               </Fragment>
             )}

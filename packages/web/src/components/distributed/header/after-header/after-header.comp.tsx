@@ -81,12 +81,12 @@ const AfterHeader: VFC<{}> = () => {
           </section>
           <section className="right-wing">
             <div className="cart-info-wrapper">
-              <span className="cart-total">$ 270.99</span>
+              <span className="cart-total">$ 0</span>
               <div>
                 <NavLink to="/cart" activeStyle={navRouteActiveStyle}>
                   <TiShoppingCart />
                 </NavLink>
-                <span className="cart-count">+9</span>
+                <span className="cart-count">0</span>
               </div>
             </div>
           </section>

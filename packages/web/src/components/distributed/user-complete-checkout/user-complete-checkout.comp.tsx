@@ -208,7 +208,7 @@ const UserCompleteCheckout: React.VFC<IUserCompleteCheckout> = ({ user }) => {
               handleEvent={() => (currentStep > 1 ? setCurrentStep(currentStep - 1) : null)}
             />
             <AppButton
-              value="Confirm"
+              value="Review & Confirm"
               type="button"
               wide={false}
               size="md"

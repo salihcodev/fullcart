@@ -6,6 +6,16 @@
     position: relative
     overflow: hidden
     width: 100%
+    &:nth-of-type(1)
+        @include _from-bottom($duration: 0.1s)
+    &:nth-of-type(2)
+        @include _from-bottom($duration: 0.2s)
+    &:nth-of-type(3)
+        @include _from-bottom($duration: 0.3s)
+    &:nth-of-type(4)
+        @include _from-bottom($duration: 0.4s)
+    &:nth-of-type(5)
+        @include _from-bottom($duration: 0.5s)
     .router
         position: absolute
         content: ""
@@ -31,6 +41,8 @@
         padding-right: 0
         background: $app_white
         margin: 0
+        &:not(:first-child)
+            margin: 0.5rem 0
         .img
         .content
             padding: 0.5rem 1rem
@@ -305,4 +317,4 @@
 
 @media screen and (max-width: 796px)
     .skn-single-prod
-        display: block
+        display: block !important

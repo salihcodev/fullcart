@@ -38,8 +38,6 @@ const CheckoutCartPage = () => {
     dispatch(GetSingleProdBySlug(slug));
   }, [dispatch, slug]);
 
-  const prodName = prod?.name!;
-  const prodCover = prod?.cover!;
   return (
     <main className="page checkout-page checkout-cart-page">
       <Container xxl>
@@ -64,13 +62,79 @@ const CheckoutCartPage = () => {
               <Fragment>
                 <CheckoutCalculations calcs={{ delivery: DELIVERY, subTotal: subT, total: TOTAL }} />
                 <h4>Your Picks</h4>
-                <span className="gate"></span>
+                {/* <span className="gate"></span> */}
                 <section className="cart-check-last-view">
-                  <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
-                  <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
-                  <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
-                  <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
-                  <ProdSmartCard prodName={prodName} prodCover={prodCover} height={`7rem`} />
+                  <ProdSmartCard
+                    name={prod?.name}
+                    slug={prod?.slug}
+                    priceInDollar={prod?.priceInDollar}
+                    cover={prod?.cover}
+                    _id={prod?._id}
+                    category={prod?.category}
+                    subCategory={prod?.subCategory}
+                    height={`7rem`}
+                  />
+                  <ProdSmartCard
+                    name={prod?.name}
+                    slug={prod?.slug}
+                    priceInDollar={prod?.priceInDollar}
+                    cover={prod?.cover}
+                    _id={prod?._id}
+                    category={prod?.category}
+                    subCategory={prod?.subCategory}
+                    height={`7rem`}
+                  />
+                  <ProdSmartCard
+                    name={prod?.name}
+                    slug={prod?.slug}
+                    priceInDollar={prod?.priceInDollar}
+                    cover={prod?.cover}
+                    _id={prod?._id}
+                    category={prod?.category}
+                    subCategory={prod?.subCategory}
+                    height={`7rem`}
+                  />
+                  <ProdSmartCard
+                    name={prod?.name}
+                    slug={prod?.slug}
+                    priceInDollar={prod?.priceInDollar}
+                    cover={prod?.cover}
+                    _id={prod?._id}
+                    category={prod?.category}
+                    subCategory={prod?.subCategory}
+                    height={`7rem`}
+                  />
+                  <ProdSmartCard
+                    name={prod?.name}
+                    slug={prod?.slug}
+                    priceInDollar={prod?.priceInDollar}
+                    cover={prod?.cover}
+                    _id={prod?._id}
+                    category={prod?.category}
+                    subCategory={prod?.subCategory}
+                    height={`7rem`}
+                  />
+
+                  <ProdSmartCard
+                    name={prod?.name}
+                    slug={prod?.slug}
+                    priceInDollar={prod?.priceInDollar}
+                    cover={prod?.cover}
+                    _id={prod?._id}
+                    category={prod?.category}
+                    subCategory={prod?.subCategory}
+                    height={`7rem`}
+                  />
+                  <ProdSmartCard
+                    name={prod?.name}
+                    slug={prod?.slug}
+                    priceInDollar={prod?.priceInDollar}
+                    cover={prod?.cover}
+                    _id={prod?._id}
+                    category={prod?.category}
+                    subCategory={prod?.subCategory}
+                    height={`7rem`}
+                  />
                 </section>
                 <span className="gate"></span>
               </Fragment>

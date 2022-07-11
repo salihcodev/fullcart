@@ -73,24 +73,29 @@ section.prod-overview
                 &.available-colors
                     > div
                         display: flex
-                    span
+                    button
                         display: block
-                        width: 1.4rem
-                        height: 1.2rem
-                        margin: 0 0.1rem
-                        border: 3px solid $additional_clr
+                        width: 1.8rem
+                        height: 1.6rem
+                        margin: 0 3px
                         border-radius: 2px
                         position: relative
-                        &:after
-                            content: ""
+                        border: none
+                        span.marker
                             display: block
                             background: $additional_clr
-                            top: 5px
+                            bottom: -3px
                             right: -3px
-                            height: 11px
-                            width: 11px
+                            height: 0.9rem
+                            width: 0.9rem
                             position: absolute
                             border-radius: 2px
+                            span.icon
+                                position: absolute
+                                color: $app_white
+                                top: -3px
+                                left: -2px
+                                font-size: 1.1rem
                 &.quantity-controllers
                     span.fixed-prod-price
                         margin-right: 2rem
