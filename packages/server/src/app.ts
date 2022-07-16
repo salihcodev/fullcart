@@ -5,6 +5,8 @@ import express, { Express, Request, Response } from "express";
 
 // utils:
 import productRouter from "./routes/product.router";
+import categoryRouter from "./routes/category.router";
+import subcategoryRouter from "./routes/subcategory.router";
 import orderRouter from "./routes/order.router";
 import wishlistRouter from "./routes/wishlist.router";
 import cartRouter from "./routes/cart.router";
@@ -43,6 +45,8 @@ app.get(API_VERSION, (req: Request, res: Response): void => {
 
 // >>> use implemented routers:
 app.use(`${API_VERSION}/products`, productRouter);
+app.use(`${API_VERSION}/category`, categoryRouter);
+app.use(`${API_VERSION}/subcategory`, subcategoryRouter);
 app.use(`${API_VERSION}/order`, orderRouter);
 app.use(`${API_VERSION}/wishlist`, wishlistRouter);
 app.use(`${API_VERSION}/cart`, cartRouter);

@@ -26,7 +26,12 @@ const Cart = () => {
 
   const user = localStorageObjGetter(`@authedUser`)?.user;
 
-  const { stage: cartStage, stageForDrop: cartStageForDrop, items, message } = useAppSelector((state: RootState) => state.Cart);
+  const {
+    stage: cartStage,
+    stageForDrop: cartStageForDrop,
+    items,
+    message,
+  } = useAppSelector((state: RootState) => state.Cart);
 
   useEffect(() => {
     let isMounted = true;
@@ -111,7 +116,16 @@ const Cart = () => {
                   handleEvent={handleCartWipe}
                   disabled={items.length === 0}
                 />
-                <AppButton value="Checkout" type="button" wide size="lg" bkgSecondary border={{ size: 1 }} noBorder={false} path="/" />
+                <AppButton
+                  value="Checkout"
+                  type="button"
+                  wide
+                  size="lg"
+                  bkgSecondary
+                  border={{ size: 1 }}
+                  noBorder={false}
+                  path="/checkout/cart"
+                />
               </section>
             </article>
           </div>

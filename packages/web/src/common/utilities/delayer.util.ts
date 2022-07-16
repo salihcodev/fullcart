@@ -1,4 +1,4 @@
-const delayer = async (duration: number = 300): Promise<void> => {
+const delayer = async (duration: number = 500): Promise<void> => {
   return await new Promise((res) => setTimeout(res, duration));
 };
 

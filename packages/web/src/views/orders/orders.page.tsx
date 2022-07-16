@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { localStorageObjGetter } from '../../common/utilities/localstorage-dealer/localstorage-getters.util';
 import Breadcrumb from '../../components/distributed/breadcrumb/breadcrumb.comp';
 import AppButton from '../../components/distributed/button/app-button.comp';
+import NoItems from '../../components/distributed/no-items/no-items.comp';
 import NotLogged from '../../components/distributed/not-logged/not-logged.comp';
 import ProdConsumeCard from '../../components/distributed/prod-consume-card/prod-consume-card.comp';
 import Skeleton from '../../components/distributed/skelton/skeleton.comp';
@@ -25,10 +26,10 @@ const OrdersPage = () => {
   const [activeBtn, setActiveBtn] = useState(`all`);
 
   const orderBtnsData = [
-    { name: `all`, value: 'All', btnCount: 15 },
-    { name: `shipped`, value: 'Shipped', btnCount: 4 },
-    { name: `processed`, value: 'On The Way', btnCount: 9 },
-    { name: `canceled`, value: 'Canceled', btnCount: 2 },
+    { name: `all`, value: `All` },
+    { name: `shipped`, value: `Shipped` },
+    { name: `processed`, value: `On The Way` },
+    { name: `canceled`, value: `Canceled` },
   ];
 
   const { stage: orderStage, items, message } = useAppSelector((state: RootState) => state.Order);
@@ -57,7 +58,7 @@ const OrdersPage = () => {
             </h4>
             <article className="list-wrapper">
               <section className="router">
-                {orderBtnsData.map(({ name, value, btnCount }) => (
+                {orderBtnsData.map(({ name, value }) => (
                   <AppButton
                     value={value}
                     type="button"
@@ -65,7 +66,9 @@ const OrdersPage = () => {
                     size="md"
                     border={{ size: 1 }}
                     noBorder
-                    btnCount={name === `all` ? items.length : name === `shipped` ? `#` : name === `processed` ? `#` : `#`}
+                    btnCount={
+                      name === `all` ? items.length : name === `shipped` ? `#` : name === `processed` ? `#` : `#`
+                    }
                     activeBkg={name === activeBtn ? `#2fa57d` : ``}
                     activeWhite={name === activeBtn}
                     handleEvent={() => setActiveBtn(name)}
@@ -94,7 +97,7 @@ const OrdersPage = () => {
                   <div>
                     {items.length === 0 ? (
                       <section className="no-items">
-                        <h2 className="heading">There's no items to view</h2>
+                        <NoItems forOrders />
                       </section>
                     ) : (
                       <section className="list-items">

@@ -1,5 +1,6 @@
 // pkgs:
-import { MdOutlineSwipe, MdOutlineEdit, MdOutlineDelete } from 'react-icons/md';
+import { MdOutlineEdit, MdOutlineDelete } from 'react-icons/md';
+import { BsCartPlus } from 'react-icons/bs';
 import { BsArrowsFullscreen, BsHeartFill } from 'react-icons/bs';
 import { FiHeart } from 'react-icons/fi';
 import { useState } from 'react';
@@ -19,6 +20,7 @@ import { addNewWishlistItem } from '../../../redux/slices/wishlist/logic/add.log
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
 import { IProdConsumeCard } from '../../../common/interfaces/prod-consume-card.interface';
 import toFixedNumber from '../../../common/utilities/to-fixed-number.util';
+import { addNewCartItem } from '../../../redux/slices/cart/logic/add.logic';
 
 // comps:
 
@@ -59,6 +61,12 @@ const ProdConsumeCard: React.VFC<IProdConsumeCard> = ({
   const handleDeleteOrder = () => {
     dispatch(deleteAnOrder(id));
     dispatch(getAllOrders(`?page=1`));
+  };
+
+  const handleAddToCart = () => {
+    dispatch(addNewCartItem({ name, slug, priceInDollar: price, cover, _id: id, category, subCategory }));
+
+    handleDeleteWishlistItem();
   };
 
   const [wished, setWished] = useState<boolean>(false);
@@ -189,8 +197,8 @@ const ProdConsumeCard: React.VFC<IProdConsumeCard> = ({
         {forWishlist ? (
           <div className="wishlist-controllers">
             <div className="trigger-wrapper">
-              <button>
-                <MdOutlineSwipe />
+              <button onClick={handleAddToCart}>
+                <BsCartPlus />
               </button>
             </div>
             <div className="trigger-wrapper">

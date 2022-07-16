@@ -14,6 +14,7 @@ import ProdConsumeCard from '../../components/distributed/prod-consume-card/prod
 import Skeleton from '../../components/distributed/skelton/skeleton.comp';
 import Container from '../../components/utils/container/container.util';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { addNewCartItem } from '../../redux/slices/cart/logic/add.logic';
 import { dropCollection } from '../../redux/slices/utils/wipe.logic';
 import { getAllWishlistItems } from '../../redux/slices/wishlist/logic/read.logic';
 import { RootState } from '../../redux/store';
@@ -30,7 +31,12 @@ const Wishlist = () => {
   const TAXES = 1.2;
   const TOTAL = subT * TAXES + DELIVERY;
 
-  const { stage: wishlistStage, stageForDrop: wishlistStageForDrop, items, message } = useAppSelector((state: RootState) => state.Wishlist);
+  const {
+    stage: wishlistStage,
+    stageForDrop: wishlistStageForDrop,
+    items: wishListItems,
+    message,
+  } = useAppSelector((state: RootState) => state.Wishlist);
 
   useEffect(() => {
     let isMounted = true;
@@ -43,11 +49,19 @@ const Wishlist = () => {
     return () => {
       isMounted = false;
     };
-  }, [dispatch, items.length]);
+  }, [dispatch, wishListItems.length]);
 
   const handleWishlistWipe = () => {
     dispatch(dropCollection(`wishlist`));
     dispatch(getAllWishlistItems(`?page=1`));
+  };
+
+  const handleFromWishToCartTransaction = () => {
+    wishListItems.forEach(({ name, slug, priceInDollar, cover, _id, category, subCategory }: any) =>
+      dispatch(addNewCartItem({ name, slug, priceInDollar, cover, _id, category, subCategory }))
+    );
+
+    handleWishlistWipe();
   };
   return (
     <main className="page wishlist-page cart-and-wish">
@@ -55,9 +69,9 @@ const Wishlist = () => {
         <Breadcrumb />
         {user ? (
           <div>
-            {items.length === 0 ? null : (
+            {wishListItems.length === 0 ? null : (
               <h4>
-                <span>Items you wished</span> <span className="count">{items.length}</span>
+                <span>Items you wished</span> <span className="count">{wishListItems.length}</span>
               </h4>
             )}
             <article className="list-wrapper">
@@ -69,25 +83,27 @@ const Wishlist = () => {
                 </div>
               ) : wishlistStage === `idle` ? (
                 <div>
-                  {items.length === 0 ? (
+                  {wishListItems.length === 0 ? (
                     <NoItems forWish />
                   ) : (
                     <section className="list-items">
-                      {items.map(({ name, count, priceInDollar, cover, subCategory, category, slug, _id }: any) => (
-                        <ProdConsumeCard
-                          name={name}
-                          height={`7rem`}
-                          forWishlist
-                          count={count}
-                          price={priceInDollar}
-                          deliveryCost={0.95}
-                          cover={cover}
-                          category={category}
-                          subCategory={subCategory}
-                          slug={slug}
-                          id={_id}
-                        />
-                      ))}
+                      {wishListItems.map(
+                        ({ name, count, priceInDollar, cover, subCategory, category, slug, _id }: any) => (
+                          <ProdConsumeCard
+                            name={name}
+                            height={`7rem`}
+                            forWishlist
+                            count={count}
+                            price={priceInDollar}
+                            deliveryCost={0.95}
+                            cover={cover}
+                            category={category}
+                            subCategory={subCategory}
+                            slug={slug}
+                            id={_id}
+                          />
+                        )
+                      )}
                     </section>
                   )}
                 </div>
@@ -107,16 +123,17 @@ const Wishlist = () => {
                   border={{ size: 1 }}
                   noBorder
                   handleEvent={handleWishlistWipe}
-                  disabled={items.length === 0}
+                  disabled={wishListItems.length === 0}
                 />
                 <AppButton
-                  value="Move all Items to Wishlist"
+                  value="Move all Items to the cart"
                   type="button"
                   wide
                   size="lg"
                   bkgSecondary
                   border={{ size: 1 }}
                   noBorder={false}
+                  handleEvent={handleFromWishToCartTransaction}
                 />
               </section>
             </article>

@@ -18,20 +18,25 @@ import { RootState } from '../../redux/store';
 import { GetSingleProdBySlug } from '../../redux/slices/prods-collection/logic/reading.logic';
 import { localStorageObjGetter } from '../../common/utilities/localstorage-dealer/localstorage-getters.util';
 import Skeleton from '../../components/distributed/skelton/skeleton.comp';
+import { useQuery } from '../../common/utilities/useQuery/useQuery.util';
 
 // component>>>
 const CheckoutProductPage = () => {
-  // preConfigured hooks:
+  // preConfigured hooks
+  const dispatch = useDispatch();
+
+  // custom hooks:
+  const { search } = useLocation();
+  const query = useQuery(search);
+
+  const prodSlug = query.get(`prod`);
+
   const user = localStorageObjGetter(`@authedUser`)?.user;
   const { stage, prod } = useAppSelector((state: RootState) => state.SingleProd);
 
-  const dispatch = useDispatch();
-
-  const slug = useLocation().search.slice(6);
-
   useEffect(() => {
-    dispatch(GetSingleProdBySlug(slug));
-  }, [dispatch, slug]);
+    if (prodSlug) dispatch(GetSingleProdBySlug(prodSlug));
+  }, [dispatch, prodSlug]);
 
   let subT: number = prod?.count! * prod?.priceInDollar!;
   const DELIVERY = 10;

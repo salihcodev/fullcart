@@ -14,15 +14,15 @@ const NoItems: React.VFC<{ forCart?: boolean; forOrders?: boolean; forWish?: boo
     <section className="no-items">
       {forCart ? (
         <div className="wrapper">
-          <h3 className="heading">There's no items to view!</h3>
+          <h5 className="heading">There's no items to view!</h5>
         </div>
       ) : forOrders ? (
         <div className="wrapper">
-          <h3 className="heading">There's no items to view!</h3>
+          <h5 className="heading">There's no items to view!</h5>
         </div>
       ) : forWish ? (
         <div className="wrapper">
-          <h3 className="heading">There's no items to view!</h3>
+          <h5 className="heading">There's no items to view!</h5>
         </div>
       ) : null}
     </section>

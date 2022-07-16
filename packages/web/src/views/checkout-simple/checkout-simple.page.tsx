@@ -18,28 +18,30 @@ import { localStorageObjGetter } from '../../common/utilities/localstorage-deale
 import CheckoutCalculations from '../../components/distributed/checkout-calculations/checkout-calculations.comp';
 import UserCompleteCheckout from '../../components/distributed/user-complete-checkout/user-complete-checkout.comp';
 import Skeleton from '../../components/distributed/skelton/skeleton.comp';
+import { useQuery } from '../../common/utilities/useQuery/useQuery.util';
 
 // component>>>
 const CheckoutSimplePage = () => {
-  // preConfigured hooks:
-  const user = localStorageObjGetter(`@authedUser`)?.user;
-  const { stage, prod } = useAppSelector((state: RootState) => state.SingleProd);
-
+  // preConfigured hooks
   const dispatch = useDispatch();
 
-  const slug = useLocation().search.slice(6);
+  // custom hooks:
+  const { search } = useLocation();
+  const query = useQuery(search);
+
+  const user = localStorageObjGetter(`@authedUser`)?.user;
+  const { stage, prod } = useAppSelector((state: RootState) => state.SingleProd);
 
   let subT: number = prod?.count! * prod?.priceInDollar!;
   const DELIVERY = 10;
   const TAXES = 1.2;
   const TOTAL = subT * TAXES + DELIVERY;
 
+  const prodSlug = query.get(`prod`);
   useEffect(() => {
-    dispatch(GetSingleProdBySlug(slug));
-  }, [dispatch, slug]);
+    if (prodSlug) dispatch(GetSingleProdBySlug(prodSlug));
+  }, [dispatch, prodSlug]);
 
-  const prodName = prod?.name!;
-  const prodCover = prod?.cover!;
   return (
     <main className="page checkout-page checkout-simple-page">
       <Container xxl>

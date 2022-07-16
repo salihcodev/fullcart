@@ -1,5 +1,6 @@
 // pkgs:
 import axios from 'axios';
+import delayer from '../common/utilities/delayer.util';
 
 // utils:
 import { localStorageObjGetter } from '../common/utilities/localstorage-dealer/localstorage-getters.util';

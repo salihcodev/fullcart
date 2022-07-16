@@ -8,36 +8,50 @@ import Container from '../../components/utils/container/container.util';
 import Alert from '../../components/distributed/alert/alert.comp';
 import { localStorageObjGetter } from '../../common/utilities/localstorage-dealer/localstorage-getters.util';
 import CheckoutCalculations from '../../components/distributed/checkout-calculations/checkout-calculations.comp';
-import ProdSmartCard from '../../components/distributed/prod-smart-card/prod-smart-card.comp';
 import UserCompleteCheckout from '../../components/distributed/user-complete-checkout/user-complete-checkout.comp';
 import { useAppSelector } from '../../redux/hooks';
 import { RootState } from '../../redux/store';
-import { Fragment, useEffect } from 'react';
+import { Fragment, useEffect, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { GetSingleProdBySlug } from '../../redux/slices/prods-collection/logic/reading.logic';
 import Skeleton from '../../components/distributed/skelton/skeleton.comp';
+import { useQuery } from '../../common/utilities/useQuery/useQuery.util';
+import ProdConsumeCard from '../../components/distributed/prod-consume-card/prod-consume-card.comp';
+import { getAllCartItems } from '../../redux/slices/cart/logic/read.logic';
+import NoItems from '../../components/distributed/no-items/no-items.comp';
 
 // component>>>
 const CheckoutCartPage = () => {
-  // preConfigured hooks:
-  const user = localStorageObjGetter(`@authedUser`)?.user;
-
-  const { stage, prod } = useAppSelector((state: RootState) => state.SingleProd);
-
+  // preConfigured hooks
   const dispatch = useDispatch();
 
-  const slug = useLocation().search.slice(6);
+  // custom hooks:
+  const { search } = useLocation();
+  const query = useQuery(search);
+  // const test = query.get(`prod`);
+
+  const { stage, prod } = useAppSelector((state: RootState) => state.SingleProd);
 
   let subT: number = prod?.count! * prod?.priceInDollar!;
   const DELIVERY = 10;
   const TAXES = 1.2;
   const TOTAL = subT * TAXES + DELIVERY;
 
-  useEffect(() => {
-    dispatch(GetSingleProdBySlug(slug));
-  }, [dispatch, slug]);
+  const user = localStorageObjGetter(`@authedUser`)?.user;
 
+  const { stage: cartStage, items, message } = useAppSelector((state: RootState) => state.Cart);
+  useEffect(() => {
+    let isMounted = true;
+
+    if (user)
+      if (isMounted) {
+        dispatch(getAllCartItems(`?page=1`));
+      }
+
+    return () => {
+      isMounted = false;
+    };
+  }, [dispatch, items.length]);
   return (
     <main className="page checkout-page checkout-cart-page">
       <Container xxl>
@@ -61,81 +75,31 @@ const CheckoutCartPage = () => {
             ) : (
               <Fragment>
                 <CheckoutCalculations calcs={{ delivery: DELIVERY, subTotal: subT, total: TOTAL }} />
-                <h4>Your Picks</h4>
                 {/* <span className="gate"></span> */}
-                <section className="cart-check-last-view">
-                  <ProdSmartCard
-                    name={prod?.name}
-                    slug={prod?.slug}
-                    priceInDollar={prod?.priceInDollar}
-                    cover={prod?.cover}
-                    _id={prod?._id}
-                    category={prod?.category}
-                    subCategory={prod?.subCategory}
-                    height={`7rem`}
-                  />
-                  <ProdSmartCard
-                    name={prod?.name}
-                    slug={prod?.slug}
-                    priceInDollar={prod?.priceInDollar}
-                    cover={prod?.cover}
-                    _id={prod?._id}
-                    category={prod?.category}
-                    subCategory={prod?.subCategory}
-                    height={`7rem`}
-                  />
-                  <ProdSmartCard
-                    name={prod?.name}
-                    slug={prod?.slug}
-                    priceInDollar={prod?.priceInDollar}
-                    cover={prod?.cover}
-                    _id={prod?._id}
-                    category={prod?.category}
-                    subCategory={prod?.subCategory}
-                    height={`7rem`}
-                  />
-                  <ProdSmartCard
-                    name={prod?.name}
-                    slug={prod?.slug}
-                    priceInDollar={prod?.priceInDollar}
-                    cover={prod?.cover}
-                    _id={prod?._id}
-                    category={prod?.category}
-                    subCategory={prod?.subCategory}
-                    height={`7rem`}
-                  />
-                  <ProdSmartCard
-                    name={prod?.name}
-                    slug={prod?.slug}
-                    priceInDollar={prod?.priceInDollar}
-                    cover={prod?.cover}
-                    _id={prod?._id}
-                    category={prod?.category}
-                    subCategory={prod?.subCategory}
-                    height={`7rem`}
-                  />
-
-                  <ProdSmartCard
-                    name={prod?.name}
-                    slug={prod?.slug}
-                    priceInDollar={prod?.priceInDollar}
-                    cover={prod?.cover}
-                    _id={prod?._id}
-                    category={prod?.category}
-                    subCategory={prod?.subCategory}
-                    height={`7rem`}
-                  />
-                  <ProdSmartCard
-                    name={prod?.name}
-                    slug={prod?.slug}
-                    priceInDollar={prod?.priceInDollar}
-                    cover={prod?.cover}
-                    _id={prod?._id}
-                    category={prod?.category}
-                    subCategory={prod?.subCategory}
-                    height={`7rem`}
-                  />
-                </section>
+                {items.length === 0 ? (
+                  <NoItems forCart />
+                ) : (
+                  <div>
+                    <h6>Your Picks</h6>
+                    <section className="cart-check-last-view">
+                      {items.map(({ name, count, priceInDollar, cover, subCategory, category, slug, _id }: any) => (
+                        <ProdConsumeCard
+                          name={name}
+                          height={`7rem`}
+                          forCart
+                          count={count}
+                          price={priceInDollar}
+                          deliveryCost={0.95}
+                          cover={cover}
+                          category={category}
+                          subCategory={subCategory}
+                          slug={slug}
+                          id={_id}
+                        />
+                      ))}
+                    </section>
+                  </div>
+                )}
                 <span className="gate"></span>
               </Fragment>
             )}
