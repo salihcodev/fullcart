@@ -6,7 +6,7 @@ main.page.notfound-page
   text-align: center
   .page-wrapper
     height: 50vh
-    @include flex_positioning(center, center)
+    @include flex_positioning($ai: center, $jc: center)
   .notfound-number
     font-size: 90px
     color: $app_gray
@@ -14,12 +14,13 @@ main.page.notfound-page
   .notfound-description
     margin: 2rem
   .redirect-home
-    background: $app_white
+    background: $main_white
     border: none
     padding: 0.7rem 1rem
-    width: 10rem
+    width: 12rem
     color: $app_gray
     text-transform: uppercase
+    border-radius: 3px
     @include flex_positioning(center, space-between)
     margin: auto
     b
@@ -28,5 +29,5 @@ main.page.notfound-page
       display: block
       width: 2rem
       height: 2rem
-      @include flex_positioning(center, center)
+      @include flex_positioning($ai: center, $jc: center)
       border-radius: 50%

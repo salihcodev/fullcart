@@ -1,0 +1,161 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_mixins.util'
+@import '../../../common/styles/utils/_animation.util'
+
+section.hero
+  min-height: 30rem
+  margin-top: 1rem
+  background: $main_white
+  border-radius: 4px
+  .hero-wrapper
+    display: grid
+    grid-template-columns: 1fr 60rem 1fr
+    grid-gap: 0.8rem
+    padding: 1rem
+    > section
+      &.my-market
+        h5
+          padding: 0.5rem
+          padding-bottom: 0.2rem
+          padding-left: 0
+          border-bottom: 2px solid $light_gray
+          @include flex_positioning(center, flex-start)
+          span.icon
+            width: 3rem
+            height: 1.8rem
+            margin-right: 0.7rem
+            background: url(../../../../public/assets/images/hero/merch-flag.svg) center/contain no-repeat
+            border-radius: 4px
+          span.text
+            font-weight: bold
+            text-transform: uppercase
+        ul.market-list
+          margin-top: 1rem
+          li
+            margin: 0.2rem 0
+            border-radius: 4px
+            &:hover
+              background: $light_gray
+            &:last-of-type
+              margin-top: 2rem
+            a
+              padding: 0.3rem
+              width: 100%
+              height: 100%
+              @include flex_positioning($ai: center, $jc: flex-start)
+              transition: transform ease-in-out 0.1s
+              &:active
+                transform: scale(0.98)
+              .icon
+                width: 2.5rem
+                height: 2.5rem
+                margin-right: 1rem
+              span.title
+      &.slider
+        @include flex_positioning($ai: center, $jc: center)
+        .item
+          min-height: 38rem
+        .alice-carousel__dots
+          display: none
+
+      &.trending
+        display: grid
+        grid-gap: 1rem
+        grid-template-rows: auto 1fr
+        section.pro-buyer
+          text-align: center
+          background: $alt_dark
+          padding: 1rem
+          border-radius: 0.5rem
+          display: grid
+          > div
+            @include flex_positioning($ai: center, $jc: center)
+          h5.head
+            @include flex_positioning($ai: center, $jc: flex-start)
+            color: $gold
+            span
+              &.icon
+                display: block
+                width: 3rem
+                height: 2rem
+                margin-right: 1rem
+                background: url(../../../../public/assets/images/hero/pro-buyer.svg) center/contain no-repeat
+              &.txt
+                font-weight: bold
+          p.benifits
+            color: $gold
+          a.upgrade
+            display: block
+            width: 100%
+            height: 2rem
+            background: $gold
+            @include flex_positioning($ai: center, $jc: center)
+            color: $app_gray
+            border-radius: 5rem
+            margin-top: 1rem
+        section.top-ranking
+          h3.heading
+            min-height: 2rem
+            width: 100%
+            background: $additional_clr
+            color: $app_white
+            text-align: center
+            padding: 0.5rem
+          section.prods
+            margin-top: 1rem
+            display: grid
+            grid-gap: 1rem
+            grid-template-rows: 1fr 1fr 1fr
+            .prod
+              padding: 0.5rem
+              @include flex_positioning($ai: center, $jc: space-between)
+              &:not(:last-of-type)
+                border-bottom: 1px solid $light_gray
+              h3
+              .img
+                width: 4rem
+                height: 4rem
+
+@media screen and (max-width: 1200px)
+  section.hero
+    .hero-wrapper
+      display: block !important
+      > section
+        &:not(:first-of-type)
+          margin: 1rem 0
+        &.trending
+          grid-template-columns: 1fr 2fr
+          .pro-buyer
+            grid-template-rows: 1fr 1fr 3fr
+            > div
+              &:first-of-type
+                align-items: flex-end
+              &:nth-of-type(2)
+                align-items: flex-start
+              &:nth-of-type(3)
+                align-items: flex-end
+
+@media screen and (max-width: 876px)
+  section.hero
+    .hero-wrapper
+      display: block !important
+      > section
+        &:not(:first-of-type)
+          margin: 1rem 0
+        &.trending
+          grid-template-columns: 1.5fr 2fr
+          .pro-buyer
+            grid-template-rows: 1fr 1fr 3fr
+
+@media screen and (max-width: 699px)
+  section.hero
+    .hero-wrapper
+      display: block !important
+      > section
+        &:not(:first-of-type)
+          margin: 1rem 0
+        &.trending
+          display: block
+          .pro-buyer
+            margin-bottom: 1rem
+            display: block

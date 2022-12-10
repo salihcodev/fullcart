@@ -1,0 +1,113 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_mixins.util'
+@import '../../../common/styles/utils/_animation.util'
+.card-wrapper
+    position: relative
+    border: 1px solid $alt_dark-4
+    border-radius: 3px
+    transition: 0.2s ease
+    background: $main_white
+    &:hover
+        border: 1px solid $alt_dark-4
+        box-shadow: 1px 3px 10px 2px #00000010
+    a
+        margin-bottom: 0.5rem
+    section.card-head
+        height: 16rem
+        border-bottom: 1px solid $light_gray
+        .prod-cover
+            display: block
+            height: inherit
+        &:hover
+            section.prod-extra-info
+                display: block !important
+        section.prod-extra-info
+            transition: 0.2s ease
+            border-bottom: 1px solid $alt_dark-4
+            display: none
+            @include fade-in
+            z-index: 10
+            background: #fff7
+            height: 16rem
+            backdrop-filter: blur(8px)
+            top: 0
+            right: 0
+            left: 0
+            position: absolute
+            border-top-left-radius: 1rem
+            border-top-right-radius: 1rem
+            padding: 0.5rem
+            padding-top: 1rem
+            p
+                font-size: 0.8rem
+                margin-bottom: 0.3rem
+                @include flex_positioning(center, flex-start)
+                span.icon
+                    @include flex_positioning($ai: center, $jc: center)
+                    min-width: 1.6rem
+                    height: 1.6rem
+                    margin-right: 0.5rem
+                    border: 1px solid $alt_dark-4
+                    border-radius: 50%
+            p.added-by
+                @include flex_positioning(baseline, center)
+                span.txt
+                    margin-right: 0.5rem
+                a.author
+                    @include flex_positioning(center, space-between)
+                    &:hover
+                        text-decoration: underline
+                    b
+                        margin-right: 0.4rem
+                    span.img
+                        display: inline-block
+                        width: 1.6rem
+                        height: 1.6rem
+                        border: 2px solid $alt_dark-4
+                        border-radius: 50%
+            section.prod-actions
+                margin-top: 1.5rem
+                display: grid
+                grid-template-columns: 3fr 1fr
+                button
+                    font-size: 0.8rem
+                    letter-spacing: 1px
+                    span
+                        padding: 0
+                    &:first-child
+                        margin-right: 0.3rem
+                    &:last-child
+                        padding: 0
+                        padding-top: 0.18rem
+                        height: 1.7rem !important
+                        align-items: baseline
+                        margin-top: 0.14rem
+                        background: transparent !important
+                        span
+                            font-size: 1.3rem !important
+                            &.loading-spinner
+                                margin-left: 0.5rem
+                            &.outlined
+                                &:hover
+                                    color: #c97e7e
+                            &.filled
+                                color: #c97e7e
+    .prod-basic-info
+        padding: 1rem
+        section.rating
+            @include flex_positioning(baseline, space-between)
+            p.rating-stats
+            small.total-votes
+                color: $additional_clr
+        a.name
+            color: $alt_dark-3
+            display: -webkit-box
+            -webkit-box-orient: vertical
+            -webkit-line-clamp: 2
+            overflow: hidden
+            &:hover
+                text-decoration: underline
+        h6.price
+            margin: 0
+            margin-top: 0.5rem
+            font-weight: bold

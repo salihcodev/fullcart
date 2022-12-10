@@ -35,7 +35,7 @@ const UserActionsSlice = createSlice({
 
       // rejection stage
       .addCase(getInfo.rejected, (state, { payload }) => {
-        state.stage = `failed`;
+        state.stage = `rejected`;
         state.failureMsg = `failed to signin , ${payload}`;
       });
   },

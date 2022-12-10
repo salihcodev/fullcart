@@ -2,18 +2,17 @@
 @import '../../../../common/styles/utils/_colors.util'
 
 header.pre-header
-  height: 2.4rem
-  background: $main_clr-grad
+  height: 2.2rem
+  background: $app_white
+  border-bottom: 1px solid $light_gray
   section
     &.wing
       a,
       button
-        color: $app_white
+        color: $app_gray-1
         padding: 0 0.3rem
-        &:focus
-          outline: 2px solid #ffffff38
         &:hover
-          color: $additional_clr-mirr !important
+          color: $additional_clr-1 !important
   button
     background: transparent
     border: none
@@ -21,13 +20,13 @@ header.pre-header
   .action-wrapper
     padding: 0 0.8rem
     height: 100%
-    @include flex_positioning(center, center)
+    @include flex_positioning($ai: center, $jc: center)
     display: inline-flex
     &:not(:first-child)
       border-left: 1px solid #eee2
     a,
     button
-      @include flex_positioning(center, center)
+      @include flex_positioning($ai: center, $jc: center)
       span
         &.icon
           font-size: 1.2rem

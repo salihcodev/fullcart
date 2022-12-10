@@ -5,7 +5,6 @@
 article.contact-suppler-modal
     min-height: 30vh
     padding: 1rem
-    padding-top: 0
     header
         h3.heading
             text-transform: uppercase
@@ -14,7 +13,7 @@ article.contact-suppler-modal
         h6
             text-align: center
     section.content
-        @include flex_positioning(center, center)
+        @include flex_positioning($ai: center, $jc: center)
         min-height: inherit
         .button-wrapper
             margin: 3rem auto
@@ -22,6 +21,7 @@ article.contact-suppler-modal
         > div
             width: 100%
         .contact-suppler-form
+            padding: 1rem
             margin: 0
             .inputs-group
                 display: grid
@@ -34,5 +34,5 @@ article.contact-suppler-modal
                 text-align: center
                 color: $app_gray-2
             .button-wrapper
-                @include flex_positioning(center, center)
+                @include flex_positioning($ai: center, $jc: center)
                 width: 20rem

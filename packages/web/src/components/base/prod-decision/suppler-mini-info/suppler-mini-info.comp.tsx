@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import './style.sass';
 import { useAppSelector } from '../../../../redux/hooks';
 import { RootState } from '../../../../redux/store';
+import Skeleton from '../../../distributed/skelton/skeleton.comp';
 
 // comps:
 
@@ -15,32 +16,40 @@ const SupplerMiniInfo: React.VFC<{}> = ({}) => {
 
   return (
     <section className="suppler-mini-info">
-      <header>
-        <h5 className="heading">
-          <Link to={`/suppler/${userData?._id}`}>{userData?.companyName}</Link>
-        </h5>
-        <span className="specialization">{userData?.specialization}</span>
-      </header>
-      <p>
-        <span className="company-location">
-          <Flag code={userData?.countryCode} height="16" />
-          <span className="country">{userData?.countryCode}</span>
-        </span>
-        <span className="company-since">
-          <b>1</b>
-          <sup>YR</sup>
-        </span>
-      </p>
-      <footer>
+      {stage === `busy` ? (
+        <Skeleton target="single-prod-suppler-info" />
+      ) : (
         <div>
-          <span className="title">Response time</span>
-          <h4 className="value">≤3H</h4>
+          <header>
+            <h5 className="heading">
+              <Link to={`/suppler/${userData?._id}`} target="_blank noopener noreferer">
+                {userData?.companyName}
+              </Link>
+            </h5>
+            <span className="specialization">{userData?.specialization}</span>
+          </header>
+          <p>
+            <span className="company-location">
+              <Flag code={userData?.countryCode} height="16" />
+              <span className="country">{userData?.countryCode}</span>
+            </span>
+            <span className="company-since">
+              <b>1</b>
+              <sup>YR</sup>
+            </span>
+          </p>
+          <footer>
+            <div>
+              <span className="title">Response time</span>
+              <h4 className="value">≤3H</h4>
+            </div>
+            <div>
+              <span className="title">On-time delivery rate</span>
+              <h4 className="value">100%</h4>
+            </div>
+          </footer>
         </div>
-        <div>
-          <span className="title">On-time delivery rate</span>
-          <h4 className="value">100%</h4>
-        </div>
-      </footer>
+      )}
     </section>
   );
 };

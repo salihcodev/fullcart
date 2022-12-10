@@ -9,11 +9,19 @@ main.checkout-page.checkout-cart-page
     article.checkout-view
         > aside
             position: relative
-            h4
+            h6
                 margin-bottom: 1rem
+                color: $app_gray-1
             section.cart-check-last-view
+                padding-right: 0.5rem
                 height: 25rem
                 overflow-y: scroll
+                &::-webkit-scrollbar
+                    background-color: #f5f6f7
+                    width: 0.5rem
+                &::-webkit-scrollbar-thumb
+                    background-color: $alt_dark-4
+                    border-radius: 1rem
                 > div
                     margin: 0.5rem 0
             &:hover
@@ -24,17 +32,17 @@ main.checkout-page.checkout-cart-page
                 content: ''
                 left: 1rem
                 right: 2rem
-                background: linear-gradient(to bottom, #ffffffc0, #f5f6f700)
+                background: linear-gradient(to bottom, #ffffff94, #f5f6f700)
                 display: none
                 height: 4rem
                 position: absolute
                 @include fade-in
-                &:first-of-type
-                    transform: translate(0, 5rem)
-                    top: 5.8rem
+                // &:first-of-type
+                //     transform: translate(0, 5rem)
+                //     top: 80px
                 &:last-of-type
                     transform: translate(0, -6rem)
-                    background: linear-gradient(to top, #ffffffc0, #f5f6f700)
-                    bottom: -5rem
+                    background: linear-gradient(to top, #ffffff94, #f5f6f700)
+                    bottom: -80px
         section.to-complete-order
         aside.curr-order-data

@@ -8,15 +8,18 @@
   box-sizing: border-box
 
 *::selection
-  color: $app_gray
-  background: $additional_clr-mirr
+  color: $light_gray
+  background: $main_clr-1
 
 a, button, input, textarea, select
   &:focus
     outline: 0
     outline-offset: 0px
-    outline: 2px solid #683fce41
+    outline: 2px solid #4a67be59
     outline-offset: 0px
+input, textarea, button
+  &:focus
+    outline-width: 3px !important
 
 body
   margin: 0
@@ -24,10 +27,9 @@ body
   -webkit-font-smooInitial: antialiased
   -moz-osx-font-smooInitial: grayscale
   color: $app_gray
-  background: $dark_white
+  background: $dark_white-2
   font-size: 14px
   font-weight: 400
-  scrollbar-track-color: green !important
 
 // GLOBALS:
 code
@@ -39,13 +41,13 @@ code
 a
   text-decoration: none
   color: $alt_dark-3
-  border-radius: 4px
   &:hover
     text-decoration: none
+  &:hover
+    cursor: pointer
 
 small
   color: $main_clr-2
-  // font-family:  !important
 
 h1, .h1, h2, h3, h4, h5, h6
   font-weight: 500
@@ -81,8 +83,7 @@ p
 button
   color: $app_gray
   cursor: pointer
-  border-radius: 6px
-  background: $app_white
+  background: $main_white
   font-family: $main_font
   &:disabled
     opacity: 0.6
@@ -106,6 +107,9 @@ textarea
   color: $app_gray
   caret-color: $main_clr-1
   font-family: $main_font
-  border-radius: 6px
+
   &::placeholder
     color: $alt_dark-6
+
+iframe
+  display: none

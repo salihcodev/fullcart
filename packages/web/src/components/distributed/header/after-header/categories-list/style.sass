@@ -2,65 +2,80 @@
 @import '../../../../../common/styles/utils/_mixins.util'
 @import '../../../../../common/styles/utils/_animation.util'
 
-article.categories-list
+article.categories-lists
   z-index: 30
   text-align: left
   top: 3rem
   left: 0
   cursor: auto
   position: absolute
-  border: 1px solid $alt_dark-5
-  background: $app_white
-  border-radius: 6px
-  padding: 1.5rem 0
-  width: 30rem
+  background: $main_white
+  min-height: 10rem
   @include fade-in
+  min-width: 18rem
   z-index: 50
+  box-shadow: #00000010 10px 8px 10px -5px
+  border-radius: 4px
   // global __
-  li
-    margin: 0.1rem 0
-    a
-      padding: 0.2rem 0.5rem
-      display: block
-      width: 100%
-    &:hover
-      > a
-        background: $additional_clr-tone
-        text-decoration: underline
-  //__
-  .list-wrapper
-    grid-template-columns: 45% 55%
-    min-height: 30rem
-    display: grid
-  section
-    padding: 0 0.9rem
-    &.main-categories
-      position: relative
-      ul.main-categories-wrapper
-        padding-left: 0.1rem
-        padding-top: 0.5rem
-        li
-          &:hover
-            ul.sub-categories-wrapper
-              display: block
-          ul.sub-categories-wrapper
-            height: 100%
+  h6
+    text-transform: uppercase
+  ul
+    @include fade-in
+    padding: 0.5rem
+    padding-right: 0.4rem
+    min-height: 31rem
+    li
+      @include fade-in
+      margin: 0.2rem
+      a
+        display: block
+        width: 100%
+        font-size: 0.8rem
+        text-align: left
+        display: flex
+        align-items: center
+        justify-content: space-between
+        padding: 0.2rem
+        color: $alt_dark-2
+        &:focus
+          outline-width: 2px
+        &:hover
+          > ul.sub-categories
             display: block
-            padding-top: 2rem
-            top: 0
-            @include fade-in
-            width: 11rem
-            position: absolute
-            display: none
-            right: -11.8rem
-            &:after
-              content: ""
-              left: -2rem
-              top: 0
-              bottom: 0
-              width: 2rem
-              background: transparent
-              display: block
-              position: absolute
+        div
+          &:first-of-type
+            flex-grow: 1
+          &:last-of-type
+            width: 2rem
+            @include flex_positioning($ai: center, $jc: flex-end)
+        p
+          white-space: nowrap
+          color: $alt_dark-2
+        span.count-num
+          font-size: 0.7rem
+          color: $alt_dark-3
+          background: $light_gray
+          width: 17px
+          height: 17px
+          border-radius: 50%
+          @include flex_positioning($ai: center, $jc: center)
+      &:hover
+        > a
+          background: $additional_clr-tone
     &.sub-categories
-      border-left: 1px solid $alt_dark-4
+      display: none
+      position: absolute
+      top: 0
+      left: 105%
+      background: $main_white
+      border-radius: 4px
+      &:after
+        content: ""
+        top: -1px
+        bottom: -1px
+        left: -1.5rem
+        width: 2rem
+        background: transparent
+        position: absolute
+
+  //__

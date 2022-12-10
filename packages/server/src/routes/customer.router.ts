@@ -12,7 +12,7 @@ import {
 
 // create new router:
 const router = express.Router();
-router.get("/all", getRegisteredUsers);
+router.get("/", getRegisteredUsers);
 router.post("/signup", signupHandler);
 router.post("/signin", signinHandler);
 router.delete("/terminate/:id", terminateUser);

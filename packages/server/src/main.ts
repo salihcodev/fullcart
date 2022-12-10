@@ -1,3 +1,5 @@
+process.env.NODE_ENV = "development";
+
 // pks:
 import config from "config";
 import mongoose from "mongoose";
@@ -11,8 +13,10 @@ import { app } from "./app";
 //
 
 // >>> env vars configuration
-const { db_connection_uri, port: _port } = config.get("server");
+const { db_connection_uri, port: _port }: any = config.get("server");
 const port = process.env.PORT || _port;
+
+console.log(db_connection_uri);
 
 // >>> CONNECTING TO THE DATABASE:
 const connectWithDB = async () => {
@@ -20,13 +24,6 @@ const connectWithDB = async () => {
         await mongoose.connect(db_connection_uri, {
             dbName: "fullcart",
         });
-
-        // TODO: make a model to the app managers.
-        // >>> create initial dashboard account:
-        // if ((await User.countDocuments()) === 0) {
-        //     await createInitialDashboardAccount(`companyDomain@mail.com`);
-        //     console.log(`Created initial dashboard account succeeded.`);
-        // }
 
         // >>> listen to the app
         app.listen(port, () => {

@@ -4,13 +4,19 @@ import parsingQueryProps from "../utils/parsing-query-props.util";
 export default class APIFeaturesBuilder {
     readonly reqQuery;
     public modelQuery;
+    public collectionCountAfterFiltering;
 
-    constructor(modelQuery: any, reqQuery: any) {
+    constructor(
+        modelQuery: any,
+        reqQuery?: any,
+        collectionCountAfterFiltering?: any
+    ) {
         this.modelQuery = modelQuery;
         this.reqQuery = reqQuery;
+        this.collectionCountAfterFiltering = collectionCountAfterFiltering;
     }
 
-    public filtering(): typeof this {
+    public filtering(): any {
         const shallowQr = { ...this.reqQuery };
         const excludedQrFields = ["sort", "page", "limit", "fields"];
 
@@ -36,10 +42,13 @@ export default class APIFeaturesBuilder {
             : {};
 
         this.modelQuery = this.modelQuery.find(reqQueryProcessed);
+        this.collectionCountAfterFiltering =
+            this.modelQuery.find(reqQueryProcessed);
+
         return this;
     }
 
-    public selectingFields(): typeof this {
+    public selectingFields(): any {
         const { fields } = this.reqQuery;
 
         // select specifics fields to be responding with.
@@ -50,19 +59,24 @@ export default class APIFeaturesBuilder {
         return this;
     }
 
-    public paginating(): typeof this {
+    public paginating(): any {
         const { page, limit } = this.reqQuery;
 
         // calculate params.
-        const p = Number(page) || 1;
-        const l = Number(limit) || 50;
-        const skip = (p - 1) * l;
+        if (limit === `all`) {
+            this.modelQuery = this.modelQuery;
+            return this;
+        } else {
+            const p = Number(page) || 1;
+            const l = Number(limit) || 20;
+            const skip = (p - 1) * l;
 
-        this.modelQuery = this.modelQuery.skip(skip).limit(l);
-        return this;
+            this.modelQuery = this.modelQuery.skip(skip).limit(l);
+            return this;
+        }
     }
 
-    public sorting(): typeof this {
+    public sorting(): any {
         const { sort } = this.reqQuery;
 
         // sorting via client criteria ether way sorting via creation time.

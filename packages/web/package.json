@@ -2,7 +2,9 @@
   "name": "@full-cart/web",
   "version": "0.0.0",
   "dependencies": {
+    "@octokit/core": ">=3",
     "@reduxjs/toolkit": "^1.5.1",
+    "@testing-library/dom": ">=5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -16,6 +18,7 @@
     "jest": "26.6.0",
     "jwt-decode": "^3.1.2",
     "react": "^17.0.2",
+    "react-alice-carousel": "^2.7.0",
     "react-app-rewired": "^2.1.8",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
@@ -30,7 +33,7 @@
   },
   "scripts": {
     "start:dev": "react-app-rewired start",
-    "start:prod": "CI= react-app-rewired build",
+    "start:build": "CI= react-app-rewired build",
     "netlify:deploy": "netlify deploy --dir=./build -p -m \"$(git log -1 --pretty=%B)\"",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",

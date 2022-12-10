@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 // utils:
-import { populatingFields, slugifyIt } from "./utils/pre";
+import { populateAndSelectFields, slugifyIt } from "./utils/pre";
 
 export const ProductSchema = new Schema({
     name: String,
@@ -11,8 +11,10 @@ export const ProductSchema = new Schema({
     cover: String,
     warranty: Number,
     warrantyIn: String,
-    category: String,
-    subCategory: String,
+    categoryId: { type: Schema.Types.ObjectId, ref: "Category" },
+    subcategoryId: { type: Schema.Types.ObjectId, ref: "SubCategory" },
+    categoryName: String,
+    subcategoryName: String,
     payment: String,
     isReadyToShip: Boolean,
     isFastToDispatch: Boolean,
@@ -51,8 +53,13 @@ export const ProductSchema = new Schema({
     id: String,
 });
 
-populatingFields(`suppler`, [`__v`, `role`, `createdAt`, `password`]);
-slugifyIt();
+slugifyIt(ProductSchema);
+populateAndSelectFields(ProductSchema, `suppler categoryId subcategoryId`, [
+    `__v`,
+    `role`,
+    `createdAt`,
+    `password`,
+]);
 
 const Product = mongoose.model("Product", ProductSchema);
 export default Product;

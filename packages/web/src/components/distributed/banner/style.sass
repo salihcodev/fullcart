@@ -1,1 +1,70 @@
+@import '../../../common/styles/utils/_mixins.util.sass'
+@import '../../../common/styles/utils/_colors.util.sass'
 
+section.feats-banner,
+section.declaration-banner
+    @include flex_positioning(center, space-around)
+    padding: 1rem
+    flex-wrap: wrap
+    > div
+        flex-grow: 1
+    .logo-wrapper
+        @include flex_positioning($ai: center, $jc: center)
+        .logo
+            height: 4rem
+            width: 7rem
+    .link
+        @include flex_positioning($ai: center, $jc: center)
+        a
+            background: $main_white
+            display: block
+            width: 8rem
+            font-weight: bold
+            height: 2.5rem
+            font-size: 1rem
+            @include flex_positioning($ai: center, $jc: center)
+            border-radius: 4px
+            padding: 0.1rem
+            padding-bottom: 0.2rem
+            transition: all ease-in-out 0.1s
+            &:active
+                transform: scale(0.95)
+section
+    &.feats-banner
+        ul.feats
+            @include flex_positioning(center, space-between)
+            flex-wrap: wrap
+            li
+                flex-grow: 1
+                @include flex_positioning(center, center)
+                margin: 1rem
+                padding: 0.4rem
+                text-align: center
+                &:not(:last-of-type)
+                    border-right: 4px solid $app_white
+                h4
+                    text-transform: none
+                    font-weight: Bold
+                p
+                h4, p
+                    color: $main_white
+    &.declaration-banner
+        margin-top: 2rem
+        .logo-wrapper
+            .logo
+                height: 4rem
+                width: 15rem
+        .middle-txt
+            @include flex_positioning($ai: center, $jc: center)
+
+            h2
+                font-weight: bold
+                color: $main_white
+    &.simple-banner
+
+@media screen and (max-width: 570px)
+    section.declaration-banner
+        .logo-wrapper
+        .middle-txt
+            h2
+                margin-bottom: 2rem

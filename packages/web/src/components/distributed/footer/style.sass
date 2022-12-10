@@ -2,19 +2,21 @@
 @import '../../../common/styles/utils/_mixins.util'
 
 .app-footer
-  background: $extra_pkg
   padding-top: 2rem
-  margin-top: 10rem
+  margin-top: 5rem
   text-align: center
+  a
+    &:focus
+      outline-width: 2px
   p.reservation
-    color: $alt_dark-5
+    color: $main_dark
     margin-top: 2rem
     padding: 1rem 0
-    background: #0e000014
+    background: $dark_white-2
     span.icon
       display: inline-block
       margin-right: 0.1rem
     span
       margin: 0 0.4rem
       a
-        color: $additional_clr-mirr
+        color: $additional_clr-1

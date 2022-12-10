@@ -23,24 +23,18 @@ export const ContactUsSlice = createSlice({
       .addCase(mailSender.pending, (state) => {
         state.stage = `busy`;
       })
-      .addCase(
-        mailSender.fulfilled,
-        (state, { payload: { status, message } }: any) => {
-          state.message = message;
-          state.status = status;
+      .addCase(mailSender.fulfilled, (state, { payload: { status, message } }: any) => {
+        state.message = message;
+        state.status = status;
 
-          state.stage = `idle`;
-        }
-      )
-      .addCase(
-        mailSender.rejected,
-        (state, { payload: { status, message } }: any) => {
-          state.message = message;
-          state.status = status;
+        state.stage = `idle`;
+      })
+      .addCase(mailSender.rejected, (state, { payload: { status, message } }: any) => {
+        state.message = message;
+        state.status = status;
 
-          state.stage = `failed`;
-        }
-      );
+        state.stage = `rejected`;
+      });
   },
 });
 

@@ -5,7 +5,7 @@
 section.prod-overview
     padding: 1rem
     padding-top: 0.5rem
-    background: $app_white
+    background: $main_white
     section.prod-part
         min-height: 4rem
         padding: 0.5rem
@@ -24,10 +24,13 @@ section.prod-overview
             .flags
                 margin-bottom: 1.5rem
                 @include flex_positioning(center, space-between)
-                background: $additional_clr-tone
+                background: $dark_white
+                padding-right: 0.5rem
                 span
                     font-size: 0.8rem
                     color: $additional_clr-2
+                    &:first-of-type
+                        border-radius: 4px
                     &.value
                         padding: 0.2rem
                     &.icon
@@ -43,7 +46,7 @@ section.prod-overview
                             padding-bottom: 0.3rem
                             color: $dark_white
                             background: $main_clr
-                            border-radius: 6px
+
         &.dozens-offers
             display: grid
             grid-gap: 0.5rem 1rem
@@ -72,14 +75,29 @@ section.prod-overview
                 &.available-colors
                     > div
                         display: flex
-                    span
+                    button
                         display: block
-                        width: 1rem
-                        height: 1rem
-                        border-radius: 3px
-                        margin: 0 0.1rem
-                        &:hover
-                            border-color: $additional_clr-1
+                        width: 1.8rem
+                        height: 1.6rem
+                        margin: 0 3px
+                        border-radius: 2px
+                        position: relative
+                        border: none
+                        span.marker
+                            display: block
+                            background: $additional_clr
+                            bottom: -3px
+                            right: -3px
+                            height: 0.9rem
+                            width: 0.9rem
+                            position: absolute
+                            border-radius: 2px
+                            span.icon
+                                position: absolute
+                                color: $main_white
+                                top: -3px
+                                left: -2px
+                                font-size: 1.1rem
                 &.quantity-controllers
                     span.fixed-prod-price
                         margin-right: 2rem
@@ -87,7 +105,7 @@ section.prod-overview
                         display: block
                         margin-top: 0.2rem
                     button
-                        @include flex_positioning(center, center)
+                        @include flex_positioning($ai: center, $jc: center)
                         border: 1px solid $alt_dark-4
                         width: 2rem
                         color: $main_clr-1
@@ -100,11 +118,11 @@ section.prod-overview
                             color: $dark_white
                             background: $main_clr-1
                         &:first-of-type
-                            border-top-left-radius: 7px
-                            border-bottom-left-radius: 7px
+                            border-top-left-radius: 0.3rem
+                            border-bottom-left-radius: 0.3rem
                         &:last-of-type
-                            border-top-right-radius: 7px
-                            border-bottom-right-radius: 7px
+                            border-top-right-radius: 0.3rem
+                            border-bottom-right-radius: 0.3rem
                     input
                         border: none
                         text-align: center
@@ -133,7 +151,7 @@ section.prod-overview
                     color: $additional_clr
         &.protection-cover
             p
-                @include flex_positioning(center, center)
+                @include flex_positioning($ai: center, $jc: center)
                 span
                     &.icon
                         display: inline-block
@@ -142,7 +160,7 @@ section.prod-overview
                         border-radius: 50%
                         width: 1.5rem
                         height: 1.5rem
-                        @include flex_positioning(center, center)
+                        @include flex_positioning($ai: center, $jc: center)
                         margin-right: 0.3rem
                     &.value
                         margin-right: 0.5rem
@@ -151,7 +169,7 @@ section.prod-overview
         &.refunding-policy
             @include flex_positioning(center, flex-start)
             p
-                @include flex_positioning(center, center)
+                @include flex_positioning($ai: center, $jc: center)
                 span
                     &.icon
                         display: inline-block
@@ -161,5 +179,5 @@ section.prod-overview
                         border-radius: 50%
                         width: 1rem
                         height: 1rem
-                        @include flex_positioning(center, center)
+                        @include flex_positioning($ai: center, $jc: center)
                         margin-right: 0.3rem

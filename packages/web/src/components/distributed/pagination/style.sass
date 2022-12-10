@@ -1,0 +1,65 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_mixins.util'
+
+section.pagination
+    border: 1px solid $alt_dark-4
+    margin-top: 1rem
+    border-radius: 0.5rem
+    min-height: 4rem
+    @include flex_positioning(center, space-between)
+    .pagination-wrapper
+        @include flex_positioning(center, flex-start)
+        flex-wrap: wrap
+        width: 100%
+        padding: 0.8rem
+        > div
+            flex-grow: 1
+            height: inherit
+            display: flex
+            align-items: center
+            justify-content: center
+            margin: 0.5rem 0
+            &.options
+                justify-content: flex-start
+                input
+                    text-transform: capitalize
+                    padding: 0.2rem
+                    border: 1px solid $alt_dark-4
+                    margin-right: 0.5rem
+                    border-radius: 4px
+                    width: 3.5rem
+                    height: 1.5rem
+                    background: none
+                    color: $alt_dark-3
+                    text-align: center
+                    &:out-of-range
+                        outline: 3px solid #e6797994
+                h6
+                    margin: 0
+                    font-size: 0.8rem
+                    color: $alt_dark-3
+            &.handlers
+                justify-content: flex-end
+                a
+                    border: 1px solid $alt_dark-4
+                    margin: 0 0.2rem
+                    border-radius: 4px
+                    @include flex_positioning($ai: center, $jc: center)
+                    display: inline-flex
+                    &.page
+                        width: 1.5rem
+                        height: 1.5rem
+                    &.previous-page,
+                    &.next-page
+                        height: 1.5rem
+                        padding: 0 0.5rem
+                        font-size: 0.8rem
+                    &.next-page
+                        margin-right: 0
+
+@media screen and (max-width: 769px)
+    section.pagination
+        .pagination-wrapper
+            padding: 0
+            > div
+                justify-content: center !important

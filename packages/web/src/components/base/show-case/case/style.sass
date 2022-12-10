@@ -1,0 +1,39 @@
+@import '../../../../common/styles/utils/_colors.util'
+@import '../../../../common/styles/utils/_mixins.util'
+
+.case
+    background: $app_white
+    padding: 1rem
+    border-radius: 0.5rem
+    h5.heading
+        @include flex_positioning($ai: center, $jc: flex-start )
+
+        text-transform: none
+        font-weight: bold
+        span.icon
+            display: inline-block
+            margin-right: 0.7rem
+            width: 1.5rem
+            height: 1.5rem
+    .prods
+        display: grid
+        grid-template-columns: 1fr 1fr 1fr
+        .prod
+            text-align: center
+            .cover
+                width: 5rem
+                height: 5rem
+                border-radius: 6px
+                margin: auto
+            .price
+                margin-top: 0.5rem
+            .subtitle
+                display: block
+                margin-bottom: 1rem
+
+@media screen and (max-width: 769px)
+    h5.heading
+        text-align: center
+    .case
+        .prods
+            display: block

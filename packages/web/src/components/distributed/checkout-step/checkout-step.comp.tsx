@@ -8,14 +8,14 @@ import './style.sass';
 
 const CheckoutStep: React.VFC<{ label: string; stageNum: number; children: any }> = ({ label, stageNum, children }) => {
   return (
-    <article className='checkout-step'>
-      <header className='step-head'>
+    <article className="checkout-step">
+      <header className="step-head">
         <section>
           <div>
             <small>{`stage ${stageNum} of 3`}</small>
           </div>
           <div>
-            <span className='percentage'></span>
+            <span className="percentage"></span>
           </div>
           <div>
             <small>{toFixedNumber((stageNum * 100) / 3, 0)}%</small>
@@ -24,7 +24,7 @@ const CheckoutStep: React.VFC<{ label: string; stageNum: number; children: any }
         <h2>{label}</h2>
       </header>
 
-      <div className='step-wrapper'>{children}</div>
+      <div className="step-wrapper">{children}</div>
     </article>
   );
 };

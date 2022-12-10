@@ -2,6 +2,11 @@
 @import '../../../common/styles/utils/_mixins.util'
 
 article.product-decision
-    background: $app_white
+    background: $main_white
     font-size: 0.9rem
     padding: 1rem
+
+@media (max-width: 992px)
+    article.product-decision
+        padding: 0.5rem
+        margin-top: 2rem

@@ -1,0 +1,53 @@
+@import '../../common/styles/utils/_colors.util'
+@import '../../common/styles/utils/_mixins.util'
+
+main.page.orders-page
+    h4
+        text-transform: uppercase
+        margin-top: 4rem
+        font-weight: 200
+        margin-bottom: 2rem
+        display: flex
+        align-items: center
+        span.count
+            background: $additional_clr
+            color: $dark_white
+            width: 1.4rem
+            height: 1.4rem
+            display: inline-block
+            border-radius: 50%
+            font-size: 0.8rem
+            margin-left: 1rem
+            display: flex
+            align-items: center
+            justify-content: center
+    article.list-wrapper
+        display: grid
+        grid-template-columns: 1fr 5fr
+        grid-gap: 1rem
+        > section
+
+            padding: 1rem
+            &.list-items
+                padding-top: 0
+                h5.filteration-heading
+                    text-transform: uppercase
+                    padding-left: 0.5rem
+                    small
+                        color: $alt_dark-3
+                        text-transform: none
+            &.router
+                background: $main_white
+                height: 13rem
+                border-radius: 3px
+                button
+                    margin: 0.4rem 0
+                    text-align-last: left !important
+                    transition: all linear 0.1s
+                    &:active
+                        transform: scale(0.99) !important
+
+@media screen and (max-width: 1199px)
+    main.page.orders-page
+        .list-items
+            margin: 2rem 0

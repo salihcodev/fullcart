@@ -6,11 +6,11 @@
   width: 100%
   margin: 1.1rem 0
   label
-    margin-bottom: 0.1rem
     margin-bottom: 0.3rem
     display: block
     font-weight: bold
     font-size: 0.9rem
+    padding-left: 0.2rem
   input,
   textarea
     height: 3rem
@@ -18,8 +18,10 @@
     width: inherit
     font-size: 1rem
     border: 1px solid $alt_dark-5
-    padding-left: 1rem
+    padding-left: 1.5rem
+    border-radius: 3px
   textarea
+    border-radius: 3px
     min-height: 10rem
   .the-input
     width: inherit
@@ -27,7 +29,7 @@
     position: relative
     text-align: left
     span.input-icon
-      @include flex_positioning(center, center)
+      @include flex_positioning($ai: center, $jc: center)
       color: $alt_dark-3
       position: absolute
       top: 1px
@@ -37,5 +39,7 @@
       width: 2.5rem
       background: $dark_white
       border-radius: 0
-      border-top-left-radius: 6px
-      border-bottom-left-radius: 6px
+      border-top-left-radius: 3px
+      border-bottom-left-radius: 3px
+  small
+    padding-left: 0.2rem

@@ -29,7 +29,10 @@ const defaultFooterRoutes = {
     { value: `trade assurance`, path: `/trade-services/trade-assurance` },
     { value: `business identity`, path: `/trade-services/business-identity` },
     { value: `logistics services`, path: `/trade-services/logistics-services` },
-    { value: `production monitoring & inspection services`, path: `/trade-services/production-monitoring-and-inspection-services` },
+    {
+      value: `production monitoring & inspection services`,
+      path: `/trade-services/production-monitoring-and-inspection-services`,
+    },
     { value: `letter of credit`, path: `/trade-services/letter-of-credit` },
   ],
 };

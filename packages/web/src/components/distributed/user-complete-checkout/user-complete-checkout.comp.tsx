@@ -43,7 +43,7 @@ const UserCompleteCheckout: React.VFC<IUserCompleteCheckout> = ({ user }) => {
   useEffect(() => {
     stepsBtns.forEach((el: any, idx) => {
       if (currentStep > idx + 1) {
-        el.style.cssText = `background: #3b87dd; color: #f5f6f7`;
+        el.style.cssText = `background: #111; color: #f5f6f7`;
       }
     });
   }, [currentStep, stepsBtns]);
@@ -61,7 +61,7 @@ const UserCompleteCheckout: React.VFC<IUserCompleteCheckout> = ({ user }) => {
   const [formData, setFormData] = useState<any>(formSchema);
 
   return (
-    <section className='user-complete-checkout'>
+    <section className="user-complete-checkout">
       {/* <header className='order-steps-map'>
         {steps.map(({ stepIndex, stepIcon, stepLabel }) => {
           let activeStepStyle: { icon: {}; label: {} } = {
@@ -70,7 +70,7 @@ const UserCompleteCheckout: React.VFC<IUserCompleteCheckout> = ({ user }) => {
           };
           if (stepIndex === currentStep) {
             activeStepStyle.icon = {
-              borderColor: `#2b7bd6 `,
+              borderColor: `#222 `,
               color: `#f5f6f7`,
               boxShadow: `#6c6c6c6e 3px 2px 6px -1px;`,
             };
@@ -98,55 +98,55 @@ const UserCompleteCheckout: React.VFC<IUserCompleteCheckout> = ({ user }) => {
           );
         })}
       </header> */}
-      <section className='order-steps-wrapper'>
+      <section className="order-steps-wrapper">
         {currentStep === steps[0].stepIndex ? (
           <CheckoutStep stageNum={1} label={steps[0].stepLabel}>
-            <section className='first-step'>
+            <section className="first-step">
               <form>
-                <div className='group-inputs'>
+                <div className="group-inputs">
                   <FormInput
-                    type='email'
-                    label='Contact'
-                    inputName='email'
-                    placeholder='john@example.com'
+                    type="email"
+                    label="Contact"
+                    inputName="email"
+                    placeholder="john@example.com"
                     collectInputData={(name: string, value: string) => setFormData({ ...formData, [name]: value })}
                   />
                   <FormInput
-                    type='phone'
-                    label='Phone'
-                    inputName='phone'
-                    placeholder='+20 0123456789'
+                    type="phone"
+                    label="Phone"
+                    inputName="phone"
+                    placeholder="+20 0123456789"
                     collectInputData={(name: string, value: string) => setFormData({ ...formData, [name]: value })}
                   />
                 </div>
-                <div className='group-inputs'>
+                <div className="group-inputs">
                   <FormInput
-                    type='text'
-                    label='Address'
-                    inputName='address'
-                    placeholder='EX: Egypt, Cairo, Dokkii'
+                    type="text"
+                    label="Address"
+                    inputName="address"
+                    placeholder="EX: Egypt, Cairo, Dokkii"
                     collectInputData={(name: string, value: string) => setFormData({ ...formData, [name]: value })}
                   />
                   <FormInput
-                    type='text'
-                    label='City'
-                    inputName='city'
-                    placeholder='EX: Cairo'
+                    type="text"
+                    label="City"
+                    inputName="city"
+                    placeholder="EX: Cairo"
                     collectInputData={(name: string, value: string) => setFormData({ ...formData, [name]: value })}
                   />
                   <FormInput
-                    type='text'
-                    label='Zip Code'
-                    inputName='zip_code'
-                    placeholder='EX: 98540 the postal code :)'
+                    type="text"
+                    label="Zip Code"
+                    inputName="zip_code"
+                    placeholder="EX: 98540 the postal code :)"
                     collectInputData={(name: string, value: string) => setFormData({ ...formData, [name]: value })}
                   />
                 </div>
                 <FormInput
-                  type='text'
-                  label='Street'
-                  inputName='street'
-                  placeholder='EX: Elmerghani st. 5th block, department 14 '
+                  type="text"
+                  label="Street"
+                  inputName="street"
+                  placeholder="EX: Elmerghani st. 5th block, department 14 "
                   collectInputData={(name: string, value: string) => setFormData({ ...formData, [name]: value })}
                 />
               </form>
@@ -154,34 +154,34 @@ const UserCompleteCheckout: React.VFC<IUserCompleteCheckout> = ({ user }) => {
           </CheckoutStep>
         ) : currentStep === steps[1].stepIndex ? (
           <CheckoutStep stageNum={2} label={steps[1].stepLabel}>
-            <section className='second-step'>
-              <div className='physical-methods'>
+            <section className="second-step">
+              <div className="physical-methods">
                 <h6>Physical Methods</h6>
-                <div className='pay-cards'>
+                <div className="pay-cards">
                   <div>
-                    <input type='radio' name='pay-card' id='visa' />
-                    <label htmlFor='visa'></label>
+                    <input type="radio" name="pay-card" id="visa" />
+                    <label htmlFor="visa"></label>
                   </div>
                   <div>
-                    <input type='radio' name='pay-card' id='mastercard' />
-                    <label htmlFor='mastercard'></label>
+                    <input type="radio" name="pay-card" id="mastercard" />
+                    <label htmlFor="mastercard"></label>
                   </div>
                   <div>
-                    <input type='radio' name='pay-card' id='on-deliver' />
-                    <label htmlFor='on-deliver'></label>
+                    <input type="radio" name="pay-card" id="on-deliver" />
+                    <label htmlFor="on-deliver"></label>
                   </div>
                 </div>
               </div>
-              <div className='virtual-methods'>
+              <div className="virtual-methods">
                 <h6>Virtual Methods</h6>
-                <div className='pay-cards'>
+                <div className="pay-cards">
                   <div>
-                    <input type='radio' name='pay-card' id='paypal' />
-                    <label htmlFor='paypal'></label>
+                    <input type="radio" name="pay-card" id="paypal" />
+                    <label htmlFor="paypal"></label>
                   </div>
                   <div>
-                    <input type='radio' name='pay-card' id='fawry' />
-                    <label htmlFor='fawry'></label>
+                    <input type="radio" name="pay-card" id="fawry" />
+                    <label htmlFor="fawry"></label>
                   </div>
                 </div>
               </div>
@@ -189,18 +189,18 @@ const UserCompleteCheckout: React.VFC<IUserCompleteCheckout> = ({ user }) => {
           </CheckoutStep>
         ) : (
           <CheckoutStep stageNum={3} label={steps[2].stepLabel}>
-            <section className='third-step'>3</section>
+            <section className="third-step">3</section>
           </CheckoutStep>
         )}
       </section>
-      <footer className='viewers'>
+      <footer className="controller">
         {currentStep === 3 ? (
           <Fragment>
             <AppButton
-              value='Back'
-              type='button'
+              value="Back"
+              type="button"
               wide={false}
-              size='md'
+              size="md"
               border={{ size: 1 }}
               noBorder
               icon={<MdOutlineKeyboardArrowLeft />}
@@ -208,10 +208,10 @@ const UserCompleteCheckout: React.VFC<IUserCompleteCheckout> = ({ user }) => {
               handleEvent={() => (currentStep > 1 ? setCurrentStep(currentStep - 1) : null)}
             />
             <AppButton
-              value='Confirm'
-              type='button'
+              value="Review & Confirm"
+              type="button"
               wide={false}
-              size='md'
+              size="md"
               bkgDefault
               border={{ size: 1 }}
               noBorder
@@ -223,10 +223,10 @@ const UserCompleteCheckout: React.VFC<IUserCompleteCheckout> = ({ user }) => {
         ) : (
           <Fragment>
             <AppButton
-              value='Back'
-              type='button'
+              value="Back"
+              type="button"
               wide={false}
-              size='md'
+              size="md"
               border={{ size: 1 }}
               noBorder
               icon={<MdOutlineKeyboardArrowLeft />}
@@ -235,10 +235,10 @@ const UserCompleteCheckout: React.VFC<IUserCompleteCheckout> = ({ user }) => {
               disabled={currentStep === 1}
             />
             <AppButton
-              value='Next Step'
-              type='button'
+              value="Next Step"
+              type="button"
               wide={false}
-              size='md'
+              size="md"
               bkgDefault
               border={{ size: 1 }}
               noBorder

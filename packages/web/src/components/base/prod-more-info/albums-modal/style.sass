@@ -25,12 +25,12 @@ article.albums-modal
                     min-height: 100%
                     section
                         margin-top: 1rem
-                        @include flex_positioning(center, center)
+                        @include flex_positioning($ai: center, $jc: center)
                         flex-wrap: wrap
                         button.img-picker
                             width: 5rem
                             height: 5rem
-                            border-radius: 0
+                            border-radius: 3px
                             margin: 0.5rem
                             border: 1px solid $main_clr-1
                             cursor: move

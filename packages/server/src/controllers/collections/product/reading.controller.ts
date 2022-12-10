@@ -16,14 +16,20 @@ export const getAllProducts = async (
             .sorting()
             .selectingFields()
             .paginating();
-
         const prods = await apiPipsResult.modelQuery;
+
+        const apiPipsResult2 = new APIFeaturesBuilder(
+            Product.find(),
+            req.query
+        ).filtering();
+
+        const prods2 = await apiPipsResult2.collectionCountAfterFiltering;
+
         res.json({
             statue: `SUCCESS`,
             results: prods.length,
-            data: {
-                prods,
-            },
+            count: prods2.length,
+            data: prods,
         });
     } catch (err) {
         res.status(400).json({
@@ -46,9 +52,7 @@ export const getSingleProductBySlug = async (
 
         res.status(200).json({
             statue: `SUCCESS`,
-            data: {
-                prod: result[0],
-            },
+            data: result[0],
         });
     } catch (err) {
         res.status(404).json({
@@ -69,13 +73,11 @@ export const getSingleProductById = async (
 
         res.status(200).json({
             statue: `SUCCESS`,
-            data: {
-                prod: result,
-            },
+            data: result,
         });
     } catch (err) {
         res.status(404).json({
-            message: `Could not find product with name: ${id}`,
+            message: `Could not find product with id: ${id}`,
         });
     }
 };

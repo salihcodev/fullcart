@@ -1,0 +1,55 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_mixins.util'
+
+section.latest-arrivals
+    display: grid
+    grid-gap: 1rem
+    grid-template-columns: 2fr 4fr
+    margin-top: 2rem
+    border-radius: 0.5rem
+    min-height: 15rem
+    background: url(../../../../public/assets/images/bkgs/latest-arrivals-bkg.svg) center/cover
+    > section
+        padding: 1rem
+        &.txt
+            @include flex_positioning($ai: center, $jc: center)
+            h2, p
+                color: $app_white
+            p
+                margin-top: 0.5rem
+                span
+                    &:first-of-type
+                        margin-right: 1rem
+            a
+                margin-top: 2rem
+                background: $app_white
+                border-radius: 10rem
+                width: 10rem
+                height: 3rem
+                @include flex_positioning($ai: center, $jc: center)
+                font-size: 1rem
+                &:focus
+                    outline-color: #f5f6f555
+                    outline-width: 3px
+        &.arrivals
+            display: grid
+            grid-gap: 1rem
+            grid-template-columns: 1fr 1fr 1fr
+
+@media screen and (max-width: 1200px)
+    section.latest-arrivals
+        display: block
+        > section
+            &.txt
+                @include flex_positioning($ai: center, $jc: flex-start)
+            &.arrivals
+                grid-template-columns: auto auto auto
+
+@media screen and (max-width: 1200px)
+    section.latest-arrivals
+        > section
+            &.txt
+            &.arrivals
+                display: block
+                > section
+                    margin: 1rem 0

@@ -18,18 +18,18 @@ article.modal-wrapper
         height: auto
     section.modal-body
         @include from-top
-        background: $app_white
+        background: $main_white
         border: 1px solid $alt_dark-4
-        border-radius: 6px
+        border-radius: 1rem
         position: relative
         min-height: 10rem
-        padding-top: 3rem
+        padding-top: 2rem
         .wrapper-close
             position: absolute
             top: 0.5rem
             right: 0.5rem
             button
-                @include flex_positioning(center, center)
+                @include flex_positioning($ai: center, $jc: center)
                 border: none
                 color: $main_clr-1
                 font-size: 1.3rem

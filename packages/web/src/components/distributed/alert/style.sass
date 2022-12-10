@@ -8,13 +8,14 @@
     margin: 1rem 0
     padding: 0.8rem !important
     padding-top: 0.6rem
-    border-radius: 6px
+    border-radius: 5px
     @include pop-up
     z-index: 10
     min-height: 3rem
     background: $additional_clr-tone
-    border: 1px solid $additional_clr-mirr !important
+    border: 1px solid $alt_dark-4 !important
     border-left-width: 3px !important
+    text-align: left !important
     h6.heading
         font-family: $main_font
         font-weight: bold
@@ -33,7 +34,7 @@
         height: 1.3rem
         top: 0.4rem
         right: 0.4rem
-        @include flex_positioning(center, center)
+        @include flex_positioning($ai: center, $jc: center)
         padding: 0
         background: none
         border: none

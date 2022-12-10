@@ -4,6 +4,8 @@
 
 section.prod-imgs
     position: relative
+    z-index: 4
+    margin-bottom: 2rem
     .button-holder
         position: absolute
         top: 1rem
@@ -18,11 +20,15 @@ section.prod-imgs
             border: none
             background: $white_trans
             backdrop-filter: blur(3px)
-            span.icon
-                @include flex_positioning(center, center)
+            span
+                &.icon
+                @include flex_positioning($ai: center, $jc: center)
                 font-size: 1.3rem
-                    color: $app_gray
-                &:hover
+                color: $app_gray
+                &.outlined
+                    &:hover
+                        color: #c97e7e
+                &.filled
                     color: #c97e7e
             span.spinner-for-wish
                 &.loading-spinner
@@ -34,20 +40,18 @@ section.prod-imgs
     section
         &.prod-imgs-pickers
             margin-top: 1rem
-            @include flex_positioning(center, center)
+            @include flex_positioning($ai: center, $jc: center)
             button.img-picker
                 width: 3.5rem
                 height: 3.5rem
-                border-radius: 0
+                border-radius: 3px
                 margin: 0 0.2rem
                 border: 1px solid $main_clr-1
                 cursor: move
-                // &:not(:last-of-type)
-                //     border-right: 0
         &.sharing-current-viewed-prod
             margin-top: 2rem
             padding: 0.5rem
-            @include flex_positioning(center, center)
+            @include flex_positioning($ai: center, $jc: center)
             > div
             .heading
                 border-right: 1px solid $alt_dark-4
@@ -56,11 +60,10 @@ section.prod-imgs
                 width: 25%
                 height: 1.5rem
             .share
-                height: 2rem
                 flex-grow: 1
-                @include flex_positioning(center, center)
+                @include flex_positioning($ai: center, $jc: center)
                 ul
-                    @include flex_positioning(center, center)
+                    @include flex_positioning($ai: center, $jc: center)
                     li
                         margin: 0 0.5rem
                         font-size: 1.1rem

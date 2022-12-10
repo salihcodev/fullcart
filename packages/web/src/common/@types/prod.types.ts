@@ -5,8 +5,8 @@ export type ProdTypes = {
   slug?: string;
   priceInDollar?: number;
   cover?: string;
-  category?: string;
-  subCategory?: any;
+  categoryName?: string;
+  subcategoryName?: string;
   leadingTime: [{ dozensAmount: string; estimationTime: string }];
   basicLeadingTime: string;
   payment?: string;

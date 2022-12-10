@@ -1,0 +1,62 @@
+{
+    "name": "Portable bag for cats go out breathing backpack portable pet carrier for dogs and cats small pet travel bag",
+    "priceInDollar": 4.6,
+    "cover": "https://sc04.alicdn.com/kf/Hc7912c5b573e4ac5aa2f0707aa504674i.jpg",
+    "port": "Ningbo, China",
+    "payment": "Paypal, Western Union",
+    "category": "pet-products",
+    "warranty": 1,
+    "warrantyIn": "Y",
+    "basicLeadingTime": 10,
+    "subCategory": "pet-wares",
+    "isReadyToShip": true,
+    "isFastToDispatch": true,
+    "stock": 3252,
+    "minimumOrder": 2,
+    "leadingTime": [
+        { "dozensAmount": "2 - 49", "estimationTime": 10 },
+        { "dozensAmount": "49 - 199", "estimationTime": 15 },
+        { "dozensAmount": "49 - 199", "estimationTime": "To be negotiated" }
+    ],
+    "dozensOffers": [
+        { "dozensAmount": "2 - 49", "dozenPrice": 4.6 },
+        { "dozensAmount": "49 - 199", "dozenPrice": 4.2 },
+        { "dozensAmount": ">=200", "dozenPrice": 3.9 }
+    ],
+    "features": [
+        "Breathable",
+        "Sustainable",
+        "Windproof",
+        "Stocked",
+        "Warranty: 1 years paid limited warranty."
+    ],
+    "images": [
+        "https://sc04.alicdn.com/kf/Hc7912c5b573e4ac5aa2f0707aa504674i.jpg",
+        "https://sc04.alicdn.com/kf/H9c660535aa6142108e05e1af782daa69A.jpg",
+        "https://sc04.alicdn.com/kf/H20a69d3222034a6da7d6e66363f632763.jpg",
+        "https://sc04.alicdn.com/kf/Hb11875c831e34a17ab8c4636481bb4d0w.jpg",
+        "https://sc04.alicdn.com/kf/Hde8be5b529024a68ab863f7adc01469dU.jpg"
+    ],
+    "prodBasicInfo": {
+        "style": "",
+        "kind": "Pet Cages, Carriers & Houses, Pet Parrot Carrier Bag",
+        "model": "DM21BC-971",
+        "priceIncludes": "The viewed piece only",
+        "mainMaterial": "Fiber",
+        "handlePosition": "Left/Right",
+        "position": "Rooms/Out Doors",
+        "leadingTime": "About 25days/500sets",
+        "transportPackage": "Carton or Customized",
+        "origin": "China",
+        "hsCode": "4418200090"
+    },
+    "deliveryPackage": {
+        "sellingUnits": "Single item",
+        "singlePackageSize": "40X40X10 cm",
+        "singleGrossWeight": "0.450 kg",
+        "packageType": "Each one is individually wrapped in a clear plastic bag",
+        "leadingTime": 10
+    },
+    "availableColors": ["#333", "#fdfd", "#cdf150"],
+    "status": "processed"
+}

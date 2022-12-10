@@ -1,21 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-// util:
+import { ProdsCollectionTypes } from '../../../common/@types/slice-prods-collections.types';
 import { GetCollectionOfProds } from './logic/reading.logic';
-import { SliceFurnitureTypes } from '../../../common/@types/slice-prods-collections.types';
-import { categorizeSubCategories } from './logic/categorize-sub-categories.logic';
 
 // CONFIGURE THE INITIAL STATE OF THE SLICE::
-const initialState: SliceFurnitureTypes = {
-  prods: null,
-  subProds: null,
+const initialState: ProdsCollectionTypes = {
+  prods: [],
   stage: `idle`,
+  count: null,
   failureMsg: null,
 };
 
 // CREATE THE SLICE::
 export const ProdsCollectionSlice = createSlice({
-  name: `collection/furniture`,
+  name: `prods-collection`,
   initialState,
   reducers: {},
 
@@ -29,19 +26,17 @@ export const ProdsCollectionSlice = createSlice({
 
       //  FULFILLED STAGE::
       .addCase(GetCollectionOfProds.fulfilled, (state, { payload }) => {
-        const {
-          data: { prods },
-        } = payload;
+        const { data, count } = payload;
 
-        state.prods = prods;
-        state.subProds = categorizeSubCategories(prods);
+        state.prods = data;
+        state.count = count;
 
         state.stage = `idle`;
       })
 
       //  REJECTION STAGE::
       .addCase(GetCollectionOfProds.rejected, (state, { payload }) => {
-        state.stage = `failed`;
+        state.stage = `rejected`;
       });
   },
 });

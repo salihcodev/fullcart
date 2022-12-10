@@ -1,7 +1,7 @@
 export interface IAppButton {
   loadState?: string;
   path?: string;
-  value: any;
+  value?: any;
   type: `button` | `submit` | `reset`;
   wide: boolean;
   size: `sm` | `md` | `lg`;
@@ -15,4 +15,8 @@ export interface IAppButton {
   isIconBefore?: boolean;
   openDetachedly?: boolean;
   disabled?: boolean;
+  btnCount?: number;
+  activeBkg?: string;
+  activeWhite?: boolean;
+  noBkg?: boolean;
 }

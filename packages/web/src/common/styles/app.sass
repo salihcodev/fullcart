@@ -4,7 +4,11 @@
 // setup custome font:
 @font-face
   font-family: 'ebrima'
-  src: url('../../../public/assets/fonts/ebrima.ttf'), url('../../../public/assets/fonts/ebrimabd.ttf')
+  src: url('../../../public/assets/fonts/ebrima/ebrima.ttf'), url('../../../public/assets/fonts/ebrima/ebrimabd.ttf')
+
+@font-face
+  font-family: 'lato'
+  src: url('../../../public/assets/fonts/lato/Lato-Regular.ttf'), url('../../../public/assets/fonts/lato/Lato-Medium.ttf'), url('../../../public/assets/fonts/lato/Lato-Light.ttf'), url('../../../public/assets/fonts/lato/Lato-Semibold.ttf'), url('../../../public/assets/fonts/lato/Lato-SemiboldItalic.ttf'), url('../../../public/assets/fonts/lato/Lato-Black.ttf'),
 
 // gloabls:
 span.loading-spinner
@@ -27,9 +31,60 @@ form
 main.page
   min-height: 90vh
   @include fade-in
+  h4
+    text-transform: uppercase
+
+main.page.cart-and-wish
+  h4
+    text-transform: uppercase
+    margin-top: 4rem
+    font-weight: 200
+    display: flex
+    align-items: center
+    span.count
+      background: $additional_clr
+      color: $dark_white
+      width: 1.4rem
+      height: 1.4rem
+      display: inline-block
+      border-radius: 50%
+      font-size: 0.8rem
+      margin-left: 1rem
+      display: flex
+      align-items: center
+      justify-content: center
+  article.list-wrapper
+    display: grid
+    grid-template-columns: 5fr 2fr
+    grid-gap: 1rem
+    margin-top: 3rem
+    > section
+      padding: 1rem
+      &.list-items
+        padding-top: 0
+      &.declaration-and-controllers
+        background: $main_white
+        height: 18rem
+        border-radius: 3px
+        a, button
+          text-transform: uppercase
+          letter-spacing: 1px
+          margin-top: 1rem
+@media screen and (max-width: 1199px)
+  main.page.cart-page,
+  main.page.wishlist-page,
+  main.page.orders-page
+    article.list-wrapper
+      display: block !important
+
+@media screen and (max-width: 796px)
+  main.page.cart-page,
+  main.page.wishlist-page,
+  main.page.orders-page
+    section.list-items
+      padding: 0.2rem !important
 
 main.checkout-page
-  min-height: 70vh
   section.alert
     margin-top: 0
   header.header
@@ -45,18 +100,18 @@ main.checkout-page
     grid-template-columns: 5fr 2fr
     > aside
       padding: 1rem
-      min-height: 20rem
     > section
       padding: 1rem
       padding-top: 0
       padding-bottom: 0
-      border-radius: 1rem
+      border-radius: 3px
     section.to-complete-order
     aside.curr-order-data
       border-bottom: 0
-      background: $app_white
+      background: $main_white
+      border-radius: 3px
 
-@media screen and ( max-width: 992px )
+@media screen and ( max-width: 1250px )
   main.checkout-page
     article.checkout-view
       display: block

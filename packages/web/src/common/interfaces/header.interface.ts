@@ -1,3 +1,4 @@
 export interface IHeader {
-  expanded: boolean;
+  view: `expanded` | `minimal` | `company`;
+  supplerView?: boolean;
 }

@@ -1,0 +1,171 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_mixins.util'
+
+section.category-row
+    margin-top: 2rem
+    // GLOABL
+    .style-header
+        @include flex_positioning($ai: flex-end, $jc: flex-start)
+        padding-bottom: 4rem
+        padding-left: 2rem
+        width: 100%
+        height: 100%
+        a
+            width: 8rem
+            text-align: center
+            @include flex_positioning($ai: center, $jc: center)
+            background: $main_white
+            height: 2rem
+            border-radius: 8rem
+            font-weight: bold
+    // 
+    .for-market
+        .market-category-wrapper
+            margin-top: 1rem
+            background: $main_white
+            padding: 0.5rem
+            border-radius: 0.5rem
+            .color-bkg
+                border-radius: 0.5rem
+                height: 20rem
+                margin-bottom: 0.5rem
+                section.img
+            .category-prods
+                display: grid
+                grid-gap: 0.5rem
+                grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr))
+                > div
+                    height: 15rem
+                    @include flex_positioning($ai: center, $jc: center)
+                    border: 1px solid $dark_white-2
+                    border-radius: 0.5rem
+    .category-wrapper
+        min-height: 25rem
+        margin-top: 1rem
+        background: $main_white
+        display: grid
+        grid-template-columns: 1.2fr 0.8fr 2.5fr
+        border-radius: 0.5rem
+        padding: 0.5rem
+        .color-bkg
+            border-radius: 0.5rem
+            section.img
+        > section
+            &.heghlights
+                display: grid
+                grid-template-rows: 1fr 1fr
+                border-right: 1px solid $dark_white-2
+                > div
+                    padding: 1rem
+                    &:last-of-type
+                        border-top: 1px solid $dark_white-2
+            &.tops
+                display: grid
+                grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr))
+                > div
+                    padding: 1rem
+                    @include flex_positioning($ai: center, $jc: center)
+                    &:nth-of-type(1),
+                    &:nth-of-type(2),
+                    &:nth-of-type(3)
+                        border-bottom: 1px solid $dark_white-2
+                    &:nth-of-type(1),
+                    &:nth-of-type(2),
+                    &:nth-of-type(4),
+                    &:nth-of-type(5)
+                        border-right: 1px solid $dark_white-2
+    section.tops-in-xsm
+        height: 20rem
+        display: none
+        background: $main_white
+        margin-top: 1rem
+
+@media screen and (max-width: 1431px)
+    section.category-row
+        header.category-row-header
+        .category-wrapper
+            grid-template-columns: 1.5fr 1fr 2fr
+            > section
+                &.heghlights
+                    > div
+                &.tops
+                    > div
+                        border: none !important
+                        &:nth-of-type(1),
+                        &:nth-of-type(2),
+                        &:nth-of-type(3),
+                        &:nth-of-type(4)
+                            border-bottom: 1px solid $dark_white-2 !important
+                        &:nth-of-type(1),
+                        &:nth-of-type(3),
+                        &:nth-of-type(5)
+                            border-right: 1px solid $dark_white-2 !important
+
+@media screen and (max-width: 1232px)
+    section.category-row
+        header.category-row-header
+        .category-wrapper
+            grid-template-columns: 1fr 1fr 0
+            > section
+                &.heghlights
+                    border-right: none
+                    > div
+                &.tops
+                    display: none
+        section.tops-in-xsm
+            display: grid
+            grid-template-columns: 1fr 1fr 1fr
+            grid-template-rows: 1fr 1fr
+            > div
+                padding: 1rem
+                @include flex_positioning($ai: center, $jc: center)
+                &:nth-of-type(1),
+                &:nth-of-type(2),
+                &:nth-of-type(3)
+                    border-bottom: 1px solid $dark_white-2
+                &:nth-of-type(1),
+                &:nth-of-type(2),
+                &:nth-of-type(4),
+                &:nth-of-type(5)
+                    border-right: 1px solid $dark_white-2
+
+@media screen and (max-width: 1005px)
+    section.category-row
+        header.category-row-header
+        .category-wrapper
+            display: block
+            .color-bkg
+                height: 22rem
+            > section
+                min-height: 20rem
+                &.heghlights
+                    height: 20rem
+                    border-right: none
+                    > div
+                &.tops
+                    display: grid
+                    grid-template-columns: 1fr 1fr
+                    > div
+                        height: 10rem
+                        &:not(::first-of-type)
+                            border-top: 1px solid !important
+        section.tops-in-xsm
+            display: none
+
+@media screen and (max-width: 699px)
+    section.category-row
+        header.category-row-header
+        .category-wrapper
+            display: block
+            > section
+                &.heghlights
+                    > div
+                &.tops
+                    grid-template-columns: 1fr
+                    > div
+                        &:nth-of-type(1),
+                        &:nth-of-type(3),
+                        &:nth-of-type(5)
+                            border-right: none !important
+                        &:nth-of-type(5)
+                            border-bottom: 1px solid $dark_white-2 !important

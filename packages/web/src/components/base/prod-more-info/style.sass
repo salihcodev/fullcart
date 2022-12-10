@@ -4,7 +4,7 @@
 article.prod-more-info
     min-height: 50rem
     margin-top: 2rem
-    background: $app_white
+    background: $main_white
     padding: 1rem
     header
         width: 100%
@@ -16,7 +16,7 @@ article.prod-more-info
                 height: 3.2rem
                 border: 1px solid $alt_dark-4
                 position: relative
-                border-radius: 6px
+                border-radius: 3px
                 border-bottom-right-radius: 0
                 border-bottom-left-radius: 0
                 padding: 0.5rem 1rem
@@ -24,7 +24,7 @@ article.prod-more-info
                 font-size: 1rem
                 margin: 0 2px -1px 0
                 &:hover
-                    background: $app_white
+                    background: $main_white
                     color: $main_clr-1 !important
                 &:first-of-type
                 &:last-of-type
@@ -57,3 +57,19 @@ article.prod-more-info
                 margin-top: 3rem
                 > div
                     margin: 1rem 0
+
+@media (max-width: 992px)
+    article.prod-more-info
+        padding: 0.5rem
+        section.show-albums-and-report-wrapper
+            display: none !important
+
+@media (max-width: 769px)
+    article.prod-more-info
+        header
+            display: block
+            section.tabs-wrapper
+                justify-content: space-between
+                button
+                    flex-grow: 1
+                    font-size: 0.9rem

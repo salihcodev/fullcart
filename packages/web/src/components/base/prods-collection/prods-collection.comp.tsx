@@ -1,47 +1,43 @@
 // pkgs:
-import { Fragment, VFC } from 'react';
-import { Link } from 'react-router-dom';
+import { Fragment, useEffect, VFC } from 'react';
+import { Link, useLocation, useParams } from 'react-router-dom';
 // import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
 
 // utils:
 import './style.sass';
 import { IProdsCategoryCollection } from '../../../common/interfaces/prods-row.interface';
 import { ProdTypes } from '../../../common/@types/prod.types';
-import unDashed from '../../../common/utilities/undashed.util';
+import { unDashed } from '../../../common/utilities/dashing-dealer.util';
 
 // comps:
-import ProductCard from '../prod-card/prod-card.comp';
+import ProductCard from '../../distributed/prod-card/prod-card.comp';
+import Skeleton from '../../distributed/skelton/skeleton.comp';
+import NoItems from '../../distributed/no-items/no-items.comp';
+import RowTitle from '../row-title/row-title.comp';
 
 // component>>>
-const ProdsCategoryCollection: VFC<IProdsCategoryCollection> = ({ title, catLink, prods, loadState }) => {
+const ProdsCategoryCollection: VFC<IProdsCategoryCollection> = ({ stage, prods, collectionName }) => {
   return (
     <Fragment>
-      {loadState === `busy` ? (
-        <section className='skeleton' style={{ minHeight: `22rem` }}>
-          <h2>Loading...</h2>
-        </section>
+      {stage === `busy` ? (
+        <Skeleton target="prods-collection" />
       ) : (
-        <section className='prods-category-collection'>
-          <header className='prods-collection-header'>
-            {catLink ? (
-              <h4 className='collection-title'>
-                <div>
-                  <Link to={catLink}>{unDashed(title)}</Link>
-                </div>
-                <div>
-                  <span></span>
-                </div>
-              </h4>
-            ) : null}
-          </header>
-          <section className='collection-prods'>
-            {prods?.map(
-              (prod: ProdTypes): JSX.Element => (
-                <ProductCard key={prod._id} prod={prod} />
-              )
-            )}
-          </section>
-        </section>
+        <div>
+          {prods.length === 0 ? (
+            <NoItems pagination />
+          ) : (
+            <section className="prods-category-collection">
+              <RowTitle whiteBkg title={unDashed(collectionName)} />
+              <section className="collection-prods">
+                {prods?.map(
+                  (prod: ProdTypes): JSX.Element => (
+                    <ProductCard key={prod._id} prod={prod} />
+                  )
+                )}
+              </section>
+            </section>
+          )}
+        </div>
       )}
     </Fragment>
   );

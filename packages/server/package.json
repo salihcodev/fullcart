@@ -4,9 +4,9 @@
     "description": "",
     "main": "main.js",
     "scripts": {
-        "start": "npx kill-port 8000 &&yarn production && node ./build/main.js",
-        "start:dev": "NODE_ENV=development && npx kill-port 8000 &&nodemon",
-        "production": "NODE_ENV=production rimraf ./build && tsc",
+        "start": "npx kill-port 8000 && yarn production && node ./build/main.js",
+        "start:dev": "nodemon",
+        "start:build": "NODE_ENV=production rimraf ./build && tsc",
         "serve:db": "sudo ./serve-local-db.sh",
         "lint:lint": "eslint . --ext .ts",
         "lint:fix": "eslint . --ext .ts --fix",

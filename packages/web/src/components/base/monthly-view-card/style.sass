@@ -2,13 +2,13 @@
 @import '../../../common/styles/utils/_mixins.util'
 .monthly-view-card
     padding: 1rem
-    border-radius: 6px
+
     min-height: 10rem
     @include flex_positioning(center,"")
     width: 100%
     flex-grow: 1
     transition: all ease-in-out 0.2s
-    color: $app_white
+    color: $main_white
     &:hover
         @include translat-to-top(0, -0.2rem)
     &:nth-child(1)
@@ -26,10 +26,10 @@
         margin-top: 0.3rem
     a.view-to-full-page
         text-decoration: underline
-        text-decoration-color: $app_white
+        text-decoration-color: $main_white
         @include flex_positioning(self-start,space-between)
         small,
         span
-            color: $app_white
+            color: $main_white
     small
-        color: $app_white
+        color: $main_white

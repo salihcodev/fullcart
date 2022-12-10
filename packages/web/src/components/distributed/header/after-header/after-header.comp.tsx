@@ -34,10 +34,10 @@ const AfterHeader: VFC<{}> = () => {
   }, []);
 
   const navRouteActiveStyle = {
-    color: '#5624d0 ',
+    color: '#4a67be ',
   };
 
-  const [showCatsList, setShowCatsList] = useState(false);
+  const [showCatsList, setShowCatsList] = useState<boolean>(false);
 
   useEffect(() => {
     window.onkeydown = function (e: { key: string }) {
@@ -51,30 +51,25 @@ const AfterHeader: VFC<{}> = () => {
   }, []);
 
   return (
-    <header className='after-header'>
+    <header className="after-header">
       <Container xxl>
-        <div className='after-header-wrapper'>
-          <section className='left-wing'>
-            <button
-              onClick={() => setShowCatsList(!showCatsList)}
-              onMouseEnter={() => setShowCatsList(!showCatsList)}
-              className='categories-selector'
-            >
-              <span className='txt'>all categories</span>
-
+        <div className="after-header-wrapper">
+          <section className="left-wing">
+            <button onClick={() => setShowCatsList(!showCatsList)} className="categories-selector">
+              <span className="txt">all categories</span>
               {showCatsList ? (
-                <span className='icon icon-up'>
+                <span className="icon icon-up">
                   <IoIosArrowUp />
                 </span>
               ) : null}
               {!showCatsList ? (
-                <span className='icon icon-down'>
+                <span className="icon icon-down">
                   <IoIosArrowDown />
                 </span>
               ) : null}
             </button>
             <CategoriesList showCatsList={showCatsList} />
-            <div className='links-wrapper'>
+            <div className="links-wrapper">
               {headerRouts.extra.map(({ value, path }): JSX.Element => {
                 return (
                   <NavLink key={path} to={path} activeStyle={navRouteActiveStyle} exact>
@@ -84,14 +79,14 @@ const AfterHeader: VFC<{}> = () => {
               })}
             </div>
           </section>
-          <section className='right-wing'>
-            <div className='cart-info-wrapper'>
-              <span className='cart-total'>$ 270.99</span>
+          <section className="right-wing">
+            <div className="cart-info-wrapper">
+              <span className="cart-total">$ 0</span>
               <div>
-                <NavLink to='/cart' activeStyle={navRouteActiveStyle}>
+                <NavLink to="/cart" activeStyle={navRouteActiveStyle}>
                   <TiShoppingCart />
                 </NavLink>
-                <span className='cart-count'>+9</span>
+                <span className="cart-count">0</span>
               </div>
             </div>
           </section>

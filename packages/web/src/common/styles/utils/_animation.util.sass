@@ -2,11 +2,18 @@
 @mixin from-bottom
   animation: frombottom ease-in-out 0.3s
 
+@mixin _from-bottom($duration)
+  animation: frombottom ease-in-out $duration
+
 @mixin from-top
+  animation: fromtop ease-in-out 0.3s
   animation: fromtop ease-in-out 0.3s
 
 @mixin fade-in
   animation: fadein ease-in-out 0.3s
+
+@mixin fade-out($t)
+  animation: fadeout ease-in-out $t
 
 @mixin heart-bumbing
   animation: heartbumbing ease-in-out 2s infinite
@@ -39,6 +46,12 @@
     opacity: 0
   100%
     opacity: 1
+
+@keyframes fadeout
+  0%
+    opacity: 1
+  100%
+    opacity: 0
 
 @keyframes heartbumbing
   0%

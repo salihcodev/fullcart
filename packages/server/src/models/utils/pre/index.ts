@@ -1,9 +1,12 @@
-import { ProductSchema } from "../../product.model";
+import { Schema } from "mongoose";
 import slugify from "slugify";
 
-// NOTE: passed arr should be like: ['', '', ''] not ['','','']
-export const populatingFields = (field: string, ignored: string[]): void => {
-    ProductSchema.pre(/^find/, function (next) {
+export const populateAndSelectFields = (
+    schema: Schema,
+    field: string,
+    ignored: string[]
+): void => {
+    schema.pre(/^find/, function (next) {
         this.populate({
             path: field,
             select: `-${ignored.join(" -")}`,
@@ -13,9 +16,9 @@ export const populatingFields = (field: string, ignored: string[]): void => {
     });
 };
 
-export const slugifyIt = (): void => {
-    ProductSchema.pre(`save`, function (next) {
-        this.slug = slugify(`${this.name}`);
+export const slugifyIt = (schema: Schema): void => {
+    schema.pre(`save`, function (next) {
+        this.slug = slugify(`${this.name}`, { lower: true });
 
         next();
     });

@@ -10,21 +10,22 @@ export const createNewProduct = async (
     req: Request,
     res: Response
 ): Promise<any> => {
-    const { userId, userRole } = req;
+    // const { userId, userRole } = req;
 
-    if (!userId) {
-        return res.status(401).json({ message: `Unauthenticated!!` });
-    }
+    // if (!userId) {
+    //     return res.status(401).json({ message: `Unauthenticated!!` });
+    // }
 
-    if (userRole && userRole === userRoles.CUSTOMER) {
-        return res
-            .status(401)
-            .json({ message: `You don't have the right access.` });
-    }
+    // if (userRole && userRole === userRoles.CUSTOMER) {
+    //     return res
+    //         .status(401)
+    //         .json({ message: `You don't have the right access.` });
+    // }
 
     const prodToCreate = req.body;
     const newProd = new Product({
         ...prodToCreate,
+        // suppler: userId
     });
 
     try {

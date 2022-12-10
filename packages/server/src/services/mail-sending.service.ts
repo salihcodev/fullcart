@@ -3,7 +3,7 @@ import config from "config";
 import nodemailer from "nodemailer";
 
 // get local vars:
-const { email_user, email_pass } = config.get("services");
+const { email_user, email_pass }: any = config.get("services");
 
 export const afterRegistrationMail = async (
     toMail: string,

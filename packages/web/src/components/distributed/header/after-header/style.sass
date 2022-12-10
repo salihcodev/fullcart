@@ -3,8 +3,8 @@
 @import '../../../../common/styles/utils/_animation.util'
 
 header.after-header
-  height: 2.5rem
-  background: $app_white
+  height: 2.2rem
+  background: $main_white
   border-bottom: 1px solid $alt_dark-4
   border-top: 1px solid $alt_dark-4
   z-index: 15
@@ -21,9 +21,9 @@ header.after-header
       height: inherit
       flex-grow: 1
       &.left-wing
-        width: 60%
         position: relative
         @include flex_positioning(center, flex-start)
+        width: 100%
         > button
           @include flex_positioning(center, space-between)
           padding: 0
@@ -35,12 +35,12 @@ header.after-header
           font-size: 0.9rem
           background: none
           border-right: 1px solid $alt_dark-4
-          background: $dark_white
           padding-right: 0.5rem
           padding-left: 0.5rem
           border-top-right-radius: 0
           border-bottom-right-radius: 0
           &:hover
+            background: $dark_white
           span
             &.txt
               text-transform: capitalize
@@ -58,7 +58,7 @@ header.after-header
             margin: 0 0.8rem
             height: inherit
             margin-top: 0.1rem
-            font-size: 0.9rem
+            font-size: 0.8rem
             text-transform: capitalize
       &.right-wing
         width: 40%
@@ -80,7 +80,7 @@ header.after-header
               border-radius: 50%
               font-size: 0.9rem
               padding: 0.1rem
-              @include flex_positioning(center, center)
+              @include flex_positioning($ai: center, $jc: center)
           > div
             @include flex_positioning(center, flex-end)
             a

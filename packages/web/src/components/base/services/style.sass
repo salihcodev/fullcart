@@ -1,0 +1,44 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_mixins.util'
+section.services
+    margin-top: 2rem
+    .services-wrapper
+        display: grid
+        grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr))
+        grid-gap: 1rem
+        padding-left: 0.5rem
+        .service-card
+            height: 14rem
+            display: grid
+            grid-template-rows: 3fr 1fr
+            border: 1px solid $alt_dark-4
+            border-top: none
+            .cover
+                display: flex
+                align-items: center
+                justify-content: center
+                padding: 1rem
+                p
+                    font-size: 1rem
+                    color: $app_white
+            footer
+                display: flex
+                align-items: center
+                padding: 0.5rem 1rem
+                border-top: 1px solid $alt_dark-4
+                > div
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+                    width: 100%
+                    h4
+                        margin: 0
+                        padding: 0
+                        text-transform: capitalize
+                    span.icon
+                        display: block
+                        width: 2.8rem
+                        height: 2.8rem
+                    span.sub-title
+                        text-transform: uppercase
+                        color: $alt_dark-6

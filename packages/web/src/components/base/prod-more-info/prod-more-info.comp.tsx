@@ -18,12 +18,9 @@ import { RootState } from '../../../redux/store';
 // component>>>
 const ProdMoreInfo: React.VFC<{}> = () => {
   // use preConfigured hooks:
-  const { stage, prod } = useAppSelector(
-    (state: RootState) => state.SingleProd
-  );
+  const { stage, prod } = useAppSelector((state: RootState) => state.SingleProd);
 
-  const [currDetailsWrapper, setCurrDetailsWrapper] =
-    useState<string>(`prodWrapper`);
+  const [currDetailsWrapper, setCurrDetailsWrapper] = useState<string>(`prodWrapper`);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const moreInfoTabs = [
@@ -33,43 +30,36 @@ const ProdMoreInfo: React.VFC<{}> = () => {
   ];
 
   return (
-    <article className='prod-more-info'>
-      <header className='more-info-switcher'>
-        <section className='tabs-wrapper'>
+    <article className="prod-more-info">
+      <header className="more-info-switcher">
+        <section className="tabs-wrapper">
           {moreInfoTabs.map(({ value, contentName }): JSX.Element => {
-            const tabStyle = { color: `#3b87dd`, border: `3px solid #3b87dd` };
-            const activeTabStyle =
-              currDetailsWrapper === contentName ? tabStyle : {};
+            const tabStyle = { color: `#111`, border: `3px solid #111` };
+            const activeTabStyle = currDetailsWrapper === contentName ? tabStyle : {};
             return (
-              <button
-                style={activeTabStyle}
-                onClick={() => setCurrDetailsWrapper(contentName)}
-              >
+              <button style={activeTabStyle} onClick={() => setCurrDetailsWrapper(contentName)}>
                 {value}
               </button>
             );
           })}
         </section>
-        <section className='show-albums-and-report-wrapper'>
+        <section className="show-albums-and-report-wrapper">
           <AppButton
-            value='View Albums'
-            type='button'
+            value="View Albums"
+            type="button"
             wide={false}
-            size='sm'
+            size="sm"
             border={{ size: 1 }}
             noBorder
             icon={<IoImagesOutline />}
             isIconBefore
             handleEvent={() => setIsModalOpen(!isModalOpen)}
           />
-          <Link to='/reporting/product'>Report this product</Link>
+          <Link to="/reporting/product">Report this product</Link>
         </section>
-        <AlbumsModal
-          isModalOpen={isModalOpen}
-          setIsModalOpen={setIsModalOpen}
-        />
+        <AlbumsModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       </header>
-      <article className='details-wrapper'>
+      <article className="details-wrapper">
         {currDetailsWrapper === `prodWrapper` ? (
           <ProdDetailsWrapper prod={prod} />
         ) : currDetailsWrapper === `supplerWrapper` ? (

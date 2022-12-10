@@ -3,12 +3,12 @@ import { createSlice } from '@reduxjs/toolkit';
 // util:
 import { GetSingleProdBySlug } from './logic/reading.logic';
 import { SliceSingleCategoryTypes } from '../../../common/@types/slice-single-category.types';
-import setDataToLocalStorage from '../../../common/utilities/localstorage-dealer/localstorage-setter.util';
 
 // CONFIGURE THE INITIAL STATE OF THE SLICE::
 const initialState: SliceSingleCategoryTypes = {
   prod: null,
   stage: `idle`,
+  count: 1,
   failureMsg: null,
 };
 
@@ -18,16 +18,13 @@ export const SingleProdGetterSlice = createSlice({
   initialState,
   reducers: {
     increaseProdCount: (state) => {
-      if (state.prod?.count) state.prod.count += 1;
-      setDataToLocalStorage(`@singleProd`, state.prod);
+      if (state.count) state.count += 1;
     },
     decreaseProdCount: (state) => {
-      if (state.prod?.count && state.prod?.count > 1) state.prod.count -= 1;
-      setDataToLocalStorage(`@singleProd`, state.prod);
+      if (state.count > 1) state.count -= 1;
     },
     setProdCount: (state, action) => {
-      if (state.prod?.count && state.prod?.count > 1) state.prod.count = action.payload;
-      setDataToLocalStorage(`@singleProd`, state.prod);
+      state.count = action.payload;
     },
   },
 
@@ -41,11 +38,9 @@ export const SingleProdGetterSlice = createSlice({
 
       //  FULFILLED STAGE::
       .addCase(GetSingleProdBySlug.fulfilled, (state, { payload }) => {
-        const {
-          data: { prod },
-        } = payload;
+        const { data } = payload;
 
-        const _prod = { ...prod, count: prod?.minimumOrder };
+        const _prod = { ...data, count: data?.minimumOrder };
         state.prod = _prod;
 
         state.stage = `idle`;
@@ -53,7 +48,7 @@ export const SingleProdGetterSlice = createSlice({
 
       //  REJECTION STAGE::
       .addCase(GetSingleProdBySlug.rejected, (state, { payload }) => {
-        state.stage = `failed`;
+        state.stage = `rejected`;
       });
   },
 });

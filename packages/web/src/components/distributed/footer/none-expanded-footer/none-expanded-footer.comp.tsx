@@ -11,7 +11,7 @@ import Container from '../../../utils/container/container.util';
 // component>>>
 const NoneExpandedFooter: VFC<any> = ({ links }) => {
   return (
-    <div className='app-footer non-expanded-footer'>
+    <div className="app-footer non-expanded-footer">
       <Container sm>
         <ul>
           {links.row1.map(({ value, path }: { value: string; path: string }) => (
@@ -32,10 +32,10 @@ const NoneExpandedFooter: VFC<any> = ({ links }) => {
           ))}
         </ul>
       </Container>
-      <p className='reservation'>
-        <span className='icon'>©</span>Copyright {new Date().getFullYear()}
+      <p className="reservation">
+        <span className="icon">©</span>Copyright {new Date().getFullYear()}
         <span>
-          <a href='https://asalih.netlify.com/me' target='_blank noopener noreferer'>
+          <a href="https://asalih.netlify.com/me" target="_blank noopener noreferer">
             @salihcodev
           </a>
         </span>

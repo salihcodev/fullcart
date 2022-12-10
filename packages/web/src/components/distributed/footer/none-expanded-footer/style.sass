@@ -3,20 +3,21 @@
 
 .non-expanded-footer
   margin: 0
+  background: $main_white
   ul
     flex-wrap: wrap
-    @include flex_positioning(center,center)
+    @include flex_positioning($ai: center, $jc: center)
     li
       padding: 0 0.7rem
       position: relative
       a
         font-size: 0.9rem
-        color: $extra_pkg-4
+        color: $app_gray-1
       &:not(:last-child)
         &::after
           content: ''
           display: block
-          background: $extra_pkg-3
+          background: $app_gray-1
           width: 1px
           top: 0
           bottom: 0

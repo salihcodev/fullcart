@@ -12,29 +12,29 @@ import { Link } from 'react-router-dom';
 // component>>>
 const FooterMiddlePortion: React.VFC<any> = () => {
   return (
-    <section className='footer-middle-portion'>
-      <div className='download'>
-        <div className='wing'>
+    <section className="footer-middle-portion">
+      <div className="download">
+        <div className="wing">
           <span>Download: </span>
         </div>
-        <div className='wing'>
-          <div className='app-store'>
-            <Link to=''>
-              <span className='icon'>
+        <div className="wing">
+          <div className="app-store">
+            <Link to="">
+              <span className="icon">
                 <FaApple />
               </span>
-              <span className='txt'>
+              <span className="txt">
                 <span>Available on </span>
                 <b>App store</b>
               </span>
             </Link>
           </div>
-          <div className='google-play'>
-            <Link to=''>
-              <span className='icon'>
+          <div className="google-play">
+            <Link to="">
+              <span className="icon">
                 <GrAndroid />
               </span>
-              <span className='txt'>
+              <span className="txt">
                 <span>Available on </span>
                 <b>Google play</b>
               </span>
@@ -42,31 +42,31 @@ const FooterMiddlePortion: React.VFC<any> = () => {
           </div>
         </div>
       </div>
-      <div className='suppler-app'>
-        <div className='wing'>
+      <div className="suppler-app">
+        <div className="wing">
           <p>Fullcart suppler app</p>
         </div>
-        <div className='wing'>
-          <Link to=''>
-            <img src={smallLogo} alt='' />
+        <div className="wing">
+          <Link to="">
+            <img src={smallLogo} alt="" />
           </Link>
         </div>
       </div>
-      <div className='social-follow'>
-        <div className='wing'>
+      <div className="social-follow">
+        <div className="wing">
           <p>Follow us</p>
         </div>
-        <div className='wing'>
-          <Link to=''>
+        <div className="wing">
+          <Link to="">
             <FaWhatsapp />
           </Link>
-          <Link to=''>
+          <Link to="">
             <FaTelegramPlane />
           </Link>
-          <Link to=''>
+          <Link to="">
             <FiFacebook />
           </Link>
-          <Link to=''>
+          <Link to="">
             <FiTwitter />
           </Link>
         </div>

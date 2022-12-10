@@ -1,0 +1,52 @@
+@import '../../../../common/styles/utils/_colors.util'
+@import '../../../../common/styles/utils/_mixins.util'
+
+.feature
+    border-radius: 0.5rem
+    background: $app_white
+    padding: 1rem
+    header.head
+        height: 8rem
+        display: grid
+        grid-gap: 1rem
+        grid-template-columns: 4fr 1fr
+        .txt
+            h2
+                font-weight: bold
+            p
+                color: $app_gray-2
+                font-size: 1.1rem
+        .img-space-saver
+
+    .examples
+        .ex-imgs-wrapper
+            display: grid
+            grid-gap: 0.5rem
+            grid-template-columns: 1fr 1fr
+            section.ex-wing
+                margin-top: 0.5rem
+                border-radius: 0.5rem
+                background: $dark_white-2
+                padding: 0.5rem
+            h4.heading
+                text-transform: none
+                font-weight: bold
+                text-align: center
+                margin-bottom: 1rem
+            .ex-imgs
+                display: grid
+                grid-gap: 0.5rem
+                grid-template-columns: 1fr 1fr 1fr
+                > div
+                    height: 7rem
+
+@media screen and (max-width: 1200px)
+    .feature
+        &:last-of-type
+            margin-top: 1rem
+
+@media screen and (max-width: 699px)
+    .feature
+        .examples
+            .ex-imgs-wrapper
+                display: block

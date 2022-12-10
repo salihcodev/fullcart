@@ -21,9 +21,7 @@ const ContactPage = () => {
   const dispatch = useDispatch();
 
   // component's state extractions and handling:
-  const { stage, message, status } = useAppSelector(
-    (state: RootState) => state.ContactUsForm
-  );
+  const { stage, message, status } = useAppSelector((state: RootState) => state.ContactUsForm);
 
   const formSchema = {
     name: null,
@@ -58,27 +56,21 @@ const ContactPage = () => {
               label="Name"
               inputName="name"
               placeholder="Your name (1st, 2nd)"
-              collectInputData={(name: string, value: string) =>
-                setFormData({ ...formData, [name]: value })
-              }
+              collectInputData={(name: string, value: string) => setFormData({ ...formData, [name]: value })}
             />
             <FormInput
               type="email"
               label="Email"
               inputName="toMail"
               placeholder="john@example.com"
-              collectInputData={(name: string, value: string) =>
-                setFormData({ ...formData, [name]: value })
-              }
+              collectInputData={(name: string, value: string) => setFormData({ ...formData, [name]: value })}
             />
             <FormInput
               type="textarea"
               label="Message"
               inputName="message"
               placeholder="Write down your message..."
-              collectInputData={(name: string, value: string) =>
-                setFormData({ ...formData, [name]: value })
-              }
+              collectInputData={(name: string, value: string) => setFormData({ ...formData, [name]: value })}
             />
             <AppButton
               loadState={stage}

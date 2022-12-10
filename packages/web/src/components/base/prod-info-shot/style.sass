@@ -6,10 +6,14 @@ article.product-info-shot
     section.alert
         margin-top: 0
         margin-bottom: 2rem
-    .grid-shield
+    .info-shot
         display: grid
         grid-gap: 1.5rem
         grid-template-columns: 1fr 2fr
         min-height: 30rem
         section
-            border-radius: 6px
+
+@media screen and (max-width: 796px)
+    article.product-info-shot
+        .info-shot
+            display: block

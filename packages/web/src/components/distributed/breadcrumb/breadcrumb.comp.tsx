@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 // utils:
 import './style.sass';
-import unDashed from '../../../common/utilities/undashed.util';
+import { unDashed } from '../../../common/utilities/dashing-dealer.util';
 
 // comps:
 
@@ -16,8 +16,7 @@ const Breadcrumb: React.VFC<{}> = () => {
   const [ignore, ...rest]: any = pathname.split('/');
 
   const pathParts = rest.map((path: any) => {
-    const activePathStyle =
-      path === rest[rest.length - 1] ? ` #999` : `#575758`;
+    const activePathStyle = path === rest[rest.length - 1] ? ` #999` : `#575758`;
 
     return (
       <span className="link-part-wrapper" key={path}>
@@ -27,8 +26,11 @@ const Breadcrumb: React.VFC<{}> = () => {
 
         <span className="path" style={{ color: activePathStyle }}>
           {unDashed(path).substring(0, 40)}
+
+          {/* check for the length to add the  (...) only if it acceded 40 chars. */}
           {unDashed(path).length >= 40 ? `...` : null}
         </span>
+
         {/* <Link className="path-part" to={path} key={path}>
           {path}
         </Link> */}

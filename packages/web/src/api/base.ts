@@ -1,5 +1,6 @@
 // pkgs:
 import axios from 'axios';
+import delayer from '../common/utilities/delayer.util';
 
 // utils:
 import { localStorageObjGetter } from '../common/utilities/localstorage-dealer/localstorage-getters.util';
@@ -23,10 +24,10 @@ const APIHandler = axios.create({ baseURL: baseUrl });
 
 // make a verification with every future sent req
 APIHandler.interceptors.request.use((req) => {
-  const auth = localStorageObjGetter(`@currentAuthedUser`);
+  const auth = localStorageObjGetter(`@authedUser`);
 
   if (auth) {
-    req.headers.Authorization = `Bearer ${auth.token}`;
+    req.headers.Authorization = `Bearer ${auth.accessToken}`;
   }
 
   return req;

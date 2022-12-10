@@ -1,0 +1,66 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_mixins.util'
+section.req-for-qutation
+    margin-top: 2rem
+    .section-wrapper
+        display: grid
+        grid-gap: 1rem
+        grid-template-columns: 1.2fr 1fr
+        min-height: 25rem
+        > section
+            height: 100%
+            padding: 2rem 3rem
+            &.info-card
+                *:not(a)
+                    color: $app_white
+                > div
+                    width: 100%
+                .stats
+                    width: 100%
+                    display: grid
+                    grid-template-columns: 1fr 1fr
+                    margin-top: 4rem
+                    > .stat
+                        height: 5rem
+                        font-weight: bold
+                        span
+                            display: block
+                            &:first-of-type
+                                font-size: 1.2rem
+                            &:last-of-type
+                                font-weight: normal
+                a
+                    background: $app_white
+                    display: block
+                    width: 8rem
+                    font-weight: bold
+                    height: 2.5rem
+                    font-size: 1rem
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    border-radius: 4px
+                    padding: 0.1rem
+                    padding-bottom: 0.2rem
+                    transition: all ease-in-out 0.1s
+            &.qutation-form
+                border: 0.5rem solid $alt_dark-8
+                background: $main_white
+                h2
+                    font-weight: bold
+                section.form-wrapper
+                    p
+                        font-size: 1rem
+                    .group-inputs
+                        display: grid
+                        grid-template-columns: 1fr 1fr
+                        grid-gap: 0 0.5rem
+                    button
+                        margin-top: 1rem
+
+@media screen and (max-width: 1200px)
+    section.req-for-qutation
+        .section-wrapper
+            display: block
+            section.qutation-form
+                margin-top: 1rem

@@ -1,0 +1,14 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_mixins.util'
+
+section.checkout-calculations
+    @include flex_positioning(center,space-around)
+    padding: 1rem
+    margin-bottom: 3rem
+    > div
+        text-align: center
+        flex-grow: 1
+        &:not(:last-of-type)
+            border-right: 1px solid $light_gray
+    h3
+        font-weight: bold

@@ -45,7 +45,6 @@
 │   ├── server
 │   └── web
 │
-├── lerna.json
 ├── LICENSE
 ├── package.json
 └── yarn.lock

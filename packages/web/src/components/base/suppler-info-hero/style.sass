@@ -1,0 +1,100 @@
+@import '../../../common/styles/utils/_colors.util'
+@import '../../../common/styles/utils/_mixins.util'
+
+section.suppler-info-hero
+    border-bottom: 1px solid $light_gray
+    button, a
+        &:focus
+            outline-color: $white_trans-1
+    .color-bkg
+        padding: 1rem
+        min-height: 20rem
+        @include flex_positioning($ai: center, $jc: center)
+    .info-wrapper
+        flex-grow: 1
+        height: 100%
+        display: grid
+        grid-template-columns: 1fr 4fr 1fr
+    section
+        @include flex_positioning($ai: center, $jc: flex-start)
+        padding: 0.5rem
+        .wrapper
+            width: 100%
+        &.supp-logo
+            .cover
+                height: 8rem
+                width: 100%
+        &.supp-info
+            h2
+                font-weight: bold
+                color: $app_white
+            section.tags
+                @include flex_positioning($ai: center, $jc: flex-start)
+                > div
+                    margin-right: 0.5rem
+                .origin
+                    p
+                        width: 4rem
+                        height: 1.2rem
+                        background: $main_white
+                        border-radius: 0.5rem
+                        padding: 1px
+                        padding-top: 2px
+                        font-size: 0.7rem
+                        @include flex_positioning($ai: center, $jc: space-around)
+                        span
+                            &:first-of-type
+                                border-radius: 0.5rem
+                            &:last-of-type
+                                text-transform: uppercase
+                .since
+                    p
+                        width: 4rem
+                        height: 1.2rem
+                        background: $main_white
+                        border-radius: 0.5rem
+                        padding: 1px
+                        padding-top: 2px
+                        font-size: 0.7rem
+                        @include flex_positioning($ai: center, $jc: space-around)
+                        span
+                            &:first-of-type
+                                border-radius: 0.5rem
+                                color: #f8ca3d
+                            &:last-of-type
+                                text-transform: uppercase
+                .is-verified
+                    color: $gold
+                .is-trending
+                    color: $main_white
+            p.types
+                margin-top: 2rem
+                @include flex_positioning($ai: center, $jc: flex-start)
+                color: $app_white
+                span
+                    &.icon
+                        font-size: 1.5rem
+                        margin-right: 0.5rem
+        &.actions
+            justify-content: center
+            button
+                margin: 0.8rem 0
+                min-width: 10rem
+                &:last-of-type
+                    color: $main_white !important
+                    margin-top: 2rem
+
+@media screen and (max-width: 992px)
+    section.suppler-info-hero
+        text-align: center
+        .info-wrapper
+            display: block
+            p.types
+                justify-content: center !important
+        section
+            justify-content: center !important
+            &.actions
+                justify-content: center
+                margin-top: 2rem
+                button
+                    margin: 0.8rem auto

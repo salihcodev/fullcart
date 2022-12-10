@@ -12,18 +12,22 @@ const FormInput: React.VFC<IFormInput> = ({ type, inputName, label, icon, collec
   const iconInputPadding = icon ? { paddingLeft: `3rem` } : {};
 
   return (
-    <div className='input-wrapper'>
+    <div className="input-wrapper">
       {type === `textarea` ? (
         <Fragment>
           {label ? <label htmlFor={inputName}>{label}</label> : null}
-          <textarea name={inputName} {...otherProps} onChange={(e) => collectInputData(e.target.name, e.target.value)} />
+          <textarea
+            name={inputName}
+            {...otherProps}
+            onChange={(e) => collectInputData(e.target.name, e.target.value)}
+          />
           {small ? <small>{small}</small> : null}
         </Fragment>
       ) : (
         <Fragment>
           {label ? <label htmlFor={inputName}>{label}</label> : null}
-          <div className='the-input'>
-            {icon ? <span className='input-icon'>{icon()}</span> : null}
+          <div className="the-input">
+            {icon ? <span className="input-icon">{icon()}</span> : null}
 
             <input
               type={type}

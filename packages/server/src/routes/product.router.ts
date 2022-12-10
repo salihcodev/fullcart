@@ -22,7 +22,7 @@ router.get(`/s/:slug`, getSingleProductBySlug);
 router.get(`/s/:id`, getSingleProductById);
 
 // POST::
-router.post(`/new`, authMiddleware, createNewProduct);
+router.post(`/new`, createNewProduct);
 
 // DELETE::
 router.delete(`/:id`, authMiddleware, deleteProduct);

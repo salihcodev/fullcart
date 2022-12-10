@@ -1,7 +1,8 @@
+import { ProdTypes } from '../@types/prod.types';
+
 export interface IProdsCategoryCollection {
-  title: string;
-  catLink?: string;
-  prods: any;
-  loadState: string;
+  stage: string;
+  prods: ProdTypes[];
+  collectionName: string;
   showPagination?: boolean;
 }

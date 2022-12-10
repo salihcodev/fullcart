@@ -2,7 +2,7 @@
 import express from "express";
 
 // utils:
-import { handelContactUsForm } from "../controllers/contact-us.controller";
+import { handelContactUsForm } from "../controllers/collections/contact-us.controller";
 
 // create new router:
 const router = express.Router();
