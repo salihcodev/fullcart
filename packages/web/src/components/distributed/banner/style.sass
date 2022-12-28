@@ -62,6 +62,23 @@ section
                 color: $main_white
     &.simple-banner
 
+@media screen and (max-width: 1063px)
+    section.feats-banner
+        .link
+            justify-content: flex-end
+            margin-top: 1rem
+
+@media screen and (max-width: 935px)
+    section.feats-banner
+        .link
+            justify-content: center
+
+@media screen and (max-width: 823px)
+    section.feats-banner
+        ul.feats
+            li
+                border: none !important
+
 @media screen and (max-width: 570px)
     section.declaration-banner
         .logo-wrapper

@@ -35,7 +35,7 @@ section.hero
             margin: 0.2rem 0
             border-radius: 4px
             &:hover
-              background: $light_gray
+              background: $app_white
             &:last-of-type
               margin-top: 2rem
             a
@@ -94,13 +94,14 @@ section.hero
             border-radius: 5rem
             margin-top: 1rem
         section.top-ranking
-          h3.heading
+          h4.heading
             min-height: 2rem
             width: 100%
             background: $additional_clr
             color: $app_white
             text-align: center
             padding: 0.5rem
+            text-transform: capitalize
           section.prods
             margin-top: 1rem
             display: grid
@@ -111,10 +112,21 @@ section.hero
               @include flex_positioning($ai: center, $jc: space-between)
               &:not(:last-of-type)
                 border-bottom: 1px solid $light_gray
-              h3
+              h4
+                text-transform: capitalize
               .img
                 width: 4rem
                 height: 4rem
+
+@media screen and (max-width: 1480px)
+  section.hero
+    .hero-wrapper
+      grid-template-columns: 1fr 50rem 1fr
+
+@media screen and (max-width: 1300px)
+  section.hero
+    .hero-wrapper
+      grid-template-columns: 1fr 45rem 1fr
 
 @media screen and (max-width: 1200px)
   section.hero

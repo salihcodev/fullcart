@@ -1,7 +1,5 @@
 // pkgs:
 import { Fragment, useEffect, VFC } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
-// import { BiLeftArrow, BiRightArrow } from 'react-icons/bi';
 
 // utils:
 import './style.sass';

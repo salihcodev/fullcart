@@ -7,8 +7,8 @@ import * as api from '../../../../api/app-resources/collections/products-api-ref
 import delayer from '../../../../common/utilities/delayer.util';
 
 // SLICE LOGICS::
-const fetchCategoriesProds = (cat: string) => {
-  return createAsyncThunk(cat, async (options: string, { rejectWithValue }) => {
+const fetchCategoriesProds = (handlerFlag: string) => {
+  return createAsyncThunk(handlerFlag, async (options: string, { rejectWithValue }) => {
     try {
       await delayer();
       const { data }: AxiosResponse<any> = await api.fetchAllProds(options);
@@ -19,8 +19,8 @@ const fetchCategoriesProds = (cat: string) => {
   });
 };
 
-const fetchSingleProd = (fetchBy: string) => {
-  return createAsyncThunk(`getSingleProd/${fetchBy}`, async (valueToFetchWith: string, { rejectWithValue }) => {
+const fetchSingleProd = (handlerFlag: string) => {
+  return createAsyncThunk(`getSingleProd/${handlerFlag}`, async (valueToFetchWith: string, { rejectWithValue }) => {
     try {
       await delayer();
       const { data }: AxiosResponse<any> = await api.fetchSingleProd(valueToFetchWith);

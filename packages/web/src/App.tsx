@@ -39,6 +39,8 @@ import CustomerProfile from './views/customer-profile/customer-profile.page';
 import Category from './views/category/category.page';
 import SubCategory from './views/subcategory/subcategory.page';
 import { getAllCategoriesComputed } from './redux/slices/category/logic/read.logic';
+import ClassifiedCategory from './views/classified-category/classified-category.page';
+import CategoriesPage from './views/categories/categories.page';
 
 // component>>>
 const App = () => {
@@ -114,12 +116,8 @@ const App = () => {
           <Layout view={`expanded`}>{user && role === usersRoles.CUSTOMER ? <CustomerProfile /> : <Redirect to="/" />}</Layout>
         </Route>
 
-        <Route exact path="/market">
-          <Layout view={`expanded`}>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <MarketPage />}</Layout>
-        </Route>
-
-        <Route exact path="/market/:category/:SingleCategory/:slug">
-          <Layout view={`expanded`}>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <ProductViewer />}</Layout>
+        <Route exact path="/categories">
+          <Layout view={`expanded`}>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <CategoriesPage />}</Layout>
         </Route>
 
         <Route exact path="/market/:category">
@@ -128,6 +126,14 @@ const App = () => {
 
         <Route exact path="/market/:category/:subCategory">
           <Layout view={`expanded`}>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <SubCategory />}</Layout>
+        </Route>
+
+        <Route exact path="/market/:category/:subCategory/:slug">
+          <Layout view={`expanded`}>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <ProductViewer />}</Layout>
+        </Route>
+
+        <Route exact path="/varieties/:classification">
+          <Layout view={`expanded`}>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <ClassifiedCategory />}</Layout>
         </Route>
 
         <Route exact path="/contact">

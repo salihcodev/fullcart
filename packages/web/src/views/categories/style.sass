@@ -1,0 +1,26 @@
+@import '../../common/styles/utils/_colors.util'
+
+main.categories
+    section.categories-wrapper
+        h3, h6
+            margin: 0
+            &:hover
+                text-decoration: underline
+        ul
+            &.main-categories
+                display: grid
+                grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr))
+                grid-gap: 1rem
+            &.sub-categories
+                padding-left: 2rem
+            li
+                margin: 0.3rem 0
+        .head-wrapper
+            display: flex
+            justify-content: space-between
+            align-items: center
+            .txt-wrapper
+                flex-grow: 1
+            .num-wrapper
+                flex-grow: 0
+                margin-right: 0.5rem

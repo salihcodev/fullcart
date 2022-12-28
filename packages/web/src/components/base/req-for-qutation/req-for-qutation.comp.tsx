@@ -88,7 +88,7 @@ const ReqForQutation: VFC<any> = () => {
                   }
                 />
               </div>
-              <AppButton bkgSecondary value="Request for qutation now" type="button" wide={false} size="lg" border={{ size: 1 }} noBorder />
+              <AppButton bkgDefault value="Request for qutation now" type="button" wide={false} size="lg" border={{ size: 1 }} noBorder />
             </form>
           </section>
         </section>

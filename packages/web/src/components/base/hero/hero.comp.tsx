@@ -10,6 +10,7 @@ import { dashed } from '../../../common/utilities/dashing-dealer.util';
 import marketList from '../../../common/constants/my-market-routes';
 import fullcartTemp from '../../../../public/assets/images/fullcart-temp-img.svg';
 import slider1 from '../../../../public/assets/images/hero/1.svg';
+import allCategories from '../../../../public/assets/images/my-market/all-categories.svg';
 
 // comps:
 
@@ -32,12 +33,18 @@ const Hero: React.VFC<IHero> = () => {
           <ul className="market-list">
             {marketList.map(({ icon, title }) => (
               <li>
-                <Link to={`/${dashed(title).toLowerCase()}`}>
+                <Link to={`/market/${dashed(title).toLowerCase()}`}>
                   <div className="icon" style={{ background: `url(${icon}) center/contain no-repeat` }}></div>
                   <span className="title">{title}</span>
                 </Link>
               </li>
             ))}
+            <li>
+              <Link to={`/categories`}>
+                <div className="icon" style={{ background: `url(${allCategories}) center/contain no-repeat` }}></div>
+                <span className="title">All categories</span>
+              </Link>
+            </li>
           </ul>
         </section>
         <section className="slider">
@@ -72,18 +79,18 @@ const Hero: React.VFC<IHero> = () => {
             </div>
           </section>
           <section className="top-ranking">
-            <h3 className="heading">Top-Ranking Products</h3>
+            <h4 className="heading">Top-Ranking Products</h4>
             <section className="prods">
               <Link to="/" className="prod">
-                <h3>popular picks</h3>
+                <h4>popular picks</h4>
                 <div className="img" style={{ background: `url(${fullcartTemp}) center/contain no-repeat` }}></div>
               </Link>
               <Link to="/" className="prod">
-                <h3>Ready To Ship</h3>
+                <h4>Ready To Ship</h4>
                 <div className="img" style={{ background: `url(${fullcartTemp}) center/contain no-repeat` }}></div>
               </Link>
               <Link to="/" className="prod">
-                <h3>Browse New Arrivals </h3>
+                <h4>Browse New Arrivals </h4>
                 <div className="img" style={{ background: `url(${fullcartTemp}) center/contain no-repeat` }}></div>
               </Link>
             </section>

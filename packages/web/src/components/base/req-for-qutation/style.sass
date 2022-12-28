@@ -30,19 +30,22 @@ section.req-for-qutation
                             &:last-of-type
                                 font-weight: normal
                 a
-                    background: $app_white
-                    display: block
-                    width: 8rem
                     font-weight: bold
-                    height: 2.5rem
-                    font-size: 1rem
                     display: flex
                     align-items: center
                     justify-content: center
-                    border-radius: 4px
-                    padding: 0.1rem
                     padding-bottom: 0.2rem
                     transition: all ease-in-out 0.1s
+                    margin-top: 2rem
+                    background: $app_white
+                    border-radius: 10rem
+                    width: 10rem
+                    height: 3rem
+                    @include flex_positioning($ai: center, $jc: center)
+                    font-size: 1rem
+                    &:focus
+                        outline-color: #f5f6f555
+                        outline-width: 3px
             &.qutation-form
                 border: 0.5rem solid $alt_dark-8
                 background: $main_white

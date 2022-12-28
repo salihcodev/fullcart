@@ -32,7 +32,9 @@ export default class APIFeaturesBuilder {
             re-shaping the rest of the reqQuery = shallowQr
             to make it looks like mongo's query.
         */
+
         let reqQueryString = shallowQr ? JSON.stringify(shallowQr) : "";
+
         reqQueryString = reqQueryString.replace(
             /\b('lte|lt|gte|gt')\b/g,
             (match) => `$${match}`
@@ -40,6 +42,8 @@ export default class APIFeaturesBuilder {
         const reqQueryProcessed = reqQueryString
             ? JSON.parse(reqQueryString)
             : {};
+
+        console.log(reqQueryProcessed); // { categoryName: 'test' }
 
         this.modelQuery = this.modelQuery.find(reqQueryProcessed);
         this.collectionCountAfterFiltering =

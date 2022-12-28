@@ -25,15 +25,15 @@
      inkscape:document-units="mm"
      showgrid="false"
      width="100mm"
-     inkscape:zoom="4.0000001"
-     inkscape:cx="215.74999"
-     inkscape:cy="41.249999"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="95.459413"
+     inkscape:cy="-111.01576"
      inkscape:window-width="1920"
      inkscape:window-height="1023"
      inkscape:window-x="0"
      inkscape:window-y="29"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g1071"
+     inkscape:current-layer="g20190"
      height="20mm"
      inkscape:showpageshadow="0"
      inkscape:deskcolor="#d1d1d1" />
@@ -6226,7 +6226,7 @@
            transform="matrix(0.95885846,0,0,0.95885846,0.59263246,91.426907)"
            style="fill:#ffffff;stroke:#ffffff;stroke-opacity:1">
           <rect
-             style="fill:#384e9d;stroke:none;stroke-width:0.273005;paint-order:stroke fill markers;fill-opacity:1"
+             style="fill:#4a67be;stroke:none;stroke-width:0.273005;paint-order:stroke fill markers;fill-opacity:1"
              id="rect49"
              width="144.95238"
              height="29.30209"
@@ -6236,7 +6236,7 @@
              aria-label="EXPO"
              id="text6859"
              style="font-size:69.0485px;line-height:1.25;font-family:'Eras Medium ITC';-inkscape-font-specification:'Eras Medium ITC';opacity:0.182692;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.0384877;stroke-opacity:1"
-             transform="matrix(0.39167659,0,0,0.39167659,-14.288812,-113.39681)">
+             transform="matrix(0.35998115,0,0,0.35998115,-19.864545,-112.04107)">
             <path
                d="m -124.99591,21.204713 h 20.66735 v 9.575085 h -10.45168 v 8.293912 h 9.06936 v 9.339079 h -9.06936 v 8.192766 h 10.51911 v 9.6088 h -20.73478 z"
                style="font-weight:bold;font-family:'Tw Cen MT Condensed Extra Bold';-inkscape-font-specification:'Tw Cen MT Condensed Extra Bold,  Bold';fill:#ffffff;stroke:#ffffff;stroke-opacity:1"
@@ -6258,7 +6258,7 @@
              aria-label="MERCH"
              id="text6863"
              style="font-size:39.3191px;line-height:1.25;font-family:'Eras Medium ITC';-inkscape-font-specification:'Eras Medium ITC';opacity:0.182692;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.0219167;stroke-opacity:1"
-             transform="matrix(0.39167659,0,0,0.39167659,-67.782974,-97.275929)">
+             transform="matrix(0.35998115,0,0,0.35998115,-69.029826,-97.22473)">
             <path
                d="m -112.25091,15.396509 -9.25381,-24.6128345 h -0.15359 q 0.28798,3.0718046 0.28798,7.5835177 V 15.396509 h -3.26379 v -28.068615 h 5.22206 l 8.65865,23.000138 h 0.15359 l 8.81224,-23.000138 h 5.183673 v 28.068615 h -3.494173 V -1.8631932 q 0,-2.8798168 0.268778,-7.3147348 h -0.15359 l -9.369008,24.574437 z"
                style="font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff;stroke:#ffffff;stroke-opacity:1"
@@ -6281,12 +6281,12 @@
                id="path17129" />
           </g>
           <rect
-             style="font-size:6.30308px;line-height:1.25;font-family:'Eras Medium ITC';-inkscape-font-specification:'Eras Medium ITC';fill:none;fill-opacity:1;stroke:none;stroke-width:0.762817;stroke-opacity:1;paint-order:stroke fill markers"
+             style="font-size:6.30308px;line-height:1.25;font-family:'Eras Medium ITC';-inkscape-font-specification:'Eras Medium ITC';fill:none;fill-opacity:1;stroke:none;stroke-width:0.701088;stroke-opacity:1;paint-order:stroke fill markers"
              id="rect47"
-             width="40.876217"
-             height="24.280088"
-             x="-70.909851"
-             y="-108.30672" />
+             width="37.568413"
+             height="22.315283"
+             x="-71.903671"
+             y="-107.36288" />
           <g
              id="g17152"
              transform="matrix(0.51169411,0,0,-0.51169411,-172.43545,66.121563)"
@@ -6299,7 +6299,7 @@
                  transform="matrix(0.49153955,0,0,0.49153955,426.04736,388.38356)" />
               <g
                  id="g13109"
-                 transform="matrix(0.94507351,0,0,0.94507351,372.66248,181.92077)"
+                 transform="matrix(0.86859581,0,0,0.86859581,331.39408,202.63585)"
                  style="opacity:0.443089;fill:#000000;filter:url(#filter19525)">
                 <path
                    d="m 0,0 c 0,-2.1 -85.165,-3.801 -190.222,-3.801 -105.057,0 -190.223,1.701 -190.223,3.801 0,2.099 85.166,3.801 190.223,3.801 C -85.165,3.801 0,2.099 0,0"
@@ -6308,7 +6308,8 @@
               </g>
               <g
                  id="g4349"
-                 transform="translate(288.94644)">
+                 transform="matrix(0.91907751,0,0,0.91907751,254.45255,35.436564)"
+                 style="opacity:0.62849547">
                 <g
                    id="g830"
                    inkscape:label="4695786"

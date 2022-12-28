@@ -20,12 +20,12 @@ const makeAnArr = (num: number) => {
 // component>>>
 const Pagination: React.VFC<any> = ({ setqueryStr, baseOptions }) => {
   const DEFAULT_LIMIT = 20;
-  const MAX_DEFAULT_LIMIT = 100;
+  const MAX_LIMIT = 100;
 
   const { pathname } = useLocation();
 
   // Hooks:
-  const { stage, count, prods } = useAppSelector((state: RootState) => state.ProdsCollection);
+  const { stage, count } = useAppSelector((state: RootState) => state.ProdsCollection);
   const { search } = useLocation();
   const history = useHistory();
   const query = useQuery(search);
@@ -43,7 +43,7 @@ const Pagination: React.VFC<any> = ({ setqueryStr, baseOptions }) => {
   const handleChange = (e: any) => {
     let val = e.target.value;
 
-    if (val >= DEFAULT_LIMIT && val <= MAX_DEFAULT_LIMIT) {
+    if (val >= DEFAULT_LIMIT && val <= MAX_LIMIT) {
       setReqLimit(Number(val));
     }
 
@@ -80,11 +80,12 @@ const Pagination: React.VFC<any> = ({ setqueryStr, baseOptions }) => {
               Previos
             </Link>
             <div className="pages">
+              {/* TODO: Change the implementation of generating a iterable arr. */}
               {makeAnArr(Math.ceil(pagesCount)).map((num) => {
                 const activeStyle = num === pageNum ? { border: `2px solid #4a67be`, background: `#f6fffc` } : {};
 
                 return (
-                  <Link to={`?page=${num}&limit=${reqLimit}`} className="page" style={activeStyle} onClick={() => setPageNum(num)}>
+                  <Link key={num} to={`?page=${num}&limit=${reqLimit}`} className="page" style={activeStyle} onClick={() => setPageNum(num)}>
                     {num}
                   </Link>
                 );

@@ -1,5 +1,5 @@
 // pkgs:
-import { VFC, useState, useRef, Fragment } from 'react';
+import { VFC, useState, useRef, Fragment, useEffect } from 'react';
 import { Link, NavLink, useHistory, useLocation } from 'react-router-dom';
 import { FiHeart } from 'react-icons/fi';
 import { GoSearch } from 'react-icons/go';
@@ -33,6 +33,14 @@ const Header: VFC<IHeader> = ({ view }) => {
 
   // mobile || side menu, you might need to create a redux slice
   const [isSideMenuOpened, setIsSideMenuOpened] = useState<boolean>(false);
+
+  useEffect(() => {
+    document.addEventListener('keydown', (e: any) => {
+      if (e.keyCode === 27) {
+        setIsSideMenuOpened(false);
+      }
+    });
+  }, []);
 
   // depending on {expanded} so wether to view a default header or the minimal one.
   return (
