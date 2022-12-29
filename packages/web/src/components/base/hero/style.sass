@@ -55,6 +55,12 @@ section.hero
         @include flex_positioning($ai: center, $jc: center)
         .item
           min-height: 38rem
+          @include flex_positioning($ai: center, $jc: center)
+          .Typewriter
+            span
+              color: $main_white
+              font-size: 2rem
+              font-weight: bold
         .alice-carousel__dots
           display: none
 

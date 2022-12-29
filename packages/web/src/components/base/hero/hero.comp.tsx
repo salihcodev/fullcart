@@ -1,6 +1,7 @@
 // pkgs:
 import { Link } from 'react-router-dom';
 import AliceCarousel from 'react-alice-carousel';
+import Typewriter from 'typewriter-effect';
 
 // utils:
 import './style.sass';
@@ -16,10 +17,26 @@ import allCategories from '../../../../public/assets/images/my-market/all-catego
 
 // components>>>
 const items = [
-  <div className="item" data-value="1" style={{ background: `url(${slider1}) center/cover` }}></div>,
-  <div className="item" data-value="1" style={{ background: `url(${slider1}) center/cover` }}></div>,
-  <div className="item" data-value="1" style={{ background: `url(${slider1}) center/cover` }}></div>,
-  <div className="item" data-value="1" style={{ background: `url(${slider1}) center/cover` }}></div>,
+  <div className="item" data-value="1" style={{ background: `url(${slider1}) center/cover` }}>
+    <Typewriter
+      options={{
+        strings: [`Test`, `Shop Now`],
+        autoStart: true,
+        loop: true,
+        delay: 75,
+      }}
+    />
+  </div>,
+  <div className="item" data-value="1" style={{ background: `url(${slider1}) center/cover` }}>
+    <Typewriter
+      options={{
+        strings: [`Another Test`, `Shop Now`],
+        autoStart: true,
+        loop: true,
+        delay: 75,
+      }}
+    />
+  </div>,
 ];
 const Hero: React.VFC<IHero> = () => {
   return (
@@ -51,8 +68,8 @@ const Hero: React.VFC<IHero> = () => {
           <AliceCarousel
             autoPlay
             autoPlayStrategy="none"
-            autoPlayInterval={3000}
-            animationDuration={1000}
+            autoPlayInterval={10000}
+            animationDuration={800}
             animationType="slide"
             infinite
             disableDotsControls

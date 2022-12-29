@@ -8,14 +8,14 @@ import { useAppSelector } from '../../../redux/hooks';
 import { RootState } from '../../../redux/store';
 import './style.sass';
 
-const makeAnArr = (num: number) => {
-  let arr: Array<number> = [];
-  for (let i = 1; i <= num; i++) {
-    arr.push(i);
-  }
+// const makeAnArr = (num: number) => {
+//   let arr: Array<number> = [];
+//   for (let i = 1; i <= num; i++) {
+//     arr.push(i);
+//   }
 
-  return arr;
-};
+//   return arr;
+// };
 
 // component>>>
 const Pagination: React.VFC<any> = ({ setqueryStr, baseOptions }) => {
@@ -80,13 +80,13 @@ const Pagination: React.VFC<any> = ({ setqueryStr, baseOptions }) => {
               Previos
             </Link>
             <div className="pages">
-              {/* TODO: Change the implementation of generating a iterable arr. */}
-              {makeAnArr(Math.ceil(pagesCount)).map((num) => {
-                const activeStyle = num === pageNum ? { border: `2px solid #4a67be`, background: `#f6fffc` } : {};
+              {[...Array(Math.ceil(pagesCount)).keys()].map((num) => {
+                const _num = num + 1;
+                const activeStyle = _num === pageNum ? { border: `2px solid #4a67be`, background: `#f6fffc` } : {};
 
                 return (
-                  <Link key={num} to={`?page=${num}&limit=${reqLimit}`} className="page" style={activeStyle} onClick={() => setPageNum(num)}>
-                    {num}
+                  <Link key={_num} to={`?page=${_num}&limit=${reqLimit}`} className="page" style={activeStyle} onClick={() => setPageNum(_num)}>
+                    {_num}
                   </Link>
                 );
               })}

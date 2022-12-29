@@ -1,9 +1,7 @@
 // pkgs:
 import { VFC, useState, useRef, Fragment, useEffect } from 'react';
 import { Link, NavLink, useHistory, useLocation } from 'react-router-dom';
-import { FiHeart } from 'react-icons/fi';
 import { GoSearch } from 'react-icons/go';
-import { IoCashOutline } from 'react-icons/io5';
 
 // utils:
 import './style.sass';
@@ -11,7 +9,9 @@ import headerRouts from '../../../common/constants/header-routes.constant';
 import Container from '../../utils/container/container.util';
 import { IHeader } from '../../../common/interfaces/header.interface';
 import { VscChromeClose } from 'react-icons/vsc';
+import { FiHeart } from 'react-icons/fi';
 import { localStorageObjGetter } from '../../../common/utilities/localstorage-dealer/localstorage-getters.util';
+import { IoCashOutline } from 'react-icons/io5';
 
 // comps:
 import UserAvatar from '../user-avatar/user-avatar.comp';

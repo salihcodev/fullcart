@@ -6,6 +6,7 @@
     position: relative
     overflow: hidden
     width: 100%
+    // animation: fading cubic-bezier(0, 0, 0.14, 1.01) 1s infinite
     &:nth-of-type(1)
         @include _from-bottom($duration: 0.1s)
     &:nth-of-type(2)
@@ -23,7 +24,7 @@
         right: 0
         bottom: -50%
         top: -50%
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent)
+        background: linear-gradient(90deg, transparent, #ffffff7c, transparent)
         width: 20%
         transform: rotate(20deg)
         animation: router-right cubic-bezier(0, 0, 0.14, 1.01) 1s infinite
@@ -314,6 +315,14 @@
         right: 100%
     100%
         @include fade-out(2s)
+
+@keyframes fading
+    0%
+        opacity: 1
+    50%
+        opacity: 0.5
+    100%
+        opacity: 1
 
 @media screen and (max-width: 796px)
     .skn-single-prod
