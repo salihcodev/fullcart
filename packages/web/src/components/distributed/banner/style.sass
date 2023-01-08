@@ -4,7 +4,6 @@
 section.feats-banner,
 section.declaration-banner
     @include flex_positioning(center, space-around)
-    padding: 1rem
     flex-wrap: wrap
     > div
         flex-grow: 1
@@ -16,19 +15,14 @@ section.declaration-banner
     .link
         @include flex_positioning($ai: center, $jc: center)
         a
-            background: $main_white
-            display: block
-            width: 8rem
-            font-weight: bold
-            height: 2.5rem
-            font-size: 1rem
+            background: $app_white
+            border-radius: 10rem
+            width: 10rem
+            height: 2.8rem
             @include flex_positioning($ai: center, $jc: center)
-            border-radius: 4px
-            padding: 0.1rem
-            padding-bottom: 0.2rem
-            transition: all ease-in-out 0.1s
-            &:active
-                transform: scale(0.95)
+            font-size: 1rem
+            &:hover
+                outline: 3px solid #f5f6f555
 section
     &.feats-banner
         ul.feats

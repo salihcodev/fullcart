@@ -51,7 +51,7 @@ const CheckoutCartPage = () => {
     return () => {
       isMounted = false;
     };
-  }, [dispatch, items.length]);
+  }, [dispatch]);
   return (
     <main className="page checkout-page checkout-cart-page">
       <Container xxl>

@@ -4,7 +4,10 @@ import express from "express";
 // utils:
 import authMiddleware from "../common/middlewares/auth.middleware";
 import { createCartItem } from "../controllers/collections/cart/creating.controller";
-import { getAllCartItem } from "../controllers/collections/cart/reading.controller";
+import {
+    checkIfItemExisted,
+    getAllCartItem,
+} from "../controllers/collections/cart/reading.controller";
 import {
     deleteCartItem,
     dropCartCollection,
@@ -16,6 +19,7 @@ const router = express.Router();
 // setup HTTP requests:
 // GET::
 router.get(`/`, authMiddleware, getAllCartItem);
+router.get(`/:id`, authMiddleware, checkIfItemExisted);
 
 // POST::
 router.post(`/new`, authMiddleware, createCartItem);

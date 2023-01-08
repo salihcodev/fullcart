@@ -41,6 +41,9 @@ import SubCategory from './views/subcategory/subcategory.page';
 import { getAllCategoriesComputed } from './redux/slices/category/logic/read.logic';
 import ClassifiedCategory from './views/classified-category/classified-category.page';
 import CategoriesPage from './views/categories/categories.page';
+import { getAllCartItems } from './redux/slices/cart/logic/read.logic';
+import { useAppSelector } from './redux/hooks';
+import { RootState } from './redux/store';
 
 // component>>>
 const App = () => {
@@ -66,6 +69,18 @@ const App = () => {
 
     if (isMounted) {
       dispatch(getAllCategoriesComputed());
+    }
+
+    return () => {
+      isMounted = false;
+    };
+  }, [dispatch]);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    if (isMounted) {
+      dispatch(getAllCartItems(`?limit=all`));
     }
 
     return () => {
@@ -118,6 +133,10 @@ const App = () => {
 
         <Route exact path="/categories">
           <Layout view={`expanded`}>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <CategoriesPage />}</Layout>
+        </Route>
+
+        <Route exact path="/market">
+          <Layout view={`expanded`}>{user && role === usersRoles.SUPPLER ? <Redirect to="/dashboard" /> : <MarketPage />}</Layout>
         </Route>
 
         <Route exact path="/market/:category">

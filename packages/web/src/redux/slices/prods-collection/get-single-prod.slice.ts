@@ -31,12 +31,10 @@ export const SingleProdGetterSlice = createSlice({
   // ADD EXTRA REDUCERS::
   extraReducers: (builder) => {
     builder
-      //  PENDING STAGE::
+      // GET SINGLE PROD:
       .addCase(GetSingleProdBySlug.pending, (state) => {
         state.stage = `busy`;
       })
-
-      //  FULFILLED STAGE::
       .addCase(GetSingleProdBySlug.fulfilled, (state, { payload }) => {
         const { data } = payload;
 
@@ -45,8 +43,6 @@ export const SingleProdGetterSlice = createSlice({
 
         state.stage = `idle`;
       })
-
-      //  REJECTION STAGE::
       .addCase(GetSingleProdBySlug.rejected, (state, { payload }) => {
         state.stage = `rejected`;
       });

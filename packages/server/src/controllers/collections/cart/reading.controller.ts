@@ -33,3 +33,31 @@ export const getAllCartItem = async (
         });
     }
 };
+
+export const checkIfItemExisted = async (
+    req: Request,
+    res: Response
+): Promise<void> => {
+    try {
+        let isItemAddedToTheCart = null;
+        const item = await CartItem.findById(req.params.id);
+
+        if (item === null) {
+            isItemAddedToTheCart = false;
+        } else {
+            isItemAddedToTheCart = true;
+        }
+
+        res.json({
+            statue: `SUCCESS`,
+            message: `Successfully found this item in the user cart.`,
+            isItemAddedToTheCart,
+        });
+    } catch (err) {
+        res.status(400).json({
+            statue: `FAILURE`,
+            message: `Couldn't found this item in the user cart.`,
+            error: err,
+        });
+    }
+};

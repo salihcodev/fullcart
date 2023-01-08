@@ -1,5 +1,5 @@
 // pkgs:
-import { VFC, useState, useRef, useEffect } from 'react';
+import { VFC, useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { TiShoppingCart } from 'react-icons/ti';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
@@ -8,27 +8,33 @@ import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import './style.sass';
 import Container from '../../../utils/container/container.util';
 import CategoriesList from './categories-list/categories-list.comp';
-import { MdDocumentScanner } from 'react-icons/md';
 import headerRouts from '../../../../common/constants/header-routes.constant';
+import { useAppSelector } from '../../../../redux/hooks';
+import { RootState } from '../../../../redux/store';
+import toFixedNumber from '../../../../common/utilities/to-fixed-number.util';
 
 // comps:
 
 // component>>>
 const AfterHeader: VFC<{}> = () => {
-  // preConfigured hooks:
-  // const history = useHistory();
-  // const location = useLocation();
+  const {
+    stage,
+    cartStats: { count, cost },
+  } = useAppSelector((state: RootState) => state.Cart);
 
   useEffect(() => {
     window.onscroll = () => {
       const preHeaderHeight = document.querySelector<HTMLElement>(`.pre-header`)?.offsetHeight;
-      const afterHeader = document.querySelector<HTMLElement>(`.after-header`)?.classList;
-      const mainHeaderHeight = document.querySelector<HTMLElement>(`.default-header-wrapper`)?.offsetHeight;
+      const mainHeaderHeight = document.querySelector<HTMLElement>(`.header-wrapper`)?.offsetHeight;
 
+      // Get the class list of the header that meant to be sticky.
+      const afterHeader = document.querySelector<HTMLElement>(`.after-header`)?.classList;
+
+      // Apply the logic
       if (mainHeaderHeight && preHeaderHeight && window.scrollY >= mainHeaderHeight + preHeaderHeight) {
-        //   afterHeader?.add(`fixed-header`);
-        // } else {
-        //   afterHeader?.remove(`fixed-header`);
+        afterHeader?.add(`fixed-header`);
+      } else {
+        afterHeader?.remove(`fixed-header`);
       }
     };
   }, []);
@@ -36,9 +42,14 @@ const AfterHeader: VFC<{}> = () => {
   const navRouteActiveStyle = {
     color: '#4a67be ',
   };
+  const spinnerStyle = {
+    borderTopColor: `#4a67be`,
+    borderRightColor: `#4a67be`,
+    borderWidth: `2px`,
+    borderStyle: `solid`,
+  };
 
   const [showCatsList, setShowCatsList] = useState<boolean>(false);
-
   useEffect(() => {
     window.onkeydown = function (e: { key: string }) {
       if (e.key === 'Escape') {
@@ -55,7 +66,7 @@ const AfterHeader: VFC<{}> = () => {
       <Container xxl>
         <div className="after-header-wrapper">
           <section className="left-wing">
-            <button onClick={() => setShowCatsList(!showCatsList)} className="categories-selector">
+            <button onMouseEnter={() => setShowCatsList(true)} className="categories-selector" style={showCatsList ? { background: `#f5f6f7` } : {}}>
               <span className="txt">all categories</span>
               {showCatsList ? (
                 <span className="icon icon-up">
@@ -68,7 +79,9 @@ const AfterHeader: VFC<{}> = () => {
                 </span>
               ) : null}
             </button>
-            <CategoriesList showCatsList={showCatsList} />
+            <div onMouseLeave={() => setShowCatsList(false)}>
+              <CategoriesList showCatsList={showCatsList} />
+            </div>
             <div className="links-wrapper">
               {headerRouts.extra.map(({ value, path }): JSX.Element => {
                 return (
@@ -81,12 +94,28 @@ const AfterHeader: VFC<{}> = () => {
           </section>
           <section className="right-wing">
             <div className="cart-info-wrapper">
-              <span className="cart-total">$ 0</span>
+              <span className="cart-total">
+                {stage === `busy` ? (
+                  <div>
+                    <span className="loading-spinner" style={spinnerStyle}></span>
+                  </div>
+                ) : (
+                  `$ ${toFixedNumber(cost)}`
+                )}
+              </span>
               <div>
                 <NavLink to="/cart" activeStyle={navRouteActiveStyle}>
                   <TiShoppingCart />
                 </NavLink>
-                <span className="cart-count">0</span>
+                <span className="cart-count">
+                  {stage === `busy` ? (
+                    <div>
+                      <span className="loading-spinner" style={spinnerStyle}></span>
+                    </div>
+                  ) : (
+                    count
+                  )}
+                </span>
               </div>
             </div>
           </section>

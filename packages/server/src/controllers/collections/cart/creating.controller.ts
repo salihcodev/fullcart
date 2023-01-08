@@ -42,7 +42,11 @@ export const createCartItem = async (
             if (existedCartItem?.addedBy?.toString() === userId) {
                 const updatedCartItem = await CartItem.findByIdAndUpdate(
                     _id,
-                    { ...prodToAddToCart, _id },
+                    {
+                        ...prodToAddToCart,
+                        count: existedCartItem.count + 1,
+                        _id,
+                    },
                     { new: true } // to return a new version
                 );
 

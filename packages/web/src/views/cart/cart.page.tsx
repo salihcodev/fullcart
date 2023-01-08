@@ -26,7 +26,13 @@ const Cart = () => {
 
   const user = localStorageObjGetter(`@authedUser`)?.user;
 
-  const { stage: cartStage, stageForDrop: cartStageForDrop, items, message } = useAppSelector((state: RootState) => state.Cart);
+  const {
+    stage: cartStage,
+    stageForDrop: cartStageForDrop,
+    items,
+    message,
+    cartStats: { count, cost },
+  } = useAppSelector((state: RootState) => state.Cart);
 
   useEffect(() => {
     let isMounted = true;
@@ -39,17 +45,16 @@ const Cart = () => {
     return () => {
       isMounted = false;
     };
-  }, [dispatch, items.length]);
+  }, [dispatch]);
 
   const handleCartWipe = () => {
     dispatch(dropCollection(`cart`));
     dispatch(getAllCartItems(`?page=1`));
   };
 
-  let subT: number = 5 * 4.2;
-  const DELIVERY = 10;
-  const TAXES = 1.2;
-  const TOTAL = subT * TAXES + DELIVERY;
+  const DELIVERY_ALIAS = 0.92;
+  const TAXES_ALIAS = 1.2;
+
   return (
     <main className="page cart-page cart-and-wish">
       <Container xxl>
@@ -99,7 +104,7 @@ const Cart = () => {
                 </section>
               ) : null}
               <section className="declaration-and-controllers">
-                <CheckoutCalculations calcs={{ delivery: DELIVERY, subTotal: subT, total: TOTAL }} />
+                <CheckoutCalculations calcs={{ delivery: DELIVERY_ALIAS * count, subTotal: cost, total: cost * TAXES_ALIAS }} />
                 <AppButton
                   loadState={cartStageForDrop}
                   value="Clear the whole cart"

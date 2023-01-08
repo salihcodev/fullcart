@@ -308,6 +308,15 @@
                 flex-grow: 1
                 span
                     height: 1rem
+    .pagination
+        @include flex_positioning(center, flex-end)
+        span
+            height: 1.6rem
+            width: 2rem
+            margin: 0 0.2rem
+            &:first-of-type,
+            &:last-of-type
+                width: 4rem
 
 @keyframes router-right
     0%

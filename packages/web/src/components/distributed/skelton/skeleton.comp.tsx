@@ -281,6 +281,16 @@ const Skeleton: React.VFC<any> = ({ target }) => {
             </div>
           </div>
         </div>
+      ) : target === `pagination` ? (
+        <div className="pagination">
+          <span className="skn"></span>
+          <span className="skn"></span>
+          <span className="skn"></span>
+          <span className="skn"></span>
+          <span className="skn"></span>
+          <span className="skn"></span>
+          <span className="skn"></span>
+        </div>
       ) : null}
     </div>
   );

@@ -37,6 +37,7 @@ export const deleteCartItem = async (
         res.status(200).json({
             statue: `SUCCESS`,
             message: "Wishlist item has been deleted successfully",
+            id: _id,
         });
     } catch (err) {
         res.status(400).json({

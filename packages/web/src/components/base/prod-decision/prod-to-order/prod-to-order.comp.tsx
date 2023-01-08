@@ -16,9 +16,10 @@ import ContactSupplerModal from './contact-suppler-modal/contact-suppler-modal.c
 import { GoPackage } from 'react-icons/go';
 import Skeleton from '../../../distributed/skelton/skeleton.comp';
 import { addNewCartItem } from '../../../../redux/slices/cart/logic/add.logic';
-import { getAllCartItems } from '../../../../redux/slices/cart/logic/read.logic';
 import { localStorageObjGetter } from '../../../../common/utilities/localstorage-dealer/localstorage-getters.util';
 import { useHistory } from 'react-router-dom';
+import { checkIfItemExisted } from '../../../../redux/slices/cart/logic/read.logic';
+import { MdDone } from 'react-icons/md';
 
 // component>>>
 const ProdToOrder: React.VFC<{}> = () => {
@@ -29,7 +30,7 @@ const ProdToOrder: React.VFC<{}> = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const { stage: singleProdStage, prod, count } = useAppSelector((state: RootState) => state.SingleProd);
-  const { stage: cartStage } = useAppSelector((state: RootState) => state.Cart);
+  const { stage: cartStage, isItemAddedToTheCart } = useAppSelector((state: RootState) => state.Cart);
 
   const shippingAlias = 12.99;
 
@@ -55,6 +56,10 @@ const ProdToOrder: React.VFC<{}> = () => {
       history.push('/auth/customer/login');
     }
   };
+
+  useEffect(() => {
+    if (prod?._id) dispatch(checkIfItemExisted(prod?._id));
+  }, [dispatch, prod?._id]);
 
   return (
     <section className="to-order-info">
@@ -140,15 +145,16 @@ const ProdToOrder: React.VFC<{}> = () => {
             />
             <AppButton
               loadState={cartStage}
-              value="Add To Basket"
+              value={isItemAddedToTheCart ? `In the Basket` : `Add To Basket`}
               type="button"
               wide
               size="md"
               border={{ size: 1 }}
               noBorder
-              icon={<BsCartPlus />}
+              icon={isItemAddedToTheCart ? <MdDone /> : <BsCartPlus />}
               isIconBefore={false}
               handleEvent={handleAddToCart}
+              disabled={isItemAddedToTheCart}
             />
           </section>
         </div>

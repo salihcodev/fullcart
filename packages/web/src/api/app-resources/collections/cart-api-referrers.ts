@@ -4,6 +4,7 @@ import APIHandler from '../../base';
 // >>> GET, fetching all data:
 // may gonna pass other options to consume some different data.
 export const fetchAllCartItems = (options?: any) => APIHandler.get(`/cart${options || ``}`);
+export const checkIfItemExisted = (id?: any) => APIHandler.get(`/cart/${id}`);
 
 // >>> POST, create new cart item::
 export const createNewCartItem = (itemToAdd: object) => APIHandler.post(`/cart/new`, itemToAdd);

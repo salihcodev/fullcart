@@ -6,16 +6,8 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useQuery } from '../../../common/utilities/useQuery/useQuery.util';
 import { useAppSelector } from '../../../redux/hooks';
 import { RootState } from '../../../redux/store';
+import Skeleton from '../skelton/skeleton.comp';
 import './style.sass';
-
-// const makeAnArr = (num: number) => {
-//   let arr: Array<number> = [];
-//   for (let i = 1; i <= num; i++) {
-//     arr.push(i);
-//   }
-
-//   return arr;
-// };
 
 // component>>>
 const Pagination: React.VFC<any> = ({ setqueryStr, baseOptions }) => {
@@ -72,8 +64,12 @@ const Pagination: React.VFC<any> = ({ setqueryStr, baseOptions }) => {
         </div>
 
         {/* PAGES CONTROLLERS */}
-        {stage == `busy` ? (
-          `Loading...`
+        {stage === `busy` ? (
+          <div className="skeleton-wrapper">
+            <div>
+              <Skeleton target="pagination" />
+            </div>
+          </div>
         ) : (
           <div className="handlers">
             <Link to={`?page=${previousCacls}&limit=${reqLimit}`} className="previous-page" style={previousStyle} onClick={() => setPageNum(previousCacls)}>
