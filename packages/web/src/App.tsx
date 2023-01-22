@@ -79,14 +79,14 @@ const App = () => {
   useEffect(() => {
     let isMounted = true;
 
-    if (isMounted) {
-      dispatch(getAllCartItems(`?limit=all`));
+    if (isMounted && user) {
+      dispatch(getAllCartItems(`?page=2&limit=5`));
     }
 
     return () => {
       isMounted = false;
     };
-  }, [dispatch]);
+  }, [dispatch, user]);
   return (
     <ScrollToTop>
       <Switch>

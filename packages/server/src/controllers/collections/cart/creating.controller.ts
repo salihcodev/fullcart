@@ -62,8 +62,19 @@ export const createCartItem = async (
             });
 
             await newCartItem.save();
+
+            // Total items --> no filters
+            const _totalCollection = await CartItem.find();
+            let totalCost = 0;
+            for (const i in _totalCollection) {
+                totalCost +=
+                    _totalCollection[i].priceInDollar! *
+                    _totalCollection[i].count;
+            }
             res.status(201).json({
                 status: `SUCCESS`,
+                count: _totalCollection.length,
+                cost: totalCost,
                 data: newCartItem,
             });
         }

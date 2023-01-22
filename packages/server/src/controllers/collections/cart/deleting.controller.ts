@@ -34,9 +34,18 @@ export const deleteCartItem = async (
             });
 
         await CartItem.findByIdAndRemove(_id);
+        // Total items --> no filters
+        const _totalCollection = await CartItem.find();
+        let totalCost = 0;
+        for (const i in _totalCollection) {
+            totalCost +=
+                _totalCollection[i].priceInDollar! * _totalCollection[i].count;
+        }
         res.status(200).json({
             statue: `SUCCESS`,
             message: "Wishlist item has been deleted successfully",
+            count: _totalCollection.length,
+            cost: totalCost,
             id: _id,
         });
     } catch (err) {

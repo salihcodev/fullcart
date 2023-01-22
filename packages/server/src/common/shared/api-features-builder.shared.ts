@@ -4,16 +4,10 @@ import parsingQueryProps from "../utils/parsing-query-props.util";
 export default class APIFeaturesBuilder {
     readonly reqQuery;
     public modelQuery;
-    public collectionCountAfterFiltering;
 
-    constructor(
-        modelQuery: any,
-        reqQuery?: any,
-        collectionCountAfterFiltering?: any
-    ) {
+    constructor(modelQuery: any, reqQuery?: any) {
         this.modelQuery = modelQuery;
         this.reqQuery = reqQuery;
-        this.collectionCountAfterFiltering = collectionCountAfterFiltering;
     }
 
     public filtering(): any {
@@ -39,15 +33,13 @@ export default class APIFeaturesBuilder {
             /\b('lte|lt|gte|gt')\b/g,
             (match) => `$${match}`
         );
+
         const reqQueryProcessed = reqQueryString
             ? JSON.parse(reqQueryString)
             : {};
-
-        console.log(reqQueryProcessed); // { categoryName: 'test' }
+        // { categoryName: 'test' }
 
         this.modelQuery = this.modelQuery.find(reqQueryProcessed);
-        this.collectionCountAfterFiltering =
-            this.modelQuery.find(reqQueryProcessed);
 
         return this;
     }

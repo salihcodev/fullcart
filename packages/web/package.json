@@ -33,7 +33,7 @@
     "typewriter-effect": "^2.19.0"
   },
   "scripts": {
-    "start:dev": "react-app-rewired start",
+    "start:dev": "PORT=3999 react-app-rewired start",
     "start:build": "CI= react-app-rewired build",
     "netlify:deploy": "netlify deploy --dir=./build -p -m \"$(git log -1 --pretty=%B)\"",
     "test": "react-app-rewired test",

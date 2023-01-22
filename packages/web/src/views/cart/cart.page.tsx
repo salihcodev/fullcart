@@ -39,7 +39,7 @@ const Cart = () => {
 
     if (user)
       if (isMounted) {
-        dispatch(getAllCartItems(`?page=1`));
+        dispatch(getAllCartItems(`?page=1&limit=5`));
       }
 
     return () => {

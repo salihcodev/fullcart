@@ -21,9 +21,19 @@ export const getAllCartItem = async (
             .paginating();
 
         const data = await apiPipsResult.modelQuery;
+
+        // Total items --> no filters
+        const _totalCollection = await CartItem.find();
+        let totalCost = 0;
+        for (const i in _totalCollection) {
+            totalCost +=
+                _totalCollection[i].priceInDollar! * _totalCollection[i].count;
+        }
         res.json({
             statue: `SUCCESS`,
             results: data.length,
+            count: _totalCollection.length,
+            cost: totalCost,
             data,
         });
     } catch (err) {

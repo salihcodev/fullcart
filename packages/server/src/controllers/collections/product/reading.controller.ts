@@ -18,17 +18,12 @@ export const getAllProducts = async (
             .paginating();
         const prods = await apiPipsResult.modelQuery;
 
-        const apiPipsResult2 = new APIFeaturesBuilder(
-            Product.find(),
-            req.query
-        ).filtering();
-
-        const prods2 = await apiPipsResult2.collectionCountAfterFiltering;
-
+        // Total items --> no filters
+        const _totalCollection = await Product.find();
         res.json({
             statue: `SUCCESS`,
             results: prods.length,
-            count: prods2.length,
+            count: _totalCollection.length,
             data: prods,
         });
     } catch (err) {

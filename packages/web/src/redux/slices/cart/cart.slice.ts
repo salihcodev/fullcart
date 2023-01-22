@@ -15,6 +15,8 @@ const initialState: any = {
   message: null,
   cartStats: { count: 0, cost: 0 },
   isItemAddedToTheCart: null,
+  totalCartCount: 0,
+  totalCartCost: 0,
   stageForDrop: `idle`,
   stage: `idle`,
 };
@@ -32,18 +34,22 @@ export const CartSlice = createSlice({
       .addCase(addNewCartItem.pending, (state) => {
         state.stage = `busy`;
       })
-      .addCase(addNewCartItem.fulfilled, (state, { payload: { data, message } }: any) => {
+      .addCase(addNewCartItem.fulfilled, (state, { payload: { data, count, cost, message } }: any) => {
         state.message = message;
         state.creationResult = data;
 
         // update cart list on adding
         state.items = new crudSync(state).onAddingSync();
 
-        // Get cart count
-        state.cartStats.count = new crudSync(state).getCartCount();
+        // Get count of current page of cart
+        state.cartStats.count = new crudSync(state).getCount();
 
-        // Calculate the total cost of the cart
-        state.cartStats.cost = new crudSync(state).getTotalCost();
+        // Calculate cost of current page of cart
+        state.cartStats.cost = new crudSync(state).getCost();
+
+        // Get cart totals
+        state.totalCartCount = count;
+        state.totalCartCost = cost;
 
         state.isItemAddedToTheCart = true;
         state.stage = `idle`;
@@ -58,15 +64,19 @@ export const CartSlice = createSlice({
       .addCase(getAllCartItems.pending, (state) => {
         state.stage = `busy`;
       })
-      .addCase(getAllCartItems.fulfilled, (state, { payload: { data, message } }: any) => {
+      .addCase(getAllCartItems.fulfilled, (state, { payload: { data, count, cost, message } }: any) => {
         state.message = message;
         state.items = data;
 
-        // Get cart count
-        state.cartStats.count = new crudSync(state).getCartCount();
+        // Get count of current page of cart
+        state.cartStats.count = new crudSync(state).getCount();
 
-        // Calculate the total cost of the cart
-        state.cartStats.cost = new crudSync(state).getTotalCost();
+        // Calculate cost of current page of cart
+        state.cartStats.cost = new crudSync(state).getCost();
+
+        // Get cart totals
+        state.totalCartCount = count;
+        state.totalCartCost = cost;
 
         state.stage = `idle`;
       })
@@ -80,18 +90,22 @@ export const CartSlice = createSlice({
       .addCase(deleteCartItem.pending, (state) => {
         state.stage = `busy`;
       })
-      .addCase(deleteCartItem.fulfilled, (state, { payload: { message, id } }: any) => {
+      .addCase(deleteCartItem.fulfilled, (state, { payload: { message, count, cost, id } }: any) => {
         state.message = message;
         state.deletionResult = id;
 
         // update cart list on deleting
         state.items = new crudSync(state).onDeletingSync();
 
-        // Get cart count
-        state.cartStats.count = new crudSync(state).getCartCount();
+        // Get count of current page of cart
+        state.cartStats.count = new crudSync(state).getCount();
 
-        // Calculate the total cost of the cart
-        state.cartStats.cost = new crudSync(state).getTotalCost();
+        // Calculate cost of current page of cart
+        state.cartStats.cost = new crudSync(state).getCost();
+
+        // Get cart totals
+        state.totalCartCount = count;
+        state.totalCartCost = cost;
 
         state.stage = `idle`;
       })
@@ -108,11 +122,15 @@ export const CartSlice = createSlice({
       .addCase(dropCollection.fulfilled, (state, { payload: { message } }: any) => {
         state.message = message;
 
-        // Get cart count
-        state.cartStats.count = new crudSync(state).getCartCount();
+        // Get count of current page of cart
+        state.cartStats.count = 0;
 
-        // Calculate the total cost of the cart
-        state.cartStats.cost = new crudSync(state).getTotalCost();
+        // Calculate cost of current page of cart
+        state.cartStats.cost = 0;
+
+        // Get cart totals
+        state.totalCartCount = 0;
+        state.totalCartCost = 0;
 
         state.stageForDrop = `idle`;
       })

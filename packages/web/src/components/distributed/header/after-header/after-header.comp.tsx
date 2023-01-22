@@ -17,10 +17,7 @@ import toFixedNumber from '../../../../common/utilities/to-fixed-number.util';
 
 // component>>>
 const AfterHeader: VFC<{}> = () => {
-  const {
-    stage,
-    cartStats: { count, cost },
-  } = useAppSelector((state: RootState) => state.Cart);
+  const { stage, totalCartCost, totalCartCount } = useAppSelector((state: RootState) => state.Cart);
 
   useEffect(() => {
     window.onscroll = () => {
@@ -66,7 +63,12 @@ const AfterHeader: VFC<{}> = () => {
       <Container xxl>
         <div className="after-header-wrapper">
           <section className="left-wing">
-            <button onMouseEnter={() => setShowCatsList(true)} className="categories-selector" style={showCatsList ? { background: `#f5f6f7` } : {}}>
+            <button
+              onMouseEnter={() => setShowCatsList(true)}
+              onClick={() => setShowCatsList((state) => !state)}
+              className="categories-selector"
+              style={showCatsList ? { background: `#f5f6f7` } : {}}
+            >
               <span className="txt">all categories</span>
               {showCatsList ? (
                 <span className="icon icon-up">
@@ -79,7 +81,7 @@ const AfterHeader: VFC<{}> = () => {
                 </span>
               ) : null}
             </button>
-            <div onMouseLeave={() => setShowCatsList(false)}>
+            <div onMouseLeave={() => setTimeout(() => setShowCatsList(false), 1000)}>
               <CategoriesList showCatsList={showCatsList} />
             </div>
             <div className="links-wrapper">
@@ -94,26 +96,28 @@ const AfterHeader: VFC<{}> = () => {
           </section>
           <section className="right-wing">
             <div className="cart-info-wrapper">
-              <span className="cart-total">
+              <span className="cart-total" title={`$ ${toFixedNumber(totalCartCost)}`}>
                 {stage === `busy` ? (
                   <div>
                     <span className="loading-spinner" style={spinnerStyle}></span>
                   </div>
                 ) : (
-                  `$ ${toFixedNumber(cost)}`
+                  `$ ${toFixedNumber(totalCartCost)}`
                 )}
               </span>
               <div>
                 <NavLink to="/cart" activeStyle={navRouteActiveStyle}>
                   <TiShoppingCart />
                 </NavLink>
-                <span className="cart-count">
+                <span className="cart-count" title={totalCartCount}>
                   {stage === `busy` ? (
                     <div>
                       <span className="loading-spinner" style={spinnerStyle}></span>
                     </div>
+                  ) : totalCartCount > 9 ? (
+                    `+9`
                   ) : (
-                    count
+                    totalCartCount
                   )}
                 </span>
               </div>
