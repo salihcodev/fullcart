@@ -1,27 +1,72 @@
 {
+    "_id": {
+        "$oid": "62d6d4fa8ee7d53a93d38b5b"
+    },
     "name": "Portable bag for cats go out breathing backpack portable pet carrier for dogs and cats small pet travel bag",
     "priceInDollar": 4.6,
     "cover": "https://sc04.alicdn.com/kf/Hc7912c5b573e4ac5aa2f0707aa504674i.jpg",
-    "port": "Ningbo, China",
-    "payment": "Paypal, Western Union",
-    "category": "pet-products",
     "warranty": 1,
     "warrantyIn": "Y",
-    "basicLeadingTime": 10,
-    "subCategory": "pet-wares",
+    "categoryId": {
+        "$oid": "62d6d4688ee7d53a93d38b56"
+    },
+    "subcategoryId": {
+        "$oid": "62d6d4a88ee7d53a93d38b58"
+    },
+    "categoryName": "test",
+    "subcategoryName": "sub-test",
+    "payment": "Paypal, Western Union",
     "isReadyToShip": true,
     "isFastToDispatch": true,
     "stock": 3252,
-    "minimumOrder": 2,
     "leadingTime": [
-        { "dozensAmount": "2 - 49", "estimationTime": 10 },
-        { "dozensAmount": "49 - 199", "estimationTime": 15 },
-        { "dozensAmount": "49 - 199", "estimationTime": "To be negotiated" }
+        {
+            "dozensAmount": "2 - 49",
+            "estimationTime": "10",
+            "_id": {
+                "$oid": "62d6d4fa8ee7d53a93d38b5c"
+            }
+        },
+        {
+            "dozensAmount": "49 - 199",
+            "estimationTime": "15",
+            "_id": {
+                "$oid": "62d6d4fa8ee7d53a93d38b5d"
+            }
+        },
+        {
+            "dozensAmount": ">=200",
+            "estimationTime": "To be negotiated",
+            "_id": {
+                "$oid": "62d6d4fa8ee7d53a93d38b5e"
+            }
+        }
     ],
+    "basicLeadingTime": "10",
+    "minimumOrder": 2,
+    "availableColors": ["#575e63", "#ff5555", "#2d3e80", "#1a1a1a"],
     "dozensOffers": [
-        { "dozensAmount": "2 - 49", "dozenPrice": 4.6 },
-        { "dozensAmount": "49 - 199", "dozenPrice": 4.2 },
-        { "dozensAmount": ">=200", "dozenPrice": 3.9 }
+        {
+            "dozensAmount": "2 - 49",
+            "dozenPrice": 4.6,
+            "_id": {
+                "$oid": "62d6d4fa8ee7d53a93d38b5f"
+            }
+        },
+        {
+            "dozensAmount": "49 - 199",
+            "dozenPrice": 4.2,
+            "_id": {
+                "$oid": "62d6d4fa8ee7d53a93d38b60"
+            }
+        },
+        {
+            "dozensAmount": "200 - higher",
+            "dozenPrice": 3.9,
+            "_id": {
+                "$oid": "62d6d4fa8ee7d53a93d38b61"
+            }
+        }
     ],
     "features": [
         "Breathable",
@@ -45,17 +90,25 @@
         "mainMaterial": "Fiber",
         "handlePosition": "Left/Right",
         "position": "Rooms/Out Doors",
-        "leadingTime": "About 25days/500sets",
         "transportPackage": "Carton or Customized",
         "origin": "China",
+        "port": "Ningbo, China",
         "hsCode": "4418200090"
     },
     "deliveryPackage": {
         "sellingUnits": "Single item",
         "singlePackageSize": "40X40X10 cm",
         "singleGrossWeight": "0.450 kg",
-        "packageType": "Each one is individually wrapped in a clear plastic bag",
-        "leadingTime": 10
+        "packageType": "Each one is individually wrapped in a clear plastic bag"
     },
-    "availableColors": ["#333", "#fdfd", "#cdf150"]
+    "suppler": {
+        "$oid": "625ab7d5ca5ebc28cee37b61"
+    },
+    "createdAt": {
+        "$date": {
+            "$numberLong": "1658246239107"
+        }
+    },
+    "slug": "portable-bag-for-cats-go-out-breathing-backpack-portable-pet-carrier-for-dogs-and-cats-small-pet-travel-bag",
+    "__v": 0
 }

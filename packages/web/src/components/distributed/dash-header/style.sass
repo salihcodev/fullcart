@@ -3,6 +3,7 @@
 
 header.dash-header
   border-bottom: 1px solid $alt_dark-4
+  background: $app_white
   .header-wrapper
     @include flex_positioning(center, space-between)
     height: 4rem
@@ -22,8 +23,9 @@ header.dash-header
           width: 100%
           input[type="text"]
             height: 2.5rem
-            border: 2px solid $main_clr-2
+            border: 2px solid $alt_dark-4
             font-size: 1rem
+            border-radius: 3px
       &.right-wing
         justify-content: flex-end
         flex-grow: 1

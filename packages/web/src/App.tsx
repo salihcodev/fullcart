@@ -1,6 +1,6 @@
 // pkgs: installed libs like react, axios etc..
 import { useEffect } from 'react';
-import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
+import { Redirect, Route, Switch, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 // utils: utilities that you prepared your self
@@ -42,14 +42,13 @@ import { getAllCategoriesComputed } from './redux/slices/category/logic/read.log
 import ClassifiedCategory from './views/classified-category/classified-category.page';
 import CategoriesPage from './views/categories/categories.page';
 import { getAllCartItems } from './redux/slices/cart/logic/read.logic';
-import { useAppSelector } from './redux/hooks';
-import { RootState } from './redux/store';
 
 // component>>>
 const App = () => {
   // preConfigured hooks:
   const dispatch = useDispatch();
   const location = useLocation();
+  // const history = useHistory();
 
   const role = jwtDecoder()?.role;
 
@@ -80,13 +79,14 @@ const App = () => {
     let isMounted = true;
 
     if (isMounted && user) {
-      dispatch(getAllCartItems(`?page=2&limit=5`));
+      dispatch(getAllCartItems(`?page=1&limit=5`));
     }
 
     return () => {
       isMounted = false;
     };
   }, [dispatch, user]);
+
   return (
     <ScrollToTop>
       <Switch>

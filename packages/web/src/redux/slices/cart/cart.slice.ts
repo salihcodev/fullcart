@@ -25,7 +25,11 @@ const initialState: any = {
 export const CartSlice = createSlice({
   name: `CartSlice`,
   initialState,
-  reducers: {},
+  reducers: {
+    setCartStage: (state, { payload: _stage }) => {
+      state.stage = _stage;
+    },
+  },
 
   // ADD EXTRA REDUCERS::
   extraReducers: (builder) => {
@@ -156,6 +160,7 @@ export const CartSlice = createSlice({
 });
 
 // EXPORT THE ACTIONS::
+export const { setCartStage } = CartSlice.actions;
 
 // EXPORT THE prods-collection REDUCER::
 export default CartSlice.reducer;

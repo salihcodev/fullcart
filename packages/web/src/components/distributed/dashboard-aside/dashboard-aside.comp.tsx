@@ -21,12 +21,11 @@ const DashboardAside = () => {
   const location = useLocation();
 
   const navRouteActiveStyle = {
-    color: '#111',
-    background: '#ececec',
+    background: '#f5f6f733',
   };
 
   return (
-    <aside className="dash-sidebar" style={{ minWidth: isAsideOpened ? `12rem` : `4rem` }}>
+    <aside className="dash-sidebar" style={{ minWidth: isAsideOpened ? `14rem` : `4rem` }}>
       <button className="aside-toggler" onClick={() => dispatch(toggleAsideState())}>
         <AiOutlineMenuUnfold />
       </button>

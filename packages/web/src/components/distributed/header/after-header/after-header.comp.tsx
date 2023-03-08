@@ -12,12 +12,15 @@ import headerRouts from '../../../../common/constants/header-routes.constant';
 import { useAppSelector } from '../../../../redux/hooks';
 import { RootState } from '../../../../redux/store';
 import toFixedNumber from '../../../../common/utilities/to-fixed-number.util';
+import { localStorageObjGetter } from '../../../../common/utilities/localstorage-dealer/localstorage-getters.util';
 
 // comps:
 
 // component>>>
 const AfterHeader: VFC<{}> = () => {
   const { stage, totalCartCost, totalCartCount } = useAppSelector((state: RootState) => state.Cart);
+  // get some data to help authing the routes
+  const user = localStorageObjGetter(`@authedUser`)?.user;
 
   useEffect(() => {
     window.onscroll = () => {
@@ -97,12 +100,16 @@ const AfterHeader: VFC<{}> = () => {
           <section className="right-wing">
             <div className="cart-info-wrapper">
               <span className="cart-total" title={`$ ${toFixedNumber(totalCartCost)}`}>
-                {stage === `busy` ? (
-                  <div>
-                    <span className="loading-spinner" style={spinnerStyle}></span>
-                  </div>
+                {user ? (
+                  stage === `busy` ? (
+                    <div>
+                      <span className="loading-spinner" style={spinnerStyle}></span>
+                    </div>
+                  ) : (
+                    `$ ${toFixedNumber(totalCartCost)}`
+                  )
                 ) : (
-                  `$ ${toFixedNumber(totalCartCost)}`
+                  `$ 0`
                 )}
               </span>
               <div>
@@ -110,14 +117,18 @@ const AfterHeader: VFC<{}> = () => {
                   <TiShoppingCart />
                 </NavLink>
                 <span className="cart-count" title={totalCartCount}>
-                  {stage === `busy` ? (
-                    <div>
-                      <span className="loading-spinner" style={spinnerStyle}></span>
-                    </div>
-                  ) : totalCartCount > 9 ? (
-                    `+9`
+                  {user ? (
+                    stage === `busy` ? (
+                      <div>
+                        <span className="loading-spinner" style={spinnerStyle}></span>
+                      </div>
+                    ) : totalCartCount > 9 ? (
+                      `+9`
+                    ) : (
+                      totalCartCount
+                    )
                   ) : (
-                    totalCartCount
+                    0
                   )}
                 </span>
               </div>

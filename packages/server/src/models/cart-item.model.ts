@@ -19,6 +19,7 @@ export const CartItemSchema = new Schema({
         default: new Date(),
     },
     id: String,
+    signature: String,
     addedBy: { type: Schema.Types.ObjectId, ref: "Customer" },
 });
 

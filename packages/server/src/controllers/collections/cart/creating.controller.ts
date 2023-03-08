@@ -30,7 +30,7 @@ export const createCartItem = async (
         if (!mongoose.Types.ObjectId.isValid(_id))
             return res.status(404).json({
                 statue: `FAILED`,
-                message: `There's no product in the cart with ID: ${_id}`,
+                message: `There's no product with ID: ${_id}`,
             });
 
         // Check if this product is existed in the cart already or not.
@@ -58,6 +58,7 @@ export const createCartItem = async (
         } else {
             const newCartItem = new CartItem({
                 ...prodToAddToCart,
+                signature: _id,
                 addedBy: userId,
             });
 

@@ -15,6 +15,7 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { getInfo } from '../../redux/slices/user-actions/logic/crud.logic';
 import { RootState } from '../../redux/store';
 import { GetSingleProdBySlug } from '../../redux/slices/prods-collection/logic/reading.logic';
+import { checkIfItemExisted } from '../../redux/slices/cart/logic/read.logic';
 
 // component>>>
 const ProductViewer = () => {
@@ -38,6 +39,20 @@ const ProductViewer = () => {
       isMounted = false;
     };
   }, [dispatch, prod?.suppler?._id, slug]);
+
+  console.log(prod);
+
+  // useEffect(() => {
+  //   let isMounted = true;
+
+  //   if (isMounted && prod?._id) {
+  //     dispatch(checkIfItemExisted(prod?._id));
+  //   }
+
+  //   return () => {
+  //     isMounted = false;
+  //   };
+  // }, [dispatch, prod?._id]);
 
   return (
     <Container xxl>

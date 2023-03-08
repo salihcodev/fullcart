@@ -1,0 +1,59 @@
+ # basic info
+    - name
+    - minimumOrder
+    - availableColors
+    - style
+    - kind
+    - model
+    - priceIncludes   -- if is there any additional taxes
+    - mainMaterial
+    - handlePosition
+    - position
+    - transportPackage
+    - origin
+    - port
+    - hsCode
+    - basicLeadingTime
+
+ # categorization
+    - category
+    - subCategory
+
+ # images
+    - cover
+    - pic1
+    - pic2
+    - pic3
+    - ...
+    
+ # payment
+    - payment method
+    - price
+    - currency
+
+ # warranty
+    - warranty period
+    - warrantyIn      -- years, months
+
+ # leading time
+    - minAmount : maxAmount  >> estimation time
+
+ # dozens offers
+    - minAmount : maxAmount  >> price
+ 
+ # store
+    - stock
+    - isReady
+    - isFastDispatch
+
+ # features
+    - fit1
+    - fit1
+    - fit1
+    - ...
+
+ # deliveryPackage
+    - sellingUnits
+    - singlePackageSize
+    - singleGrossWeight
+    - packageType

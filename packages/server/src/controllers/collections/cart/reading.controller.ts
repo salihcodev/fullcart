@@ -48,20 +48,16 @@ export const checkIfItemExisted = async (
     req: Request,
     res: Response
 ): Promise<void> => {
-    try {
-        let isItemAddedToTheCart = null;
-        const item = await CartItem.findById(req.params.id);
+    const { userId } = req;
 
-        if (item === null) {
-            isItemAddedToTheCart = false;
-        } else {
-            isItemAddedToTheCart = true;
-        }
+    try {
+        // let isItemAddedToTheCart = false;
+
+        const userCart = await CartItem.find({ addedBy: userId });
 
         res.json({
             statue: `SUCCESS`,
             message: `Successfully found this item in the user cart.`,
-            isItemAddedToTheCart,
         });
     } catch (err) {
         res.status(400).json({

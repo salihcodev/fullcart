@@ -61,6 +61,8 @@ const ProdToOrder: React.VFC<{}> = () => {
     if (prod?._id) dispatch(checkIfItemExisted(prod?._id));
   }, [dispatch, prod?._id]);
 
+  console.log(isItemAddedToTheCart);
+
   return (
     <section className="to-order-info">
       {singleProdStage === `busy` ? (
@@ -143,19 +145,34 @@ const ProdToOrder: React.VFC<{}> = () => {
               isIconBefore
               handleEvent={() => setIsModalOpen(true)}
             />
-            <AppButton
-              loadState={cartStage}
-              value={isItemAddedToTheCart ? `In the Basket` : `Add To Basket`}
-              type="button"
-              wide
-              size="md"
-              border={{ size: 1 }}
-              noBorder
-              icon={isItemAddedToTheCart ? <MdDone /> : <BsCartPlus />}
-              isIconBefore={false}
-              handleEvent={handleAddToCart}
-              disabled={isItemAddedToTheCart}
-            />
+            {user ? (
+              <AppButton
+                loadState={cartStage}
+                value={isItemAddedToTheCart ? `In the Basket` : `Add To Basket`}
+                type="button"
+                wide
+                size="md"
+                border={{ size: 1 }}
+                noBorder
+                icon={isItemAddedToTheCart ? <MdDone /> : <BsCartPlus />}
+                isIconBefore={false}
+                handleEvent={handleAddToCart}
+                disabled={isItemAddedToTheCart}
+              />
+            ) : (
+              <AppButton
+                value={`Add To Basket`}
+                type="button"
+                wide
+                size="md"
+                border={{ size: 1 }}
+                noBorder
+                icon={isItemAddedToTheCart ? <MdDone /> : <BsCartPlus />}
+                isIconBefore={false}
+                handleEvent={handleAddToCart}
+                disabled={isItemAddedToTheCart}
+              />
+            )}
           </section>
         </div>
       )}
