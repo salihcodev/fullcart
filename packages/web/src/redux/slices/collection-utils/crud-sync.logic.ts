@@ -10,17 +10,6 @@ export default class crudSync {
     this.state = state;
   }
 
-  // public getCost(): any {
-  //   let totalCost = 0;
-  //   for (let i in this.state.items) {
-  //     totalCost += this.state.items[i].count * this.state.items[i].priceInDollar;
-  //   }
-
-  //   this.state.cartStats.cost = totalCost;
-
-  //   return this.state.cartStats.cost;
-  // }
-
   public onAddingSync(): any {
     let existedItem = this.state.items.filter(({ _id }: any) => _id === this.state.creationResult._id);
 
@@ -41,9 +30,4 @@ export default class crudSync {
 
     return this.state.items;
   }
-
-  // public getCount(): any {
-  //   this.state.cartStats.count = this.state.items.length;
-  //   return this.state.cartStats.count;
-  // }
 }

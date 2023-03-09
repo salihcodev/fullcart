@@ -4,7 +4,7 @@ import { dropCollection } from '../collection-utils/wipe.logic';
 import { addNewCartItem } from './logic/add.logic';
 import { deleteCartItem } from './logic/delete.logic';
 import { checkIfItemExisted, getAllCartItems } from './logic/read.logic';
-import crudSync from './logic/crud-sync.logic';
+import crudSync from '../collection-utils/crud-sync.logic';
 
 // CONFIGURE THE INITIAL STATE OF THE SLICE::
 const initialState: any = {
