@@ -13,7 +13,6 @@ const initialState: any = {
   deletionResult: null,
   items: [],
   message: null,
-  cartStats: { count: 0, cost: 0 },
   isItemAddedToTheCart: null,
   totalCartCount: 0,
   totalCartCost: 0,
@@ -45,18 +44,14 @@ export const CartSlice = createSlice({
         // update cart list on adding
         state.items = new crudSync(state).onAddingSync();
 
-        // Get count of current page of cart
-        state.cartStats.count = new crudSync(state).getCount();
-
-        // Calculate cost of current page of cart
-        state.cartStats.cost = new crudSync(state).getCost();
-
         // Get cart totals
         state.totalCartCount = count;
         state.totalCartCost = cost;
 
         state.isItemAddedToTheCart = true;
         state.stage = `idle`;
+
+        console.log(state.totalCartCount, state.totalCartCost);
       })
       .addCase(addNewCartItem.rejected, (state, { payload: { message } }: any) => {
         state.message = message;
@@ -71,12 +66,6 @@ export const CartSlice = createSlice({
       .addCase(getAllCartItems.fulfilled, (state, { payload: { data, count, cost, message } }: any) => {
         state.message = message;
         state.items = data;
-
-        // Get count of current page of cart
-        state.cartStats.count = new crudSync(state).getCount();
-
-        // Calculate cost of current page of cart
-        state.cartStats.cost = new crudSync(state).getCost();
 
         // Get cart totals
         state.totalCartCount = count;
@@ -100,12 +89,6 @@ export const CartSlice = createSlice({
 
         // update cart list on deleting
         state.items = new crudSync(state).onDeletingSync();
-
-        // Get count of current page of cart
-        state.cartStats.count = new crudSync(state).getCount();
-
-        // Calculate cost of current page of cart
-        state.cartStats.cost = new crudSync(state).getCost();
 
         // Get cart totals
         state.totalCartCount = count;

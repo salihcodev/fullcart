@@ -75,6 +75,7 @@ const App = () => {
     };
   }, [dispatch]);
 
+  // get the very first 5 items, Change the amount & the page later from the cart page.
   useEffect(() => {
     let isMounted = true;
 
@@ -85,7 +86,7 @@ const App = () => {
     return () => {
       isMounted = false;
     };
-  }, [dispatch, user]);
+  }, [dispatch]);
 
   return (
     <ScrollToTop>

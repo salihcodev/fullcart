@@ -37,6 +37,16 @@ export const createCartItem = async (
         // by checking on its ID and the user who added it ID
         const existedCartItem = await CartItem.findById(_id);
 
+        // Total items --> no filters
+        const _totalCollection = await CartItem.find();
+        let totalCost = 0;
+        let totalCount = 0;
+        for (const i in _totalCollection) {
+            totalCost +=
+                _totalCollection[i].priceInDollar! * _totalCollection[i].count;
+        }
+        totalCount = _totalCollection.length;
+
         // If it true
         if (existedCartItem) {
             if (existedCartItem?.addedBy?.toString() === userId) {
@@ -53,6 +63,8 @@ export const createCartItem = async (
                 res.status(200).json({
                     statue: `SUCCESS`,
                     data: updatedCartItem,
+                    count: totalCount,
+                    cost: totalCost,
                 });
             }
         } else {
@@ -64,17 +76,12 @@ export const createCartItem = async (
 
             await newCartItem.save();
 
-            // Total items --> no filters
-            const _totalCollection = await CartItem.find();
-            let totalCost = 0;
-            for (const i in _totalCollection) {
-                totalCost +=
-                    _totalCollection[i].priceInDollar! *
-                    _totalCollection[i].count;
-            }
+            totalCount += newCartItem.count;
+            totalCost += newCartItem.priceInDollar!;
+
             res.status(201).json({
                 status: `SUCCESS`,
-                count: _totalCollection.length,
+                count: totalCount,
                 cost: totalCost,
                 data: newCartItem,
             });

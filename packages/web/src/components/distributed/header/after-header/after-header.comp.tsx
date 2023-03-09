@@ -116,7 +116,7 @@ const AfterHeader: VFC<{}> = () => {
                 <NavLink to="/cart" activeStyle={navRouteActiveStyle}>
                   <TiShoppingCart />
                 </NavLink>
-                <span className="cart-count" title={totalCartCount}>
+                <span className="cart-count" title={totalCartCount > 9 ? `+9` : totalCartCount}>
                   {user ? (
                     stage === `busy` ? (
                       <div>

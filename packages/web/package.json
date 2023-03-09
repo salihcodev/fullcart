@@ -1,5 +1,5 @@
 {
-  "name": "@full-cart/web",
+  "name": "@fullcart/web",
   "version": "0.0.0",
   "dependencies": {
     "@octokit/core": ">=3",
