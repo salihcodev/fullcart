@@ -51,13 +51,14 @@ export const checkIfItemExisted = async (
     const { userId } = req;
 
     try {
-        // let isItemAddedToTheCart = false;
+        const isItemAddedToTheCart = `test`;
 
         const userCart = await CartItem.find({ addedBy: userId });
 
         res.json({
             statue: `SUCCESS`,
             message: `Successfully found this item in the user cart.`,
+            isItemAddedToTheCart,
         });
     } catch (err) {
         res.status(400).json({

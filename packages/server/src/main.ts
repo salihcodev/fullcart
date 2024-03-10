@@ -13,10 +13,8 @@ import { app } from "./app";
 //
 
 // >>> env vars configuration
-const { db_connection_uri, port: _port }: any = config.get("server");
-const port = process.env.PORT || _port;
-
-console.log(db_connection_uri);
+const db_connection_uri: any = config.get("server.db_connection_uri");
+const port: any = process.env.PORT || config.get("server.port");
 
 // >>> CONNECTING TO THE DATABASE:
 const connectWithDB = async () => {

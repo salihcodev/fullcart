@@ -4,7 +4,8 @@ import config from "config";
 import { NextFunction, Request, Response } from "express";
 
 // get token secret key:
-const { token_gen_sec_key }: any = config.get("server");
+const token_gen_sec_key: any =
+    process.env.token_gen_sec_key || config.get("server.token_gen_sec_key");
 
 // auth middleware controller:
 const authMiddleware = (

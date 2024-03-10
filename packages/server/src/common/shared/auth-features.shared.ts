@@ -7,8 +7,8 @@ import config from "config";
 
 // utils:
 import parsingQueryProps from "../utils/parsing-query-props.util";
-import { afterRegistrationMail } from "../../services/mail-sending.service";
-const { token_gen_sec_key }:any = config.get("server");
+const token_gen_sec_key: any =
+    process.env.token_gen_sec_key || config.get("server.token_gen_sec_key");
 
 export default class AuthFeatures {
     readonly request;
